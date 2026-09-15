@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Simpson Thacher — Concept Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#EFEFEA;
+  --surface:#FBFBF8;
+  --ink:#11161B;
+  --ink-2:#3A444D;
+  --muted:#6B757E;
+  --rule:#D8D8D0;
+  --rule-strong:#B6B6AC;
+  --accent:#1E47C8;
+  --accent-2:#15369B;
+  --on-accent:#FBFBF8;
+  --band:#11161B;
+  --band-ink:#EFEFEA;
+  --band-muted:#8E99A3;
+  --band-rule:#2A333C;
+  --shade:rgba(17,22,27,.045);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1116;
+    --surface:#141A21;
+    --ink:#E9EAE5;
+    --ink-2:#B7BFC6;
+    --muted:#8C959D;
+    --rule:#253039;
+    --rule-strong:#3B4650;
+    --accent:#8FA9FF;
+    --accent-2:#B0C2FF;
+    --on-accent:#0D1116;
+    --band:#161D25;
+    --band-ink:#E9EAE5;
+    --band-muted:#8C959D;
+    --band-rule:#2B353F;
+    --shade:rgba(255,255,255,.04);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1116;
+  --surface:#141A21;
+  --ink:#E9EAE5;
+  --ink-2:#B7BFC6;
+  --muted:#8C959D;
+  --rule:#253039;
+  --rule-strong:#3B4650;
+  --accent:#8FA9FF;
+  --accent-2:#B0C2FF;
+  --on-accent:#0D1116;
+  --band:#161D25;
+  --band-ink:#E9EAE5;
+  --band-muted:#8C959D;
+  --band-rule:#2B353F;
+  --shade:rgba(255,255,255,.04);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Archivo","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+::selection{background:var(--accent);color:var(--on-accent)}
+
+.wrap{max-width:1280px;margin-inline:auto;padding-inline:clamp(16px,4vw,52px)}
+.rule{border:0;border-top:1px solid var(--rule);margin:0}
+
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  margin:0;
+}
+.display{
+  font-family:"Bodoni Moda","Didot","Times New Roman",serif;
+  font-weight:400;line-height:1.02;letter-spacing:-.01em;text-wrap:balance;margin:0;
+}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- utility bar + header ---------- */
+.utility{
+  background:var(--band);color:var(--band-muted);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+}
+.utility .wrap{display:flex;gap:18px;align-items:center;justify-content:space-between;padding-block:9px;flex-wrap:wrap}
+.utility a{color:var(--band-ink);text-decoration:none;opacity:.78}
+.utility a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+.utility-left{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:7px;vertical-align:middle}
+
+header.site{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:50;
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:saturate(140%) blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:14px}
+.wordmark{display:flex;flex-direction:column;gap:2px;text-decoration:none;line-height:1}
+.wordmark b{
+  font-family:"Bodoni Moda",Didot,serif;font-weight:500;font-size:clamp(17px,2.4vw,21px);
+  letter-spacing:.02em;
+}
+.wordmark span{
+  font-family:"IBM Plex Mono",monospace;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+}
+nav.primary{display:flex;gap:26px;align-items:center}
+nav.primary a{
+  text-decoration:none;font-size:14px;font-weight:500;color:var(--ink-2);
+  padding-block:6px;border-bottom:1px solid transparent;
+}
+nav.primary a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.header-actions{display:flex;gap:10px;align-items:center}
+.icon-btn{
+  appearance:none;background:transparent;border:1px solid var(--rule-strong);color:var(--ink);
+  width:36px;height:36px;border-radius:2px;display:grid;place-items:center;cursor:pointer;font-size:14px;
+}
+.icon-btn:hover{border-color:var(--accent);color:var(--accent)}
+.menu-btn{display:none}
+#mobileNav{border-bottom:1px solid var(--rule);background:var(--surface)}
+#mobileNav .wrap{display:flex;flex-direction:column;padding-block:8px}
+#mobileNav a{padding-block:12px;text-decoration:none;font-weight:500;border-bottom:1px solid var(--rule)}
+#mobileNav a:last-child{border-bottom:0}
+
+/* ---------- hero ---------- */
+.hero .wrap{
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+  gap:clamp(28px,5vw,72px);padding-block:clamp(40px,7vw,84px) clamp(32px,5vw,56px);align-items:start;
+}
+.hero h1{font-size:clamp(40px,7.2vw,86px)}
+.hero h1 em{font-style:italic;color:var(--accent)}
+.hero .lede{
+  max-width:52ch;color:var(--ink-2);font-size:clamp(16px,1.5vw,18.5px);margin:26px 0 0;
+}
+.hero-meta{display:flex;gap:14px;align-items:center;margin-bottom:22px;flex-wrap:wrap}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer;
+  font-size:14px;font-weight:600;letter-spacing:.01em;padding:13px 22px;border-radius:2px;border:1px solid transparent;
+}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{background:var(--accent-2)}
+.btn-ghost{border-color:var(--rule-strong);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--shade)}
+
+/* matters ticker */
+.ticker{border-top:2px solid var(--ink);padding-top:14px}
+.ticker-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:6px}
+.ticker ol{list-style:none;margin:0;padding:0}
+.ticker li{
+  display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline;
+  padding:14px 0;border-bottom:1px solid var(--rule);transition:opacity .4s ease;
+}
+.ticker li .m-name{font-size:15px;font-weight:500;line-height:1.3}
+.ticker li .m-role{grid-column:1/-1;font-size:12.5px;color:var(--muted)}
+.ticker li .m-val{font-family:"IBM Plex Mono",monospace;font-size:13px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.ticker li.is-active{border-left:2px solid var(--accent);padding-left:12px;margin-left:-14px}
+.ticker li.is-active .m-val{color:var(--accent)}
+
+/* ---------- stat band ---------- */
+.stats{background:var(--band);color:var(--band-ink)}
+.stats .wrap{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;padding-block:0;
+}
+.stat{padding:clamp(26px,3.5vw,44px) 0;position:relative}
+.stat + .stat{border-left:1px solid var(--band-rule);padding-left:clamp(18px,3vw,36px)}
+.stat b{
+  display:block;font-family:"IBM Plex Mono",monospace;font-weight:400;
+  font-size:clamp(30px,4.6vw,54px);letter-spacing:-.03em;line-height:1;font-variant-numeric:tabular-nums;
+}
+.stat small{display:block;margin-top:12px;font-size:12px;color:var(--band-muted);letter-spacing:.04em;max-width:22ch}
+
+/* ---------- generic section ---------- */
+section{border-top:1px solid var(--rule)}
+.sec-head{
+  display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;
+  padding-block:clamp(36px,5vw,64px) 22px;
+}
+.sec-head h2{font-family:"Bodoni Moda",Didot,serif;font-weight:400;font-size:clamp(26px,3.6vw,42px);margin:8px 0 0;line-height:1.08}
+.link-more{
+  text-decoration:none;font-size:13px;font-weight:600;color:var(--accent);
+  border-bottom:1px solid currentColor;padding-bottom:2px;white-space:nowrap;
+}
+
+/* ---------- capabilities ---------- */
+.caps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(24px,4vw,56px);padding-bottom:clamp(36px,5vw,64px)}
+.cap-col h3{
+  font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--rule-strong);
+}
+.cap-col ul{list-style:none;margin:0;padding:0}
+.cap-col li{border-bottom:1px solid var(--rule)}
+.cap-col a{
+  display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  text-decoration:none;padding:13px 0;font-size:15.5px;
+}
+.cap-col a:hover{color:var(--accent)}
+.cap-col a span{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.cap-col a:hover span{color:var(--accent)}
+
+/* ---------- matters table ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:18px}
+.chip{
+  appearance:none;cursor:pointer;background:transparent;border:1px solid var(--rule-strong);color:var(--ink-2);
+  font:inherit;font-size:12.5px;padding:7px 14px;border-radius:999px;
+}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.matters{width:100%;border-collapse:collapse;font-size:15px}
+.matters thead th{
+  text-align:left;font-family:"IBM Plex Mono",monospace;font-weight:500;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);padding:0 16px 10px 0;border-bottom:1px solid var(--rule-strong);
+}
+.matters td{padding:16px 16px 16px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.matters tr:hover td{background:var(--shade)}
+.matters .c-matter{font-weight:500;line-height:1.35}
+.matters .c-role{color:var(--muted);font-size:13.5px;display:block;margin-top:4px}
+.matters .c-val{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:14px}
+.matters .c-date{font-family:"IBM Plex Mono",monospace;color:var(--muted);font-size:12.5px;white-space:nowrap}
+.tag{
+  display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-2);border:1px solid var(--rule-strong);padding:3px 8px;border-radius:2px;white-space:nowrap;
+}
+.table-scroll{overflow-x:auto;padding-bottom:clamp(30px,4vw,56px)}
+.empty{padding:28px 0;color:var(--muted);font-size:14px}
+
+/* ---------- insights ---------- */
+.insights{list-style:none;margin:0;padding:0 0 clamp(36px,5vw,64px)}
+.insights li{border-bottom:1px solid var(--rule)}
+.insights a{
+  display:grid;grid-template-columns:132px minmax(0,1fr) auto;gap:clamp(16px,3vw,40px);
+  align-items:baseline;text-decoration:none;padding:22px 0;
+}
+.insights .i-kind{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.insights .i-title{font-size:clamp(17px,2vw,21px);font-weight:500;line-height:1.3;text-wrap:balance}
+.insights .i-sub{display:block;color:var(--muted);font-size:14px;font-weight:400;margin-top:6px;max-width:62ch}
+.insights .i-date{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--muted);white-space:nowrap}
+.insights a:hover .i-title{color:var(--accent)}
+
+/* ---------- offices ---------- */
+.offices{border-bottom:1px solid var(--rule-strong);display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:0;padding-bottom:clamp(36px,5vw,64px);border-top:1px solid var(--rule-strong)}
+.office{padding:18px 18px 18px 0;border-bottom:1px solid var(--rule)}
+.office b{display:block;font-size:16px;font-weight:500}
+.office .o-time{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--accent);font-variant-numeric:tabular-nums;margin-top:4px}
+.office .o-meta{font-size:12.5px;color:var(--muted);margin-top:2px}
+
+/* ---------- split band ---------- */
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:1px solid var(--rule)}
+.split > div{padding:clamp(32px,5vw,64px) clamp(20px,3.5vw,52px)}
+.split > div:first-child{border-right:1px solid var(--rule)}
+.split h3{font-family:"Bodoni Moda",Didot,serif;font-weight:400;font-size:clamp(24px,3.2vw,36px);margin:10px 0 14px;line-height:1.1}
+.split p{color:var(--ink-2);margin:0 0 22px;max-width:46ch}
+.split.inverted{background:var(--band);color:var(--band-ink);border-top-color:var(--band-rule)}
+.split.inverted p{color:var(--band-muted)}
+.split.inverted > div:first-child{border-right-color:var(--band-rule)}
+.split.inverted .eyebrow{color:var(--band-muted)}
+.split.inverted .btn-ghost{border-color:var(--band-rule);color:var(--band-ink)}
+.split.inverted .btn-ghost:hover{border-color:var(--band-ink);background:rgba(255,255,255,.06)}
+
+/* ---------- footer ---------- */
+footer.site{border-top:1px solid var(--rule);background:var(--surface)}
+.foot-grid{display:grid;grid-template-columns:1.3fr repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,40px);padding-block:clamp(36px,5vw,60px) 32px}
+.foot-grid h4{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 14px}
+.foot-grid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.foot-grid a{text-decoration:none;font-size:14px;color:var(--ink-2)}
+.foot-grid a:hover{color:var(--accent)}
+.foot-brand .display{font-size:clamp(22px,2.6vw,30px);margin-bottom:10px}
+.foot-brand p{color:var(--muted);font-size:13.5px;max-width:34ch;margin:0}
+.legal{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;padding-block:20px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted)}
+.legal p{margin:0;max-width:78ch}
+.legal .mono{letter-spacing:.06em;text-transform:uppercase;font-size:11px}
+
+/* ---------- concept badge ---------- */
+.concept{
+  position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:80;opacity:.88;transition:opacity .2s ease;
+  display:flex;gap:10px;align-items:center;background:var(--band);color:var(--band-ink);
+  border-radius:2px;padding:9px 10px 9px 14px;font-family:"IBM Plex Mono",monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;box-shadow:0 8px 28px rgba(0,0,0,.22);max-width:calc(100vw - 32px);
+}
+.concept:hover{opacity:1}
+.concept button{
+  appearance:none;background:transparent;border:0;color:var(--band-muted);cursor:pointer;font:inherit;
+  font-size:13px;line-height:1;padding:3px 5px;
+}
+.concept button:hover{color:var(--band-ink)}
+
+@media (max-width:1040px){
+  nav.primary{display:none}
+  .menu-btn{display:grid}
+  .hero .wrap{grid-template-columns:1fr}
+  .caps{grid-template-columns:1fr;gap:0}
+  .cap-col{padding-top:22px}
+  .foot-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:760px){
+  .utility .wrap > .utility-left:last-child{display:none}
+  .offices{border-bottom:1px solid var(--rule-strong)}
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+  .stat{padding-block:24px}
+  .stat + .stat{border-left:0;padding-left:0}
+  .stats .wrap > .stat:nth-child(2n){border-left:1px solid var(--band-rule);padding-left:20px}
+  .stats .wrap > .stat:nth-child(-n+2){border-bottom:1px solid var(--band-rule)}
+  .insights a{grid-template-columns:1fr;gap:8px}
+  .insights .i-date{order:3}
+  .split{grid-template-columns:1fr}
+  .split > div:first-child{border-right:0;border-bottom:1px solid var(--rule)}
+  .split.inverted > div:first-child{border-bottom-color:var(--band-rule)}
+  .foot-grid{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <div class="utility-left">
+      <span><span class="pulse" aria-hidden="true"></span>Markets open — New York</span>
+      <a href="#matters">Recent matters</a>
+      <a href="#insights">Client memoranda</a>
+    </div>
+    <div class="utility-left">
+      <a href="#offices">Offices</a>
+      <a href="#careers">Careers</a>
+      <a href="#">Alumni</a>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="#top">
+      <b>Simpson Thacher &amp; Bartlett</b>
+      <span>Counsel since 1884</span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#people">People</a>
+      <a href="#matters">Matters</a>
+      <a href="#insights">Insights</a>
+      <a href="#careers">Careers</a>
+      <a href="#firm">The Firm</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch color theme">◐</button>
+      <button class="icon-btn" type="button" aria-label="Search the site">⌕</button>
+      <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">≡</button>
+    </div>
+  </div>
+</header>
+
+<div id="mobileNav" hidden>
+  <div class="wrap">
+    <a href="#capabilities">Capabilities</a>
+    <a href="#people">People</a>
+    <a href="#matters">Matters</a>
+    <a href="#insights">Insights</a>
+    <a href="#careers">Careers</a>
+    <a href="#firm">The Firm</a>
+  </div>
+</div>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="hero-meta">
+          <p class="eyebrow">Est. 1884 · New York</p>
+          <span class="tag">Corporate · Litigation · Funds</span>
+        </div>
+        <h1 class="display">The deals that set the terms<br>everyone else <em>negotiates from.</em></h1>
+        <p class="lede">
+          We advise on the transactions and disputes that decide how capital moves — sponsor buyouts,
+          fund formations, financings, listings and the litigation that follows them. One bench,
+          eleven offices, and a standard of judgment our clients have relied on for 140 years.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#capabilities">Explore our capabilities →</a>
+          <a class="btn btn-ghost" href="#people">Find counsel</a>
+        </div>
+      </div>
+
+      <aside class="ticker" aria-label="Representative matters">
+        <div class="ticker-head">
+          <p class="eyebrow">Of record · this quarter</p>
+          <span class="eyebrow mono" id="tickerStamp">—</span>
+        </div>
+        <ol id="tickerList">
+          <li class="is-active">
+            <span class="m-name">Take-private of a listed enterprise software platform</span>
+            <span class="m-val">$12.4B</span>
+            <span class="m-role">Counsel to the sponsor consortium · Announced</span>
+          </li>
+          <li>
+            <span class="m-name">Flagship buyout fund, final close</span>
+            <span class="m-val">$24.0B</span>
+            <span class="m-role">Fund counsel · Closed</span>
+          </li>
+          <li>
+            <span class="m-name">Initial public offering, NYSE listing</span>
+            <span class="m-val">$1.9B</span>
+            <span class="m-role">Counsel to the underwriters · Priced</span>
+          </li>
+          <li>
+            <span class="m-name">Data center platform, first-lien term loan B</span>
+            <span class="m-val">$6.5B</span>
+            <span class="m-role">Counsel to the borrower · Funded</span>
+          </li>
+          <li>
+            <span class="m-name">Securities class action, S.D.N.Y.</span>
+            <span class="m-val">Dismissed</span>
+            <span class="m-role">Counsel to the issuer and its board · With prejudice</span>
+          </li>
+        </ol>
+      </aside>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>1,100+</b><small>Lawyers across the Americas, Europe and Asia</small></div>
+      <div class="stat"><b>11</b><small>Offices operating as a single partnership</small></div>
+      <div class="stat"><b>140</b><small>Years advising on the market's defining matters</small></div>
+      <div class="stat"><b>75k</b><small>Pro bono hours contributed last year</small></div>
+    </div>
+  </div>
+
+  <section id="capabilities">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">01 — What we do</p>
+          <h2>Capabilities</h2>
+        </div>
+        <a class="link-more" href="#">View the full practice index</a>
+      </div>
+      <div class="caps">
+        <div class="cap-col">
+          <h3>Corporate</h3>
+          <ul>
+            <li><a href="#">Mergers &amp; Acquisitions <span>142 lawyers</span></a></li>
+            <li><a href="#">Private Equity <span>128</span></a></li>
+            <li><a href="#">Private Funds <span>96</span></a></li>
+            <li><a href="#">Capital Markets <span>88</span></a></li>
+            <li><a href="#">Banking &amp; Credit <span>74</span></a></li>
+            <li><a href="#">Energy &amp; Infrastructure <span>52</span></a></li>
+            <li><a href="#">Real Estate <span>46</span></a></li>
+            <li><a href="#">Restructuring <span>38</span></a></li>
+          </ul>
+        </div>
+        <div class="cap-col">
+          <h3>Litigation</h3>
+          <ul>
+            <li><a href="#">Securities Litigation <span>84 lawyers</span></a></li>
+            <li><a href="#">M&amp;A &amp; Fiduciary Duty <span>61</span></a></li>
+            <li><a href="#">Government &amp; Internal Investigations <span>58</span></a></li>
+            <li><a href="#">Antitrust Litigation <span>44</span></a></li>
+            <li><a href="#">International Arbitration <span>29</span></a></li>
+            <li><a href="#">Appellate <span>22</span></a></li>
+            <li><a href="#">Mass Torts &amp; Product Liability <span>31</span></a></li>
+            <li><a href="#">White Collar Defense <span>36</span></a></li>
+          </ul>
+        </div>
+        <div class="cap-col">
+          <h3>Regulatory &amp; Advisory</h3>
+          <ul>
+            <li><a href="#">Antitrust Clearance <span>40 lawyers</span></a></li>
+            <li><a href="#">Tax <span>67</span></a></li>
+            <li><a href="#">Executive Compensation &amp; Benefits <span>43</span></a></li>
+            <li><a href="#">Data, Privacy &amp; AI Governance <span>27</span></a></li>
+            <li><a href="#">CFIUS &amp; National Security <span>18</span></a></li>
+            <li><a href="#">Sanctions &amp; Trade <span>21</span></a></li>
+            <li><a href="#">Intellectual Property <span>34</span></a></li>
+            <li><a href="#">Sustainability &amp; Impact <span>16</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="matters">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">02 — The record</p>
+          <h2>Representative matters</h2>
+        </div>
+        <a class="link-more" href="#">All matters &amp; league tables</a>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter matters by practice">
+        <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" type="button" data-filter="M&amp;A" aria-pressed="false">M&amp;A</button>
+        <button class="chip" type="button" data-filter="Funds" aria-pressed="false">Funds</button>
+        <button class="chip" type="button" data-filter="Capital Markets" aria-pressed="false">Capital Markets</button>
+        <button class="chip" type="button" data-filter="Credit" aria-pressed="false">Credit</button>
+        <button class="chip" type="button" data-filter="Litigation" aria-pressed="false">Litigation</button>
+      </div>
+
+      <div class="table-scroll">
+        <table class="matters">
+          <thead>
+            <tr>
+              <th scope="col">Matter</th>
+              <th scope="col">Practice</th>
+              <th scope="col">Value</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody id="mattersBody">
+            <tr data-practice="M&amp;A">
+              <td class="c-matter">Take-private of a listed enterprise software platform
+                <span class="c-role">Counsel to the sponsor consortium and its financing sources</span></td>
+              <td><span class="tag">M&amp;A</span></td>
+              <td class="c-val">$12.4B</td>
+              <td class="c-date">Announced · Aug 2026</td>
+            </tr>
+            <tr data-practice="Funds">
+              <td class="c-matter">Flagship buyout fund X, final close above hard cap
+                <span class="c-role">Fund counsel on formation, LPA and side-letter negotiation</span></td>
+              <td><span class="tag">Funds</span></td>
+              <td class="c-val">$24.0B</td>
+              <td class="c-date">Closed · Jul 2026</td>
+            </tr>
+            <tr data-practice="Capital Markets">
+              <td class="c-matter">Initial public offering of a payments infrastructure business
+                <span class="c-role">Counsel to the underwriters · NYSE listing</span></td>
+              <td><span class="tag">Capital Markets</span></td>
+              <td class="c-val">$1.9B</td>
+              <td class="c-date">Priced · Jun 2026</td>
+            </tr>
+            <tr data-practice="Credit">
+              <td class="c-matter">First-lien term loan B for a hyperscale data center platform
+                <span class="c-role">Counsel to the borrower · Delayed-draw tranche</span></td>
+              <td><span class="tag">Credit</span></td>
+              <td class="c-val">$6.5B</td>
+              <td class="c-date">Funded · Jun 2026</td>
+            </tr>
+            <tr data-practice="Litigation">
+              <td class="c-matter">Securities class action arising from a de-SPAC transaction
+                <span class="c-role">Counsel to the issuer and its board · S.D.N.Y.</span></td>
+              <td><span class="tag">Litigation</span></td>
+              <td class="c-val">Dismissed</td>
+              <td class="c-date">Order · May 2026</td>
+            </tr>
+            <tr data-practice="M&amp;A">
+              <td class="c-matter">Carve-out sale of a specialty chemicals division
+                <span class="c-role">Counsel to the special committee of the board</span></td>
+              <td><span class="tag">M&amp;A</span></td>
+              <td class="c-val">$4.1B</td>
+              <td class="c-date">Signed · May 2026</td>
+            </tr>
+            <tr data-practice="Funds">
+              <td class="c-matter">Continuation vehicle for two single-asset infrastructure holdings
+                <span class="c-role">Counsel to the sponsor · GP-led secondary</span></td>
+              <td><span class="tag">Funds</span></td>
+              <td class="c-val">$3.3B</td>
+              <td class="c-date">Closed · Apr 2026</td>
+            </tr>
+            <tr data-practice="Capital Markets">
+              <td class="c-matter">Investment-grade notes offering, three tranches
+                <span class="c-role">Counsel to the issuer · Rule 144A / Reg S</span></td>
+              <td><span class="tag">Capital Markets</span></td>
+              <td class="c-val">$2.75B</td>
+              <td class="c-date">Closed · Apr 2026</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="empty" id="mattersEmpty" hidden>No matters in this practice. Choose another filter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="insights">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">03 — On the record</p>
+          <h2>Insights &amp; client memoranda</h2>
+        </div>
+        <a class="link-more" href="#">Subscribe to memoranda</a>
+      </div>
+      <ul class="insights">
+        <li><a href="#">
+          <span class="i-kind">Client memorandum</span>
+          <span class="i-title">Deal terms after the merger guidelines: what changed in the last twelve months
+            <span class="i-sub">A survey of 180 announced transactions, and how regulatory risk is now allocated between buyer and seller.</span></span>
+          <span class="i-date">12 Sep 2026</span>
+        </a></li>
+        <li><a href="#">
+          <span class="i-kind">Practice update</span>
+          <span class="i-title">AI governance in diligence: the questions buyers are now asking
+            <span class="i-sub">Model provenance, training-data indemnities and the representations that have started to appear in purchase agreements.</span></span>
+          <span class="i-date">04 Sep 2026</span>
+        </a></li>
+        <li><a href="#">
+          <span class="i-kind">Decision alert</span>
+          <span class="i-title">Delaware revisits controller transactions and the MFW roadmap
+            <span class="i-sub">What boards and special committees should do differently before the next signing.</span></span>
+          <span class="i-date">28 Aug 2026</span>
+        </a></li>
+        <li><a href="#">
+          <span class="i-kind">Market note</span>
+          <span class="i-title">Continuation vehicles are no longer the exit of last resort
+            <span class="i-sub">Pricing, conflicts and LP consent mechanics in a year of record GP-led volume.</span></span>
+          <span class="i-date">19 Aug 2026</span>
+        </a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="people">
+    <div class="split">
+      <div>
+        <p class="eyebrow">04 — People</p>
+        <h3>Find the lawyer for the matter in front of you.</h3>
+        <p>Search more than 1,100 lawyers by practice, jurisdiction, language and admission — or ask our
+          client teams for a tailored introduction within one business day.</p>
+        <a class="btn btn-primary" href="#">Search the directory →</a>
+      </div>
+      <div>
+        <p class="eyebrow">04b — How we staff</p>
+        <h3>One partnership, not eleven offices.</h3>
+        <p>Matters are staffed from a single bench, so a London financing and a New York board dispute draw
+          on the same institutional judgment — with one partner accountable end to end.</p>
+        <a class="btn btn-ghost" href="#firm">How the firm works</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="offices">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">05 — Where we are</p>
+          <h2>Offices</h2>
+        </div>
+        <a class="link-more" href="#">Contact &amp; directions</a>
+      </div>
+      <div class="offices" id="officeGrid">
+        <div class="office" data-tz="America/New_York"><b>New York</b><div class="o-time">—</div><div class="o-meta">Headquarters · 425 Lexington</div></div>
+        <div class="office" data-tz="America/Los_Angeles"><b>Los Angeles</b><div class="o-time">—</div><div class="o-meta">Century City</div></div>
+        <div class="office" data-tz="America/Los_Angeles"><b>Palo Alto</b><div class="o-time">—</div><div class="o-meta">Technology &amp; growth</div></div>
+        <div class="office" data-tz="America/Chicago"><b>Houston</b><div class="o-time">—</div><div class="o-meta">Energy &amp; infrastructure</div></div>
+        <div class="office" data-tz="America/New_York"><b>Washington, D.C.</b><div class="o-time">—</div><div class="o-meta">Regulatory &amp; enforcement</div></div>
+        <div class="office" data-tz="America/Sao_Paulo"><b>São Paulo</b><div class="o-time">—</div><div class="o-meta">Latin America</div></div>
+        <div class="office" data-tz="Europe/London"><b>London</b><div class="o-time">—</div><div class="o-meta">EMEA finance &amp; funds</div></div>
+        <div class="office" data-tz="Europe/Brussels"><b>Brussels</b><div class="o-time">—</div><div class="o-meta">EU competition</div></div>
+        <div class="office" data-tz="Asia/Hong_Kong"><b>Hong Kong</b><div class="o-time">—</div><div class="o-meta">Asia capital markets</div></div>
+        <div class="office" data-tz="Asia/Shanghai"><b>Beijing</b><div class="o-time">—</div><div class="o-meta">China practice</div></div>
+        <div class="office" data-tz="Asia/Tokyo"><b>Tokyo</b><div class="o-time">—</div><div class="o-meta">Japan practice</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="careers">
+    <div class="split inverted">
+      <div>
+        <p class="eyebrow">06 — Careers</p>
+        <h3>Work on the matters you read about.</h3>
+        <p>Summer associates, laterals and business professionals. Real responsibility early, structured
+          training, and partners who sit in the room with you.</p>
+        <a class="btn btn-primary" href="#">See open roles →</a>
+      </div>
+      <div>
+        <p class="eyebrow">07 — Pro bono &amp; community</p>
+        <h3>The same standard, for clients who cannot pay.</h3>
+        <p>Immigration, veterans' benefits, criminal justice and nonprofit representation — staffed and
+          supervised like any other matter of the firm.</p>
+        <a class="btn btn-ghost" href="#">Read the pro bono report</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="firm">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <p class="eyebrow">08 — The firm</p>
+          <h2>Founded 1884. Still measured by the same thing.</h2>
+        </div>
+      </div>
+      <p style="max-width:62ch;color:var(--ink-2);font-size:17px;padding-bottom:clamp(36px,5vw,64px);margin:0">
+        Judgment under pressure — on the terms of a deal, the theory of a case, the advice a board needs
+        before it votes. Everything else about the firm exists to make that judgment available when it matters.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="display">Simpson Thacher<br>&amp; Bartlett</div>
+        <p>425 Lexington Avenue, New York, NY 10017 · +1 212 455 2000</p>
+      </div>
+      <div>
+        <h4>Capabilities</h4>
+        <ul>
+          <li><a href="#capabilities">Mergers &amp; Acquisitions</a></li>
+          <li><a href="#capabilities">Private Funds</a></li>
+          <li><a href="#capabilities">Capital Markets</a></li>
+          <li><a href="#capabilities">Litigation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>The firm</h4>
+        <ul>
+          <li><a href="#firm">History</a></li>
+          <li><a href="#people">Leadership</a></li>
+          <li><a href="#careers">Pro bono</a></li>
+          <li><a href="#">Inclusion</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Insights</h4>
+        <ul>
+          <li><a href="#insights">Client memoranda</a></li>
+          <li><a href="#matters">Recent matters</a></li>
+          <li><a href="#">Podcasts</a></li>
+          <li><a href="#">Events</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#">Alumni</a></li>
+          <li><a href="#offices">Offices</a></li>
+          <li><a href="#">Media inquiries</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="legal">
+      <p class="mono">Attorney Advertising · Prior results do not guarantee a similar outcome</p>
+      <p>Concept redesign — not affiliated with or endorsed by the firm. Matters, figures, headcounts and dates
+        shown are placeholder content created to demonstrate layout only.</p>
+      <p class="mono">Privacy · Terms · Cookies</p>
+    </div>
+  </div>
+</footer>
+
+<div class="concept" id="conceptBadge">
+  <span>Concept redesign · unofficial mockup</span>
+  <button type="button" id="conceptClose" aria-label="Dismiss concept notice">✕</button>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* theme toggle */
+  var root = document.documentElement;
+  try{
+    var saved = localStorage.getItem("st-theme");
+    if(saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+  }catch(e){}
+  document.getElementById("themeBtn").addEventListener("click", function(){
+    var isDark = root.getAttribute("data-theme") === "dark" ||
+      (!root.hasAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    var next = isDark ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try{ localStorage.setItem("st-theme", next); }catch(e){}
+  });
+
+  /* mobile menu */
+  var menuBtn = document.getElementById("menuBtn");
+  var mobileNav = document.getElementById("mobileNav");
+  menuBtn.addEventListener("click", function(){
+    var open = mobileNav.hidden;
+    mobileNav.hidden = !open;
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  mobileNav.addEventListener("click", function(ev){
+    if(ev.target.tagName === "A"){ mobileNav.hidden = true; menuBtn.setAttribute("aria-expanded","false"); }
+  });
+
+  /* matters filter */
+  var chips = Array.prototype.slice.call(document.querySelectorAll(".chip"));
+  var rows = Array.prototype.slice.call(document.querySelectorAll("#mattersBody tr"));
+  var empty = document.getElementById("mattersEmpty");
+  chips.forEach(function(chip){
+    chip.addEventListener("click", function(){
+      chips.forEach(function(c){ c.setAttribute("aria-pressed", String(c === chip)); });
+      var want = chip.getAttribute("data-filter");
+      var shown = 0;
+      rows.forEach(function(row){
+        var match = want === "all" || row.getAttribute("data-practice") === want;
+        row.hidden = !match;
+        if(match) shown++;
+      });
+      empty.hidden = shown > 0;
+    });
+  });
+
+  /* office clocks */
+  function tickClocks(){
+    var now = new Date();
+    Array.prototype.forEach.call(document.querySelectorAll("#officeGrid .office"), function(el){
+      var tz = el.getAttribute("data-tz");
+      var out = el.querySelector(".o-time");
+      try{
+        out.textContent = new Intl.DateTimeFormat("en-GB", {
+          timeZone: tz, hour: "2-digit", minute: "2-digit", hour12: false
+        }).format(now) + " local";
+      }catch(e){ out.textContent = ""; }
+    });
+    var stamp = document.getElementById("tickerStamp");
+    try{
+      stamp.textContent = new Intl.DateTimeFormat("en-GB", {
+        timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false
+      }).format(now) + " ET";
+    }catch(e){ stamp.textContent = ""; }
+  }
+  tickClocks();
+  setInterval(tickClocks, 30000);
+
+  /* hero ticker rotation */
+  if(!reduce){
+    var items = Array.prototype.slice.call(document.querySelectorAll("#tickerList li"));
+    var idx = 0;
+    setInterval(function(){
+      items[idx].classList.remove("is-active");
+      idx = (idx + 1) % items.length;
+      items[idx].classList.add("is-active");
+    }, 3800);
+  }
+
+  /* concept badge */
+  document.getElementById("conceptClose").addEventListener("click", function(){
+    document.getElementById("conceptBadge").hidden = true;
+  });
+})();
+</script>
+</body>
+</html>
