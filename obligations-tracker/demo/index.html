@@ -1,240 +1,290 @@
 <title>Postclose Demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Martian+Mono:wght@400;500;700&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 <style>
+  /* Ledger pad (light) and ledger binding (dark) */
   :root {
-    --paper: #F6F7F5;
-    --surface: #FFFFFF;
-    --ink: #1A2230;
-    --muted: #5A6472;
-    --faint: #8A929C;
-    --rule: #DDE1DD;
-    --rule-strong: #C3C9C4;
-    --accent: #2F4DB3;
-    --accent-soft: #E6EAF8;
-    --critical: #B42318;
-    --critical-soft: #FBE9E7;
-    --warn: #9A5705;
-    --warn-soft: #FBF0DF;
-    --ok: #2D7A4E;
-    --ok-soft: #E3F2E8;
-    --hold: #7A3E9D;
-    --hold-soft: #F1E7F7;
-    --quiet-soft: #EEF0EE;
-    --shadow: 0 1px 2px rgba(26, 34, 48, .06), 0 8px 24px rgba(26, 34, 48, .08);
-    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
-    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --paper: #EDF1E5;
+    --paper-band: #E4EADA;
+    --slip: #FBFBF6;
+    --ink: #1B2A22;
+    --muted: #56685C;
+    --faint: #7F9084;
+    --rule: #BCCDB3;
+    --rule-soft: #D3DECB;
+    --margin: #C23B30;
+    --brass: #8C6516;
+    --brass-band: #D9B45A;
+    --brass-ink: #1B2A22;
+    --stamp-ok: #2A6A3C;
+    --stamp-hold: #6B3A91;
+    --stamp-bad: #C23B30;
+    --shadow: 0 1px 0 rgba(27, 42, 34, .08), 0 12px 32px -12px rgba(27, 42, 34, .28);
+    --display: "Gloock", "Bodoni 72", Didot, Georgia, serif;
+    --body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --mono: "Martian Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    --datecol: 104px;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
       color-scheme: dark;
-      --paper: #12161D; --surface: #1A2029; --ink: #E7EAEE; --muted: #A3ACB8; --faint: #7A8490;
-      --rule: #2A323D; --rule-strong: #3A4450; --accent: #8FA5F0; --accent-soft: #232C47;
-      --critical: #F2877B; --critical-soft: #3A1E1C; --warn: #E6B062; --warn-soft: #362A17;
-      --ok: #7CC99A; --ok-soft: #1B3226; --hold: #C9A0E3; --hold-soft: #2E2238; --quiet-soft: #222932;
-      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+      --paper: #0F241C; --paper-band: #132C23; --slip: #183429; --ink: #ECE8D6; --muted: #A2B5A7; --faint: #7A9083;
+      --rule: #2A4A3D; --rule-soft: #1F3A2F; --margin: #E8705F; --brass: #DDB65C; --brass-band: #DDB65C; --brass-ink: #0F241C;
+      --stamp-ok: #86CC98; --stamp-hold: #C9A2EA; --stamp-bad: #F08A7A;
+      --shadow: 0 1px 0 rgba(0,0,0,.3), 0 16px 40px -12px rgba(0,0,0,.6);
     }
   }
   :root[data-theme="dark"] {
     color-scheme: dark;
-    --paper: #12161D; --surface: #1A2029; --ink: #E7EAEE; --muted: #A3ACB8; --faint: #7A8490;
-    --rule: #2A323D; --rule-strong: #3A4450; --accent: #8FA5F0; --accent-soft: #232C47;
-    --critical: #F2877B; --critical-soft: #3A1E1C; --warn: #E6B062; --warn-soft: #362A17;
-    --ok: #7CC99A; --ok-soft: #1B3226; --hold: #C9A0E3; --hold-soft: #2E2238; --quiet-soft: #222932;
-    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    --paper: #0F241C; --paper-band: #132C23; --slip: #183429; --ink: #ECE8D6; --muted: #A2B5A7; --faint: #7A9083;
+    --rule: #2A4A3D; --rule-soft: #1F3A2F; --margin: #E8705F; --brass: #DDB65C; --brass-band: #DDB65C; --brass-ink: #0F241C;
+    --stamp-ok: #86CC98; --stamp-hold: #C9A2EA; --stamp-bad: #F08A7A;
+    --shadow: 0 1px 0 rgba(0,0,0,.3), 0 16px 40px -12px rgba(0,0,0,.6);
   }
 
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
-  body { background: var(--paper); color: var(--ink); font: 15px/1.5 var(--sans); padding-inline: 20px; padding-block: 0 64px; }
-  .wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 28px; }
-  h1, h2, h3 { margin: 0; text-wrap: balance; }
-  .mono, .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
-  .eyebrow { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  html { background: var(--paper); }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font: 15px/1.55 var(--body);
+    padding-inline: 20px;
+    padding-block: 0 72px;
+  }
   button, select, input, textarea { font: inherit; color: inherit; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .cap { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
 
-  /* App bar */
-  .appbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
-    padding-block: 14px; border-bottom: 1px solid var(--rule); }
-  .brand { display: flex; align-items: baseline; gap: 10px; }
-  .brand b { font-family: var(--serif); font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
-  .brand span { font-size: 12.5px; color: var(--muted); }
-  .appbar-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  .btn { border: 1px solid var(--rule-strong); background: var(--surface); border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 13.5px; }
-  .btn:hover { border-color: var(--accent); }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
-  .sample-note { font-size: 12.5px; color: var(--warn); background: var(--warn-soft); border-radius: 999px; padding: 3px 10px; }
+  .page { max-width: 1260px; margin: 0 auto; }
 
-  /* Deal header */
-  .deal { display: grid; gap: 14px; }
-  .deal h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 4vw, 38px); line-height: 1.1; letter-spacing: -.015em; }
-  .deal-meta { display: flex; flex-wrap: wrap; gap: 10px 28px; }
-  .meta { display: grid; gap: 2px; }
-  .meta dt { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-  .meta dd { margin: 0; font-weight: 500; }
+  /* ---------- Masthead ---------- */
+  .topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+    padding-block: 16px 14px; border-bottom: 3px double var(--rule); }
+  .wordmark { font-family: var(--mono); font-weight: 700; font-size: 13px; letter-spacing: .28em; text-transform: uppercase; }
+  .wordmark span { color: var(--muted); font-weight: 400; letter-spacing: .12em; margin-left: 10px; }
+  .tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .toolbtn { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer;
+    border: 1.5px solid var(--ink); background: transparent; padding: 7px 12px; border-radius: 2px; }
+  .toolbtn:hover { background: var(--ink); color: var(--paper); }
+  select.toolbtn { padding-right: 8px; }
+  .fiction { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--margin);
+    border: 1.5px dashed var(--margin); padding: 5px 9px; transform: rotate(-2deg); }
 
-  /* Summary */
-  .summary { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; align-items: start; }
-  @media (max-width: 820px) { .summary { grid-template-columns: 1fr; } }
-  .panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
-  .attention { padding: 18px 20px; display: grid; gap: 12px; }
-  .attention-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-  .attention-head h2 { font-family: var(--serif); font-size: 20px; font-weight: 600; }
-  .att-list { list-style: none; margin: 0; padding: 0; display: grid; }
-  .att-item { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 12px; align-items: center;
-    padding-block: 10px; border-top: 1px solid var(--rule); cursor: pointer; }
-  .att-item:first-child { border-top: 0; }
-  .att-item:hover .att-title { color: var(--accent); }
-  .att-when { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
-  .att-when strong { display: block; font-size: 14px; color: var(--ink); font-weight: 500; }
-  .att-title { font-weight: 500; }
-  .att-sub { font-size: 13px; color: var(--muted); }
-  .empty { color: var(--muted); font-size: 14px; }
+  .title-block { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 32px; align-items: end; padding-block: 36px 22px; }
+  @media (max-width: 760px) { .title-block { grid-template-columns: 1fr; } }
+  .title-block h1 { font-family: var(--display); font-size: clamp(44px, 8vw, 92px); line-height: .92; letter-spacing: -.02em; }
+  .kicker { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--brass); margin-bottom: 14px; }
+  .price { text-align: right; }
+  @media (max-width: 760px) { .price { text-align: left; } }
+  .price .v { font-family: var(--mono); font-size: 26px; font-weight: 500; }
 
-  .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .stat { padding: 16px 18px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
-  .stat:nth-child(2n) { border-right: 0; }
-  .stat:nth-last-child(-n+2) { border-bottom: 0; }
-  .stat .v { font-family: var(--mono); font-size: 24px; font-weight: 500; font-variant-numeric: tabular-nums; }
-  .stat .l { font-size: 13px; color: var(--muted); }
+  .columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1.5px solid var(--ink); border-bottom: 1px solid var(--rule); margin: 0; }
+  .columns > div { padding: 10px 14px 12px; border-left: 1px solid var(--rule); display: grid; gap: 3px; }
+  .columns > div:first-child { border-left: 0; padding-left: 0; }
+  .columns dd { margin: 0; font-weight: 500; }
 
-  /* Pills */
-  .pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 9px; font-size: 12px; font-weight: 600; white-space: nowrap; }
-  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
-  .s-overdue { color: var(--critical); background: var(--critical-soft); }
-  .s-soon { color: var(--warn); background: var(--warn-soft); }
-  .s-upcoming { color: var(--accent); background: var(--accent-soft); }
-  .s-effect { color: var(--accent); background: var(--accent-soft); }
-  .s-done { color: var(--ok); background: var(--ok-soft); }
-  .s-hold { color: var(--hold); background: var(--hold-soft); }
-  .s-event { color: var(--muted); background: var(--quiet-soft); }
+  /* ---------- Docket (hero) ---------- */
+  .docket { display: grid; grid-template-columns: minmax(260px, 5fr) minmax(0, 7fr); gap: 40px; padding-block: 40px 36px; align-items: start; }
+  @media (max-width: 860px) { .docket { grid-template-columns: 1fr; gap: 24px; } }
+  .countdown { display: grid; gap: 10px; }
+  .countdown .n { font-family: var(--mono); font-weight: 700; font-size: clamp(96px, 16vw, 176px); line-height: .8; letter-spacing: -.06em; color: var(--brass); }
+  .countdown .unit { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+  .countdown p { margin: 6px 0 0; font-size: 17px; max-width: 34ch; }
+  .countdown p b { font-weight: 600; }
 
-  /* Timeline */
-  .timeline { padding: 18px 20px 12px; display: grid; gap: 10px; }
-  .timeline-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
-  .timeline-head h2, .ledger-head h2 { font-family: var(--serif); font-size: 20px; font-weight: 600; }
-  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
-  .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
-  .tl-scroll { overflow-x: auto; }
-  #tl { display: block; min-width: 680px; width: 100%; }
-  #tl .mark { cursor: pointer; }
-  #tl .mark:hover circle, #tl .mark:focus circle { stroke-width: 3; }
+  .urgent-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1.5px solid var(--ink); padding-bottom: 8px; }
+  .urgent-head h2 { font-family: var(--display); font-size: 28px; }
+  .urgent { list-style: none; margin: 0; padding: 0; }
+  .urgent li { display: grid; grid-template-columns: 78px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding-block: 14px;
+    border-bottom: 1px solid var(--rule); cursor: pointer; }
+  .urgent li:hover .u-title { text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset: 3px; }
+  .u-when { font-family: var(--mono); font-size: 11px; line-height: 1.3; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+  .u-when b { display: block; font-size: 15px; color: var(--ink); letter-spacing: 0; }
+  .u-title { font-weight: 600; font-size: 16px; }
+  .u-why { font-size: 13.5px; color: var(--muted); }
 
-  /* Ledger */
-  .ledger-head { display: flex; justify-content: space-between; align-items: end; gap: 12px; flex-wrap: wrap; }
-  .filters { display: flex; gap: 6px; flex-wrap: wrap; }
-  .chip { border: 1px solid var(--rule-strong); background: transparent; border-radius: 999px; padding: 4px 12px; font-size: 13px; cursor: pointer; }
-  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .chip .n { font-family: var(--mono); font-size: 11.5px; opacity: .7; margin-left: 4px; }
-  .table-scroll { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; min-width: 720px; }
-  th { text-align: left; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600;
-    padding: 10px 12px; border-bottom: 1px solid var(--rule-strong); }
-  td { padding: 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
-  tbody tr { cursor: pointer; }
-  tbody tr:hover td { background: var(--quiet-soft); }
-  tbody tr.selected td { background: var(--accent-soft); }
-  .t-title { font-weight: 500; }
-  .t-desc { font-size: 13px; color: var(--muted); margin-top: 2px; max-width: 52ch; }
-  .t-date { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .t-date small { display: block; color: var(--muted); font-size: 11.5px; }
-  .t-sec { font-family: var(--mono); font-size: 12.5px; color: var(--muted); white-space: nowrap; }
-  .cat { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
-  .low-conf { font-size: 11.5px; color: var(--warn); }
+  /* ---------- Totals (accounting double underline) ---------- */
+  .totals { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--rule); }
+  @media (max-width: 760px) { .totals { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .totals > div { padding: 14px 14px 16px 0; display: grid; gap: 4px; }
+  .totals .v { font-family: var(--mono); font-size: 22px; font-weight: 500; justify-self: start; border-bottom: 3px double var(--ink); line-height: 1.25; }
 
-  /* Drawer */
-  .scrim { position: fixed; inset: 0; background: rgba(10, 14, 20, .35); z-index: 10; }
-  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(520px, 100%); background: var(--surface); z-index: 11;
-    box-shadow: var(--shadow); border-left: 1px solid var(--rule); overflow-y: auto;
-    padding: calc(env(safe-area-inset-top, 0px) + 20px) 24px calc(env(safe-area-inset-bottom, 0px) + 28px); display: grid; gap: 20px; align-content: start; }
-  .drawer-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
-  .drawer h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; line-height: 1.2; }
-  .close { border: 0; background: transparent; font-size: 22px; line-height: 1; cursor: pointer; color: var(--muted); padding: 4px 6px; }
-  .kv { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px 14px; margin: 0; font-size: 14px; }
-  .kv dt { color: var(--muted); }
-  .kv dd { margin: 0; }
-  blockquote { margin: 0; padding: 14px 16px; background: var(--paper); border-left: 3px solid var(--rule-strong); font-family: var(--serif); font-size: 16.5px; line-height: 1.5; }
-  blockquote cite { display: block; margin-top: 8px; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--muted); }
-  .section-label { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
-  .history { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14px; }
-  .history li { display: grid; gap: 2px; }
-  form.outcome { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--rule); border-radius: 8px; }
-  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  @media (max-width: 460px) { .row { grid-template-columns: 1fr; } .kv { grid-template-columns: 1fr; gap: 2px 0; } .kv dd { margin-bottom: 8px; } }
-  label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
-  input, select, textarea { background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 7px 9px; color: var(--ink); }
-  textarea { min-height: 64px; resize: vertical; }
-  .form-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .saved { font-size: 13px; color: var(--ok); }
-  .help { font-size: 12.5px; color: var(--muted); }
+  /* ---------- Tape ---------- */
+  .tape-wrap { overflow-x: auto; padding-block: 28px 8px; }
+  .tape { position: relative; min-width: 640px; height: 58px; }
+  .tape .base { position: absolute; left: 0; right: 0; top: 22px; height: 2px; background: var(--ink); }
+  .tape .yr { position: absolute; top: 34px; font-family: var(--mono); font-size: 10.5px; color: var(--muted); transform: translateX(-50%); }
+  .tape .yr::before { content: ""; position: absolute; left: 50%; top: -12px; width: 1px; height: 8px; background: var(--ink); }
+  .tape .tick { position: absolute; top: 12px; width: 10px; height: 22px; margin-left: -5px; border: 0; padding: 0; background: transparent; cursor: pointer; }
+  .tape .tick::after { content: ""; position: absolute; left: 4px; top: 0; width: 2px; height: 22px; background: var(--faint); }
+  .tape .tick.k-done::after { background: var(--stamp-ok); }
+  .tape .tick.k-hold::after { background: var(--stamp-hold); }
+  .tape .tick.k-soon::after, .tape .tick.k-overdue::after { background: var(--margin); width: 3px; }
+  .tape .tick:hover::after { background: var(--brass); }
+  .tape .now { position: absolute; top: 0; height: 46px; width: 0; border-left: 2px solid var(--brass-band); }
+  .tape .now span { position: absolute; top: -2px; left: 6px; font-family: var(--mono); font-size: 10px; font-weight: 700; letter-spacing: .12em; color: var(--brass); white-space: nowrap; }
 
-  footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 6px; max-width: 80ch; }
-  @media (prefers-reduced-motion: no-preference) { .drawer { animation: slide .18s ease-out; } @keyframes slide { from { transform: translateX(24px); opacity: .6; } } }
+  /* ---------- Book (ledger + reader) ---------- */
+  .book { display: grid; grid-template-columns: minmax(0, 1fr) 400px; gap: 36px; align-items: start; padding-top: 24px; }
+  @media (max-width: 1000px) { .book { grid-template-columns: 1fr; } }
+
+  .tabs { display: flex; gap: 4px; align-items: end; border-bottom: 1.5px solid var(--ink); overflow-x: auto; }
+  .tab { flex: none; border: 1.5px solid var(--rule); border-bottom: 0; background: var(--paper-band); border-radius: 8px 8px 0 0;
+    padding: 9px 16px 8px; cursor: pointer; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+    position: relative; top: 1.5px; }
+  .tab[aria-selected="true"] { background: var(--paper); border-color: var(--ink); color: var(--ink); font-weight: 700; padding-top: 12px; }
+  .tab .n { margin-left: 6px; opacity: .7; font-weight: 400; }
+  .tabs-extra { margin-left: auto; padding: 0 0 8px 12px; flex: none; }
+  .tabs-extra label { display: flex; gap: 6px; align-items: center; font-size: 13px; color: var(--muted); cursor: pointer; }
+
+  .ledger { list-style: none; margin: 0; padding: 0; position: relative; }
+  .ledger::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--datecol) - 10px); width: 1.5px; background: var(--margin); opacity: .7; }
+  .year { padding: 34px 0 6px var(--datecol); font-family: var(--display); font-size: 40px; line-height: 1; color: var(--faint); border-bottom: 1px solid var(--rule); }
+  .year small { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; margin-left: 10px; vertical-align: middle; }
+  .entry { display: grid; grid-template-columns: var(--datecol) minmax(0, 1fr) 150px; gap: 0 18px; padding: 16px 0 16px;
+    border-bottom: 1px solid var(--rule); cursor: pointer; position: relative; }
+  .entry > .e-date { grid-row: span 2; }
+  .entry:hover { background: linear-gradient(to right, transparent var(--datecol), var(--paper-band) var(--datecol)); }
+  .entry[aria-current="true"] { background: linear-gradient(to right, transparent var(--datecol), var(--paper-band) var(--datecol)); }
+  .entry[aria-current="true"]::after { content: ""; position: absolute; right: -8px; top: 12px; bottom: 12px; width: 4px; background: var(--brass-band); }
+  .e-date { font-family: var(--mono); padding-right: 22px; text-align: right; }
+  .e-date .d { display: block; font-size: 28px; font-weight: 500; line-height: 1; letter-spacing: -.04em; }
+  .e-date .m { font-size: 10.5px; letter-spacing: .14em; color: var(--muted); }
+  .e-date .ev { font-size: 10.5px; letter-spacing: .1em; color: var(--muted); text-transform: uppercase; line-height: 1.4; display: block; }
+  .entry.k-done .e-body, .entry.k-done .e-date { opacity: .72; }
+  .e-ref { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .e-title { font-size: 17px; font-weight: 600; line-height: 1.3; margin-top: 2px; }
+  .e-desc { font-size: 14px; color: var(--muted); margin-top: 3px; max-width: 62ch; }
+  .e-foot { grid-column: 2 / 4; display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; color: var(--muted); margin-top: 8px; }
+  .e-foot b { color: var(--ink); font-weight: 500; }
+  .flag { color: var(--margin); font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; }
+  .e-state { justify-self: end; text-align: right; }
+  @media (max-width: 620px) {
+    :root { --datecol: 70px; }
+    .entry { grid-template-columns: var(--datecol) minmax(0, 1fr); }
+    .e-state { grid-column: 2; justify-self: start; text-align: left; margin-top: 10px; }
+    .e-foot { grid-column: 2; }
+    .e-date .d { font-size: 22px; }
+    .year { font-size: 32px; }
+  }
+
+  /* Status text for the future; stamps for what already happened */
+  .due { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+  .due b { display: block; font-size: 14px; color: var(--ink); letter-spacing: 0; }
+  .due.k-soon b, .due.k-overdue b { color: var(--margin); }
+  .stamp { display: inline-block; font-family: var(--mono); font-weight: 700; font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 5px 9px 4px; border: 2px solid currentColor; border-radius: 3px; transform: rotate(-4deg); white-space: nowrap;
+    box-shadow: inset 0 0 0 1px currentColor; opacity: .9; mix-blend-mode: multiply; }
+  :root[data-theme="dark"] .stamp { mix-blend-mode: normal; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .stamp { mix-blend-mode: normal; } }
+  .stamp.ok { color: var(--stamp-ok); }
+  .stamp.hold { color: var(--stamp-hold); transform: rotate(3deg); }
+  .stamp.bad { color: var(--stamp-bad); transform: rotate(-2deg); }
+
+  .today-band { display: flex; align-items: center; gap: 14px; background: var(--brass-band); color: var(--brass-ink); margin: 0 -8px;
+    padding: 10px 8px; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase; position: relative; z-index: 1; }
+  .today-band span:last-child { margin-left: auto; font-weight: 400; letter-spacing: .08em; }
+
+  .standing { padding: 34px 0 6px var(--datecol); border-bottom: 1px solid var(--rule); }
+  .standing h3 { font-family: var(--display); font-size: 30px; color: var(--faint); line-height: 1; }
+  .standing p { margin: 6px 0 0; font-size: 13.5px; color: var(--muted); }
+  .empty-row { padding: 28px 0 28px var(--datecol); color: var(--muted); }
+
+  /* ---------- Reader slip ---------- */
+  .reader { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); max-height: calc(100vh - 32px); overflow-y: auto;
+    background: var(--slip); box-shadow: var(--shadow); border-top: 6px solid var(--ink); padding: 22px 24px 26px; display: grid; gap: 18px; align-content: start; }
+  @media (max-width: 1000px) {
+    .reader { position: fixed; top: auto; left: 0; right: 0; bottom: 0; max-height: 75vh; z-index: 20; border-top-width: 4px;
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 26px); }
+    .reader.idle { display: none; }
+  }
+  .r-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+  .r-sec { font-family: var(--display); font-size: 44px; line-height: .9; }
+  .r-sec small { display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .x { border: 0; background: transparent; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; color: var(--muted); padding: 4px; }
+  .r-title { font-size: 21px; font-weight: 600; line-height: 1.25; }
+  .quote { margin: 0; font-family: var(--display); font-size: 17px; line-height: 1.5; padding: 16px 0 16px 18px; border-left: 1.5px solid var(--margin);
+    background: repeating-linear-gradient(to bottom, transparent 0 25px, var(--rule-soft) 25px 26px); }
+  .leaders { margin: 0; display: grid; gap: 7px; font-size: 14px; }
+  .leaders div { display: flex; align-items: baseline; gap: 6px; }
+  .leaders dt { color: var(--muted); flex: none; }
+  .leaders .dots { flex: 1; border-bottom: 1.5px dotted var(--rule); transform: translateY(-4px); min-width: 12px; }
+  .leaders dd { margin: 0; text-align: right; max-width: 62%; font-weight: 500; }
+  .leaders dd.mono { font-size: 12.5px; }
+  .r-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 6px; margin-bottom: 10px; }
+  .hist { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .hist li { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px; align-items: start; font-size: 14px; }
+  .hist .meta { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+  form.record { display: grid; gap: 10px; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  label.f { display: grid; gap: 4px; font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  label.f input, label.f select, label.f textarea { font-family: var(--body); font-size: 14px; letter-spacing: 0; text-transform: none; color: var(--ink);
+    background: transparent; border: 0; border-bottom: 1.5px solid var(--rule); border-radius: 0; padding: 6px 0; }
+  label.f textarea { min-height: 54px; resize: vertical; }
+  label.f :focus { outline: none; border-bottom-color: var(--brass); }
+  .go { justify-self: start; font-family: var(--mono); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    background: var(--ink); color: var(--paper); border: 0; padding: 11px 16px; cursor: pointer; border-radius: 2px; }
+  .go:hover { background: var(--brass); color: var(--brass-ink); }
+  .note { font-size: 12.5px; color: var(--muted); }
+  .ok-msg { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--stamp-ok); }
+
+  footer { margin-top: 56px; padding-top: 16px; border-top: 3px double var(--rule); display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px 40px; font-size: 13px; color: var(--muted); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .stamp.fresh { animation: thunk .28s cubic-bezier(.2, 1.6, .5, 1); }
+    @keyframes thunk { from { transform: scale(1.6) rotate(-10deg); opacity: 0; } }
+  }
 </style>
 
-<div class="wrap">
-  <header class="appbar">
-    <div class="brand"><b>Postclose</b><span>Post-closing obligations tracker</span></div>
-    <div class="appbar-actions">
-      <span class="sample-note" id="sampleNote" hidden>Fictional sample deal</span>
-      <select id="dealPick" aria-label="Deal" hidden></select>
-      <label class="btn" for="fileIn" style="display:inline-block;color:var(--ink)">Open tracker file</label>
+<div class="page">
+  <header class="topline">
+    <div class="wordmark">Postclose<span>Obligations docket</span></div>
+    <div class="tools">
+      <span class="fiction" id="fiction" hidden>Fictional sample deal</span>
+      <select class="toolbtn" id="dealPick" aria-label="Choose deal" hidden></select>
+      <button class="toolbtn" type="button" id="openFile">Open tracker file</button>
       <input type="file" id="fileIn" accept=".json,application/json" hidden>
     </div>
   </header>
 
-  <section class="deal" aria-labelledby="dealName">
-    <div class="eyebrow" id="dealKicker"></div>
-    <h1 id="dealName"></h1>
-    <dl class="deal-meta" id="dealMeta"></dl>
+  <section class="title-block">
+    <div>
+      <div class="kicker" id="kicker"></div>
+      <h1 id="dealName"></h1>
+    </div>
+    <div class="price"><div class="cap">Base purchase price</div><div class="v" id="price"></div></div>
+  </section>
+  <dl class="columns" id="columns"></dl>
+
+  <section class="docket" aria-label="What needs attention">
+    <div class="countdown" id="countdown"></div>
+    <div>
+      <div class="urgent-head"><h2>On the docket</h2><span class="cap" id="asOf"></span></div>
+      <ol class="urgent" id="urgent"></ol>
+    </div>
   </section>
 
-  <section class="summary">
-    <div class="panel attention">
-      <div class="attention-head"><h2>Needs attention</h2><span class="help" id="asOf"></span></div>
-      <ul class="att-list" id="attList"></ul>
-    </div>
-    <div class="panel stats" id="stats"></div>
-  </section>
+  <div class="totals" id="totals"></div>
 
-  <section class="panel timeline" aria-labelledby="tlHead">
-    <div class="timeline-head">
-      <h2 id="tlHead">Timeline from closing</h2>
-      <div class="legend">
-        <span><i style="background:var(--critical)"></i>Overdue</span>
-        <span><i style="background:var(--warn)"></i>Due within 30 days</span>
-        <span><i style="background:var(--accent)"></i>Upcoming / in effect</span>
-        <span><i style="background:var(--hold)"></i>Disputed or on hold</span>
-        <span><i style="background:var(--ok)"></i>Done</span>
-      </div>
-    </div>
-    <div class="tl-scroll"><svg id="tl" role="img" aria-label="Obligations plotted on a timeline from closing"></svg></div>
-  </section>
+  <div class="tape-wrap"><div class="tape" id="tape" aria-label="Every dated obligation from closing onward"></div></div>
 
-  <section style="display:grid;gap:14px" aria-labelledby="ledgerHead">
-    <div class="ledger-head">
-      <h2 id="ledgerHead">All obligations</h2>
-      <div class="filters" id="filters" role="group" aria-label="Filter obligations"></div>
+  <section class="book">
+    <div>
+      <div class="tabs" role="tablist" id="tabs"></div>
+      <ol class="ledger" id="ledger"></ol>
     </div>
-    <div class="panel table-scroll">
-      <table>
-        <thead><tr><th>Date</th><th>Obligation</th><th>Who acts</th><th>Status</th><th>Section</th></tr></thead>
-        <tbody id="rows"></tbody>
-      </table>
-    </div>
+    <aside class="reader idle" id="reader" aria-live="polite"></aside>
   </section>
 
   <footer>
-    <div>Dates are computed from the agreement's own rules (closing + 18 months, fiscal year end + 90 days, and so on). When you record an actual date, dependent deadlines recalculate. Every item links back to the quoted clause.</div>
-    <div>Demo only. The Brightwater agreement, parties and outcomes are invented. Outcomes you record are saved in this browser only.</div>
+    <div>Dates come from the agreement's own rules (closing + 18 months, fiscal year end + 90 days). Record an actual date and every deadline that depends on it moves.</div>
+    <div>Demo only. The Brightwater agreement, its parties and its outcomes are invented. Outcomes you record stay in this browser.</div>
   </footer>
 </div>
-
-<div class="scrim" id="scrim" hidden></div>
-<aside class="drawer" id="drawer" hidden aria-modal="true" role="dialog" aria-labelledby="dTitle"></aside>
 
 <script src="data.js"></script>
 <script>
@@ -246,19 +296,21 @@
     tax: "Tax", reporting_or_notice: "Notice", insurance: "Insurance", other: "Other",
   };
   const PERIOD_CATS = new Set(["indemnity_survival", "restrictive_covenant", "insurance"]);
-  const LANES = [
-    { name: "Money moves", cats: ["earnout", "escrow_release", "holdback_release", "purchase_price_adjustment", "deferred_payment", "tax"] },
-    { name: "Claims & survival", cats: ["indemnity_survival", "indemnity_claim_procedure"] },
-    { name: "Covenants & insurance", cats: ["restrictive_covenant", "insurance", "reporting_or_notice", "other"] },
+  const TABS = [
+    ["all", "All entries", () => true],
+    ["money", "Money", i => ["earnout", "escrow_release", "holdback_release", "purchase_price_adjustment", "deferred_payment", "tax"].includes(i.category)],
+    ["claims", "Claims & survival", i => ["indemnity_survival", "indemnity_claim_procedure"].includes(i.category)],
+    ["covenants", "Covenants & insurance", i => ["restrictive_covenant", "insurance", "reporting_or_notice", "other"].includes(i.category)],
   ];
-  const OUTCOME_LABEL = { pending: "Pending", satisfied: "Done", partial: "Partially done", disputed: "Disputed",
-    claim_made: "Claim made", waived: "Waived", expired: "Lapsed" };
+  const OUTCOME_LABEL = { satisfied: "Done", partial: "Partly done", disputed: "Disputed", claim_made: "Claim filed", waived: "Waived", expired: "Lapsed" };
   const STORE_KEY = "postclose.outcomes.v1";
   const DAY = 86400000;
+  const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const deals = (window.DEALS || []).slice();
-  let dealIdx = 0, filter = "all", selectedId = null;
+  const narrow = window.matchMedia("(max-width: 1000px)");
+  let dealIdx = 0, tab = "all", hideDone = false, selectedId = null, freshStamp = null;
 
   // ---------- storage ----------
   function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; } }
@@ -268,24 +320,23 @@
 
   // ---------- dates ----------
   const parse = s => { if (!s) return null; const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
-  const iso = d => d ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` : null;
-  const fmt = d => d ? d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
+  const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+  const fmt = d => d ? `${String(d.getDate()).padStart(2, "0")} ${MONTHS[d.getMonth()]} ${d.getFullYear()}` : "—";
   const money = n => n == null ? null : n >= 1e6 ? `$${(n / 1e6).toFixed(n % 1e6 ? 1 : 0)}M` : `$${Math.round(n).toLocaleString("en-US")}`;
   function addMonths(d, m) { const t = new Date(d.getFullYear(), d.getMonth() + m, 1);
-    const last = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate(); t.setDate(Math.min(d.getDate(), last)); return t; }
+    t.setDate(Math.min(d.getDate(), new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate())); return t; }
   function addBiz(d, n) { const t = new Date(d); while (n > 0) { t.setDate(t.getDate() + 1); if (t.getDay() % 6) n--; } return t; }
   function offset(d, tm) { let r = new Date(d); if (tm.offset_months) r = addMonths(r, tm.offset_months);
     if (tm.offset_days) r = tm.business_days ? addBiz(r, tm.offset_days) : new Date(r.getTime() + tm.offset_days * DAY); return r; }
   const daysUntil = d => Math.round((d - today) / DAY);
-  function rel(d) { const n = daysUntil(d); if (n === 0) return "today"; if (n === 1) return "tomorrow"; if (n === -1) return "yesterday";
-    return n > 0 ? `in ${n} days` : `${-n} days ago`; }
+  function rel(d) { const n = daysUntil(d); if (n === 0) return "Today"; if (n === 1) return "Tomorrow"; if (n === -1) return "Yesterday";
+    return n > 0 ? `In ${n} days` : `${-n} days ago`; }
 
   // ---------- model ----------
   function outcomesFor(deal) {
-    const local = store[dealKey(deal)] || {};
     const map = {};
     (deal.outcomes || []).forEach(o => { (map[o.obligation_id] ||= []).push({ ...o, seeded: true }); });
-    Object.entries(local).forEach(([id, list]) => { (map[id] ||= []).push(...list); });
+    Object.entries(store[dealKey(deal)] || {}).forEach(([id, list]) => { (map[id] ||= []).push(...list); });
     Object.values(map).forEach(l => l.sort((a, b) => a.recorded_on.localeCompare(b.recorded_on)));
     return map;
   }
@@ -295,15 +346,14 @@
     const byId = Object.fromEntries(deal.obligations.map(o => [o.id, o]));
     const latest = id => (outs[id] || []).slice(-1)[0];
     const cache = {};
-
     function due(o) {
       if (o.id in cache) return cache[o.id];
       cache[o.id] = { date: parse(o.due_date), basis: o.due_date_basis, recalculated: false };
-      const tm = o.timing;
-      if (tm.anchor === "other_obligation" && byId[tm.depends_on]) {
-        const p = byId[tm.depends_on], pl = latest(p.id);
+      const tm = o.timing, p = byId[tm.depends_on];
+      if (tm.anchor === "other_obligation" && p) {
+        const pl = latest(p.id);
         if (pl && ["satisfied", "partial"].includes(pl.status)) {
-          cache[o.id] = { date: offset(parse(pl.recorded_on), tm), basis: `Recalculated from actual date of '${p.title}' (${fmt(parse(pl.recorded_on))})`, recalculated: true };
+          cache[o.id] = { date: offset(parse(pl.recorded_on), tm), basis: `Recalculated from the actual date of '${p.title}' (${fmt(parse(pl.recorded_on))})`, recalculated: true };
         } else {
           const pd = due(p);
           if (pd.recalculated && pd.date) cache[o.id] = { date: offset(pd.date, tm), basis: `Recalculated from '${p.title}'`, recalculated: true };
@@ -311,7 +361,6 @@
       }
       return cache[o.id];
     }
-
     function blockedBy(o) {
       let cur = o, guard = 0;
       while (cur.timing.anchor === "other_obligation" && byId[cur.timing.depends_on] && guard++ < 10) {
@@ -321,236 +370,255 @@
       }
       return null;
     }
-
     return deal.obligations.map(o => {
-      const d = due(o), last = latest(o.id), period = PERIOD_CATS.has(o.category);
-      let key, label;
-      const blocker = blockedBy(o);
-      if (last && ["satisfied", "waived", "expired"].includes(last.status)) { key = "done"; label = OUTCOME_LABEL[last.status]; }
-      else if (last && last.status === "partial") { key = "done"; label = "Partially done"; }
-      else if (last && last.status === "disputed") { key = "hold"; label = "Disputed"; }
-      else if (blocker) { key = "hold"; label = "On hold: dispute"; }
-      else if (!d.date) { key = "event"; label = "Event-triggered"; }
-      else if (daysUntil(d.date) < 0) { key = period ? "done" : "overdue"; label = period ? "Expired" : "Overdue"; }
-      else if (daysUntil(d.date) <= 30) { key = "soon"; label = period ? "Ends soon" : "Due soon"; }
-      else { key = period ? "effect" : "upcoming"; label = period ? "In effect" : "Upcoming"; }
-      const claim = last && last.status === "claim_made";
-      if (claim && key !== "done") { label = key === "soon" ? "Ends soon · claim open" : "Claim open"; }
-      return { ...o, d, last, history: outs[o.id] || [], key, label, period, blocker, claim };
+      const d = due(o), last = latest(o.id), period = PERIOD_CATS.has(o.category), blocker = blockedBy(o);
+      const claim = !!(last && last.status === "claim_made");
+      let key;
+      if (last && ["satisfied", "waived", "expired", "partial"].includes(last.status)) key = "done";
+      else if ((last && last.status === "disputed") || blocker) key = "hold";
+      else if (!d.date) key = "event";
+      else if (daysUntil(d.date) < 0) key = period ? "done" : "overdue";
+      else if (daysUntil(d.date) <= 30) key = "soon";
+      else key = period ? "effect" : "upcoming";
+      return { ...o, d, last, history: outs[o.id] || [], key, period, blocker, claim, lapsedPeriod: period && d.date && daysUntil(d.date) < 0 && !last };
     });
   }
-
   const needsAttention = it => ["overdue", "soon", "hold"].includes(it.key) || it.claim;
+
+  // What a rubber stamp would say about an outcome
+  function stampWord(it, status) {
+    const money = /escrow|holdback/.test(it.category) ? "Released" : /payment|bonus/i.test(it.title) ? "Paid" : null;
+    return {
+      satisfied: money || (it.category === "purchase_price_adjustment" || it.category === "earnout" ? "Delivered" : "Satisfied"),
+      partial: money ? `Part ${money.toLowerCase()}` : "Partial",
+      disputed: "Disputed", claim_made: "Claim filed", waived: "Waived", expired: "Lapsed",
+    }[status];
+  }
+  const stampClass = s => ({ disputed: "hold", claim_made: "bad", expired: "bad" }[s] || "ok");
 
   // ---------- render ----------
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function stateHTML(it) {
+    if (it.last && it.last.status !== "claim_made") {
+      const fresh = freshStamp === it.id ? " fresh" : "";
+      return `<span class="stamp ${stampClass(it.last.status)}${fresh}">${esc(stampWord(it, it.last.status))}</span>`;
+    }
+    if (it.blocker) return `<span class="stamp hold">On hold</span>`;
+    if (it.lapsedPeriod) return `<span class="due"><b>Ended</b>${esc(rel(it.d.date))}</span>`;
+    if (!it.d.date) return `<span class="due"><b>On event</b>no fixed date</span>`;
+    const lead = it.period ? "Ends" : it.key === "overdue" ? "Overdue" : "Due";
+    const claim = it.claim ? `<div style="margin-top:8px"><span class="stamp bad${freshStamp === it.id ? " fresh" : ""}">Claim filed</span></div>` : "";
+    return `<span class="due k-${it.key}"><b>${esc(rel(it.d.date))}</b>${lead}</span>${claim}`;
+  }
 
   function render() {
     const deal = deals[dealIdx];
     if (!deal) { $("dealName").textContent = "No deals loaded"; return; }
     const items = build(deal);
 
-    $("sampleNote").hidden = !deal.is_sample;
-    $("dealKicker").textContent = `${deal.agreement_title}${deal.governing_law ? " · " + deal.governing_law + " law" : ""}`;
+    $("fiction").hidden = !deal.is_sample;
+    $("kicker").textContent = [deal.agreement_title, deal.governing_law && `${deal.governing_law} law`].filter(Boolean).join(" · ");
     $("dealName").textContent = deal.deal_name;
-    const meta = [
-      ["Buyer", deal.buyer], ["Target", deal.target],
-      ["Signed", fmt(parse(deal.signing_date))], ["Closed", fmt(parse(deal.closing_date))],
-      ["Base price", money(deal.base_purchase_price_usd)],
-    ].filter(([, v]) => v && v !== "—");
-    $("dealMeta").innerHTML = meta.map(([k, v]) => `<div class="meta"><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+    $("price").textContent = money(deal.base_purchase_price_usd) || "—";
+    $("columns").innerHTML = [["Buyer", deal.buyer], ["Target", deal.target], ["Seller", deal.seller],
+      ["Signed", fmt(parse(deal.signing_date))], ["Closed", fmt(parse(deal.closing_date))]]
+      .filter(([, v]) => v && v !== "—")
+      .map(([k, v]) => `<div><dt class="cap">${k}</dt><dd>${esc(v)}</dd></div>`).join("");
 
-    // attention
+    // Countdown: the next dated thing someone has to act on
+    const ahead = items.filter(i => i.d.date && daysUntil(i.d.date) >= 0 && !["done", "hold"].includes(i.key))
+      .sort((a, b) => a.d.date - b.d.date);
+    const next = ahead[0];
+    if (next) {
+      const n = daysUntil(next.d.date), same = ahead.filter(i => +i.d.date === +next.d.date);
+      $("countdown").innerHTML = `
+        <span class="cap">Next deadline</span>
+        <div class="n">${String(n).padStart(2, "0")}</div>
+        <div class="unit">${n === 1 ? "day" : "days"} · ${fmt(next.d.date)}</div>
+        <p><b>${esc(next.title)}</b>${same.length > 1 ? ` and ${same.length - 1} more on the same day: ${same.slice(1).map(s => esc(s.title)).join(", ")}` : ""}.</p>`;
+    } else {
+      $("countdown").innerHTML = `<span class="cap">Next deadline</span><div class="n">—</div><p>No dated deadlines ahead.</p>`;
+    }
+
+    // Docket list
     const att = items.filter(needsAttention).sort((a, b) => (a.d.date || Infinity) - (b.d.date || Infinity));
     $("asOf").textContent = `As of ${fmt(today)}`;
-    $("attList").innerHTML = att.length ? att.map(it => `
-      <li class="att-item" data-id="${it.id}" tabindex="0">
-        <div class="att-when">${it.d.date ? `<strong>${fmt(it.d.date).replace(/, \d{4}$/, "")}</strong>${rel(it.d.date)}` : "<strong>Event</strong>trigger"}</div>
-        <div><div class="att-title">${esc(it.title)}</div><div class="att-sub">${esc(attentionReason(it))}</div></div>
-        <span class="pill s-${it.key}">${esc(it.label)}</span>
-      </li>`).join("") : `<li class="empty">Nothing overdue, disputed or due in the next 30 days.</li>`;
+    $("urgent").innerHTML = att.length ? att.map(it => `
+      <li data-id="${it.id}" tabindex="0">
+        <div class="u-when">${it.d.date ? `<b>${fmt(it.d.date).slice(0, 6)}</b>${esc(rel(it.d.date))}` : "<b>Event</b>trigger"}</div>
+        <div><div class="u-title">${esc(it.title)}</div><div class="u-why">${esc(why(it))}</div></div>
+        <div>${it.key === "hold" || it.claim ? `<span class="stamp ${it.claim ? "bad" : "hold"}">${it.claim ? "Claim filed" : it.blocker ? "On hold" : "Disputed"}</span>` : `<span class="due k-${it.key}"><b>§ ${esc(it.section_ref.split(",")[0])}</b></span>`}</div>
+      </li>`).join("") : `<li style="cursor:default"><div></div><div class="u-why">Nothing overdue, disputed or due in the next 30 days.</div><div></div></li>`;
 
-    // stats
-    const dated = items.filter(i => i.d.date && !i.period && i.key !== "done");
-    const next = dated.filter(i => daysUntil(i.d.date) >= 0).sort((a, b) => a.d.date - b.d.date)[0];
+    // Totals
     const open = items.filter(i => i.key !== "done").length;
     const disputes = items.filter(i => (i.last && i.last.status === "disputed") || i.claim).length;
-    const contingent = items.filter(i => i.category === "earnout" && i.terms.amount_usd && i.key !== "done")
-      .reduce((s, i) => s + i.terms.amount_usd, 0);
-    $("stats").innerHTML = [
-      [next ? rel(next.d.date).replace("in ", "") : "—", next ? `Until next action: ${next.title}` : "No dated actions ahead"],
-      [open, `Open obligations of ${items.length} extracted`],
-      [disputes, "Open disputes and indemnity claims"],
-      [money(contingent) || "$0", "Earnout still at stake"],
-    ].map(([v, l]) => `<div class="stat"><div class="v">${esc(v)}</div><div class="l">${esc(l)}</div></div>`).join("");
+    const earnout = items.filter(i => i.category === "earnout" && i.terms.amount_usd && i.key !== "done").reduce((s, i) => s + i.terms.amount_usd, 0);
+    const done = items.filter(i => i.last && ["satisfied", "partial", "waived"].includes(i.last.status)).length;
+    $("totals").innerHTML = [[open, "Open obligations"], [disputes, "Disputes and claims open"],
+      [money(earnout) || "$0", "Earnout still in play"], [`${done}/${items.length}`, "Entries with an outcome"]]
+      .map(([v, l]) => `<div><span class="cap">${l}</span><span class="v">${esc(v)}</span></div>`).join("");
 
-    renderTimeline(deal, items);
-    renderFilters(items);
-    renderRows(items);
-    if (selectedId) openDrawer(selectedId, false);
+    renderTape(deal, items);
+    renderTabs(items);
+    renderLedger(items);
+    renderReader(items);
+    freshStamp = null;
   }
 
-  function attentionReason(it) {
-    if (it.blocker) return `Waiting on dispute over '${it.blocker.title}'`;
-    if (it.last && it.last.status === "disputed") return it.last.notes || "Disputed";
-    if (it.claim && it.key === "soon") return `Deadline ${rel(it.d.date)}; ${money(it.last.amount_usd) || "a"} claim is open`;
-    if (it.claim) return it.last.notes || "Claim open";
-    if (it.key === "overdue") return `${it.obligor} · no outcome recorded`;
-    return `${it.obligor} · ${CAT[it.category]}`;
+  function why(it) {
+    if (it.blocker) return `Waits on the dispute over '${it.blocker.title}'.`;
+    if (it.last && it.last.status === "disputed") return it.last.notes || "Disputed.";
+    if (it.claim && it.key === "soon") return `Cutoff ${rel(it.d.date).toLowerCase()}. ${money(it.last.amount_usd) || "A"} claim is on file.`;
+    if (it.claim) return it.last.notes || "Claim on file.";
+    if (it.key === "overdue") return `${it.obligor}. No outcome recorded yet.`;
+    return `${it.obligor} · ${it.description}`;
   }
 
-  const FILTERS = [
-    ["attention", "Needs attention", needsAttention],
-    ["upcoming", "Upcoming", i => ["upcoming", "soon", "effect"].includes(i.key)],
-    ["event", "Event-triggered", i => i.key === "event"],
-    ["done", "Done", i => i.key === "done"],
-    ["all", "All", () => true],
-  ];
-  function renderFilters(items) {
-    $("filters").innerHTML = FILTERS.map(([k, label, fn]) =>
-      `<button class="chip" type="button" data-f="${k}" aria-pressed="${filter === k}">${label}<span class="n">${items.filter(fn).length}</span></button>`).join("");
-  }
-  function renderRows(items) {
-    const fn = FILTERS.find(f => f[0] === filter)[2];
-    const rows = items.filter(fn).sort((a, b) => (a.d.date || Infinity) - (b.d.date || Infinity));
-    $("rows").innerHTML = rows.length ? rows.map(it => `
-      <tr data-id="${it.id}" tabindex="0" class="${it.id === selectedId ? "selected" : ""}">
-        <td class="t-date">${it.d.date ? fmt(it.d.date) : "—"}<small>${it.d.date ? (it.period ? "ends · " : "") + rel(it.d.date) : "on event"}</small></td>
-        <td><div class="t-title">${esc(it.title)}</div><div class="t-desc">${esc(it.description)}</div>
-          ${it.confidence < 0.9 ? `<div class="low-conf">Review suggested · confidence ${Math.round(it.confidence * 100)}%</div>` : ""}</td>
-        <td>${esc(it.obligor)}<div class="cat">${CAT[it.category]}</div></td>
-        <td><span class="pill s-${it.key}">${esc(it.label)}</span></td>
-        <td class="t-sec">§ ${esc(it.section_ref)}</td>
-      </tr>`).join("") : `<tr><td colspan="5" class="empty">Nothing in this view.</td></tr>`;
-  }
-
-  // ---------- timeline ----------
-  const COLOR = { overdue: "--critical", soon: "--warn", upcoming: "--accent", effect: "--accent", hold: "--hold", done: "--ok", event: "--faint" };
-  function renderTimeline(deal, items) {
-    const svg = $("tl"), css = getComputedStyle(document.documentElement), v = n => css.getPropertyValue(n).trim();
+  function renderTape(deal, items) {
     const start = parse(deal.closing_date) || today;
     const dated = items.filter(i => i.d.date);
-    const maxD = new Date(Math.max(addMonths(start, 12), ...dated.map(i => i.d.date)));
-    const end = new Date(maxD.getFullYear() + 1, 0, 1);
-    const W = Math.max(680, svg.parentElement.clientWidth || 900), left = 150, right = 24, top = 16, laneH = 64, H = top + LANES.length * laneH + 34;
-    const x = d => left + (d - start) / (end - start) * (W - left - right);
-    svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("height", H);
-    let g = "";
-    // year grid
-    for (let y = start.getFullYear() + 1; y <= end.getFullYear(); y++) {
-      const X = x(new Date(y, 0, 1));
-      g += `<line x1="${X}" x2="${X}" y1="${top}" y2="${H - 26}" stroke="${v("--rule")}" />`;
-      g += `<text x="${X}" y="${H - 10}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="${v("--muted")}">${y}</text>`;
-    }
-    LANES.forEach((lane, li) => {
-      const y0 = top + li * laneH, cy = y0 + laneH / 2;
-      g += `<line x1="${left}" x2="${W - right}" y1="${y0 + laneH}" y2="${y0 + laneH}" stroke="${v("--rule")}" />`;
-      g += `<text x="0" y="${cy + 4}" font-size="12.5" font-weight="600" fill="${v("--muted")}" font-family="IBM Plex Sans, sans-serif">${lane.name}</text>`;
-      const laneItems = dated.filter(i => lane.cats.includes(i.category)).sort((a, b) => a.d.date - b.d.date);
-      // period bars
-      laneItems.filter(i => i.period).forEach((i, k) => {
-        const yy = y0 + 10 + (k % 4) * 6;
-        g += `<line x1="${x(start)}" x2="${x(i.d.date)}" y1="${yy}" y2="${yy}" stroke="${v(COLOR[i.key])}" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" />`;
-      });
-      // points, staggered to avoid overlap
-      let lastX = -99, row = 0;
-      laneItems.forEach(i => {
-        const X = x(i.d.date);
-        row = X - lastX < 14 ? (row + 1) % 3 : 0; lastX = X;
-        const Y = cy + 6 + (row - 1) * 12;
-        const col = v(COLOR[i.key]);
-        g += `<g class="mark" data-id="${i.id}" tabindex="0" role="button" aria-label="${esc(i.title)}, ${fmt(i.d.date)}">
-          <title>${esc(i.title)} · ${fmt(i.d.date)} · ${esc(i.label)}</title>
-          <circle cx="${X}" cy="${Y}" r="6" fill="${i.key === "done" ? col : v("--surface")}" stroke="${col}" stroke-width="2" /></g>`;
-      });
-    });
-    // closing + today
-    g += `<text x="${x(start) + 4}" y="${top + 10}" font-size="11" fill="${v("--muted")}" font-family="IBM Plex Mono, monospace">Closing</text>`;
-    g += `<line x1="${x(start)}" x2="${x(start)}" y1="${top}" y2="${H - 26}" stroke="${v("--rule-strong")}" />`;
-    if (today >= start && today <= end) {
-      const X = x(today);
-      g += `<line x1="${X}" x2="${X}" y1="${top}" y2="${H - 26}" stroke="${v("--ink")}" stroke-dasharray="3 3" />`;
-      g += `<text x="${X + 4}" y="${H - 30}" font-size="11" font-weight="600" fill="${v("--ink")}" font-family="IBM Plex Sans, sans-serif">Today</text>`;
-    }
-    svg.innerHTML = g;
+    const last = new Date(Math.max(+addMonths(start, 12), ...dated.map(i => +i.d.date)));
+    const end = new Date(last.getFullYear() + 1, 0, 1);
+    const pct = d => ((d - start) / (end - start) * 100).toFixed(2) + "%";
+    let h = `<div class="base"></div>`;
+    for (let y = start.getFullYear() + 1; y <= end.getFullYear(); y++) h += `<span class="yr" style="left:${pct(new Date(y, 0, 1))}">${y}</span>`;
+    dated.forEach(i => { h += `<button class="tick k-${i.key}" type="button" data-id="${i.id}" style="left:${pct(i.d.date)}" title="${esc(i.title)} · ${fmt(i.d.date)}" aria-label="${esc(i.title)}, ${fmt(i.d.date)}"></button>`; });
+    if (today >= start && today <= end) h += `<div class="now" style="left:${pct(today)}"><span>TODAY</span></div>`;
+    $("tape").innerHTML = h;
   }
 
-  // ---------- drawer ----------
-  function openDrawer(id, focus = true) {
-    const deal = deals[dealIdx], it = build(deal).find(i => i.id === id);
-    if (!it) return;
-    selectedId = id;
-    const t = it.terms, tm = it.timing;
-    const termRows = [
-      ["Amount", money(t.amount_usd)], ["Up to", money(t.max_amount_usd)], ["% of price", t.percent_of_price != null ? t.percent_of_price + "%" : null],
-      ["Threshold", money(t.threshold_usd)], ["Metric", t.metric], ["Duration", t.duration_months ? `${t.duration_months} months` : null], ["Note", t.notes],
-    ].filter(([, v]) => v);
-    const dep = tm.anchor === "other_obligation" ? deal.obligations.find(o => o.id === tm.depends_on) : null;
-    $("drawer").innerHTML = `
-      <div class="drawer-top">
-        <div style="display:grid;gap:8px"><span class="eyebrow">${CAT[it.category]} · § ${esc(it.section_ref)}</span><h2 id="dTitle">${esc(it.title)}</h2>
-          <div><span class="pill s-${it.key}">${esc(it.label)}</span></div></div>
-        <button class="close" type="button" id="closeDrawer" aria-label="Close">×</button>
-      </div>
-      <p style="margin:0">${esc(it.description)}</p>
-      <dl class="kv">
-        <dt>${it.period ? "Ends" : "Due"}</dt><dd class="num">${it.d.date ? `${fmt(it.d.date)} <span class="help">(${rel(it.d.date)})</span>` : "Triggered by an event"}</dd>
-        <dt>How computed</dt><dd>${esc(it.d.basis)}</dd>
-        ${dep ? `<dt>Depends on</dt><dd><a href="#" data-jump="${dep.id}">${esc(dep.title)}</a></dd>` : ""}
-        <dt>Who acts</dt><dd>${esc(it.obligor)}</dd>
-        ${it.beneficiary ? `<dt>For</dt><dd>${esc(it.beneficiary)}</dd>` : ""}
-        ${termRows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}
-        ${it.consequence_if_missed ? `<dt>If missed</dt><dd>${esc(it.consequence_if_missed)}</dd>` : ""}
-        <dt>Confidence</dt><dd class="num">${Math.round(it.confidence * 100)}%</dd>
-      </dl>
-      <div><div class="section-label">From the agreement</div>
-        <blockquote>${esc(it.source_quote)}<cite>Section ${esc(it.section_ref)}</cite></blockquote></div>
-      <div><div class="section-label">What happened</div>
-        ${it.history.length ? `<ul class="history">${it.history.map(h => `<li><span><span class="pill s-${statusKey(h.status)}">${OUTCOME_LABEL[h.status]}</span>
-          <span class="help num">&nbsp;${fmt(parse(h.recorded_on))}${h.amount_usd != null ? " · " + money(h.amount_usd) : ""}${h.seeded ? " · sample" : ""}</span></span>
-          ${h.notes ? `<span>${esc(h.notes)}</span>` : ""}</li>`).join("")}</ul>` : `<p class="help" style="margin:0">No outcome recorded yet.</p>`}
-      </div>
-      <form class="outcome" id="outForm">
-        <div class="section-label" style="margin:0">Record an outcome</div>
-        <div class="row">
-          <label for="oStatus">Status<select id="oStatus">${Object.entries(OUTCOME_LABEL).filter(([k]) => k !== "pending").map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select></label>
-          <label for="oDate">Date it happened<input id="oDate" type="date" value="${iso(today)}" required></label>
-        </div>
-        <label for="oAmt">Amount (USD, optional)<input id="oAmt" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 4500000"></label>
-        <label for="oNotes">Notes<textarea id="oNotes" placeholder="What was delivered, paid, disputed or claimed"></textarea></label>
-        <div class="form-actions"><button class="btn primary" type="submit">Save outcome</button><span class="saved" id="savedMsg" hidden></span></div>
-        <div class="help">Saved in this browser. Deadlines that depend on this one recalculate from the date you enter.</div>
-      </form>`;
-    $("drawer").hidden = false; $("scrim").hidden = false;
-    document.querySelectorAll("#rows tr").forEach(tr => tr.classList.toggle("selected", tr.dataset.id === id));
-    if (focus) $("closeDrawer").focus();
+  function renderTabs(items) {
+    $("tabs").innerHTML = TABS.map(([k, label, fn]) =>
+      `<button class="tab" role="tab" type="button" data-tab="${k}" aria-selected="${tab === k}">${label}<span class="n">${items.filter(fn).length}</span></button>`).join("")
+      + `<div class="tabs-extra"><label for="hideDone"><input type="checkbox" id="hideDone" ${hideDone ? "checked" : ""}> Hide completed</label></div>`;
   }
-  const statusKey = s => ({ satisfied: "done", partial: "done", waived: "done", expired: "done", disputed: "hold", claim_made: "hold" }[s] || "event");
-  function closeDrawer() { selectedId = null; $("drawer").hidden = true; $("scrim").hidden = true;
-    document.querySelectorAll("#rows tr.selected").forEach(tr => tr.classList.remove("selected")); }
+
+  function entryHTML(it) {
+    const d = it.d.date;
+    const dateCell = d ? `<span class="d">${String(d.getDate()).padStart(2, "0")}</span><span class="m">${MONTHS[d.getMonth()]}</span>`
+      : `<span class="ev">On<br>event</span>`;
+    const t = it.terms;
+    const foot = [
+      `Acts: <b>${esc(it.obligor)}</b>`,
+      t.amount_usd != null ? `Amount: <b>${money(t.amount_usd)}</b>` : t.max_amount_usd != null ? `Up to: <b>${money(t.max_amount_usd)}</b>` : "",
+      t.threshold_usd != null ? `Threshold: <b>${money(t.threshold_usd)}</b>` : "",
+      it.confidence < 0.9 ? `<span class="flag">Check drafting · ${Math.round(it.confidence * 100)}%</span>` : "",
+    ].filter(Boolean).join("");
+    return `<li class="entry k-${it.key}" data-id="${it.id}" tabindex="0" aria-current="${it.id === selectedId}">
+      <div class="e-date">${dateCell}</div>
+      <div class="e-body"><div class="e-ref">${CAT[it.category]} · § ${esc(it.section_ref)}</div>
+        <div class="e-title">${esc(it.title)}</div><div class="e-desc">${esc(it.description)}</div></div>
+      <div class="e-state">${stateHTML(it)}</div>
+      <div class="e-foot">${foot}</div>
+    </li>`;
+  }
+
+  function renderLedger(items) {
+    const fn = TABS.find(t => t[0] === tab)[2];
+    const shown = items.filter(fn).filter(i => !(hideDone && i.key === "done"));
+    const dated = shown.filter(i => i.d.date).sort((a, b) => a.d.date - b.d.date);
+    const events = shown.filter(i => !i.d.date);
+    let h = "", year = null, todayPlaced = false;
+    const todayBand = `<li class="today-band" aria-label="Today"><span>Today</span><span>${fmt(today)}</span></li>`;
+    dated.forEach(it => {
+      if (!todayPlaced && it.d.date >= today) {
+        if (today.getFullYear() !== year) { year = today.getFullYear(); h += yearHTML(year, dated); }
+        h += todayBand; todayPlaced = true;
+      }
+      if (it.d.date.getFullYear() !== year) { year = it.d.date.getFullYear(); h += yearHTML(year, dated); }
+      h += entryHTML(it);
+    });
+    if (!todayPlaced && dated.length) h += todayBand;
+    if (events.length) {
+      h += `<li class="standing"><h3>Standing orders</h3><p>Triggered by an event, not a date. Each one starts a clock when it happens.</p></li>`;
+      h += events.map(entryHTML).join("");
+    }
+    $("ledger").innerHTML = h || `<li class="empty-row">No entries in this view.</li>`;
+  }
+  function yearHTML(y, dated) {
+    const n = dated.filter(i => i.d.date.getFullYear() === y).length;
+    return `<li class="year">${y}<small>${n} ${n === 1 ? "entry" : "entries"}</small></li>`;
+  }
+
+  function renderReader(items) {
+    const r = $("reader");
+    const it = items.find(i => i.id === selectedId);
+    if (!it) { r.classList.add("idle"); r.innerHTML = ""; return; }
+    r.classList.remove("idle");
+    const deal = deals[dealIdx], t = it.terms, tm = it.timing;
+    const dep = tm.anchor === "other_obligation" ? deal.obligations.find(o => o.id === tm.depends_on) : null;
+    const rows = [
+      [it.period ? "Ends" : "Due", it.d.date ? `${fmt(it.d.date)}` : "On event", true],
+      ["Computed as", it.d.basis],
+      ["Who acts", it.obligor], ["For", it.beneficiary],
+      ["Amount", money(t.amount_usd), true], ["Up to", money(t.max_amount_usd), true],
+      ["Share of price", t.percent_of_price != null ? `${t.percent_of_price}%` : null, true],
+      ["Threshold", money(t.threshold_usd), true], ["Metric", t.metric],
+      ["Duration", t.duration_months ? `${t.duration_months} months` : null, true],
+      ["If missed", it.consequence_if_missed], ["Note", t.notes],
+      ["Confidence", `${Math.round(it.confidence * 100)}%`, true],
+    ].filter(([, v]) => v);
+    r.innerHTML = `
+      <div class="r-top">
+        <div class="r-sec"><small>${CAT[it.category]} · Section</small>§ ${esc(it.section_ref)}</div>
+        <button class="x" type="button" id="closeReader">Close</button>
+      </div>
+      <div class="r-title">${esc(it.title)}</div>
+      <blockquote class="quote">${esc(it.source_quote)}</blockquote>
+      <dl class="leaders">${rows.map(([k, v, m]) => `<div><dt>${k}</dt><span class="dots"></span><dd class="${m ? "mono" : ""}">${esc(v)}</dd></div>`).join("")}
+        ${dep ? `<div><dt>Depends on</dt><span class="dots"></span><dd><a href="#" data-jump="${dep.id}" style="color:inherit">${esc(dep.title)}</a></dd></div>` : ""}</dl>
+      <div><div class="r-label">What happened</div>
+        ${it.history.length ? `<ul class="hist">${it.history.map(h => `<li><span class="stamp ${stampClass(h.status)}">${esc(stampWord(it, h.status))}</span>
+          <div><div class="meta">${fmt(parse(h.recorded_on))}${h.amount_usd != null ? " · " + money(h.amount_usd) : ""}${h.seeded ? " · sample" : ""}</div>${h.notes ? esc(h.notes) : ""}</div></li>`).join("")}</ul>`
+          : `<div class="note">Nothing recorded yet.</div>`}
+      </div>
+      <form class="record" id="recordForm">
+        <div class="r-label" style="margin:0">Stamp an outcome</div>
+        <div class="pair">
+          <label class="f" for="oStatus">Outcome<select id="oStatus">${Object.entries(OUTCOME_LABEL).map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select></label>
+          <label class="f" for="oDate">Date<input id="oDate" type="date" value="${iso(today)}" required></label>
+        </div>
+        <label class="f" for="oAmt">Amount, USD (optional)<input id="oAmt" type="number" min="0" step="1" inputmode="numeric" placeholder="4500000"></label>
+        <label class="f" for="oNotes">Notes<textarea id="oNotes" placeholder="What was delivered, paid, disputed or claimed"></textarea></label>
+        <button class="go" type="submit">Stamp it</button>
+        <span class="ok-msg" id="okMsg" hidden></span>
+        <div class="note">Saved in this browser. Deadlines that depend on this entry recalculate from the date you enter.</div>
+      </form>`;
+  }
+
+  function select(id, scroll) {
+    selectedId = id;
+    render();
+    if (scroll) document.querySelector(`.entry[data-id="${id}"]`)?.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }
 
   // ---------- events ----------
   document.addEventListener("click", e => {
-    const f = e.target.closest("[data-f]"); if (f) { filter = f.dataset.f; render(); return; }
-    const j = e.target.closest("[data-jump]"); if (j) { e.preventDefault(); openDrawer(j.dataset.jump); return; }
-    if (e.target.id === "closeDrawer" || e.target.id === "scrim") { closeDrawer(); return; }
-    const row = e.target.closest("[data-id]"); if (row && !e.target.closest("#drawer")) openDrawer(row.dataset.id);
+    const tb = e.target.closest("[data-tab]"); if (tb) { tab = tb.dataset.tab; render(); return; }
+    const j = e.target.closest("[data-jump]"); if (j) { e.preventDefault(); select(j.dataset.jump, true); return; }
+    if (e.target.id === "closeReader") { selectedId = null; render(); return; }
+    if (e.target.id === "openFile") { $("fileIn").click(); return; }
+    const row = e.target.closest("[data-id]");
+    if (row && !e.target.closest("#reader")) select(row.dataset.id, !row.classList.contains("entry"));
   });
+  document.addEventListener("change", e => { if (e.target.id === "hideDone") { hideDone = e.target.checked; render(); } });
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && !$("drawer").hidden) closeDrawer();
-    if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-id]")) { e.preventDefault(); openDrawer(e.target.dataset.id); }
+    if (e.key === "Escape" && selectedId) { selectedId = null; render(); }
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches("li[data-id]")) { e.preventDefault(); select(e.target.dataset.id, !e.target.classList.contains("entry")); }
   });
   document.addEventListener("submit", e => {
-    if (e.target.id !== "outForm") return;
+    if (e.target.id !== "recordForm") return;
     e.preventDefault();
     const deal = deals[dealIdx], k = dealKey(deal), amt = $("oAmt").value;
-    const entry = { obligation_id: selectedId, status: $("oStatus").value, recorded_on: $("oDate").value,
-      amount_usd: amt === "" ? null : Number(amt), notes: $("oNotes").value.trim() || null };
-    ((store[k] ||= {})[selectedId] ||= []).push(entry);
+    ((store[k] ||= {})[selectedId] ||= []).push({ obligation_id: selectedId, status: $("oStatus").value, recorded_on: $("oDate").value,
+      amount_usd: amt === "" ? null : Number(amt), notes: $("oNotes").value.trim() || null });
     const ok = saveStore(store);
+    freshStamp = selectedId;
     render();
-    const msg = $("savedMsg"); if (msg) { msg.hidden = false; msg.textContent = ok ? "Saved" : "Saved for this visit only (browser storage is off)"; }
+    const m = $("okMsg"); if (m) { m.hidden = false; m.textContent = ok ? "Stamped" : "Stamped for this visit only (browser storage is off)"; }
   });
   $("fileIn").addEventListener("change", async e => {
     const file = e.target.files[0]; if (!file) return;
@@ -558,20 +626,22 @@
       const data = JSON.parse(await file.text());
       const list = Array.isArray(data) ? data : [data];
       if (!list.every(d => d.deal_name && Array.isArray(d.obligations))) throw new Error("shape");
-      deals.push(...list); dealIdx = deals.length - list.length; filter = "all"; closeDrawer(); syncPicker(); render();
-    } catch { alertInline("That file isn't a tracker file. Use the JSON written by tracker.extract."); }
+      deals.push(...list); dealIdx = deals.length - list.length; selectedId = null; syncPicker(); render();
+    } catch { $("asOf").textContent = "That file isn't a tracker file. Use the JSON written by tracker.extract."; }
     e.target.value = "";
   });
-  function alertInline(text) { $("asOf").textContent = text; }
   function syncPicker() {
     const p = $("dealPick"); p.hidden = deals.length < 2;
     p.innerHTML = deals.map((d, i) => `<option value="${i}" ${i === dealIdx ? "selected" : ""}>${esc(d.deal_name)}</option>`).join("");
   }
-  $("dealPick").addEventListener("change", e => { dealIdx = Number(e.target.value); closeDrawer(); render(); });
-  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => renderTimeline(deals[dealIdx], build(deals[dealIdx])), 120); });
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", render);
-  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  $("dealPick").addEventListener("change", e => { dealIdx = Number(e.target.value); selectedId = null; render(); });
 
-  syncPicker(); render();
+  // Open on the most pressing entry so the clause reader is never empty on desktop
+  syncPicker();
+  if (deals[0] && !narrow.matches) {
+    const first = build(deals[0]).filter(needsAttention).filter(i => i.d.date && daysUntil(i.d.date) >= 0).sort((a, b) => a.d.date - b.d.date)[0];
+    selectedId = first ? first.id : null;
+  }
+  render();
 })();
 </script>
