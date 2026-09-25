@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Postclose Demo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -325,11 +326,14 @@
 
   <footer>
     <div>Dates come from each agreement's own rules (closing + 18 months, fiscal year end + 90 days). Record an actual date and every deadline that depends on it moves. Reminders go out 60 days before each deadline.</div>
-    <div>Demo only. The fund, the deals, their clauses and outcomes are invented. Outcomes you record stay in this browser.</div>
+    <div id="disclaimer">Demo only. The fund, the deals, their clauses and outcomes are invented. Outcomes you record stay in this browser.</div>
   </footer>
 </div>
 
-<script src="data.js"></script>
+<script>
+  // ?data=edgar loads real SEC EDGAR deals (samples/edgar_deals.py); default is the fictional fund.
+  document.write('<script src="' + (new URLSearchParams(location.search).get("data") === "edgar" ? "edgar-data.js" : "data.js") + '"><\/script>');
+</script>
 <script>
 (() => {
   const CAT = {
@@ -481,6 +485,7 @@
     const fundMode = isFund();
 
     $("fiction").hidden = !deals.some(d => d.is_sample);
+    if (deals.length && !deals.some(d => d.is_sample)) $("disclaimer").textContent = "Real agreements from public SEC filings. Obligations were extracted by hand and should be checked against the source; no outcomes are recorded. Outcomes you record stay in this browser.";
     $("crumb").innerHTML = deals.length > 1
       ? (fundMode ? `<span>Fund docket</span>` : `<button type="button" data-view="fund">Fund docket</button><span>/ ${esc(shortName(deals[view]))}</span>`)
       : "";
@@ -492,7 +497,7 @@
       $("priceLabel").textContent = "Deal value tracked";
       $("price").textContent = money(deals.reduce((s, d) => s + (d.base_purchase_price_usd || 0), 0)) || "—";
       $("columns").innerHTML = [
-        ["Deals", `${deals.filter(d => d.fund_role !== "seller").length} bought · ${deals.filter(d => d.fund_role === "seller").length} sold`],
+        ["Deals", deals.some(d => d.fund_role) ? `${deals.filter(d => d.fund_role !== "seller").length} bought · ${deals.filter(d => d.fund_role === "seller").length} sold` : String(deals.length)],
         ["Closings", closings.length ? `${closings[0].getFullYear()} to ${closings[closings.length - 1].getFullYear()}` : "—"],
         ["Obligations tracked", String(items.length)],
         ["Due in next 60 days", String(items.filter(i => i.d.date && i.key !== "done" && daysUntil(i.d.date) >= 0 && daysUntil(i.d.date) <= REMIND_DAYS).length)],
@@ -563,7 +568,7 @@
       const flags = [od && `<span class="flag-pill bad">${od} overdue</span>`, hold && `<span class="flag-pill hold">${hold} on hold</span>`, cl && `<span class="flag-pill bad">${cl} claim</span>`].filter(Boolean).join("") || `<span class="dt">—</span>`;
       return `<tr data-deal="${di}" tabindex="0">
         <td><div class="dn">${esc(shortName(deal))}</div><div class="dt">${esc(deal.target)}</div></td>
-        <td><span class="side ${deal.fund_role === "seller" ? "sell" : ""}">${deal.fund_role === "seller" ? "Sold" : "Bought"}</span></td>
+        <td>${deal.fund_role ? `<span class="side ${deal.fund_role === "seller" ? "sell" : ""}">${deal.fund_role === "seller" ? "Sold" : "Bought"}</span>` : "—"}</td>
         <td class="num">${fmt(parse(deal.closing_date))}</td>
         <td class="num">${its.filter(i => i.key !== "done").length} of ${its.length}</td>
         <td>${nxt ? `<div class="num">${fmt(nxt.d.date)} · ${esc(rel(nxt.d.date))}</div><div class="dt">${esc(nxt.title)}</div>` : `<span class="dt">None ahead</span>`}</td>

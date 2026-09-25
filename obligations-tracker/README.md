@@ -34,6 +34,13 @@ python -m tracker.extract data/edgar/<file>.htm --closing-date 2025-06-30 -o dat
 
 Open `demo/index.html` and use **Open tracker file** to load any `deal.json`.
 
+**Real deals:** `demo/index.html?data=edgar` shows two public agreements from
+EDGAR (Climb Global / Douglas Stewart, 2024; Sterling / CEC Facilities, 2025),
+built by `python -m samples.edgar_deals`. These were extracted by hand, not by
+`tracker.extract`, as a stand-in until the pipeline runs with an API key.
+`tests/test_edgar_deals.py` checks every source quote verbatim against the
+downloaded filings.
+
 ## Design rules
 
 1. The model extracts timing *rules*; code computes *dates*.

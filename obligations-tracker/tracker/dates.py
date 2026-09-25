@@ -74,7 +74,11 @@ def compute_due_date(
 
     t = ob.timing
     if t.anchor == Anchor.FIXED_DATE:
-        return t.fixed_date, "Fixed date in agreement" if t.fixed_date else "Fixed date missing"
+        if not t.fixed_date:
+            return None, "Fixed date missing"
+        if t.offset_months or t.offset_days:
+            return _apply_offset(t.fixed_date, ob), f"{t.fixed_date.isoformat()} + {_describe_offset(ob)}"
+        return t.fixed_date, "Fixed date in agreement"
 
     if t.anchor == Anchor.CLOSING:
         if not deal.closing_date:
