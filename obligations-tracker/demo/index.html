@@ -1,0 +1,577 @@
+<title>Postclose Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap">
+<style>
+  :root {
+    --paper: #F6F7F5;
+    --surface: #FFFFFF;
+    --ink: #1A2230;
+    --muted: #5A6472;
+    --faint: #8A929C;
+    --rule: #DDE1DD;
+    --rule-strong: #C3C9C4;
+    --accent: #2F4DB3;
+    --accent-soft: #E6EAF8;
+    --critical: #B42318;
+    --critical-soft: #FBE9E7;
+    --warn: #9A5705;
+    --warn-soft: #FBF0DF;
+    --ok: #2D7A4E;
+    --ok-soft: #E3F2E8;
+    --hold: #7A3E9D;
+    --hold-soft: #F1E7F7;
+    --quiet-soft: #EEF0EE;
+    --shadow: 0 1px 2px rgba(26, 34, 48, .06), 0 8px 24px rgba(26, 34, 48, .08);
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper: #12161D; --surface: #1A2029; --ink: #E7EAEE; --muted: #A3ACB8; --faint: #7A8490;
+      --rule: #2A323D; --rule-strong: #3A4450; --accent: #8FA5F0; --accent-soft: #232C47;
+      --critical: #F2877B; --critical-soft: #3A1E1C; --warn: #E6B062; --warn-soft: #362A17;
+      --ok: #7CC99A; --ok-soft: #1B3226; --hold: #C9A0E3; --hold-soft: #2E2238; --quiet-soft: #222932;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #12161D; --surface: #1A2029; --ink: #E7EAEE; --muted: #A3ACB8; --faint: #7A8490;
+    --rule: #2A323D; --rule-strong: #3A4450; --accent: #8FA5F0; --accent-soft: #232C47;
+    --critical: #F2877B; --critical-soft: #3A1E1C; --warn: #E6B062; --warn-soft: #362A17;
+    --ok: #7CC99A; --ok-soft: #1B3226; --hold: #C9A0E3; --hold-soft: #2E2238; --quiet-soft: #222932;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  body { background: var(--paper); color: var(--ink); font: 15px/1.5 var(--sans); padding-inline: 20px; padding-block: 0 64px; }
+  .wrap { max-width: 1120px; margin: 0 auto; display: grid; gap: 28px; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
+  .mono, .num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .eyebrow { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  button, select, input, textarea { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* App bar */
+  .appbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    padding-block: 14px; border-bottom: 1px solid var(--rule); }
+  .brand { display: flex; align-items: baseline; gap: 10px; }
+  .brand b { font-family: var(--serif); font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+  .brand span { font-size: 12.5px; color: var(--muted); }
+  .appbar-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .btn { border: 1px solid var(--rule-strong); background: var(--surface); border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 13.5px; }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+  .sample-note { font-size: 12.5px; color: var(--warn); background: var(--warn-soft); border-radius: 999px; padding: 3px 10px; }
+
+  /* Deal header */
+  .deal { display: grid; gap: 14px; }
+  .deal h1 { font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 4vw, 38px); line-height: 1.1; letter-spacing: -.015em; }
+  .deal-meta { display: flex; flex-wrap: wrap; gap: 10px 28px; }
+  .meta { display: grid; gap: 2px; }
+  .meta dt { font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+  .meta dd { margin: 0; font-weight: 500; }
+
+  /* Summary */
+  .summary { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+  @media (max-width: 820px) { .summary { grid-template-columns: 1fr; } }
+  .panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; }
+  .attention { padding: 18px 20px; display: grid; gap: 12px; }
+  .attention-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .attention-head h2 { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+  .att-list { list-style: none; margin: 0; padding: 0; display: grid; }
+  .att-item { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 12px; align-items: center;
+    padding-block: 10px; border-top: 1px solid var(--rule); cursor: pointer; }
+  .att-item:first-child { border-top: 0; }
+  .att-item:hover .att-title { color: var(--accent); }
+  .att-when { font-family: var(--mono); font-size: 12.5px; color: var(--muted); }
+  .att-when strong { display: block; font-size: 14px; color: var(--ink); font-weight: 500; }
+  .att-title { font-weight: 500; }
+  .att-sub { font-size: 13px; color: var(--muted); }
+  .empty { color: var(--muted); font-size: 14px; }
+
+  .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat { padding: 16px 18px; border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); display: grid; gap: 4px; }
+  .stat:nth-child(2n) { border-right: 0; }
+  .stat:nth-last-child(-n+2) { border-bottom: 0; }
+  .stat .v { font-family: var(--mono); font-size: 24px; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: 13px; color: var(--muted); }
+
+  /* Pills */
+  .pill { display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; padding: 2px 9px; font-size: 12px; font-weight: 600; white-space: nowrap; }
+  .pill::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+  .s-overdue { color: var(--critical); background: var(--critical-soft); }
+  .s-soon { color: var(--warn); background: var(--warn-soft); }
+  .s-upcoming { color: var(--accent); background: var(--accent-soft); }
+  .s-effect { color: var(--accent); background: var(--accent-soft); }
+  .s-done { color: var(--ok); background: var(--ok-soft); }
+  .s-hold { color: var(--hold); background: var(--hold-soft); }
+  .s-event { color: var(--muted); background: var(--quiet-soft); }
+
+  /* Timeline */
+  .timeline { padding: 18px 20px 12px; display: grid; gap: 10px; }
+  .timeline-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .timeline-head h2, .ledger-head h2 { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12.5px; color: var(--muted); }
+  .legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+  .tl-scroll { overflow-x: auto; }
+  #tl { display: block; min-width: 680px; width: 100%; }
+  #tl .mark { cursor: pointer; }
+  #tl .mark:hover circle, #tl .mark:focus circle { stroke-width: 3; }
+
+  /* Ledger */
+  .ledger-head { display: flex; justify-content: space-between; align-items: end; gap: 12px; flex-wrap: wrap; }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; }
+  .chip { border: 1px solid var(--rule-strong); background: transparent; border-radius: 999px; padding: 4px 12px; font-size: 13px; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .chip .n { font-family: var(--mono); font-size: 11.5px; opacity: .7; margin-left: 4px; }
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  th { text-align: left; font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600;
+    padding: 10px 12px; border-bottom: 1px solid var(--rule-strong); }
+  td { padding: 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover td { background: var(--quiet-soft); }
+  tbody tr.selected td { background: var(--accent-soft); }
+  .t-title { font-weight: 500; }
+  .t-desc { font-size: 13px; color: var(--muted); margin-top: 2px; max-width: 52ch; }
+  .t-date { font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .t-date small { display: block; color: var(--muted); font-size: 11.5px; }
+  .t-sec { font-family: var(--mono); font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+  .cat { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+  .low-conf { font-size: 11.5px; color: var(--warn); }
+
+  /* Drawer */
+  .scrim { position: fixed; inset: 0; background: rgba(10, 14, 20, .35); z-index: 10; }
+  .drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(520px, 100%); background: var(--surface); z-index: 11;
+    box-shadow: var(--shadow); border-left: 1px solid var(--rule); overflow-y: auto;
+    padding: calc(env(safe-area-inset-top, 0px) + 20px) 24px calc(env(safe-area-inset-bottom, 0px) + 28px); display: grid; gap: 20px; align-content: start; }
+  .drawer-top { display: flex; justify-content: space-between; gap: 12px; align-items: start; }
+  .drawer h2 { font-family: var(--serif); font-size: 24px; font-weight: 600; line-height: 1.2; }
+  .close { border: 0; background: transparent; font-size: 22px; line-height: 1; cursor: pointer; color: var(--muted); padding: 4px 6px; }
+  .kv { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 8px 14px; margin: 0; font-size: 14px; }
+  .kv dt { color: var(--muted); }
+  .kv dd { margin: 0; }
+  blockquote { margin: 0; padding: 14px 16px; background: var(--paper); border-left: 3px solid var(--rule-strong); font-family: var(--serif); font-size: 16.5px; line-height: 1.5; }
+  blockquote cite { display: block; margin-top: 8px; font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+  .section-label { font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+  .history { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14px; }
+  .history li { display: grid; gap: 2px; }
+  form.outcome { display: grid; gap: 12px; padding: 16px; border: 1px solid var(--rule); border-radius: 8px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 460px) { .row { grid-template-columns: 1fr; } .kv { grid-template-columns: 1fr; gap: 2px 0; } .kv dd { margin-bottom: 8px; } }
+  label { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
+  input, select, textarea { background: var(--paper); border: 1px solid var(--rule-strong); border-radius: 6px; padding: 7px 9px; color: var(--ink); }
+  textarea { min-height: 64px; resize: vertical; }
+  .form-actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .saved { font-size: 13px; color: var(--ok); }
+  .help { font-size: 12.5px; color: var(--muted); }
+
+  footer { font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; display: grid; gap: 6px; max-width: 80ch; }
+  @media (prefers-reduced-motion: no-preference) { .drawer { animation: slide .18s ease-out; } @keyframes slide { from { transform: translateX(24px); opacity: .6; } } }
+</style>
+
+<div class="wrap">
+  <header class="appbar">
+    <div class="brand"><b>Postclose</b><span>Post-closing obligations tracker</span></div>
+    <div class="appbar-actions">
+      <span class="sample-note" id="sampleNote" hidden>Fictional sample deal</span>
+      <select id="dealPick" aria-label="Deal" hidden></select>
+      <label class="btn" for="fileIn" style="display:inline-block;color:var(--ink)">Open tracker file</label>
+      <input type="file" id="fileIn" accept=".json,application/json" hidden>
+    </div>
+  </header>
+
+  <section class="deal" aria-labelledby="dealName">
+    <div class="eyebrow" id="dealKicker"></div>
+    <h1 id="dealName"></h1>
+    <dl class="deal-meta" id="dealMeta"></dl>
+  </section>
+
+  <section class="summary">
+    <div class="panel attention">
+      <div class="attention-head"><h2>Needs attention</h2><span class="help" id="asOf"></span></div>
+      <ul class="att-list" id="attList"></ul>
+    </div>
+    <div class="panel stats" id="stats"></div>
+  </section>
+
+  <section class="panel timeline" aria-labelledby="tlHead">
+    <div class="timeline-head">
+      <h2 id="tlHead">Timeline from closing</h2>
+      <div class="legend">
+        <span><i style="background:var(--critical)"></i>Overdue</span>
+        <span><i style="background:var(--warn)"></i>Due within 30 days</span>
+        <span><i style="background:var(--accent)"></i>Upcoming / in effect</span>
+        <span><i style="background:var(--hold)"></i>Disputed or on hold</span>
+        <span><i style="background:var(--ok)"></i>Done</span>
+      </div>
+    </div>
+    <div class="tl-scroll"><svg id="tl" role="img" aria-label="Obligations plotted on a timeline from closing"></svg></div>
+  </section>
+
+  <section style="display:grid;gap:14px" aria-labelledby="ledgerHead">
+    <div class="ledger-head">
+      <h2 id="ledgerHead">All obligations</h2>
+      <div class="filters" id="filters" role="group" aria-label="Filter obligations"></div>
+    </div>
+    <div class="panel table-scroll">
+      <table>
+        <thead><tr><th>Date</th><th>Obligation</th><th>Who acts</th><th>Status</th><th>Section</th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>
+    <div>Dates are computed from the agreement's own rules (closing + 18 months, fiscal year end + 90 days, and so on). When you record an actual date, dependent deadlines recalculate. Every item links back to the quoted clause.</div>
+    <div>Demo only. The Brightwater agreement, parties and outcomes are invented. Outcomes you record are saved in this browser only.</div>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-modal="true" role="dialog" aria-labelledby="dTitle"></aside>
+
+<script src="data.js"></script>
+<script>
+(() => {
+  const CAT = {
+    earnout: "Earnout", escrow_release: "Escrow", holdback_release: "Holdback",
+    purchase_price_adjustment: "Price adjustment", indemnity_survival: "Survival",
+    indemnity_claim_procedure: "Claims", restrictive_covenant: "Covenant", deferred_payment: "Payment",
+    tax: "Tax", reporting_or_notice: "Notice", insurance: "Insurance", other: "Other",
+  };
+  const PERIOD_CATS = new Set(["indemnity_survival", "restrictive_covenant", "insurance"]);
+  const LANES = [
+    { name: "Money moves", cats: ["earnout", "escrow_release", "holdback_release", "purchase_price_adjustment", "deferred_payment", "tax"] },
+    { name: "Claims & survival", cats: ["indemnity_survival", "indemnity_claim_procedure"] },
+    { name: "Covenants & insurance", cats: ["restrictive_covenant", "insurance", "reporting_or_notice", "other"] },
+  ];
+  const OUTCOME_LABEL = { pending: "Pending", satisfied: "Done", partial: "Partially done", disputed: "Disputed",
+    claim_made: "Claim made", waived: "Waived", expired: "Lapsed" };
+  const STORE_KEY = "postclose.outcomes.v1";
+  const DAY = 86400000;
+
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const deals = (window.DEALS || []).slice();
+  let dealIdx = 0, filter = "all", selectedId = null;
+
+  // ---------- storage ----------
+  function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; } }
+  function saveStore(s) { try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); return true; } catch { return false; } }
+  let store = loadStore();
+  const dealKey = d => d.deal_name + "|" + (d.closing_date || "");
+
+  // ---------- dates ----------
+  const parse = s => { if (!s) return null; const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+  const iso = d => d ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` : null;
+  const fmt = d => d ? d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }) : "—";
+  const money = n => n == null ? null : n >= 1e6 ? `$${(n / 1e6).toFixed(n % 1e6 ? 1 : 0)}M` : `$${Math.round(n).toLocaleString("en-US")}`;
+  function addMonths(d, m) { const t = new Date(d.getFullYear(), d.getMonth() + m, 1);
+    const last = new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate(); t.setDate(Math.min(d.getDate(), last)); return t; }
+  function addBiz(d, n) { const t = new Date(d); while (n > 0) { t.setDate(t.getDate() + 1); if (t.getDay() % 6) n--; } return t; }
+  function offset(d, tm) { let r = new Date(d); if (tm.offset_months) r = addMonths(r, tm.offset_months);
+    if (tm.offset_days) r = tm.business_days ? addBiz(r, tm.offset_days) : new Date(r.getTime() + tm.offset_days * DAY); return r; }
+  const daysUntil = d => Math.round((d - today) / DAY);
+  function rel(d) { const n = daysUntil(d); if (n === 0) return "today"; if (n === 1) return "tomorrow"; if (n === -1) return "yesterday";
+    return n > 0 ? `in ${n} days` : `${-n} days ago`; }
+
+  // ---------- model ----------
+  function outcomesFor(deal) {
+    const local = store[dealKey(deal)] || {};
+    const map = {};
+    (deal.outcomes || []).forEach(o => { (map[o.obligation_id] ||= []).push({ ...o, seeded: true }); });
+    Object.entries(local).forEach(([id, list]) => { (map[id] ||= []).push(...list); });
+    Object.values(map).forEach(l => l.sort((a, b) => a.recorded_on.localeCompare(b.recorded_on)));
+    return map;
+  }
+
+  function build(deal) {
+    const outs = outcomesFor(deal);
+    const byId = Object.fromEntries(deal.obligations.map(o => [o.id, o]));
+    const latest = id => (outs[id] || []).slice(-1)[0];
+    const cache = {};
+
+    function due(o) {
+      if (o.id in cache) return cache[o.id];
+      cache[o.id] = { date: parse(o.due_date), basis: o.due_date_basis, recalculated: false };
+      const tm = o.timing;
+      if (tm.anchor === "other_obligation" && byId[tm.depends_on]) {
+        const p = byId[tm.depends_on], pl = latest(p.id);
+        if (pl && ["satisfied", "partial"].includes(pl.status)) {
+          cache[o.id] = { date: offset(parse(pl.recorded_on), tm), basis: `Recalculated from actual date of '${p.title}' (${fmt(parse(pl.recorded_on))})`, recalculated: true };
+        } else {
+          const pd = due(p);
+          if (pd.recalculated && pd.date) cache[o.id] = { date: offset(pd.date, tm), basis: `Recalculated from '${p.title}'`, recalculated: true };
+        }
+      }
+      return cache[o.id];
+    }
+
+    function blockedBy(o) {
+      let cur = o, guard = 0;
+      while (cur.timing.anchor === "other_obligation" && byId[cur.timing.depends_on] && guard++ < 10) {
+        cur = byId[cur.timing.depends_on];
+        const l = latest(cur.id);
+        if (l && l.status === "disputed") return cur;
+      }
+      return null;
+    }
+
+    return deal.obligations.map(o => {
+      const d = due(o), last = latest(o.id), period = PERIOD_CATS.has(o.category);
+      let key, label;
+      const blocker = blockedBy(o);
+      if (last && ["satisfied", "waived", "expired"].includes(last.status)) { key = "done"; label = OUTCOME_LABEL[last.status]; }
+      else if (last && last.status === "partial") { key = "done"; label = "Partially done"; }
+      else if (last && last.status === "disputed") { key = "hold"; label = "Disputed"; }
+      else if (blocker) { key = "hold"; label = "On hold: dispute"; }
+      else if (!d.date) { key = "event"; label = "Event-triggered"; }
+      else if (daysUntil(d.date) < 0) { key = period ? "done" : "overdue"; label = period ? "Expired" : "Overdue"; }
+      else if (daysUntil(d.date) <= 30) { key = "soon"; label = period ? "Ends soon" : "Due soon"; }
+      else { key = period ? "effect" : "upcoming"; label = period ? "In effect" : "Upcoming"; }
+      const claim = last && last.status === "claim_made";
+      if (claim && key !== "done") { label = key === "soon" ? "Ends soon · claim open" : "Claim open"; }
+      return { ...o, d, last, history: outs[o.id] || [], key, label, period, blocker, claim };
+    });
+  }
+
+  const needsAttention = it => ["overdue", "soon", "hold"].includes(it.key) || it.claim;
+
+  // ---------- render ----------
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  function render() {
+    const deal = deals[dealIdx];
+    if (!deal) { $("dealName").textContent = "No deals loaded"; return; }
+    const items = build(deal);
+
+    $("sampleNote").hidden = !deal.is_sample;
+    $("dealKicker").textContent = `${deal.agreement_title}${deal.governing_law ? " · " + deal.governing_law + " law" : ""}`;
+    $("dealName").textContent = deal.deal_name;
+    const meta = [
+      ["Buyer", deal.buyer], ["Target", deal.target],
+      ["Signed", fmt(parse(deal.signing_date))], ["Closed", fmt(parse(deal.closing_date))],
+      ["Base price", money(deal.base_purchase_price_usd)],
+    ].filter(([, v]) => v && v !== "—");
+    $("dealMeta").innerHTML = meta.map(([k, v]) => `<div class="meta"><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+
+    // attention
+    const att = items.filter(needsAttention).sort((a, b) => (a.d.date || Infinity) - (b.d.date || Infinity));
+    $("asOf").textContent = `As of ${fmt(today)}`;
+    $("attList").innerHTML = att.length ? att.map(it => `
+      <li class="att-item" data-id="${it.id}" tabindex="0">
+        <div class="att-when">${it.d.date ? `<strong>${fmt(it.d.date).replace(/, \d{4}$/, "")}</strong>${rel(it.d.date)}` : "<strong>Event</strong>trigger"}</div>
+        <div><div class="att-title">${esc(it.title)}</div><div class="att-sub">${esc(attentionReason(it))}</div></div>
+        <span class="pill s-${it.key}">${esc(it.label)}</span>
+      </li>`).join("") : `<li class="empty">Nothing overdue, disputed or due in the next 30 days.</li>`;
+
+    // stats
+    const dated = items.filter(i => i.d.date && !i.period && i.key !== "done");
+    const next = dated.filter(i => daysUntil(i.d.date) >= 0).sort((a, b) => a.d.date - b.d.date)[0];
+    const open = items.filter(i => i.key !== "done").length;
+    const disputes = items.filter(i => (i.last && i.last.status === "disputed") || i.claim).length;
+    const contingent = items.filter(i => i.category === "earnout" && i.terms.amount_usd && i.key !== "done")
+      .reduce((s, i) => s + i.terms.amount_usd, 0);
+    $("stats").innerHTML = [
+      [next ? rel(next.d.date).replace("in ", "") : "—", next ? `Until next action: ${next.title}` : "No dated actions ahead"],
+      [open, `Open obligations of ${items.length} extracted`],
+      [disputes, "Open disputes and indemnity claims"],
+      [money(contingent) || "$0", "Earnout still at stake"],
+    ].map(([v, l]) => `<div class="stat"><div class="v">${esc(v)}</div><div class="l">${esc(l)}</div></div>`).join("");
+
+    renderTimeline(deal, items);
+    renderFilters(items);
+    renderRows(items);
+    if (selectedId) openDrawer(selectedId, false);
+  }
+
+  function attentionReason(it) {
+    if (it.blocker) return `Waiting on dispute over '${it.blocker.title}'`;
+    if (it.last && it.last.status === "disputed") return it.last.notes || "Disputed";
+    if (it.claim && it.key === "soon") return `Deadline ${rel(it.d.date)}; ${money(it.last.amount_usd) || "a"} claim is open`;
+    if (it.claim) return it.last.notes || "Claim open";
+    if (it.key === "overdue") return `${it.obligor} · no outcome recorded`;
+    return `${it.obligor} · ${CAT[it.category]}`;
+  }
+
+  const FILTERS = [
+    ["attention", "Needs attention", needsAttention],
+    ["upcoming", "Upcoming", i => ["upcoming", "soon", "effect"].includes(i.key)],
+    ["event", "Event-triggered", i => i.key === "event"],
+    ["done", "Done", i => i.key === "done"],
+    ["all", "All", () => true],
+  ];
+  function renderFilters(items) {
+    $("filters").innerHTML = FILTERS.map(([k, label, fn]) =>
+      `<button class="chip" type="button" data-f="${k}" aria-pressed="${filter === k}">${label}<span class="n">${items.filter(fn).length}</span></button>`).join("");
+  }
+  function renderRows(items) {
+    const fn = FILTERS.find(f => f[0] === filter)[2];
+    const rows = items.filter(fn).sort((a, b) => (a.d.date || Infinity) - (b.d.date || Infinity));
+    $("rows").innerHTML = rows.length ? rows.map(it => `
+      <tr data-id="${it.id}" tabindex="0" class="${it.id === selectedId ? "selected" : ""}">
+        <td class="t-date">${it.d.date ? fmt(it.d.date) : "—"}<small>${it.d.date ? (it.period ? "ends · " : "") + rel(it.d.date) : "on event"}</small></td>
+        <td><div class="t-title">${esc(it.title)}</div><div class="t-desc">${esc(it.description)}</div>
+          ${it.confidence < 0.9 ? `<div class="low-conf">Review suggested · confidence ${Math.round(it.confidence * 100)}%</div>` : ""}</td>
+        <td>${esc(it.obligor)}<div class="cat">${CAT[it.category]}</div></td>
+        <td><span class="pill s-${it.key}">${esc(it.label)}</span></td>
+        <td class="t-sec">§ ${esc(it.section_ref)}</td>
+      </tr>`).join("") : `<tr><td colspan="5" class="empty">Nothing in this view.</td></tr>`;
+  }
+
+  // ---------- timeline ----------
+  const COLOR = { overdue: "--critical", soon: "--warn", upcoming: "--accent", effect: "--accent", hold: "--hold", done: "--ok", event: "--faint" };
+  function renderTimeline(deal, items) {
+    const svg = $("tl"), css = getComputedStyle(document.documentElement), v = n => css.getPropertyValue(n).trim();
+    const start = parse(deal.closing_date) || today;
+    const dated = items.filter(i => i.d.date);
+    const maxD = new Date(Math.max(addMonths(start, 12), ...dated.map(i => i.d.date)));
+    const end = new Date(maxD.getFullYear() + 1, 0, 1);
+    const W = Math.max(680, svg.parentElement.clientWidth || 900), left = 150, right = 24, top = 16, laneH = 64, H = top + LANES.length * laneH + 34;
+    const x = d => left + (d - start) / (end - start) * (W - left - right);
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.setAttribute("height", H);
+    let g = "";
+    // year grid
+    for (let y = start.getFullYear() + 1; y <= end.getFullYear(); y++) {
+      const X = x(new Date(y, 0, 1));
+      g += `<line x1="${X}" x2="${X}" y1="${top}" y2="${H - 26}" stroke="${v("--rule")}" />`;
+      g += `<text x="${X}" y="${H - 10}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="${v("--muted")}">${y}</text>`;
+    }
+    LANES.forEach((lane, li) => {
+      const y0 = top + li * laneH, cy = y0 + laneH / 2;
+      g += `<line x1="${left}" x2="${W - right}" y1="${y0 + laneH}" y2="${y0 + laneH}" stroke="${v("--rule")}" />`;
+      g += `<text x="0" y="${cy + 4}" font-size="12.5" font-weight="600" fill="${v("--muted")}" font-family="IBM Plex Sans, sans-serif">${lane.name}</text>`;
+      const laneItems = dated.filter(i => lane.cats.includes(i.category)).sort((a, b) => a.d.date - b.d.date);
+      // period bars
+      laneItems.filter(i => i.period).forEach((i, k) => {
+        const yy = y0 + 10 + (k % 4) * 6;
+        g += `<line x1="${x(start)}" x2="${x(i.d.date)}" y1="${yy}" y2="${yy}" stroke="${v(COLOR[i.key])}" stroke-opacity=".35" stroke-width="3" stroke-linecap="round" />`;
+      });
+      // points, staggered to avoid overlap
+      let lastX = -99, row = 0;
+      laneItems.forEach(i => {
+        const X = x(i.d.date);
+        row = X - lastX < 14 ? (row + 1) % 3 : 0; lastX = X;
+        const Y = cy + 6 + (row - 1) * 12;
+        const col = v(COLOR[i.key]);
+        g += `<g class="mark" data-id="${i.id}" tabindex="0" role="button" aria-label="${esc(i.title)}, ${fmt(i.d.date)}">
+          <title>${esc(i.title)} · ${fmt(i.d.date)} · ${esc(i.label)}</title>
+          <circle cx="${X}" cy="${Y}" r="6" fill="${i.key === "done" ? col : v("--surface")}" stroke="${col}" stroke-width="2" /></g>`;
+      });
+    });
+    // closing + today
+    g += `<text x="${x(start) + 4}" y="${top + 10}" font-size="11" fill="${v("--muted")}" font-family="IBM Plex Mono, monospace">Closing</text>`;
+    g += `<line x1="${x(start)}" x2="${x(start)}" y1="${top}" y2="${H - 26}" stroke="${v("--rule-strong")}" />`;
+    if (today >= start && today <= end) {
+      const X = x(today);
+      g += `<line x1="${X}" x2="${X}" y1="${top}" y2="${H - 26}" stroke="${v("--ink")}" stroke-dasharray="3 3" />`;
+      g += `<text x="${X + 4}" y="${H - 30}" font-size="11" font-weight="600" fill="${v("--ink")}" font-family="IBM Plex Sans, sans-serif">Today</text>`;
+    }
+    svg.innerHTML = g;
+  }
+
+  // ---------- drawer ----------
+  function openDrawer(id, focus = true) {
+    const deal = deals[dealIdx], it = build(deal).find(i => i.id === id);
+    if (!it) return;
+    selectedId = id;
+    const t = it.terms, tm = it.timing;
+    const termRows = [
+      ["Amount", money(t.amount_usd)], ["Up to", money(t.max_amount_usd)], ["% of price", t.percent_of_price != null ? t.percent_of_price + "%" : null],
+      ["Threshold", money(t.threshold_usd)], ["Metric", t.metric], ["Duration", t.duration_months ? `${t.duration_months} months` : null], ["Note", t.notes],
+    ].filter(([, v]) => v);
+    const dep = tm.anchor === "other_obligation" ? deal.obligations.find(o => o.id === tm.depends_on) : null;
+    $("drawer").innerHTML = `
+      <div class="drawer-top">
+        <div style="display:grid;gap:8px"><span class="eyebrow">${CAT[it.category]} · § ${esc(it.section_ref)}</span><h2 id="dTitle">${esc(it.title)}</h2>
+          <div><span class="pill s-${it.key}">${esc(it.label)}</span></div></div>
+        <button class="close" type="button" id="closeDrawer" aria-label="Close">×</button>
+      </div>
+      <p style="margin:0">${esc(it.description)}</p>
+      <dl class="kv">
+        <dt>${it.period ? "Ends" : "Due"}</dt><dd class="num">${it.d.date ? `${fmt(it.d.date)} <span class="help">(${rel(it.d.date)})</span>` : "Triggered by an event"}</dd>
+        <dt>How computed</dt><dd>${esc(it.d.basis)}</dd>
+        ${dep ? `<dt>Depends on</dt><dd><a href="#" data-jump="${dep.id}">${esc(dep.title)}</a></dd>` : ""}
+        <dt>Who acts</dt><dd>${esc(it.obligor)}</dd>
+        ${it.beneficiary ? `<dt>For</dt><dd>${esc(it.beneficiary)}</dd>` : ""}
+        ${termRows.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}
+        ${it.consequence_if_missed ? `<dt>If missed</dt><dd>${esc(it.consequence_if_missed)}</dd>` : ""}
+        <dt>Confidence</dt><dd class="num">${Math.round(it.confidence * 100)}%</dd>
+      </dl>
+      <div><div class="section-label">From the agreement</div>
+        <blockquote>${esc(it.source_quote)}<cite>Section ${esc(it.section_ref)}</cite></blockquote></div>
+      <div><div class="section-label">What happened</div>
+        ${it.history.length ? `<ul class="history">${it.history.map(h => `<li><span><span class="pill s-${statusKey(h.status)}">${OUTCOME_LABEL[h.status]}</span>
+          <span class="help num">&nbsp;${fmt(parse(h.recorded_on))}${h.amount_usd != null ? " · " + money(h.amount_usd) : ""}${h.seeded ? " · sample" : ""}</span></span>
+          ${h.notes ? `<span>${esc(h.notes)}</span>` : ""}</li>`).join("")}</ul>` : `<p class="help" style="margin:0">No outcome recorded yet.</p>`}
+      </div>
+      <form class="outcome" id="outForm">
+        <div class="section-label" style="margin:0">Record an outcome</div>
+        <div class="row">
+          <label for="oStatus">Status<select id="oStatus">${Object.entries(OUTCOME_LABEL).filter(([k]) => k !== "pending").map(([k, l]) => `<option value="${k}">${l}</option>`).join("")}</select></label>
+          <label for="oDate">Date it happened<input id="oDate" type="date" value="${iso(today)}" required></label>
+        </div>
+        <label for="oAmt">Amount (USD, optional)<input id="oAmt" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 4500000"></label>
+        <label for="oNotes">Notes<textarea id="oNotes" placeholder="What was delivered, paid, disputed or claimed"></textarea></label>
+        <div class="form-actions"><button class="btn primary" type="submit">Save outcome</button><span class="saved" id="savedMsg" hidden></span></div>
+        <div class="help">Saved in this browser. Deadlines that depend on this one recalculate from the date you enter.</div>
+      </form>`;
+    $("drawer").hidden = false; $("scrim").hidden = false;
+    document.querySelectorAll("#rows tr").forEach(tr => tr.classList.toggle("selected", tr.dataset.id === id));
+    if (focus) $("closeDrawer").focus();
+  }
+  const statusKey = s => ({ satisfied: "done", partial: "done", waived: "done", expired: "done", disputed: "hold", claim_made: "hold" }[s] || "event");
+  function closeDrawer() { selectedId = null; $("drawer").hidden = true; $("scrim").hidden = true;
+    document.querySelectorAll("#rows tr.selected").forEach(tr => tr.classList.remove("selected")); }
+
+  // ---------- events ----------
+  document.addEventListener("click", e => {
+    const f = e.target.closest("[data-f]"); if (f) { filter = f.dataset.f; render(); return; }
+    const j = e.target.closest("[data-jump]"); if (j) { e.preventDefault(); openDrawer(j.dataset.jump); return; }
+    if (e.target.id === "closeDrawer" || e.target.id === "scrim") { closeDrawer(); return; }
+    const row = e.target.closest("[data-id]"); if (row && !e.target.closest("#drawer")) openDrawer(row.dataset.id);
+  });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && !$("drawer").hidden) closeDrawer();
+    if ((e.key === "Enter" || e.key === " ") && e.target.matches("[data-id]")) { e.preventDefault(); openDrawer(e.target.dataset.id); }
+  });
+  document.addEventListener("submit", e => {
+    if (e.target.id !== "outForm") return;
+    e.preventDefault();
+    const deal = deals[dealIdx], k = dealKey(deal), amt = $("oAmt").value;
+    const entry = { obligation_id: selectedId, status: $("oStatus").value, recorded_on: $("oDate").value,
+      amount_usd: amt === "" ? null : Number(amt), notes: $("oNotes").value.trim() || null };
+    ((store[k] ||= {})[selectedId] ||= []).push(entry);
+    const ok = saveStore(store);
+    render();
+    const msg = $("savedMsg"); if (msg) { msg.hidden = false; msg.textContent = ok ? "Saved" : "Saved for this visit only (browser storage is off)"; }
+  });
+  $("fileIn").addEventListener("change", async e => {
+    const file = e.target.files[0]; if (!file) return;
+    try {
+      const data = JSON.parse(await file.text());
+      const list = Array.isArray(data) ? data : [data];
+      if (!list.every(d => d.deal_name && Array.isArray(d.obligations))) throw new Error("shape");
+      deals.push(...list); dealIdx = deals.length - list.length; filter = "all"; closeDrawer(); syncPicker(); render();
+    } catch { alertInline("That file isn't a tracker file. Use the JSON written by tracker.extract."); }
+    e.target.value = "";
+  });
+  function alertInline(text) { $("asOf").textContent = text; }
+  function syncPicker() {
+    const p = $("dealPick"); p.hidden = deals.length < 2;
+    p.innerHTML = deals.map((d, i) => `<option value="${i}" ${i === dealIdx ? "selected" : ""}>${esc(d.deal_name)}</option>`).join("");
+  }
+  $("dealPick").addEventListener("change", e => { dealIdx = Number(e.target.value); closeDrawer(); render(); });
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => renderTimeline(deals[dealIdx], build(deals[dealIdx])), 120); });
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", render);
+  new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+  syncPicker(); render();
+})();
+</script>
