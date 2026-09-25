@@ -148,3 +148,4 @@ class TrackedDeal(DealExtraction):
     outcomes: list[Outcome] = []
     source: Optional[str] = None
     is_sample: bool = False
+    fund_role: Optional[str] = Field(None, description="'buyer' or 'seller' from the tracking fund's side.")

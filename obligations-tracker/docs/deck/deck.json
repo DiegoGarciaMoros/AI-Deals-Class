@@ -1,0 +1,18 @@
+{
+  "v": 4,
+  "createdOnFiles": { "v": 1, "at": "2026-09-25T12:00:00Z" },
+  "title": "Postclose Pitch",
+  "order": ["cover", "problem", "stakes", "wholives", "product", "portfolio", "trust", "customer", "market", "competition", "moat", "roadmap", "next", "ask"],
+  "sections": {
+    "s1": { "description": "The problem: obligations outlive the closing, and the people who drafted them leave", "start": "cover" },
+    "s2": { "description": "The product: an agreement becomes a sourced, dated docket for a whole fund", "start": "product" },
+    "s3": { "description": "The business: who pays, how big, who else is here, and why it compounds", "start": "customer" },
+    "s4": { "description": "Where it goes and what happens in the next 90 days", "start": "roadmap" }
+  },
+  "faces": {
+    "gloock": { "family": "Gloock", "href": "https://fonts.googleapis.com/css2?family=Gloock&display=swap" },
+    "schibsted-grotesk": { "family": "Schibsted Grotesk", "href": "https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" },
+    "martian-mono": { "family": "Martian Mono", "href": "https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;500;700&display=swap" }
+  },
+  "designSystems": []
+}

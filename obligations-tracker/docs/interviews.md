@@ -36,7 +36,7 @@ the end: "Who else should I talk to?"
 2. Walk me through the last deal that closed. After closing, who was responsible for tracking earnouts, escrow releases and survival deadlines?
 3. Where does that tracking live? (Spreadsheet, calendar, outside counsel, memory?) Can you describe it?
 4. How does it get built? Who reads the agreement, and how long does that take?
-5. Across your portfolio or deal history, how many live post-closing items are there right now?
+5. How many live post-closing items are there across the whole fund right now? Could anyone produce that list today, and how long would it take?
 
 **Pain (8 min)**
 6. Tell me about a time a deadline was missed, nearly missed, or disputed. What did it cost?
@@ -47,7 +47,8 @@ the end: "Who else should I talk to?"
 **Solution check (last 5 min, only now show the demo)**
 10. Show the demo. "What's wrong or missing?"
 11. "Would you try this on a closed deal if we set it up for you?" A pilot yes is the real signal; "interesting" is not.
-12. "Who else would need to approve using something like this?"
+12. "What would you pay per year to see every deal's obligations in one place?" Let them name a number first. If they won't, ask whether $10k, $20k or $30k a year feels cheap, fair or too much.
+13. "Who else would need to approve using something like this, and whose budget would it come from?"
 
 ## Rules
 
@@ -57,13 +58,13 @@ the end: "Who else should I talk to?"
 
 ## Log
 
-| # | Date | Name / role | Segment | Current tool | Worst pain (quote) | $ at stake | Pilot? | Referrals |
-|---|---|---|---|---|---|---|---|---|
-| 1 | | | | | | | | |
-| 2 | | | | | | | | |
-| 3 | | | | | | | | |
-| 4 | | | | | | | | |
-| 5 | | | | | | | | |
-| 6 | | | | | | | | |
-| 7 | | | | | | | | |
-| 8 | | | | | | | | |
+| # | Date | Name / role | Segment | Current tool | Live items fund-wide | Worst pain (quote) | $ at stake | Price named | Pilot? | Referrals |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | | | | | | | | | | |
+| 2 | | | | | | | | | | |
+| 3 | | | | | | | | | | |
+| 4 | | | | | | | | | | |
+| 5 | | | | | | | | | | |
+| 6 | | | | | | | | | | |
+| 7 | | | | | | | | | | |
+| 8 | | | | | | | | | | |

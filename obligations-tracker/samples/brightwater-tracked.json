@@ -730,5 +730,6 @@
     }
   ],
   "source": "samples/brightwater-spa.md",
-  "is_sample": true
+  "is_sample": true,
+  "fund_role": "buyer"
 }

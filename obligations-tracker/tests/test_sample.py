@@ -26,3 +26,16 @@ def test_key_dates():
     assert due["earnout-2025-statement"] == "2026-03-31"
     assert due["noncompete"] == "2030-03-31"
     assert due["survival-tax"] == "None"
+
+
+def test_portfolio_outcomes_and_dependencies_resolve():
+    from samples.portfolio import DEALS
+
+    for deal, outcomes, role in DEALS:
+        ids = {o.id for o in deal.obligations}
+        assert all(o.obligation_id in ids for o in outcomes), deal.deal_name
+        for o in deal.obligations:
+            if o.timing.depends_on:
+                assert o.timing.depends_on in ids, (deal.deal_name, o.id)
+        assert role in {"buyer", "seller"}
+        assert len({o.id for o in deal.obligations}) == len(deal.obligations)

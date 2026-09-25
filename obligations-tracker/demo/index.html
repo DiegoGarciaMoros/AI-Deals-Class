@@ -238,14 +238,47 @@
     .stamp.fresh { animation: thunk .28s cubic-bezier(.2, 1.6, .5, 1); }
     @keyframes thunk { from { transform: scale(1.6) rotate(-10deg); opacity: 0; } }
   }
+
+  /* ---------- Fund view additions ---------- */
+  .crumb { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+  .crumb button { border: 0; background: transparent; padding: 0; cursor: pointer; font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--brass); text-decoration: underline; text-underline-offset: 3px; }
+  .crumb span { color: var(--muted); }
+
+  .tape { height: auto; display: grid; gap: 6px; }
+  .tape-row { display: grid; grid-template-columns: 132px minmax(0, 1fr); align-items: center; gap: 12px; }
+  .tape-row .who { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: right; }
+  .tape-row .track { position: relative; height: 26px; }
+  .tape-row .track::before { content: ""; position: absolute; left: 0; right: 0; top: 12px; height: 1.5px; background: var(--ink); opacity: .6; }
+  .tape .tick { top: 2px; }
+  .tape-axis { position: relative; height: 18px; margin-left: 144px; }
+  .tape .now { top: -6px; }
+
+  .roster-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-bottom: 1.5px solid var(--ink); padding-bottom: 8px; margin-top: 36px; }
+  .roster-head h2 { font-family: var(--display); font-size: 28px; }
+  .roster-scroll { overflow-x: auto; }
+  .roster { width: 100%; border-collapse: collapse; min-width: 760px; }
+  .roster th { text-align: left; font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 400; padding: 10px 12px 8px 0; border-bottom: 1px solid var(--rule); }
+  .roster td { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .roster tbody tr { cursor: pointer; }
+  .roster tbody tr:hover td { background: var(--paper-band); }
+  .roster .dn { font-family: var(--display); font-size: 22px; line-height: 1.1; }
+  .roster .dt { font-size: 13px; color: var(--muted); }
+  .roster .num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 13px; white-space: nowrap; }
+  .side { font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; border: 1.5px solid currentColor; padding: 2px 6px; border-radius: 2px; white-space: nowrap; }
+  .side.sell { color: var(--brass); }
+  .flags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .flag-pill { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+  .flag-pill.bad { color: var(--margin); }
+  .flag-pill.hold { color: var(--stamp-hold); }
+  .e-deal { color: var(--ink); font-weight: 700; }
 </style>
 
 <div class="page">
   <header class="topline">
     <div class="wordmark">Postclose<span>Obligations docket</span></div>
     <div class="tools">
-      <span class="fiction" id="fiction" hidden>Fictional sample deal</span>
-      <select class="toolbtn" id="dealPick" aria-label="Choose deal" hidden></select>
+      <nav class="crumb" id="crumb" aria-label="Where you are"></nav>
+      <span class="fiction" id="fiction" hidden>Fictional sample data</span>
       <button class="toolbtn" type="button" id="openFile">Open tracker file</button>
       <input type="file" id="fileIn" accept=".json,application/json" hidden>
     </div>
@@ -256,7 +289,7 @@
       <div class="kicker" id="kicker"></div>
       <h1 id="dealName"></h1>
     </div>
-    <div class="price"><div class="cap">Base purchase price</div><div class="v" id="price"></div></div>
+    <div class="price"><div class="cap" id="priceLabel">Base purchase price</div><div class="v" id="price"></div></div>
   </section>
   <dl class="columns" id="columns"></dl>
 
@@ -270,6 +303,16 @@
 
   <div class="totals" id="totals"></div>
 
+  <section id="rosterWrap" hidden>
+    <div class="roster-head"><h2>Deals</h2><span class="cap">Select a deal to open its docket</span></div>
+    <div class="roster-scroll">
+      <table class="roster">
+        <thead><tr><th>Deal</th><th>Side</th><th>Closed</th><th>Open</th><th>Next deadline</th><th>Flags</th></tr></thead>
+        <tbody id="roster"></tbody>
+      </table>
+    </div>
+  </section>
+
   <div class="tape-wrap"><div class="tape" id="tape" aria-label="Every dated obligation from closing onward"></div></div>
 
   <section class="book">
@@ -281,8 +324,8 @@
   </section>
 
   <footer>
-    <div>Dates come from the agreement's own rules (closing + 18 months, fiscal year end + 90 days). Record an actual date and every deadline that depends on it moves.</div>
-    <div>Demo only. The Brightwater agreement, its parties and its outcomes are invented. Outcomes you record stay in this browser.</div>
+    <div>Dates come from each agreement's own rules (closing + 18 months, fiscal year end + 90 days). Record an actual date and every deadline that depends on it moves. Reminders go out 60 days before each deadline.</div>
+    <div>Demo only. The fund, the deals, their clauses and outcomes are invented. Outcomes you record stay in this browser.</div>
   </footer>
 </div>
 
@@ -304,13 +347,17 @@
   ];
   const OUTCOME_LABEL = { satisfied: "Done", partial: "Partly done", disputed: "Disputed", claim_made: "Claim filed", waived: "Waived", expired: "Lapsed" };
   const STORE_KEY = "postclose.outcomes.v1";
+  const REMIND_DAYS = 60;
   const DAY = 86400000;
   const MONTHS = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 
   const today = new Date(); today.setHours(0, 0, 0, 0);
+  const fund = window.PORTFOLIO || null;
   const deals = (window.DEALS || []).slice();
   const narrow = window.matchMedia("(max-width: 1000px)");
-  let dealIdx = 0, tab = "all", hideDone = false, selectedId = null, freshStamp = null;
+  // view: "fund" shows every deal; a number shows one deal
+  let view = deals.length > 1 ? "fund" : 0;
+  let tab = "all", hideDone = false, selected = null, freshStamp = null;
 
   // ---------- storage ----------
   function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY)) || {}; } catch { return {}; } }
@@ -322,7 +369,7 @@
   const parse = s => { if (!s) return null; const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
   const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
   const fmt = d => d ? `${String(d.getDate()).padStart(2, "0")} ${MONTHS[d.getMonth()]} ${d.getFullYear()}` : "—";
-  const money = n => n == null ? null : n >= 1e6 ? `$${(n / 1e6).toFixed(n % 1e6 ? 1 : 0)}M` : `$${Math.round(n).toLocaleString("en-US")}`;
+  const money = n => n == null ? null : n >= 1e6 ? `$${(n / 1e6).toFixed(n % 1e6 ? 1 : 0)}M` : n >= 1e3 ? `$${Math.round(n / 1e3)}K` : `$${Math.round(n)}`;
   function addMonths(d, m) { const t = new Date(d.getFullYear(), d.getMonth() + m, 1);
     t.setDate(Math.min(d.getDate(), new Date(t.getFullYear(), t.getMonth() + 1, 0).getDate())); return t; }
   function addBiz(d, n) { const t = new Date(d); while (n > 0) { t.setDate(t.getDate() + 1); if (t.getDay() % 6) n--; } return t; }
@@ -331,6 +378,7 @@
   const daysUntil = d => Math.round((d - today) / DAY);
   function rel(d) { const n = daysUntil(d); if (n === 0) return "Today"; if (n === 1) return "Tomorrow"; if (n === -1) return "Yesterday";
     return n > 0 ? `In ${n} days` : `${-n} days ago`; }
+  const shortName = d => d.deal_name.replace(/^Project\s+/, "");
 
   // ---------- model ----------
   function outcomesFor(deal) {
@@ -341,7 +389,8 @@
     return map;
   }
 
-  function build(deal) {
+  function build(di) {
+    const deal = deals[di];
     const outs = outcomesFor(deal);
     const byId = Object.fromEntries(deal.obligations.map(o => [o.id, o]));
     const latest = id => (outs[id] || []).slice(-1)[0];
@@ -352,7 +401,7 @@
       const tm = o.timing, p = byId[tm.depends_on];
       if (tm.anchor === "other_obligation" && p) {
         const pl = latest(p.id);
-        if (pl && ["satisfied", "partial"].includes(pl.status)) {
+        if (pl && ["satisfied", "partial", "waived"].includes(pl.status)) {
           cache[o.id] = { date: offset(parse(pl.recorded_on), tm), basis: `Recalculated from the actual date of '${p.title}' (${fmt(parse(pl.recorded_on))})`, recalculated: true };
         } else {
           const pd = due(p);
@@ -361,12 +410,15 @@
       }
       return cache[o.id];
     }
+    // Something upstream is disputed, or overdue with nothing recorded
     function blockedBy(o) {
       let cur = o, guard = 0;
       while (cur.timing.anchor === "other_obligation" && byId[cur.timing.depends_on] && guard++ < 10) {
         cur = byId[cur.timing.depends_on];
-        const l = latest(cur.id);
-        if (l && l.status === "disputed") return cur;
+        const l = latest(cur.id), cd = due(cur).date;
+        if (l && l.status === "disputed") return { ob: cur, why: "dispute" };
+        if (!l && cd && daysUntil(cd) < 0) return { ob: cur, why: "waiting" };
+        if (l) return null;
       }
       return null;
     }
@@ -380,17 +432,19 @@
       else if (daysUntil(d.date) < 0) key = period ? "done" : "overdue";
       else if (daysUntil(d.date) <= 30) key = "soon";
       else key = period ? "effect" : "upcoming";
-      return { ...o, d, last, history: outs[o.id] || [], key, period, blocker, claim, lapsedPeriod: period && d.date && daysUntil(d.date) < 0 && !last };
+      const remind = d.date ? new Date(d.date.getTime() - REMIND_DAYS * DAY) : null;
+      return { ...o, di, deal, uid: `${di}:${o.id}`, d, last, history: outs[o.id] || [], key, period, blocker, claim, remind,
+        lapsedPeriod: period && d.date && daysUntil(d.date) < 0 && !last };
     });
   }
+  const itemsFor = v => v === "fund" ? deals.flatMap((_, i) => build(i)) : build(v);
   const needsAttention = it => ["overdue", "soon", "hold"].includes(it.key) || it.claim;
 
-  // What a rubber stamp would say about an outcome
   function stampWord(it, status) {
-    const money = /escrow|holdback/.test(it.category) ? "Released" : /payment|bonus/i.test(it.title) ? "Paid" : null;
+    const paid = /escrow|holdback/.test(it.category) ? "Released" : /payment|bonus/i.test(it.title) ? "Paid" : null;
     return {
-      satisfied: money || (it.category === "purchase_price_adjustment" || it.category === "earnout" ? "Delivered" : "Satisfied"),
-      partial: money ? `Part ${money.toLowerCase()}` : "Partial",
+      satisfied: paid || (["purchase_price_adjustment", "earnout"].includes(it.category) ? "Delivered" : "Satisfied"),
+      partial: paid ? `Part ${paid.toLowerCase()}` : "Partial",
       disputed: "Disputed", claim_made: "Claim filed", waived: "Waived", expired: "Lapsed",
     }[status];
   }
@@ -399,95 +453,145 @@
   // ---------- render ----------
   const $ = id => document.getElementById(id);
   const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const isFund = () => view === "fund";
 
   function stateHTML(it) {
-    if (it.last && it.last.status !== "claim_made") {
-      const fresh = freshStamp === it.id ? " fresh" : "";
-      return `<span class="stamp ${stampClass(it.last.status)}${fresh}">${esc(stampWord(it, it.last.status))}</span>`;
-    }
-    if (it.blocker) return `<span class="stamp hold">On hold</span>`;
+    const fresh = freshStamp === it.uid ? " fresh" : "";
+    if (it.last && it.last.status !== "claim_made") return `<span class="stamp ${stampClass(it.last.status)}${fresh}">${esc(stampWord(it, it.last.status))}</span>`;
+    if (it.blocker) return `<span class="stamp hold">${it.blocker.why === "dispute" ? "On hold" : "Waiting"}</span>`;
     if (it.lapsedPeriod) return `<span class="due"><b>Ended</b>${esc(rel(it.d.date))}</span>`;
     if (!it.d.date) return `<span class="due"><b>On event</b>no fixed date</span>`;
     const lead = it.period ? "Ends" : it.key === "overdue" ? "Overdue" : "Due";
-    const claim = it.claim ? `<div style="margin-top:8px"><span class="stamp bad${freshStamp === it.id ? " fresh" : ""}">Claim filed</span></div>` : "";
+    const claim = it.claim ? `<div style="margin-top:8px"><span class="stamp bad${fresh}">Claim filed</span></div>` : "";
     return `<span class="due k-${it.key}"><b>${esc(rel(it.d.date))}</b>${lead}</span>${claim}`;
   }
 
+  function why(it) {
+    if (it.blocker && it.blocker.why === "dispute") return `Waits on the dispute over '${it.blocker.ob.title}'.`;
+    if (it.blocker) return `Can't start: '${it.blocker.ob.title}' is overdue with nothing recorded.`;
+    if (it.last && it.last.status === "disputed") return it.last.notes || "Disputed.";
+    if (it.claim && it.key === "soon") return `Cutoff ${rel(it.d.date).toLowerCase()}. ${money(it.last.amount_usd) || "A"} claim is on file.`;
+    if (it.claim) return it.last.notes || "Claim on file.";
+    if (it.key === "overdue") return `${it.obligor}. Nothing recorded yet.`;
+    return it.description;
+  }
+
   function render() {
-    const deal = deals[dealIdx];
-    if (!deal) { $("dealName").textContent = "No deals loaded"; return; }
-    const items = build(deal);
+    const items = itemsFor(view);
+    const fundMode = isFund();
 
-    $("fiction").hidden = !deal.is_sample;
-    $("kicker").textContent = [deal.agreement_title, deal.governing_law && `${deal.governing_law} law`].filter(Boolean).join(" · ");
-    $("dealName").textContent = deal.deal_name;
-    $("price").textContent = money(deal.base_purchase_price_usd) || "—";
-    $("columns").innerHTML = [["Buyer", deal.buyer], ["Target", deal.target], ["Seller", deal.seller],
-      ["Signed", fmt(parse(deal.signing_date))], ["Closed", fmt(parse(deal.closing_date))]]
-      .filter(([, v]) => v && v !== "—")
-      .map(([k, v]) => `<div><dt class="cap">${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+    $("fiction").hidden = !deals.some(d => d.is_sample);
+    $("crumb").innerHTML = deals.length > 1
+      ? (fundMode ? `<span>Fund docket</span>` : `<button type="button" data-view="fund">Fund docket</button><span>/ ${esc(shortName(deals[view]))}</span>`)
+      : "";
 
-    // Countdown: the next dated thing someone has to act on
-    const ahead = items.filter(i => i.d.date && daysUntil(i.d.date) >= 0 && !["done", "hold"].includes(i.key))
-      .sort((a, b) => a.d.date - b.d.date);
+    if (fundMode) {
+      const closings = deals.map(d => parse(d.closing_date)).filter(Boolean).sort((a, b) => a - b);
+      $("kicker").textContent = `Portfolio docket · ${deals.length} deals${fund && fund.note ? " · " + fund.note : ""}`;
+      $("dealName").textContent = fund ? fund.name : "All deals";
+      $("priceLabel").textContent = "Deal value tracked";
+      $("price").textContent = money(deals.reduce((s, d) => s + (d.base_purchase_price_usd || 0), 0)) || "—";
+      $("columns").innerHTML = [
+        ["Deals", `${deals.filter(d => d.fund_role !== "seller").length} bought · ${deals.filter(d => d.fund_role === "seller").length} sold`],
+        ["Closings", closings.length ? `${closings[0].getFullYear()} to ${closings[closings.length - 1].getFullYear()}` : "—"],
+        ["Obligations tracked", String(items.length)],
+        ["Due in next 60 days", String(items.filter(i => i.d.date && i.key !== "done" && daysUntil(i.d.date) >= 0 && daysUntil(i.d.date) <= REMIND_DAYS).length)],
+        ["Reminder lead time", `${REMIND_DAYS} days`],
+      ].map(([k, v]) => `<div><dt class="cap">${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+    } else {
+      const deal = deals[view];
+      $("kicker").textContent = [deal.agreement_title, deal.governing_law && `${deal.governing_law} law`, deal.fund_role === "seller" ? "We sold" : deal.fund_role === "buyer" ? "We bought" : null].filter(Boolean).join(" · ");
+      $("dealName").textContent = deal.deal_name;
+      $("priceLabel").textContent = "Base purchase price";
+      $("price").textContent = money(deal.base_purchase_price_usd) || "—";
+      $("columns").innerHTML = [["Buyer", deal.buyer], ["Target", deal.target], ["Seller", deal.seller],
+        ["Signed", fmt(parse(deal.signing_date))], ["Closed", fmt(parse(deal.closing_date))]]
+        .filter(([, v]) => v && v !== "—")
+        .map(([k, v]) => `<div><dt class="cap">${k}</dt><dd>${esc(v)}</dd></div>`).join("");
+    }
+
+    // Countdown
+    const ahead = items.filter(i => i.d.date && daysUntil(i.d.date) >= 0 && !["done", "hold"].includes(i.key)).sort((a, b) => a.d.date - b.d.date);
     const next = ahead[0];
     if (next) {
       const n = daysUntil(next.d.date), same = ahead.filter(i => +i.d.date === +next.d.date);
+      const label = i => fundMode ? `${esc(i.title)} (${esc(shortName(i.deal))})` : esc(i.title);
       $("countdown").innerHTML = `
-        <span class="cap">Next deadline</span>
+        <span class="cap">Next deadline${fundMode ? " across the fund" : ""}</span>
         <div class="n">${String(n).padStart(2, "0")}</div>
         <div class="unit">${n === 1 ? "day" : "days"} · ${fmt(next.d.date)}</div>
-        <p><b>${esc(next.title)}</b>${same.length > 1 ? ` and ${same.length - 1} more on the same day: ${same.slice(1).map(s => esc(s.title)).join(", ")}` : ""}.</p>`;
+        <p><b>${label(next)}</b>${same.length > 1 ? `, plus ${same.slice(1).map(label).join(", ")}` : ""}.</p>`;
     } else {
       $("countdown").innerHTML = `<span class="cap">Next deadline</span><div class="n">—</div><p>No dated deadlines ahead.</p>`;
     }
 
-    // Docket list
+    // Docket
     const att = items.filter(needsAttention).sort((a, b) => (a.d.date || Infinity) - (b.d.date || Infinity));
     $("asOf").textContent = `As of ${fmt(today)}`;
     $("urgent").innerHTML = att.length ? att.map(it => `
-      <li data-id="${it.id}" tabindex="0">
+      <li data-uid="${it.uid}" tabindex="0">
         <div class="u-when">${it.d.date ? `<b>${fmt(it.d.date).slice(0, 6)}</b>${esc(rel(it.d.date))}` : "<b>Event</b>trigger"}</div>
-        <div><div class="u-title">${esc(it.title)}</div><div class="u-why">${esc(why(it))}</div></div>
-        <div>${it.key === "hold" || it.claim ? `<span class="stamp ${it.claim ? "bad" : "hold"}">${it.claim ? "Claim filed" : it.blocker ? "On hold" : "Disputed"}</span>` : `<span class="due k-${it.key}"><b>§ ${esc(it.section_ref.split(",")[0])}</b></span>`}</div>
+        <div><div class="u-title">${fundMode ? `<span class="e-deal">${esc(shortName(it.deal))}</span> · ` : ""}${esc(it.title)}</div><div class="u-why">${esc(why(it))}</div></div>
+        <div>${it.key === "hold" || it.claim ? `<span class="stamp ${it.claim ? "bad" : "hold"}">${it.claim ? "Claim filed" : it.blocker ? (it.blocker.why === "dispute" ? "On hold" : "Waiting") : "Disputed"}</span>` : `<span class="due k-${it.key}"><b>§ ${esc(it.section_ref.split(",")[0])}</b></span>`}</div>
       </li>`).join("") : `<li style="cursor:default"><div></div><div class="u-why">Nothing overdue, disputed or due in the next 30 days.</div><div></div></li>`;
 
     // Totals
     const open = items.filter(i => i.key !== "done").length;
     const disputes = items.filter(i => (i.last && i.last.status === "disputed") || i.claim).length;
-    const earnout = items.filter(i => i.category === "earnout" && i.terms.amount_usd && i.key !== "done").reduce((s, i) => s + i.terms.amount_usd, 0);
-    const done = items.filter(i => i.last && ["satisfied", "partial", "waived"].includes(i.last.status)).length;
-    $("totals").innerHTML = [[open, "Open obligations"], [disputes, "Disputes and claims open"],
-      [money(earnout) || "$0", "Earnout still in play"], [`${done}/${items.length}`, "Entries with an outcome"]]
+    const moneyAhead = items.filter(i => i.key !== "done" && i.d.date && daysUntil(i.d.date) >= 0 && daysUntil(i.d.date) <= 365)
+      .reduce((s, i) => s + (i.terms.amount_usd || i.terms.max_amount_usd || 0), 0);
+    const overdue = items.filter(i => i.key === "overdue").length;
+    $("totals").innerHTML = [[open, "Open obligations"], [overdue, "Overdue"], [disputes, "Disputes and claims open"],
+      [money(moneyAhead) || "$0", "Money moving in the next 12 months"]]
       .map(([v, l]) => `<div><span class="cap">${l}</span><span class="v">${esc(v)}</span></div>`).join("");
 
-    renderTape(deal, items);
+    renderRoster();
+    renderTape(items);
     renderTabs(items);
     renderLedger(items);
     renderReader(items);
     freshStamp = null;
   }
 
-  function why(it) {
-    if (it.blocker) return `Waits on the dispute over '${it.blocker.title}'.`;
-    if (it.last && it.last.status === "disputed") return it.last.notes || "Disputed.";
-    if (it.claim && it.key === "soon") return `Cutoff ${rel(it.d.date).toLowerCase()}. ${money(it.last.amount_usd) || "A"} claim is on file.`;
-    if (it.claim) return it.last.notes || "Claim on file.";
-    if (it.key === "overdue") return `${it.obligor}. No outcome recorded yet.`;
-    return `${it.obligor} · ${it.description}`;
+  function renderRoster() {
+    $("rosterWrap").hidden = !isFund();
+    if (!isFund()) return;
+    $("roster").innerHTML = deals.map((deal, di) => {
+      const its = build(di);
+      const nxt = its.filter(i => i.d.date && daysUntil(i.d.date) >= 0 && i.key !== "done").sort((a, b) => a.d.date - b.d.date)[0];
+      const od = its.filter(i => i.key === "overdue").length, hold = its.filter(i => i.key === "hold").length, cl = its.filter(i => i.claim).length;
+      const flags = [od && `<span class="flag-pill bad">${od} overdue</span>`, hold && `<span class="flag-pill hold">${hold} on hold</span>`, cl && `<span class="flag-pill bad">${cl} claim</span>`].filter(Boolean).join("") || `<span class="dt">—</span>`;
+      return `<tr data-deal="${di}" tabindex="0">
+        <td><div class="dn">${esc(shortName(deal))}</div><div class="dt">${esc(deal.target)}</div></td>
+        <td><span class="side ${deal.fund_role === "seller" ? "sell" : ""}">${deal.fund_role === "seller" ? "Sold" : "Bought"}</span></td>
+        <td class="num">${fmt(parse(deal.closing_date))}</td>
+        <td class="num">${its.filter(i => i.key !== "done").length} of ${its.length}</td>
+        <td>${nxt ? `<div class="num">${fmt(nxt.d.date)} · ${esc(rel(nxt.d.date))}</div><div class="dt">${esc(nxt.title)}</div>` : `<span class="dt">None ahead</span>`}</td>
+        <td><div class="flags">${flags}</div></td>
+      </tr>`;
+    }).join("");
   }
 
-  function renderTape(deal, items) {
-    const start = parse(deal.closing_date) || today;
+  function renderTape(items) {
+    const rows = isFund() ? deals.map((_, i) => i) : [view];
     const dated = items.filter(i => i.d.date);
-    const last = new Date(Math.max(+addMonths(start, 12), ...dated.map(i => +i.d.date)));
-    const end = new Date(last.getFullYear() + 1, 0, 1);
-    const pct = d => ((d - start) / (end - start) * 100).toFixed(2) + "%";
-    let h = `<div class="base"></div>`;
-    for (let y = start.getFullYear() + 1; y <= end.getFullYear(); y++) h += `<span class="yr" style="left:${pct(new Date(y, 0, 1))}">${y}</span>`;
-    dated.forEach(i => { h += `<button class="tick k-${i.key}" type="button" data-id="${i.id}" style="left:${pct(i.d.date)}" title="${esc(i.title)} · ${fmt(i.d.date)}" aria-label="${esc(i.title)}, ${fmt(i.d.date)}"></button>`; });
-    if (today >= start && today <= end) h += `<div class="now" style="left:${pct(today)}"><span>TODAY</span></div>`;
-    $("tape").innerHTML = h;
+    const starts = rows.map(i => parse(deals[i].closing_date)).filter(Boolean);
+    const start = new Date(Math.min(...starts, +today));
+    const first = new Date(start.getFullYear(), 0, 1);
+    const lastD = new Date(Math.max(+addMonths(today, 12), ...dated.map(i => +i.d.date)));
+    const end = new Date(lastD.getFullYear() + 1, 0, 1);
+    const pct = d => ((d - first) / (end - first) * 100).toFixed(2) + "%";
+    let h = "";
+    rows.forEach(di => {
+      const deal = deals[di];
+      h += `<div class="tape-row"><span class="who">${esc(shortName(deal))}</span><div class="track">`;
+      dated.filter(i => i.di === di).forEach(i => { h += `<button class="tick k-${i.key}" type="button" data-uid="${i.uid}" style="left:${pct(i.d.date)}" title="${esc(shortName(deal))}: ${esc(i.title)} · ${fmt(i.d.date)}" aria-label="${esc(shortName(deal))}: ${esc(i.title)}, ${fmt(i.d.date)}"></button>`; });
+      h += `</div></div>`;
+    });
+    let axis = "";
+    for (let y = first.getFullYear(); y < end.getFullYear(); y++) axis += `<span class="yr" style="left:${pct(new Date(y, 0, 1))}; top:4px">${y}</span>`;
+    if (today >= first && today <= end) axis += `<div class="now" style="left:${pct(today)}; top:${-rows.length * 32 - 4}px; height:${rows.length * 32 + 4}px"><span>TODAY</span></div>`;
+    $("tape").innerHTML = h + `<div class="tape-axis">${axis}</div>`;
   }
 
   function renderTabs(items) {
@@ -498,8 +602,7 @@
 
   function entryHTML(it) {
     const d = it.d.date;
-    const dateCell = d ? `<span class="d">${String(d.getDate()).padStart(2, "0")}</span><span class="m">${MONTHS[d.getMonth()]}</span>`
-      : `<span class="ev">On<br>event</span>`;
+    const dateCell = d ? `<span class="d">${String(d.getDate()).padStart(2, "0")}</span><span class="m">${MONTHS[d.getMonth()]}</span>` : `<span class="ev">On<br>event</span>`;
     const t = it.terms;
     const foot = [
       `Acts: <b>${esc(it.obligor)}</b>`,
@@ -507,10 +610,10 @@
       t.threshold_usd != null ? `Threshold: <b>${money(t.threshold_usd)}</b>` : "",
       it.confidence < 0.9 ? `<span class="flag">Check drafting · ${Math.round(it.confidence * 100)}%</span>` : "",
     ].filter(Boolean).join("");
-    return `<li class="entry k-${it.key}" data-id="${it.id}" tabindex="0" aria-current="${it.id === selectedId}">
+    const ref = `${isFund() ? `<span class="e-deal">${esc(shortName(it.deal))}</span> · ` : ""}${CAT[it.category]} · § ${esc(it.section_ref)}`;
+    return `<li class="entry k-${it.key}" data-uid="${it.uid}" tabindex="0" aria-current="${it.uid === selected}">
       <div class="e-date">${dateCell}</div>
-      <div class="e-body"><div class="e-ref">${CAT[it.category]} · § ${esc(it.section_ref)}</div>
-        <div class="e-title">${esc(it.title)}</div><div class="e-desc">${esc(it.description)}</div></div>
+      <div class="e-body"><div class="e-ref">${ref}</div><div class="e-title">${esc(it.title)}</div><div class="e-desc">${esc(it.description)}</div></div>
       <div class="e-state">${stateHTML(it)}</div>
       <div class="e-foot">${foot}</div>
     </li>`;
@@ -522,36 +625,35 @@
     const dated = shown.filter(i => i.d.date).sort((a, b) => a.d.date - b.d.date);
     const events = shown.filter(i => !i.d.date);
     let h = "", year = null, todayPlaced = false;
-    const todayBand = `<li class="today-band" aria-label="Today"><span>Today</span><span>${fmt(today)}</span></li>`;
+    const band = `<li class="today-band" aria-label="Today"><span>Today</span><span>${fmt(today)}</span></li>`;
+    const yearHTML = y => { const n = dated.filter(i => i.d.date.getFullYear() === y).length; return `<li class="year">${y}<small>${n} ${n === 1 ? "entry" : "entries"}</small></li>`; };
     dated.forEach(it => {
       if (!todayPlaced && it.d.date >= today) {
-        if (today.getFullYear() !== year) { year = today.getFullYear(); h += yearHTML(year, dated); }
-        h += todayBand; todayPlaced = true;
+        if (today.getFullYear() !== year) { year = today.getFullYear(); h += yearHTML(year); }
+        h += band; todayPlaced = true;
       }
-      if (it.d.date.getFullYear() !== year) { year = it.d.date.getFullYear(); h += yearHTML(year, dated); }
+      if (it.d.date.getFullYear() !== year) { year = it.d.date.getFullYear(); h += yearHTML(year); }
       h += entryHTML(it);
     });
-    if (!todayPlaced && dated.length) h += todayBand;
+    if (!todayPlaced && dated.length) h += band;
     if (events.length) {
       h += `<li class="standing"><h3>Standing orders</h3><p>Triggered by an event, not a date. Each one starts a clock when it happens.</p></li>`;
       h += events.map(entryHTML).join("");
     }
     $("ledger").innerHTML = h || `<li class="empty-row">No entries in this view.</li>`;
   }
-  function yearHTML(y, dated) {
-    const n = dated.filter(i => i.d.date.getFullYear() === y).length;
-    return `<li class="year">${y}<small>${n} ${n === 1 ? "entry" : "entries"}</small></li>`;
-  }
 
   function renderReader(items) {
     const r = $("reader");
-    const it = items.find(i => i.id === selectedId);
+    const it = items.find(i => i.uid === selected);
     if (!it) { r.classList.add("idle"); r.innerHTML = ""; return; }
     r.classList.remove("idle");
-    const deal = deals[dealIdx], t = it.terms, tm = it.timing;
-    const dep = tm.anchor === "other_obligation" ? deal.obligations.find(o => o.id === tm.depends_on) : null;
+    const t = it.terms, tm = it.timing;
+    const dep = tm.anchor === "other_obligation" ? it.deal.obligations.find(o => o.id === tm.depends_on) : null;
     const rows = [
-      [it.period ? "Ends" : "Due", it.d.date ? `${fmt(it.d.date)}` : "On event", true],
+      ["Deal", isFund() ? it.deal.deal_name : null],
+      [it.period ? "Ends" : "Due", it.d.date ? fmt(it.d.date) : "On event", true],
+      ["Reminder", it.remind && it.key !== "done" ? `${fmt(it.remind)} (${REMIND_DAYS} days before)` : null, true],
       ["Computed as", it.d.basis],
       ["Who acts", it.obligor], ["For", it.beneficiary],
       ["Amount", money(t.amount_usd), true], ["Up to", money(t.max_amount_usd), true],
@@ -569,7 +671,8 @@
       <div class="r-title">${esc(it.title)}</div>
       <blockquote class="quote">${esc(it.source_quote)}</blockquote>
       <dl class="leaders">${rows.map(([k, v, m]) => `<div><dt>${k}</dt><span class="dots"></span><dd class="${m ? "mono" : ""}">${esc(v)}</dd></div>`).join("")}
-        ${dep ? `<div><dt>Depends on</dt><span class="dots"></span><dd><a href="#" data-jump="${dep.id}" style="color:inherit">${esc(dep.title)}</a></dd></div>` : ""}</dl>
+        ${dep ? `<div><dt>Depends on</dt><span class="dots"></span><dd><a href="#" data-jump="${it.di}:${dep.id}" style="color:inherit">${esc(dep.title)}</a></dd></div>` : ""}</dl>
+      ${isFund() ? `<button class="toolbtn" type="button" data-view="${it.di}">Open ${esc(shortName(it.deal))} docket</button>` : ""}
       <div><div class="r-label">What happened</div>
         ${it.history.length ? `<ul class="hist">${it.history.map(h => `<li><span class="stamp ${stampClass(h.status)}">${esc(stampWord(it, h.status))}</span>
           <div><div class="meta">${fmt(parse(h.recorded_on))}${h.amount_usd != null ? " · " + money(h.amount_usd) : ""}${h.seeded ? " · sample" : ""}</div>${h.notes ? esc(h.notes) : ""}</div></li>`).join("")}</ul>`
@@ -589,34 +692,51 @@
       </form>`;
   }
 
-  function select(id, scroll) {
-    selectedId = id;
+  const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function select(uid, scroll) {
+    selected = uid;
     render();
-    if (scroll) document.querySelector(`.entry[data-id="${id}"]`)?.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    if (scroll) document.querySelector(`.entry[data-uid="${uid}"]`)?.scrollIntoView({ block: "center", behavior: reduceMotion() ? "auto" : "smooth" });
+  }
+  function setView(v) {
+    view = v; selected = null; tab = "all";
+    if (!narrow.matches) selected = defaultSelection();
+    render();
+    window.scrollTo({ top: 0, behavior: reduceMotion() ? "auto" : "smooth" });
+  }
+  function defaultSelection() {
+    const ahead = itemsFor(view).filter(i => i.d.date && daysUntil(i.d.date) >= 0 && i.key !== "done").sort((a, b) => a.d.date - b.d.date);
+    const first = ahead.find(needsAttention) || ahead[0];
+    return first ? first.uid : null;
   }
 
   // ---------- events ----------
   document.addEventListener("click", e => {
+    const v = e.target.closest("[data-view]"); if (v) { setView(v.dataset.view === "fund" ? "fund" : Number(v.dataset.view)); return; }
+    const dr = e.target.closest("[data-deal]"); if (dr) { setView(Number(dr.dataset.deal)); return; }
     const tb = e.target.closest("[data-tab]"); if (tb) { tab = tb.dataset.tab; render(); return; }
     const j = e.target.closest("[data-jump]"); if (j) { e.preventDefault(); select(j.dataset.jump, true); return; }
-    if (e.target.id === "closeReader") { selectedId = null; render(); return; }
+    if (e.target.id === "closeReader") { selected = null; render(); return; }
     if (e.target.id === "openFile") { $("fileIn").click(); return; }
-    const row = e.target.closest("[data-id]");
-    if (row && !e.target.closest("#reader")) select(row.dataset.id, !row.classList.contains("entry"));
+    const row = e.target.closest("[data-uid]");
+    if (row && !e.target.closest("#reader")) select(row.dataset.uid, !row.classList.contains("entry"));
   });
   document.addEventListener("change", e => { if (e.target.id === "hideDone") { hideDone = e.target.checked; render(); } });
   document.addEventListener("keydown", e => {
-    if (e.key === "Escape" && selectedId) { selectedId = null; render(); }
-    if ((e.key === "Enter" || e.key === " ") && e.target.matches("li[data-id]")) { e.preventDefault(); select(e.target.dataset.id, !e.target.classList.contains("entry")); }
+    if (e.key === "Escape" && selected) { selected = null; render(); }
+    if (e.key !== "Enter" && e.key !== " ") return;
+    if (e.target.matches("[data-deal]")) { e.preventDefault(); setView(Number(e.target.dataset.deal)); }
+    else if (e.target.matches("li[data-uid]")) { e.preventDefault(); select(e.target.dataset.uid, !e.target.classList.contains("entry")); }
   });
   document.addEventListener("submit", e => {
-    if (e.target.id !== "recordForm") return;
+    if (e.target.id !== "recordForm" || !selected) return;
     e.preventDefault();
-    const deal = deals[dealIdx], k = dealKey(deal), amt = $("oAmt").value;
-    ((store[k] ||= {})[selectedId] ||= []).push({ obligation_id: selectedId, status: $("oStatus").value, recorded_on: $("oDate").value,
+    const [di, id] = [Number(selected.split(":")[0]), selected.slice(selected.indexOf(":") + 1)];
+    const k = dealKey(deals[di]), amt = $("oAmt").value;
+    ((store[k] ||= {})[id] ||= []).push({ obligation_id: id, status: $("oStatus").value, recorded_on: $("oDate").value,
       amount_usd: amt === "" ? null : Number(amt), notes: $("oNotes").value.trim() || null });
     const ok = saveStore(store);
-    freshStamp = selectedId;
+    freshStamp = selected;
     render();
     const m = $("okMsg"); if (m) { m.hidden = false; m.textContent = ok ? "Stamped" : "Stamped for this visit only (browser storage is off)"; }
   });
@@ -626,22 +746,13 @@
       const data = JSON.parse(await file.text());
       const list = Array.isArray(data) ? data : [data];
       if (!list.every(d => d.deal_name && Array.isArray(d.obligations))) throw new Error("shape");
-      deals.push(...list); dealIdx = deals.length - list.length; selectedId = null; syncPicker(); render();
+      deals.push(...list);
+      setView(list.length === 1 ? deals.length - 1 : "fund");
     } catch { $("asOf").textContent = "That file isn't a tracker file. Use the JSON written by tracker.extract."; }
     e.target.value = "";
   });
-  function syncPicker() {
-    const p = $("dealPick"); p.hidden = deals.length < 2;
-    p.innerHTML = deals.map((d, i) => `<option value="${i}" ${i === dealIdx ? "selected" : ""}>${esc(d.deal_name)}</option>`).join("");
-  }
-  $("dealPick").addEventListener("change", e => { dealIdx = Number(e.target.value); selectedId = null; render(); });
 
-  // Open on the most pressing entry so the clause reader is never empty on desktop
-  syncPicker();
-  if (deals[0] && !narrow.matches) {
-    const first = build(deals[0]).filter(needsAttention).filter(i => i.d.date && daysUntil(i.d.date) >= 0).sort((a, b) => a.d.date - b.d.date)[0];
-    selectedId = first ? first.id : null;
-  }
+  if (!narrow.matches) selected = defaultSelection();
   render();
 })();
 </script>
