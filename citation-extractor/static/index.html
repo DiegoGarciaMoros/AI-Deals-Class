@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Citation Extractor</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">§</span>
+      <div>
+        <h1>Citation Extractor</h1>
+        <p>Paste a case. Get every authority it cites — cleaned, de-duplicated, and linked.</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel input-panel" aria-label="Case text">
+      <div class="panel-head">
+        <h2>Case text</h2>
+        <div class="head-actions">
+          <button type="button" class="btn ghost" id="sampleBtn">Load sample</button>
+          <label class="btn ghost" for="fileInput">Upload file</label>
+          <input type="file" id="fileInput" accept=".txt,.text,.html,.htm,.md,.xml" hidden>
+        </div>
+      </div>
+      <textarea id="caseText" spellcheck="false"
+        placeholder="Paste the full text of an opinion (plain text or HTML)…"></textarea>
+      <div class="meta-row"><span id="charCount">0 characters</span></div>
+
+      <fieldset class="lookup">
+        <label class="switch">
+          <input type="checkbox" id="lookupToggle" checked>
+          <span>Link cases with the CourtListener citation lookup API</span>
+        </label>
+        <div class="token-row" id="tokenRow">
+          <input type="password" id="tokenInput" autocomplete="off"
+                 placeholder="CourtListener API token (optional if the server has one)">
+          <label class="remember"><input type="checkbox" id="rememberToken"> Remember in this browser</label>
+        </div>
+        <p class="hint" id="tokenHint">Free token: courtlistener.com → Profile → Developer Tools. Without lookup, each case still gets a CourtListener citation link.</p>
+      </fieldset>
+
+      <button type="button" class="btn primary wide" id="extractBtn">Extract citations</button>
+      <p class="error" id="errorBox" role="alert" hidden></p>
+    </section>
+
+    <section class="panel results-panel" aria-label="Results">
+      <div id="emptyState" class="empty">
+        <div class="empty-mark" aria-hidden="true">“ ”</div>
+        <p>Results appear here: a table of authorities with pin cites, signals, parentheticals, every place each authority is cited, and export files.</p>
+      </div>
+
+      <div id="results" hidden>
+        <div class="stats" id="stats"></div>
+        <div class="banner" id="lookupBanner" hidden></div>
+
+        <div class="tabs" role="tablist">
+          <button role="tab" class="tab active" data-view="authorities" aria-selected="true">Authorities</button>
+          <button role="tab" class="tab" data-view="annotated" aria-selected="false">Annotated text</button>
+          <div class="spacer"></div>
+          <div class="export">
+            <button type="button" class="btn" id="exportBtn" aria-haspopup="true" aria-expanded="false">Export ▾</button>
+            <div class="menu" id="exportMenu" hidden>
+              <button data-format="authorities_csv">Authorities (.csv)</button>
+              <button data-format="occurrences_csv">Every citation with context (.csv)</button>
+              <button data-format="toa_html">Table of authorities (.html)</button>
+              <button data-format="toa_md">Table of authorities (.md)</button>
+              <button data-format="annotated_html">Annotated opinion (.html)</button>
+              <button data-format="json">Full data (.json)</button>
+              <hr>
+              <button data-format="zip"><strong>Everything (.zip)</strong></button>
+            </div>
+          </div>
+        </div>
+
+        <div id="authoritiesView">
+          <div class="toolbar">
+            <input type="search" id="filterInput" placeholder="Filter by name, citation, court…">
+            <select id="kindFilter" aria-label="Type">
+              <option value="all">All types</option>
+              <option value="case">Cases</option>
+              <option value="statute">Statutes &amp; rules</option>
+              <option value="journal">Secondary sources</option>
+              <option value="unresolved">Unresolved short forms</option>
+            </select>
+            <select id="sortSelect" aria-label="Sort">
+              <option value="toa">Table of authorities</option>
+              <option value="appearance">Order of appearance</option>
+              <option value="count">Most cited</option>
+            </select>
+          </div>
+          <div id="authorityList"></div>
+        </div>
+
+        <div id="annotatedView" hidden>
+          <div class="legend">
+            <span class="c c-case">case</span><span class="c c-statute">statute / rule</span>
+            <span class="c c-journal">secondary</span><span class="c c-unresolved">unresolved</span>
+          </div>
+          <article id="annotatedText" class="annotated"></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    Parsing by <a href="https://github.com/freelawproject/eyecite">eyecite</a>; links via the
+    <a href="https://www.courtlistener.com/help/api/rest/citation-lookup/">CourtListener citation lookup API</a>.
+    Always verify citations before relying on them.
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
