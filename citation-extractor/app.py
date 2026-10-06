@@ -1,11 +1,14 @@
 """Flask web app: paste a case, get its citations.
 
-Run:  python app.py   (then open http://127.0.0.1:5000)
+Run:  python app.py   (opens http://127.0.0.1:8765 in your browser)
 """
 
 from __future__ import annotations
 
 import os
+import socket
+import threading
+import webbrowser
 
 from flask import Flask, Response, jsonify, request, send_from_directory
 
@@ -61,6 +64,25 @@ def export_route(fmt: str):
                     headers={"Content-Disposition": f'attachment; filename="{filename}"'})
 
 
+def _free_port(host: str, start: int) -> int:
+    """First free port from `start`. (macOS's AirPlay Receiver squats on 5000,
+    which shows up as a blank page, so we avoid it.)"""
+    for port in range(start, start + 50):
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+            try:
+                sock.bind((host, port))
+                return port
+            except OSError:
+                continue
+    raise SystemExit(f"No free port found between {start} and {start + 49}.")
+
+
 if __name__ == "__main__":
-    app.run(host=os.environ.get("HOST", "127.0.0.1"), port=int(os.environ.get("PORT", 5000)),
-            debug=bool(os.environ.get("FLASK_DEBUG")))
+    host = os.environ.get("HOST", "127.0.0.1")
+    port = int(os.environ["PORT"]) if os.environ.get("PORT") else _free_port(host, 8765)
+    url = f"http://{host}:{port}"
+    print(f"\nCitation Extractor is running at {url}")
+    print("Leave this window open while you use it. Close it (or press Control+C) to stop.\n")
+    if not os.environ.get("NO_BROWSER"):
+        threading.Timer(1.5, webbrowser.open, args=[url]).start()
+    app.run(host=host, port=port, debug=bool(os.environ.get("FLASK_DEBUG")))

@@ -8,9 +8,5 @@ if not exist .venv\Scripts\python.exe (
 )
 .venv\Scripts\python -m pip install -q --disable-pip-version-check -r requirements.txt || (pause & exit /b 1)
 .venv\Scripts\python -m pip install -q --disable-pip-version-check --no-deps eyecite==2.6.11 || (pause & exit /b 1)
-echo.
-echo Citation Extractor is running at http://127.0.0.1:5000
-echo Leave this window open while you use it. Close it to stop.
-start "" http://127.0.0.1:5000
 .venv\Scripts\python app.py
 pause

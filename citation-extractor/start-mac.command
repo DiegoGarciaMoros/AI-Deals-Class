@@ -11,9 +11,4 @@ if [ ! -x .venv/bin/python ]; then
 fi
 .venv/bin/python -m pip install -q --disable-pip-version-check -r requirements.txt || exit 1
 .venv/bin/python -m pip install -q --disable-pip-version-check --no-deps eyecite==2.6.11 || exit 1
-echo
-echo "Citation Extractor is running at http://127.0.0.1:5000"
-echo "Leave this window open while you use it. Close it (or press Control+C) to stop."
-echo
-(sleep 2 && open http://127.0.0.1:5000) &
 .venv/bin/python app.py

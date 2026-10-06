@@ -15,7 +15,7 @@ into a clean, de-duplicated table of authorities, with links to each case.
 - **Mac:** in Terminal, `cd` into this folder and run `bash start-mac.command`
 - **Windows:** double-click `start-windows.bat`
 
-The script sets everything up on first run and opens http://127.0.0.1:5000.
+The script sets everything up on first run and opens http://127.0.0.1:8765.
 
 **Manually:**
 
@@ -25,7 +25,7 @@ python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 pip install --no-deps eyecite==2.6.11   # see the note in requirements.txt
 export COURTLISTENER_API_TOKEN=...      # optional, see below
-python app.py                           # → http://127.0.0.1:5000
+python app.py                           # → http://127.0.0.1:8765
 ```
 
 Click **Load sample** to try it on `samples/sample_opinion.txt`.
