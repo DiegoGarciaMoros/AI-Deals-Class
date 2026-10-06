@@ -14,6 +14,14 @@ from collections import Counter
 from typing import Any
 from urllib.parse import quote
 
+try:  # eyecite imports this for its annotate() helper, which we never call. It has no
+    import fast_diff_match_patch  # noqa: F401  prebuilt wheel for newer Pythons, so we
+except ImportError:  # install eyecite without it and stub the module out.
+    import sys
+    import types
+
+    sys.modules["fast_diff_match_patch"] = types.ModuleType("fast_diff_match_patch")
+
 from eyecite import clean_text, get_citations, resolve_citations
 from eyecite.models import (
     FullCaseCitation,

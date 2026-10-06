@@ -1,3 +1,11 @@
-eyecite==2.6.11
+# eyecite itself is installed separately with --no-deps (see start-mac.command):
+#   pip install -r requirements.txt && pip install --no-deps eyecite==2.6.11
+# Its fast-diff-match-patch dependency has no prebuilt wheel for Python 3.13+,
+# and we don't use the feature that needs it.
+courts-db>=0.10
+reporters-db>=3.2
+pyahocorasick>=2.0
+regex>=2023.0
+lxml>=5.0
 Flask>=3.0
 requests>=2.31

@@ -10,12 +10,22 @@ into a clean, de-duplicated table of authorities, with links to each case.
 
 ## Quick start
 
+**Easiest:** install Python from python.org, then:
+
+- **Mac:** in Terminal, `cd` into this folder and run `bash start-mac.command`
+- **Windows:** double-click `start-windows.bat`
+
+The script sets everything up on first run and opens http://127.0.0.1:5000.
+
+**Manually:**
+
 ```bash
 cd citation-extractor
-python -m venv .venv && source .venv/bin/activate
+python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-export COURTLISTENER_API_TOKEN=...   # optional, see below
-python app.py                        # → http://127.0.0.1:5000
+pip install --no-deps eyecite==2.6.11   # see the note in requirements.txt
+export COURTLISTENER_API_TOKEN=...      # optional, see below
+python app.py                           # → http://127.0.0.1:5000
 ```
 
 Click **Load sample** to try it on `samples/sample_opinion.txt`.
