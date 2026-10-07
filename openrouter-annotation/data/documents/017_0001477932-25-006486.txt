@@ -1,0 +1,86 @@
+SOURCE: https://www.sec.gov/Archives/edgar/data/1718224/000147793225006486/btbd_ex991.htm
+FILER: BT Brands, Inc.  (BTBD, BTBDW)  (CIK 0001718224)
+FILED: 2025-09-03
+
+EX-99.1
+ 4
+ btbd_ex991.htm
+ PRESS RELEASE
+
+ btbd_ex991.htm EXHIBIT 99.1 
+
+ BT Brands and Aero Velocity Announce Execution of Definitive Merger Agreement 
+
+ Combined company to focus on advanced drone technologies that improve efficiency and sustainability for its customer base of government and commercial clients 
+
+ Aero Velocity provides comprehensive drone services and integrates Artificial Intelligence (AI) and data science to derive actionable insights from data acquired via Unmanned Aerial Vehicles (UAVs) 
+
+ MINNETONKA, MN and CINCINNATI, OH—September 3, 2025—BT Brands, Inc. (Nasdaq: BTBD) (“BT Brands”) and Aero Velocity Inc. (“Aero Velocity”), a drone solutions and technology company, today jointly announced that they have entered into a definitive merger agreement to combine in an all-stock transaction. The combined company will focus on the development of advanced drone technologies and providing AI-powered solutions in government agency and commercial applications. 
+
+ “We are thrilled to have entered into this agreement with BT Brands and thank its management and the Aero Velocity team for their considerable efforts in getting us to this point”, said Mark Hastings, Chief Executive Officer of Aero Velocity. “We are equally excited about the tremendous opportunities that lie ahead for Aero Velocity and welcome the platform for growth that we believe will result from this transaction. The application of UAV technologies throughout the value chain is still in its infancy. We are eager to push the boundaries of what drones can contribute in the way of safety, cost savings and other efficiencies.”
+
+ “BT Brands considered a range of strategic initiatives, and we believe this proposed transaction represents an opportunity to deliver significant value to our stockholders,” said Gary Copperud, Chief Executive Officer of BT Brands. “Aero Velocity is well positioned in the rapidly growing drone services market providing incredible value to its government agency and commercial clients.”
+
+ Aero Velocity utilizes drone technology and data science techniques for advanced aerial mapping, data collection, and UAV-based commercial services. We offer our services through a Drones-as-a-Service (DaaS) model where the company specializes in the deployment of multiple sensor solutions to identify bespoke, precise, and actionable solutions for clients. The company also provides UAV-powered industrial inspections and infrastructure cleaning services.
+
+ Aero Velocity’s expertise extends across multiple sectors, supporting government, corporate, and educational organizations in a broad range of applications such as precision agriculture, environmental monitoring and forestry management, defense and security, and rapid emergency response. Aero Velocity is also developing a contract drone manufacturing business as the company continues to expand its comprehensive portfolio of drone technologies and services.
+
+ About the Proposed Merger 
+
+ Under the terms of the merger agreement, a wholly-owned subsidiary of BT Brands will merge with and into Aero Velocity, with Aero Velocity continuing as a wholly-owned subsidiary of BT Brands and the surviving company of the merger. The transaction calls for an equity investment in the combined company of not less than $3 million and up to $5 million by Aero Velocity shareholders. 
+
+ Upon the closing of the proposed transactions, Aero Velocity’s stockholders are expected to own approximately 89% of the combined company, and existing BT Brands stockholders are expected to own approximately 11% of the combined company, each on a fully diluted economic basis (excluding BT Brands’ public warrants and the equity investment by Aero Velocity shareholders). The foregoing percentages are subject to adjustment based on BT Brands’ net cash at the closing, among other adjustments, in each case as described in the merger agreement. 
+
+ Upon the closing of the proposed transactions, the combined company is expected to be renamed “Aero Velocity Inc.” and trade on the Nasdaq Capital Market. Mr. Hastings will serve as CEO of the combined company.
+
+ 1 
+
+ The transaction has been unanimously approved by the board of directors of both companies and is expected to close in the fourth quarter of 2025 or first quarter of 2026, subject to approvals by the stockholders of each company and other customary closing conditions. 
+
+ The description of the merger agreement contained herein is only a summary and is qualified in its entirety by reference to the merger agreement. For additional information on the merger agreement and the terms of the transaction, see BT Brand’s Current Report on Form 8-K, which will be filed promptly and can be obtained at the website of the U.S. Securities and Exchange Commission (“SEC”) at www.sec.gov.
+
+ Maxim Group is serving as financial advisor and Ruffa & Ruffa, P.C. is serving as legal counsel to BT Brands. Chardan is serving as financial advisor and Graubard Miller is serving as legal counsel to Aero Velocity.
+
+ About Aero Velocity 
+
+ Aero Velocity provides innovative, precise and reliable solutions through a portfolio of drone services. The Company utilizes cutting edge drone technologies and advanced analytics to provide solutions for government and commercial applications. Aero Velocity is headquartered in Cincinnati, Ohio and acquired certain assets and technologies from the Workhorse Group (NASDAQ: WKHS) in June 2024. To learn more about the company, visit aerovelocity.com.
+
+ About BT Brands 
+
+ BT Brands, Inc. owns and operates a diverse portfolio of restaurant concepts across the United States. The Company’s strategy focuses on disciplined growth, operational excellence, and delivering value to shareholders. 
+
+ IMPORTANT INFORMATION ABOUT THE PROPOSED MERGER AND WHERE TO FIND IT 
+
+ In connection with the proposed transaction, BT Brands and Aero Velocity intend to file a registration statement on Form S-4 that will include a proxy statement that will be sent to all BT Brands’ shareholders. Before making any voting decision, securities holders of BT Brands are urged to read the proxy statement/prospectus and all other relevant documents filed or that will be filed with the SEC in connection with the proposed transaction as they become available because they will contain important information about the proposed transaction and the parties to the proposed transaction.
+
+ Investors and securities holders will be able to obtain free copies of the proxy statement/prospectus and all other relevant documents filed or that will be filed with the SEC by BT Brands through the website maintained by the SEC at www.sec.gov. 
+
+ PARTICIPANTS IN THE SOLICITATION 
+
+ BT Brands and Aero Velocity and certain of their respective directors, executive officers, and other members of management and employees may, under SEC rules, be deemed to be participants in the solicitations of proxies from BT Brands’ shareholders in connection with the proposed transaction. Information about BT Brands’ directors and executive officers and their ownership of BT Brands’ securities is set forth in BT Brands’ filings with the SEC.
+
+ Additional information regarding the participants in the proxy solicitation and a description of their direct and indirect interests will be included in the proxy statement/prospectus when it becomes available. Shareholders, potential investors, and other interested persons in respect of BT Brands and Aero Velocity should read the proxy statement/prospectus carefully when it becomes available before making any voting or investment decisions. You may obtain free copies of these documents from the sources indicated above.
+
+ 2 
+
+ Forward Looking Statements 
+
+ This press release may contain “forward-looking statements” within the meaning of Section 27A of the Securities Act of 1933 and Section 21E of the Securities Exchange Act of 1934, including statements regarding the benefits of the transaction, the anticipated timing of the transaction, the products and services offered by Aero Velocity and the markets in which it operates, and Aero Velocity’s projected future results. These forward-looking statements generally are identified by the words “believe,” “project,” “expect,” “anticipate,” “estimate,” “intend,” “strategy,” “future,” “opportunity,” “plan,” “may,” “should,” “will,” “would,” “will be,” “will continue,” “will likely result,” and similar expressions. Forward-looking statements are predictions, projections and other statements about future events that are based on current expectations and assumptions and, as a result, are subject to risks and uncertainties. Many factors could cause actual future events to differ materially from the forward-looking statements in this document, including, but not limited to: Such statements are made based on our expectations and beliefs concerning future events impacting Aero Velocity and BT Brands. You can identify these statements by the fact that they use words such as “believe,” “anticipate,” “estimate,” “expect,” “plan,” “would,” “should,” and “may” and other words and terms of similar meaning or use of future dates. Forward-looking statements are based on management’s current expectations and are subject to risks and uncertainties that could negatively affect our business, operating results, financial condition and stock price. Factors that could cause actual results to differ materially from those currently anticipated are: the failure to satisfy the conditions to the consummation of the transaction; the occurrence of any event, change or other circumstance that could give rise to the termination of the definitive agreement; the effect of the announcement or pendency of the transaction on BT Brands’ and Aero Velocity’s business relationships, performance, and business generally; risks that the proposed transaction disrupts current plans or operations of BT Brands and Aero Velocity; the outcome of any legal proceedings that may be instituted against the parties related to the merger agreement or the proposed transaction; the ability to maintain the listing of BT Brands’ securities (which would be the combined company’s securities) on Nasdaq after the closing of the transaction; after the closing of the transaction, the price of the combined company’s securities may be volatile due to a variety of factors, including changes in the competitive industry in which Aero Velocity operates, variations in performance across competitors, changes in laws and regulations affecting Aero Velocity’s business and changes in its capital structure; the ability to implement business plans, forecasts, and other expectations after the completion of the proposed transaction, and identify and realize additional opportunities provided by the transaction; and the need for additional funds. Accordingly, these forward-looking statements do not constitute guarantees of future performance, and you are cautioned not to place undue reliance on these forward-looking statements. Risks regarding BT Brand’s business are described in detail in BT Brands’ SEC filings which are available on the SEC’s website at www.sec.gov. These forward-looking statements speak only as of the date hereof, and Aero Velocity and BT Brands expressly disclaim any obligation or undertaking to release publicly any updates or revisions to any forward-looking statements contained herein to reflect any change in our expectations or any changes in events, conditions, or circumstances on which any such statement is based, except as required by law.
+
+ CONTACT: 
+
+ BT Brands: 
+
+ Kenneth Brimmer, Chief Financial Officer
+ kbrimmer@itsburgertime.com 
+ 612-414-5104
+
+ OR 
+
+ Aero Velocity Inc.:
+
+ Mark Hastings, Chief Executive Officer
+ contact@aerovelocity.com 
+ 513-224-4439
+
+ 3

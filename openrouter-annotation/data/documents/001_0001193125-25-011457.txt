@@ -1,0 +1,187 @@
+SOURCE: https://www.sec.gov/Archives/edgar/data/1796129/000119312525011457/d902530dex991.htm
+FILER: Vincerx Pharma, Inc.  (VINC)  (CIK 0001796129)
+FILED: 2025-01-23
+
+EX-99.1
+ 2
+ d902530dex991.htm
+ EX-99.1
+
+ EX-99.1 
+
+ Exhibit 99.1 ee Investor Presentation Li nvestor J January anuary 2 23,
+3, 22025 025 PHARMA. 
+
+ FORWARD-LOOKING STATEMENTS AND TRADEMARKS FORWARD-LOOKING STATEMENTS No
+representations or warranties, expressed or implied are given in, or in respect of, this presentation. To the fullest extent permitted by law, in no circumstances will Oqory or Vincerx, or any of their respective subsidiaries, stockholders,
+affiliates, representatives, partners, directors, officers, employees, advisers or agents be responsible or liable for any direct, indirect or consequential loss or loss of profit arising from the use of this presentation, its contents, its
+omissions, reliance on the information contained within it, or on opinions communicated in relation thereto or otherwise arising in connection therewith. This presentation does not purport to be all-inclusive or to contain all of the information
+that may be required to make a full analysis of the parties. Viewers of this presentation should each make their own evaluation of the parties and the information in this presentation and make such other investigations as they deem necessary. This
+presentation contains forward-looking statements within the meaning of U.S. federal securities laws. Forward-looking statements, which are based on certain assumptions and describe future plans, strategies, expectations and events, can generally be
+identified by the use of forward-looking terms such as “believe,” “expect,” “may,” “will,” “should,” “would,” “could,” “suggest,”
+“scheduled,” “seek,” “intend,” “plan,” “goal,” “potential,” “on-target,” “on track,” “project,” “estimate,”
+“anticipate,” or other comparable terms. All statements other than statements of historical facts included in this presentation are forward-looking statements. Forward-looking statements include, but are not limited to, the entry into a
+definitive merger agreement; the anticipated terms and closing conditions of the merger, including the $20 million equity investment, and the amount and timing of the interim financing; the expected ownership structure and value to Vincerx
+stockholders upon closing of the merger; the expected effects and anticipated benefits of a merger transaction; and the parties' pipeline, product candidates and attributes, and clinical development, timing, and results. Forward-looking statements
+are neither historical facts nor assurances of future performance or events. Instead, they are based only on current beliefs, expectations, and assumptions regarding future business developments, future plans and strategies, projections, anticipated
+events and trends, the economy, and other future conditions. Forward-looking statements are subject to inherent uncertainties, risks, and changes in circumstances that are difficult to predict and many of which are outside of the parties' control.
+Actual results, conditions, and events may differ materially from those indicated in the forward-looking statements. Therefore, you should not rely on any of these forward-looking statements. Important factors that could cause actual results,
+conditions, and events to differ materially from those indicated in the forward-looking statements include, but are 3 not limited to: the satisfactory completion of the parties’ respective due diligence; the completion of the interim
+financing; the parties’ capital requirements, availability and sufficiency of capital, and cash runway; the results of vincerx's due diligence review of Oqory, which has not been completed as of the date hereof; the ability of the parties to
+successfully negotiate and enter into a definitive merger agreement and the actual terms thereof; the parties’ ability to satisfy the conditions precedent to the merger to be contained in a definitive merger agreement, including completion of
+the concurrent offering of Vincerx equity securities of at least $20 million and stockholder approval from both parties; the closing of the merger; the risk that any definitive merger agreement is terminated after it is entered into but before
+consummation of any proposed merger; market acceptance of the combined company; risks associated with clinical development of the parties’ product candidates; general economic, financial, legal, political, and business conditions; and other
+risks and uncertainties including those set forth in Vincerx’s Quarterly Report on Form 10-Q for the quarter ended September 30, 2024 and subsequent reports filed with the SEC. Forward-looking statements speak only as of the date hereof, and
+the parties disclaim any obligation to update any forward-looking statements. TRADEMARKS Oqory and the Oqory logo are trademarks of Oqory. Vincerx®, the Vincerx logo, and VersAptx are trademarks of Vincerx This presentation may also contain
+trademarks and trade names of other companies, which are the property of their respective owners. 
+
+ IMPORTANT NOTICES ADDITIONAL INFORMATION In connection with the proposed
+merger transaction between Oqory and Vincerx, Vincerx will file relevant materials with the Securities and Exchange Commission ( SEC ), including a proxy statement on Schedule 14A. A definitive proxy statement will be sent to holders of
+Vincerx’s common stock when it becomes available. Investors and securityholders and other interested parties are urged to carefully read the proxy statement (including any amendments or supplements thereto) and any other documents filed with
+the SEC when they become available, because they will contain important information about Vincerx, Oqory, and the proposed merger. Investors and securityholders may obtain free copies of these documents and other documents filed with the SEC by
+Vincerx (when they become available) through the website maintained by the SEC at http://www.sec.gov, or by directing a request to: Vincerx Pharma, Inc., 1825 S. Grant Street, San Mateo, CA 94402. Copies of the documents filed by Vincerx are also
+available free of charge in the “Investors—SEC Filings & Financials—SEC Filings” section of Vincerx’s website at https://investors.vincerx.com/financial-information/sec-filings. PARTICIPANTS IN THE SOLICITATION
+Vincerx, Oqory, and their respective directors and officers are or may be considered “participants” (as defined in Section 14(a) of the Securities Exchange Act of 1934) in the solicitation of proxies from the holders of Vincerx’s
+common stock with respect to the proposed transactions described herein. Information about Vincerx’s directors and executive officers, including compensation, is set forth in the sections entitled “Election of Directors—Directors
+and Nominees” and “Executive Officers” of Vincerx’s definitive proxy statement for its 2024 Annual Meeting of Stockholders, filed with the SEC on April 10, 2024, the section entitled “Compensation of Directors and
+Executive Officers” of Vincerx’s definitive proxy statement for its special meeting of stockholders, filed with the SEC on December 10, 2024 (the “2025 Special Meeting Proxy Statement”), as well as the Vincerx’s Current
+Report on Form 8-K filed on December 27, 2024. Information about the ownership of Vincerx’s common stock by Vincerx’s executive officers and directors is set forth in the section entitled “Security Ownership of Certain Beneficial
+Owners and Management” in the 2025 Special Meeting Proxy Statement, as well as the Form 3 filed on January 6, 2025 for Kevin Haas. Updated information regarding the identity of potential participants, and their direct or indirect interests (by
+security holdings or otherwise), will be reflected in Forms 3, 4, or 5 to be filed with the SEC, as well as the section entitled “Security Ownership of Certain Beneficial Owners and Management” of Vincerx’s definitive proxy
+statement on Schedule 14A and other materials to be filed with the SEC regarding the proposed merger. All of these documents are or will be available free of charge at the SEC’s website at www.sec.gov and in the “Investors—SEC
+Filings & Financials—SEC Filings” section of Vincerx’s website at https://investors.vincerx.com/financial-information/sec-filings. Stockholders and potential investors of Vincerx, and other readers, should read the definitive
+proxy statement carefully when it becomes available before making any voting or investment decisions. These documents can be obtained free of charge from the sources indicated above. NO OFFER OR SOLICITATION This communication shall not constitute
+an offer to sell or the solicitation of an offer to buy any securities, nor shall there be any sale of securities, in any jurisdiction in which such offer, solicitation, or sale would be unlawful prior to registration or qualification under the
+securities laws of any such jurisdiction. 
+
+ BINDING TERM SHEET Vincerx Pharma, Inc. (“Vincerx”) and
+Oqory, Inc. (“Oqory”) entered into a Binding Term Sheet, as amended, pursuant to which Oqory would merge into Vincerx, Oqory stockholders would receive shares of Vincerx common stock in exchange for Oqory common stock, and options and
+other rights to acquire Oqory common stock would convert into options and rights to acquire Vincerx common stock. This presentation may be used in discussions with existing and potential investors of Vincerx with respect to the proposed merger. Key
+terms and conditions of the proposed merger include the following: • Upon completion of the proposed merger, Oqory equity holders are expected to own approximately 95% of the combined company and Vincerx equity holders are expected to own
+approximately 5% of the combined company, in each case without taking into account the concurrent investment described below. The proposed merger provides for a minimum fully diluted equity value of $13.66 million for existing Vincerx stockholders
+at closing. • Investors determined by Oqory are required to provide $1,500,000 in interim financing to Vincerx through the purchase of Vincerx equity, of which $1,000,000 has been previously provided and $500,000 is to be provided on or before
+January 31, 2025. • The proposed merger contemplates the sale of Vincerx equity interests equal to at least $20 million concurrent with the closing of the proposed merger pursuant to binding purchase commitments to be entered into upon
+execution of a definitive merger agreement. • The combined company’s board of directors following the proposed merger would consist of nine members, of which Vincerx’s key stockholders would be entitled to nominate two members,
+Oqory’s key stockholders would be entitled to nominate two members, and all other members would be independent directors nominated by Oqory in consultation with the other directors. • The conditions to entering into a definitive merger
+agreement include satisfactory completion of due diligence by the parties, completion of the interim financing, commitments by investors for the concurrent investment, and negotiation of the terms of the definitive merger agreement. Vincerx's due
+diligence has not beeen completed as of the date hereof. Conditions to the closing of the merger include approval by the stockholders of the parties, regulatory approval, and completion of the concurrent investment. The above summary is qualified in
+its entirety by reference to the binding term sheet, as amended, relating to the proposed merger, a copy of which has been filed by Vincerx with the Securities and Exchange Commission on December 27, 2024. Final terms of the proposed merger are
+subject to the negotiation and entry into a definitive merger agreement between the parties. 
+
+ Positioned to drive late-stage ADC innovation • • VersAptx
+Next-Generation Bioconjugation Platform Phase 3 Lead Asset: OQY-3258, TROP2 ADC • VIP943: CD123 ADC with Clinical Proof of Concept • ~150 breast cancer patients treated in Phase 1/2; Phase 3 trials underway in China • 1 CRL (33%)
+in high-risk MDS and 1 CRi (25%) in R/R AML at anticipated efficacious dose levels • Compelling efficacy, safety, and tolerability compared to competitors • Phase 1 dose-escalation study, in progress • Demonstrated efficacy in
+brain metastases • No myelosuppression, cytokine release syndrome, interstitial lung disease, peripheral neuropathy, or veno-occulsive disease • Ready for late-stage trials targeting TROP2 expressing tumors • VIP924: CXCR5 ADC
+pre-IND • Break-through therapy designation in China for PDL-1 neg, 1L TNBC • Additional clinical-stage ADC program targeting CD38 • Proprietary integrated ADC Platform 
+
+ A Strategically Focused Pipeline with Potential for Expansion PROGRAM
+INDICATION PHASE 1 PHASE 2 PHASE 3/ PIVOTAL 2L HR+/HER2- Breast Cancer OQY-3258/ESG401 TROP-2 ADC* 1L PD-L1 Negative TNBC POTENTIAL ADDITIONAL INDICATIONS • Non-small cell lung cancer (NSCLC) • Cervical cancer • Endometrial cancer
+• Urothelial carcinoma • Gastrointestinal cancers • Prostate • Gastroesophageal cancer Clinical PROGRAM INDICATION STAGE R/R Multiple Myeloma Phase 1 OQY-6129 Lung Cancer CD38 ADC Amyloidosis Phase 1 Next-Generation VIP943
+Leukemias & MDS Phase 1 CD123 ADC Assets Preclinical OQY-8811 IND –ready BCMA ADC VIP924 B-cell Malignancies Preclinical CXCR5 ADC Hematological CD25 ADC Malignancies & Solid Preclinical Tumors 
+
+ Transformative Deals Shaping the ADC Landscape $208m $1.8b $2b $43b $10b
+$4b Undisclosed April 2024 April 2024 November 2023 October 2023 Jan 2024 December 2023 October 2023 Merck acquires Genmab J&J acquired Pfizer acquired Abbvie acquired Merck GSK entered Abceutics agreed to ImmunoGen Ambrx Seagen acquired
+exclusive license acquire Daiichi with Hansoh ProfoundBio Sankyo’s Dxd based ADCs In 2023, 76 ADC deals were executed, encompassing licensing agreements, collaborations, and acquisitions, with a strong focus on technology platforms. 
+
+ T TROP2 ROP2 iis s W Widely idely E Expressed xpressed iin n M Multiple
+ultiple S Solid olid T Tumors umors TROP2 levels are higher in tumor issues vs baseline expression in corresponding normal tissues across TROP2 levels are higher in tumor issues vs baseline expression in corresponding normal tissues across various
+tumor types various tumor types AA Accde mati ncaa BLCA Bladder urothelial carcinoma BRCA Breast invasive carcinoma Cervical squamous cell carcinoma Cc 2 e - EERE and endocervical adenocarcinoma 9 * 4 * CHOL Cholangiocarcinoma o= j -¢ e : CNTL
+Control Y + A é S.A > te COAD Colon adenocarcinoma ® ® oe ¢ a 3 - ° y- DLBC Lymphoid neoplasm diffuse large BCL rom _ » a 3 ee ESCA Esophageal carcinoma x ow 10- © t . 4 e GBM Glioblastoma multiforme ® >
+-_ 4% bd rs | be 3 2 HNSC Head and neck squamous cell carcinoma <x | « ¬ 8 z + eo : e e . KICH Kidney chromophobe Za a 4 3 y + ° +e - 3 KIRC Kidney renal clear cell carcinoma Ys ¢ 3? Se y s 4 KIRP Kidney renal papillary cell
+carcinoma © 6 - e ° te : « LGG Brain lower grade glioma £ as . e - r : é LIHC Liver hepatocellular carcinoma N N *. - e : Yr 2 LUAD Lung adenocarcinoma ae + | ' LUSC _Lung squamous cell carcinoma e 2 * £ x. bd = MESO
+Mesothelioma ~ 10- Ov Ovarian serous cystadenocarcinoma = =: . . . : . fe y \ 7 ¥v i, i v PAAD Pancreatic oe ooesteer zener PCPG Pheochromocytoma and paraganglioma 2 4 ~ S ° ., s Go 3 Ps ° a 5 2 -, x= = oO = 5 2 O 9 a © =>
+© © = PRAD Prostate adenocarcinoma ezuS8ZszrsezoQrPkeXFPTropisstEeVoaSEruUNsovxagss READ _ Rectum adenocarcinoma ao rtToOoqqawusau@a 2wWw OF QO ODeOMsSM FP MOE Oa 2 geaoda a oS SARC = Sarcoma SKCM Skin cutaneous melanoma STAD Stomach
+adenocarcinoma Tu mor types TGCT Testicular germ ceil tumors THCA Thyroid carcinoma THYM Thymoma UCEC Uterine corpus endometrial carcinoma ucS Uterine carcinosarcoma UVM Uveal melanoma F Flynn lynn e et t a al, l, T The he a antibody-drug
+ntibody-drug c conjugate onjugate llandscape, andscape, N Nature ature R Reviews eviews D Drug rug D Discovery, iscovery, 2 2024. 024. D DOI:10.1038/d41573-024-00064-w. OI:10.1038/d41573-024-00064-w. T The he C Cancer ancer G Genome enome Atlas
+Atlas 
+
+ OQY-3258 Differentiated Safety Profile and Compelling Efficacy
+Gilead’s AZ/ Daiichi’s Merck’s OQY-3258 Trodelvy® Datroway® SAC-Tirumotecan (SG) (Dato-DxD) (SAC-TMT) Antibody Sacituzumab Sacituzumab Datopotamab Sacituzumab DAR 8 7.6 4 7.4 Linker Enzyme dependent pH-dependent
+Enzyme-dependent pH-dependent SN-38 SN-38 deruxtecan tirumotecan Payload (irinotecan active metabolite) (irinotecan active metabolite) TOP1 inhibitor TOP1 inhibitor TOP1 inhibitor TOP1 inhibitor Approved Approved Stage Phase 3 (2L+ HR+/HER-) Phase 3
+(2L+ HR+/HER-) (2L+ TNBC) 3 4 ILD/pneumonitis concerns Anemia 2 Toxicity Liabilities/ Life-threatening neutropenia 1 3 4 Neutropenia/Leukepenia Ocular surface toxicity Rash 2 Tolerability Severe diarrhea 3 4 Oral mucositis/ Stomatitis Oral
+mucositis/ Stomatitis 5 1L TNBC: Confirmed ORR 80% 1L TNBC: unknown 1L TNBC: unknown 1L TNBC: unknown Monotherapy 2L+ HR+/HER2-: 2L+ HR+/HER2-: 2L+ HR+/HER2-: 2L+ HR+/HER2-: Efficacy ORR 29% ORR 21% ORR 36% ORR 37% 1 2 3 6 PFS 7 (4-9) mos PFS 5.5
+(4-7) mos PFS 7 (6-7) mos PFS 11 (5-13) mos 1 ESMO Presentation. Monday, September 16, 2024, 08:40-08:45; 349MO 2 Trodelvy package insert 3 Datroway package insert 4 Xu B, Yin Y, Fan Y, et al.
+https://meetings.asco.org/abstracts-presentations/239767. ASCO 2024. May 31 – June 4, 2024. Abstract 104. 5 January 6, 2025 data cut off 6 Ouyang Abstract 380MO ESMO 2023 
+
+ OQY-3258 Clinical Study Design Phase 1b Dose Expansion 1 Phase 1a Dose
+Escalation Regimen: D1, 8, 15/28 IV n=40 n=115 18 mg/kg 12 mg/kg n=14 D1, 8, 15/28 16 mg/kg TNBC (≥3L) 14 mg/kg n=15 14 mg/kg 12 mg/kg 20 mg/kg 2 16 mg/kg n=39 TNBC (1L) Q3W 16 mg/kg 12 mg/kg 12 mg/kg n= 21 8 mg/kg HR+/ HER2- BC (with 1L and
+2L chemo 2 16 mg/kg n= 26 treatments) 4 mg/kg 2 mg/kg 1 Wang et al., 2024, Cell Reports Medicine 5, 101707 2 Dose selected for Phase 3 
+
+ OQY-3258 Phase 1a/1b Patient Characteristics 2 Patient Characteristics
+(Phase 1b) OQY-3258 (n=115) S St tu ud dy y p po op pu ulla at tiio on n c cllo os se elly y r re ef flle ec ct ts s Age, median (range) years 52 (33-73) k ke ey y d de em mo og gr ra ap ph hiic c a an nd d c clliin niic ca all c ch ha ar ra ac ct
+te er riis st tiic cs s o ob bs se er rv ve ed d iin n t th he e U U..S S.. ECOG PS, n (%) p po op pu ulla at tiio on n 39 (34) 0 1 76 (66) Number of Prior Therapies Previous Systemic Treatment, (%) 1 (N=144) ≥ 2 71 (62) ≥ 5 12 (10)
+Other ADC Brain Metastatic Disease, n (%) 4% Immunotherapy Yes 16 (14) 18% Liver Metastatic Disease, n (%) 62 (54) Platinum-based Time (months) from Initial Diagnosis to chemotherapy Taxanes 40% Enrollment 92% n 113 Mean (SD) 23 (25) 16.7 Median
+Anthracyclines 76% Min, Max 0.2, 155.7 1 ESMO Presentation. Monday, September 16, 2024, 08:40-08:45; 349MO 2 August 2024 data cutoff; unaudited data subject to change 
+
+ O OQY-3258 QY-3258 D Demonstrates emonstrates a a F Favorable avorable
+S Safety afety P Profile rofile ((Phase Phase 1 1b, b, n n=115) =115) Treatment-Emergent Adverse Effects (220%) (N=115) • The most common grade ≥3 White blood cell count decreased * The most common grade 23 Neutrophil count decreased T
+TRAEs RAEs w were ere n neutropenia eutropenia a and nd Anaemia F Nausea lleukopenia eukopenia Alanine ami Vontiting * No Grade >3 rash or interstitial • No Grade ≥3 rash or interstitial anine aminotransferase increased : ~ Aspartate
+aminotransferase increased llung ung d disease/pneu isease/pneum monitis onitis w was as Diarrhoea observed observed Alopecia 0 jouer • * O Only nly o one ne c case ase o of f G Grade rade 3 3 ecreased appeti . Hypertriglyceridaemia d diarrhea
+iarrhea a and nd o one ne c case ase o of f G Grade rade Hypoalbuminaemia 3 stomatitis 3 stomatitis eo 50 100 Frequency (%) M@ Grade 1+2 Ml Grade 3 Grade 4 A August ugust 2 2024 024 d data ata c cutoff; utoff; u unaudited naudited d data ata s
+subject ubject t to o cchange hange 
+
+ Overview of Grade ≥3 Neutropenia Patients with ≥2
+occurrences of Grade ≥3 neutropenia n=11 • Only 17.5% of subjects at 16mg/kg D1,8,15/28d had ≥2 occurrence of Grade ≥3 neutropenia throughout the treatment. • No Grade ≥3 neutropenia caused permanent
+discontinuation and was manageable; subjects recovered rapidly after treatment. Patients with 1 occurrence of Grade ≥3 neutropenia n=18 First Occurrence in the Rapid Recovery, % First Cycle, % within 3 days No 17% 41% Patients with 0
+occurrence of Grade ≥3 neutropenia n=34 90% 83% within 7 days Yes ESMO Presentation. Sunday, September 15, 2024, 09:05-09:10; 344MO 
+
+ OQY-3258 Shows Favorable and Differentiated Tolerability Compared with
+Competitors 70 63 OQY-3258 shows significantly 60 fewer treatment disruptions, 51.5 highlighting its improved 50 45 tolerability: 40 • Most common reason for 30 dose interruption was 25.4 22 neutropenia and 18.1 20 17.6 leukopenia 10 7 7
+• No patients discontinued 5 2.6 1.5 treatment due to 0 %AE leading to study withdrawal AE leading to dose interruption AE leading to dose reduction neutropenia or leukopenia OQY-3258 (n=115) SG (n=258) Dato-DxD (n=85) SAC-TMT (n=130) August
+2024 data cut; unaudited data subject to change For SG source is Trodelvy package insert ASCENT trial. For Dato-DxD source is BCa pts from TROPION-PanTumor 01 Study JCO 2024 and safety meta-analysis Cancer Treat Res Commun. 2023:37:100775. For
+SAC-TMT source is ASCO 2023 Presentation on OptiTROP-Breast01 trial. 
+
+ OQY-3258 Shows Favorable and Differentiated Safety Compared with
+Trodelvy (SG) All Grade Adverse Events (%) Grade 3-4 AEs (%) 100 60 94 88 90 86 49 50 78 80 76.5 73.9 41 70 62.6 40 36.5 59 60 31 50 30 26 40 20 29.6 30 11 17 20 9 10 12.2 7.8 4.3 10 3.5 2 0.9 0.9 0 0 Anemia Lymphopenia Leukopenia Neutropenia
+Diarrhea Oral Anemia Lymphopenia Leukopenia Neutropenia Diarrhea Oral mucositis/Stomatitis mucositis/Stomatitis OQY-3258 (n=115) SG (n=258) OQY-3258 (n=115) SG (n=258) Stomatitis for OQY-3258 included PT of stomatitis, mouth ulceration,
+oropharyngeal discomfort, mucosal disorder, oropharyngeal pain. August 2024 data cutoff; unaudited data subject to change For SG source is Trodelvy package insert ASCENT trial 
+
+ OQY-3258 Shows Favorable and Differentiated Safety Compared with AZ/
+Daiichi’s Datroway (Dato- DxD) All Grade Adverse Events (%) Grade ≥3 Adverse Events (%) 90 12 84.7 10.6 80 10 70 61.2 60 8 54.8 50 6 40 4.7 4 30 24.7 20 18.8 20 15.7 1.7 12.2 2 1.2 1.2 10 0.9 5.2 1.7 1.7 1.2 0 0 0 0 0 0 0 0 Oral Nausea
+Constipation Dry eye Infusion-related ILD/pneumonitis Oral Nausea Constipation Dry eye Infusion-related ILD/pneumonitis mucositis/Stomatits reactions mucositis/Stomatits reactions OQY-3258 (n=115) Dato-DxD (n=85) OQY-3258 (n=115) Dato-DxD (n=85)
+Stomatitis for OQY-3258 included PT of stomatitis, mouth ulceration, oropharyngeal discomfort, mucosal disorder, oropharyngeal pain August 2024 data cut; unaudited data subject to change For Dato-DxD source is BCa pts from TROPION-PanTumor 01 Study
+JCO 2024 
+
+ OQY-3258 Shows Favorable and Differentiated Safety Compared with
+Merck’s SAC-tirumotecan (SAC-TMT) All Grade Adverse Events (%) Grade 3-4 Adverse Events (%) 90 40 36.5 80 80 76.5 35 73.9 74 74 32 70 30 28 62.6 26 60 25 25 50 44 20 41 40 31 15 30 12 9 10 20 15.7 13 12.2 4.3 4 5 10 0.9 0.9 0 0 0 Anemia
+Neutropenia Leukopenia Oral Thrombocytopenia Rash Anemia Neutropenia Leukopenia Oral Thrombocytopenia Rash mucositis/Stomatitis mucositis/Stomatitis OQY-3258 (n=115) SAC-TMT (n=130) OQY-3258 (n=115) SAC-TMT (n=130) Stomatitis for OQY-3258 included
+PT of stomatitis, mouth ulceration, oropharyngeal discomfort, mucosal disorder, oropharyngeal pain. Rash for OQY-3258 included PT of rash, pruritus, erythema, dermatitis allergic. August 2024 data cut; unaudited data subject to change For SAC-TMT
+source is ASCO 2023 Presentation on OptiTROP-Breast01 trial 
+
+ OQY-3258 Alone: Shows Promising ORR Versus Combination Therapies and
+Chemo Alone in 1L TNBC st (n=35) OQY-3258 TNBC 1 Line Confirmed Overall Response Rate (%) Stable Disease Partial Response Complete Response 90 80 79 80 70 58.9 60 52.7 50 42.6 40.8 40 30 20 10 OQY-3258 Progression Free Survival 0 OQY-3258 Alone
+Dato-DxD + Durva Chemo Alone Pembro+Chemo Nab-Paclitaxel Alone Atezo+Nab-P OQY-3258 Alone (n=35) (n=62) (n=103) (n=220) (n=183) (n=185) (n=35) O On n N No ov ve em mb be er r 6 6, , 2 20 02 24 4, , t th he e N NM MP PA A g gr ra an nt te ed d B Br
+re ea ak kt th hr ro ou ug gh h T Th he er ra ap py y D De es si ig gn na at ti io on n t to o O OQ QY Y- -3 32 25 58 8 f fo or r t tr re ea at ti in ng g i in no op pe er ra ab bl le e P PD D- -L L1 1- -n ne eg ga at ti iv ve e T TN NB BC C i in n
+p pa at ti ie en nt ts s w wi it th ho ou ut t p pr ri io or r s sy ys st te em mi ic c t th he er ra ap py y. . January 6, 2025 data cutoff; unaudited data subject to change. Competitor data: Schmid ESMO 2023 Abstract 379MO; Rugo NEJM
+2022;387:217-26; Rugo NEJM 2022;387:217-26; Schmid NEJM 2018;379:2108-21; Schmid NEJM 2018;379:2108-21 
+
+ Competitive Efficacy Outcomes in Late-Stage HR+/HER2-Breast Cancer
+• Competitive Objective Response Best Change of Percentage in Target Lesion Size from Baseline N=58 Rate (ORR) of 34%, with 29% achieving confirmed complete or partial responses. • Disease Control Rate (DCR) of 78%. • Median
+(range) Duration of Response (DoR) of 8 (5-24) months. • Six-month DoR rate (95%CI) of 70% (50%-90%). • Median (range) Progression-Free Survival (PFS) of 7 (4-9) months. • Six-month PFS rate of 55%. Data cut-off date: Aug 15th,
+2024. Subject to change. ESMO Presentation. Monday, September 16, 2024, 08:40-08:45; 349MO 
+
+ OQY-3258: Penetrated BBB and Demonstrated Compelling Efficacy in
+Patients With Brain Metastasis B Br ra aiin n L Le es siio on n W Wa at te er rf fa allll C Ch ha an ng ge e Reduction In The Size Of The Intracranial Lesions In Patient #101009 Brain Metastases (n=17) Intracranial ORR: 41% T Ta ar rg ge et t L Le
+es siio on n W Wa at te er rf fa allll C Ch ha an ng ge e • Complete transcranial response: 3 patients • Partial transcranial response: 4 patients P PF FS S ( (9 95 5% %C CII) ) iin n p pt ts s w wiit th h b br ra aiin n m me et ta as st
+ta as siis s ( (n n= =1 17 7) ) w wa as s 4 4..6 6 ( (2 2..0 0- -9 9..8 8) ) v vs s 2 2..8 8 ( (1 1..5 5- -3 3..9 9) ) m mo on nt th hs s f fo or r S SG G ( (n n= =3 32 2) ) Data cut-off date: Aug 15th, 2024. Subject to change. ESMO Presentation.
+Sunday, September 15, 2024, 09:05- 09:10; 344MO For SG source is Hurvitz 2023 npj Breast Cancer 10:33 
+
+ OQY-3258 Next-Generation TROP2 ADC Innovative Breakthrough Efficacy
+Safety Phase 3 Linker Designation Awarded in China SN-38 toxin attached to Favorable Monotherapy efficacy Phase 3 trials in two safety/tolerability in 3 breast cancer metastatic breast cancer November 2024, for serum-stable linker with profile with
+populations indications launched in Metastatic/Unresectab DAR ~8 – potentially manageable China, building on le PD-L1 negative, 1L addressing Demonstrated efficacy hematologic effects successful early results TNBC Trodelvy’s known in
+brain metastases stability issues Potential Additional Indications Breast cancer serves as the beachhead indication. Additional indications could include: Non-small cell lung cancer Gastroesophageal cancer • • (NSCLC) • Cervical
+cancer • Endometrial cancer • Urothelial carcinoma • Gastrointestinal cancers • Prostate 
+
+ Anti-TROP2 Phase 3 Studies in Metastatic / Unresectable, PD-L1 negative
+1L TNBC Datroway OQY-3258 Dato-DxD Oqory AstraZeneca Company Phase Global Phase 3 Global Phase 3 TNBC TNBC Key Inclusion Criteria Metastatic/Unresectable Metastatic/Unresectable PD-L1 negative PD-L1 negative OQY-3258 Dato-DxD Treatment Arm 16 mg/kg
+Day 1, 8 and 15 of 28-day cycle 6 mg/kg Q3W Investigator choice of: Investigator choice of: Comparator Arm paclitaxel paclitaxel nab-paclitaxel nab-paclitaxel eribulin eribulin capecitabine capecitabine carboplatin or carboplatin Dual primary of PFS
+(BICR) and OS Dual primary of PFS (BICR) and OS Endpoint Estimated Primary June 2027 December 2025 Completion Estimated Study July 2028 December 2025 Completion CTG ID NCT06732323 NCT05374512 Notes: Trodelvy is not approved for this indication and
+is not conducting a Phase 3 trial in this indication. Merck is not conducting a Phase 3 trial in this indication. 
+
+ Anti-TROP2 Phase 3 Studies in Advanced, 1L+ HR+/HER2- Breast Cancer
+Trodelvy Datroway SAC-Tirumotecan OQY-3258 (SG) (Dato-DxD) (SAC-TMT) Oqory Gilead AstraZeneca Merck Company Phase 3 Phase 3 Phase 3 Phase Approved Global Study Global Study Global Study HR+/HER2- BCa HR+/HER2- BCa HR+/HER2- BCa HR+/HER2- BCa Key
+Inclusion Metastatic/Unresectable Metastatic/Unresectable Metastatic/Unresectable Metastatic/Unresectable Criteria ≥1 prior Tx≥2 prior Tx≥1 prior Tx≥1 prior Tx SAC-TMT Monotherapy OQY-3258 Trodelvy Dato-DxD 4 mg/kg Q2W
+Treatment Arm 16 mg/kg Day 1, 8 and 15 of 28- 10 mg/kg Day 1 and 8 of 21-day and 6 mg/kg Q3W day cycle cycle SAC-TMT plus pembro Investigator choice of: Investigator choice of: Investigator choice of: Investigator choice of: eribulin eribulin
+eribulin paclitaxel Comparator Arm capecitabine capecitabine capecitabine nab-paclitaxel gemcitabine gemcitabine gemcitabine capecitabine vinorelbine vinorelbine vinorelbine liposomal doxorubicin Dual primary of PFS (BICR) and Endpoint PFS (BICR)
+PFS (BICR) PFS (BICR) OS Estimated Primary July 2026 October 2023 (actual) July 2024 (actual) July 2027 Completion Estimated Study December 2026 October 2023 (actual) August 2025 April 2031 Completion CTG ID NCT06383767 NCT03901339 NCT05104866
+NCT06312176

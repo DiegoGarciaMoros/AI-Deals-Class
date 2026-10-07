@@ -1,0 +1,102 @@
+SOURCE: https://www.sec.gov/Archives/edgar/data/1446159/000117184325001901/exh_991.htm
+FILER: Predictive Oncology Inc.  (POAI)  (CIK 0001446159)
+FILED: 2025-04-01
+
+EX-99.1
+ 2
+ exh_991.htm
+ PRESS RELEASE
+
+ EdgarFiling EXHIBIT 99.1 
+ Predictive Oncology Reports Year-End 2024 Financial Results and Provides Corporate Update 
+ Company continues to progress toward the signing of a definitive merger agreement with Renovaro 
+
+ PITTSBURGH, April 01, 2025 (GLOBE NEWSWIRE) -- Predictive Oncology (Nasdaq: POAI) , a science-driven company leveraging its proprietary artificial intelligence and machine learning capabilities, extensive biorepository of tumor samples, and CLIA laboratory, to accelerate oncologic drug discovery and enable drug development, today reported financial and operating results for the quarter ended December 31, 2024, and provided a corporate update. The Company reported a loss from continuing operations of approximately $10.8 million on total revenue of $1.6 million for the year ended December 31, 2024.
+ On January 6, 2025, Predictive Oncology announced that it has entered into an agreement to merge with Renovaro, Inc. On March 3, Renovaro announced that it has advanced the first tranche of financing to Predictive to initiate the integration of AI/ML platform technologies, core laboratory capabilities and business development efforts in Europe and the United States. The companies continue to work towards the completion of due diligence and the finalization of a definitive merger agreement.
+ Q4 2024 and Recent Highlights: 
+ Announced an agreement to merge with Renovaro, Inc., and announced the receipt of the first tranche of financing from Renovaro to initiate the integration of AI/ML platform technologies, core laboratory capabilities, and business development functions in Europe and the United States. Companies anticipate the signing of a definitive merger agreement imminently following the successful completion of due diligence. Completed the sale of assets related to its wholly owned subsidiary, Skyline Medical Inc., to DeRoyal Industries, a global manufacturer and supplier of medical products. Transaction sharpens Predictive’s focus on its core AI/ML capabilities and significantly reduces the Company’s ongoing expense run rate. Announced that, using publicly available datasets on drugs that have either been abandoned or discontinued by large pharmaceutical companies, Predictive has developed a registry of promising candidates that can potentially be repurposed for additional or alternative indications. Partnered with Switzerland-based Tecan Group Ltd. to expand high-throughput drug screening to include human tumor spheroids using automated imaging and 3D analysis. Positive results from an ongoing study in collaboration with Tecan were presented at the 2025 Society for Laboratory Automation and Screening (SLAS) International Conference & Exhibition, which was held January 25-29, 2025, in San Diego, CA. Announced the planned European launch of its validated flagship live cell ChemoFx ® drug response assay in Europe and expanded availability in the United States. The ChemoFx ® treatment selection marker and tumor profiling assay will initially focus on ovarian and other gynecological cancers and may include testing of other major tumor types of interest over time. Received more than $3.0 million in combined gross proceeds during the first three months of 2025 from the sale to DeRoyal and issuance of common stock pursuant to warrant exercises, a registered direct offering and the first tranche of financing from Renovaro. “During the fourth quarter and subsequent period, we took tangible steps to sharpen our focus on our core AI/ML-based drug and biomarker discovery capabilities while implementing efficiencies across the organization to maximize long-term shareholder value,” stated Raymond Vennare, Chairman and Chief Executive Officer of Predictive Oncology. “Of note, our pending merger with Renovaro, if completed, will create a new AI/ML drug discovery company with unique advantages in the marketplace and the potential to meaningfully improve outcomes for cancer patients through earlier diagnosis, discovery of novel diagnostic and prognostic biomarkers, and the development of tailored therapies. With Renovaro, we have a unique opportunity to bring new hope to patients suffering from a range of difficult-to-treat cancers, and we continue to work tirelessly toward the executive of a definitive merger agreement with that goal in mind.” 
+ FY 2024 Financial Summary: 
+ Concluded the fourth quarter of 2024 with $734,673 in cash and cash equivalents, compared to $8.7 million as of December 31, 2023, and $(202,610) in Stockholder’s Deficit, compared to $8.3 million of Stockholders’ Equity as of December 31, 2023. Basic and diluted net loss per common share from continuing operations for the year ended December 31, 2024, decreased approximately 33% to $1.99, as compared to $2.99 for the year ended December 31, 2023. FY 2024 Financial Results: 
+ The company recorded revenue of $1,623,817 in 2024, compared to $1,627,697 in 2023. Revenues for the years ended December 31, 2024, and December 31, 2023, were primarily derived from its Eagan operating segment. The Eagan operating segment contributed $1,539,005 and $1,135,101 for the years ended December 31, 2024, and December 31, 2023, respectively, while the Pittsburgh operating segment contributed $84,812 and $492,596, respectively. Cost of sales was $826,137 and $609,212 for the years ended December 31, 2024, and December 31, 2023, respectively. Cost of sales increased primarily due to costs associated with Eagan operating segment, including increased volume of STREAMWAY systems sold and increased direct labor costs. General and administrative expenses decreased by $961,025 to $7,419,892 in 2024 from $8,380,917 in 2023. The decrease was primarily due to decreases in employee-related expenses, including approximately $527,000 less in severance expense and lower costs associated with lower headcount. Additional decreases included lower legal fees and investor relations. These decreases were offset by higher professional fees, including consultants supporting our management team, and audit fees. Operations expenses decreased by $417,120 to $2,851,045 in 2024 compared to $3,268,165 in 2023. The decrease in operations expenses in 2024 was primarily due to lower employee-related expenses associated with lower headcount, decreased cloud computing expenses, and lower research and development expenses. Sales and marketing expenses decreased by $20,926 to $1,466,213 in 2024 compared to $1,487,139 in 2023. The decrease in 2024 was primarily due to decreased staff-related expenses resulting from headcount reductions and revisions to employee sales commission structure, offset by increased severance related to the separation of a former executive. Net cash used in operating activities of continuing operations was $10,974,568 in 2024, compared to $11,784,070 in 2023. Cash used in operating activities of continuing operations decreased in 2024 primarily due to lower cash operating losses, partially offset by increases in cash used in working capital. Changes in cash used in working capital included increases in accounts receivable and decreases in accounts payable, offset by a decrease in prepaid expenses and other assets. The increase in accounts receivable was primarily due to timing of sales of STREAMWAY systems near year end where payment was collected after year end. Forward-Looking Statements: 
+ Certain matters discussed in this release contain forward-looking statements. These forward-looking statements reflect our current expectations and projections about future events and are subject to substantial risks, uncertainties and assumptions about our operations and the investments we make. All statements, other than statements of historical facts, included in this press release regarding our strategy, future operations, future financial position, future revenue and financial performance, projected costs, prospects, plans and objectives of management are forward-looking statements. The words “anticipate,” “believe,” “estimate,” “expect,” “intend,” “may,” “plan,” “would,” “target” and similar expressions are intended to identify forward-looking statements, although not all forward-looking statements contain these identifying words. Our actual future performance may materially differ from that contemplated by the forward-looking statements as a result of a variety of factors including, among other things, the risks related to the success of our collaboration arrangements, commercialization activities and product sales levels by our collaboration partners, and other factors discussed under the heading “Risk Factors” in our filings with the SEC. Except as expressly required by law, the Company disclaims any intent or obligation to update these forward-looking statements.
+ Investor Relations Contact:
+ Michael Moyer
+LifeSci Advisors, LLC
+mmoyer@lifesciadvisors.com
+
+ PREDICTIVE ONCOLOGY INC. 
+ CONSOLIDATED BALANCE SHEETS 
+
+ December 31, 
+ 2024 December 31, 
+ 2023 
+ ASSETS 
+ Current assets: 
+ Cash and cash equivalents $ 734,673 $ 8,728,660 
+ Accounts receivable, net 745,566 277,641 
+ Inventories 385,728 480,803 
+ Prepaid expense and other assets 306,301 512,078 
+ Current assets of discontinued operations 53,649 79,249 
+ Total current assets 2,225,918 10,078,431 
+
+ Property and equipment, net 369,470 491,214 
+ Intangibles, net 210,113 241,339 
+ Lease right-of-use assets 2,064,507 2,598,091 
+ Other long-term assets 102,509 105,509 
+ Non-current assets of discontinued operations - 902,665 
+ Total assets $ 4,972,517 $ 14,417,249 
+
+ LIABILITIES AND STOCKHOLDERS’ (DEFICIT) EQUITY 
+ Current liabilities: 
+ Accounts payable $ 1,142,919 $ 1,334,064 
+ Note payable - 150,408 
+ Accrued expenses and other liabilities 1,407,987 1,542,948 
+ Derivative liability - 1,376 
+ Contract liabilities 304,985 302,499 
+ Lease liability 572,739 444,897 
+ Current liabilities of discontinued operations 164,771 174,839 
+ Total current liabilities 3,593,401 3,951,031 
+
+ Other long-term liabilities 23,487 5,459 
+ Lease liability – net of current portion 1,558,239 2,130,977 
+ Non-current liabilities of discontinued operations - 58,002 
+ Total liabilities 5,175,127 6,145,469 
+
+ Stockholders’ (deficit) equity: 
+ Preferred stock, 20,000,000 shares authorized inclusive of designated below 
+ Series B Convertible Preferred Stock, $.01 par value, 2,300,000 shares authorized, 79,246 shares outstanding as of December 31, 2024, and December 31, 2023 792 792 
+ Common stock, $.01 par value, 200,000,000 shares authorized, 6,666,993 and 4,062,853 shares outstanding as of December 31, 2024, and December 31, 2023, respectively 66,670 40,629 
+ Additional paid-in capital 180,156,199 175,992,242 
+ Accumulated deficit (180,426,271 ) (167,761,883 ) 
+ Total stockholders’ (deficit) equity (202,610 ) 8,271,780 
+
+ Total liabilities and stockholders’ (deficit) equity $ 4,972,517 $ 14,417,249 
+
+ PREDICTIVE ONCOLOGY INC. 
+ CONSOLIDATED STATEMENTS OF NET LOSS 
+
+ Year Ended December 31, 
+ 2024 2023 
+ Revenue $ 1,623,817 $ 1,627,697 
+ Cost of sales 826,137 609,212 
+ Gross profit 797,680 1,018,485 
+
+ Operating expenses: 
+ General and administrative expense 7,419,892 8,380,917 
+ Operations expense 2,851,045 3,268,165 
+ Sales and marketing expense 1,466,213 1,487,139 
+ Total operating expenses 11,737,150 13,136,221 
+ Total operating (loss) (10,939,470 ) (12,117,736 ) 
+ Other income 89,367 152,685 
+ Other expense (11,478 ) (64,967 ) 
+ Gain on derivative instruments 1,376 12,457 
+ Loss from continuing operations (10,860,205 ) (12,017,561 ) 
+ Loss from discontinued operations (1,804,183 ) (1,966,406 ) 
+ Net (loss) $ (12,664,388 ) $ (13,983,967 ) 
+
+ Loss per common share, basic and diluted: 
+ Loss from continuing operations (1.99 ) (2.99 ) 
+ Loss from discontinued operations (0.33 ) (0.49 ) 
+ Net (loss) per common share, basic and diluted $ (2.32 ) $ (3.48 ) 
+
+ Weighted average shares used in computation – basic and diluted 5,453,632 4,014,848

@@ -1,0 +1,92 @@
+SOURCE: https://www.sec.gov/Archives/edgar/data/1008586/000143774925018850/ex_824912.htm
+FILER: STREAMLINE HEALTH SOLUTIONS INC.  (STRM)  (CIK 0001008586)
+FILED: 2025-05-29
+
+EX-99.1
+ 5
+ ex_824912.htm
+ EXHIBIT 99.1
+
+ ex_824912.htm 
+
+ Exhibit 99.1 
+
+ MDaudit and Streamline Health Announce Definitive Merger Agreement 
+
+ The combined entity supports healthcare organizations nationwide with an aggregate Net Patient Revenue of more than $300B and brings together best-in-class billing compliance and revenue integrity solutions to empower health systems with actionable foresight and end-to-end visibility. 
+
+ MDaudit to acquire all outstanding shares of Streamline stock for $5.34 per share in cash, a premium of 138% to Streamline ’ s closing price on May 28, 2025. 
+
+ Boston, MA and Atlanta, GA – May 29, 2025 – 
+
+ MDaudit, an award-winning cloud-based continuous risk monitoring platform that enables the nation’s premier healthcare organizations to minimize billing risks and maximize revenues, and Streamline Health Solutions, Inc. (“Streamline” or the “Company”, NASDAQ: STRM), a leading provider of solutions that enable healthcare providers to improve financial performance, announced today that they have entered into a definitive merger agreement pursuant to which MDaudit will acquire Streamline in an all cash transaction valued at approximately $37.4 million, including debt.
+
+ Pursuant to the terms of the merger agreement, MDaudit will acquire all outstanding shares of Streamline stock for $5.34 per share in cash, which represents a premium of 138% to Streamline’s closing price on May 28, 2025, the last trading day prior to this announcement, and a premium of 117% to Streamline’s 30-day volume-weighted average stock price as of May 28, 2025.
+
+ This combination brings together two organizations that share a common vision: enabling healthcare organizations to expand patient care and access by improving financial stability. By joining Streamline’s pre-bill integrity solutions with MDaudit’s robust billing compliance and revenue integrity platform, the parties believe that the combined organization will be uniquely positioned to unify disparate data silos, broaden executive insights, and drive coordinated actions across the revenue cycle continuum to accelerate revenue outcomes and mitigate risk.
+
+ “At a time when health systems are facing mounting financial and operational pressures, we believe the future belongs to those who can connect the dots across the revenue cycle continuum with data- and AI-driven solutions,” said Ritesh Ramesh, CEO of MDaudit . “Streamline’s eValuator and RevID solutions complement MDaudit’s current strengths in billing compliance and revenue integrity capabilities by enabling pre-bill visibility in real-time to unlock revenue opportunities. These solutions reflect our shared belief that human-driven revenue cycles deserve proactive, systemwide intelligence with closed feedback loops that are actionable”.
+
+ “MDaudit and Streamline have always believed that the most sophisticated technology won’t drive successful outcomes without an unwavering focus on customer satisfaction,” said Ben Stilwill, CEO of Streamline Health . “Our teams have built trust by being true partners to our customers. Together, we’re building a broader platform that reflects the reality of today’s revenue cycle: distributed teams, disconnected data, and immense responsibility. Together, we’re delivering foresight and action; not just reports or alerts.”
+
+ Transaction Summary 
+
+ At the effective time of the merger, a wholly-owned subsidiary of MDaudit will merge with and into Streamline, with Streamline surviving the merger as a wholly-owned subsidiary of MDaudit. The closing of the transaction is subject to certain customary closing conditions, including approval of the merger agreement by the Streamline stockholders. The transaction is not subject to a financing condition, and MDaudit intends to finance the transaction using a combination of cash on hand and available funds from existing credit facilities.
+
+ The merger is expected to close during the third quarter of 2025.
+
+ Following the closing of the merger, Streamline’s common stock will no longer be listed on the Nasdaq Stock Market, and Streamline will become a private company.
+
+ Voting Agreements 
+
+ MDaudit has entered into voting agreements with certain officers and directors of Streamline and their respective affiliates, who collectively own approximately 22% of Streamline’s outstanding common stock. Under these agreements, the officers and directors of Streamline and their respective affiliates have agreed to vote all shares of Streamline common stock owned by them in favor of the adoption of the merger agreement, subject to the terms and conditions contained therein.
+
+ Advisors 
+
+ Cain Brothers, a division of KeyBanc Capital Markets, acted as exclusive financial advisor to Streamline and rendered a fairness opinion to its Board of Directors, and Troutman Pepper Locke LLP served as legal counsel to Streamline.
+
+ Goodwin Procter, LLP served as legal counsel to MDaudit.
+
+ About MDaudit 
+
+ MDaudit is a leading healthcare technology provider that partners with the nation’s premier healthcare systems to reduce compliance risk, improve efficiency, retain revenue, and enhance communication between cross-functional teams. Bringing solutions to an industry in transformation, MDaudit enables organizations to minimize billing risks and maximize revenue with an AI-powered, integrated, cloud-based platform that leverages the power of collaboration between people and sophisticated technology to keep humans at the forefront of decision-making while driving sustainable change. To learn more, visit www.mdaudit.com/.
+
+ About Streamline Health 
+
+ Streamline Health Solutions, Inc. (Nasdaq: STRM) enables healthcare organizations to proactively address revenue leakage and improve financial performance. We deliver integrated solutions, technology-enabled services and analytics that drive compliant revenue leading to improved financial performance across the enterprise. For more information, visit www.streamlinehealth.net
+
+ Forward-looking Statements 
+
+ This press release, and any related oral statements, may contain forward-looking statements within the meaning of the federal securities laws. Forward-looking statements include, without limitation, projections, predictions, expectations, or beliefs about future events or results and all other statements that are not statements of historical fact. Such statements may include statements regarding the closing of the proposed merger and the expected timing thereof, the expected value provided to stockholders as a result of the proposed merger, the management of the Company upon closing of the proposed merger, and the Company’s operating and strategic plans upon closing of the proposed merger. Such forward-looking statements are based on various assumptions as of the time they are made, all of which are subject to change, and are inherently subject to known and unknown risks, uncertainties and other factors that may cause actual results, performance or achievements to be materially different from any future results, performance or achievements expressed or implied by such forward-looking statements. Forward-looking statements are often accompanied by words that convey projected future events or outcomes such as “expect,” “believe,” “estimate,” “plan,” “project,” “anticipate,” “intend,” “will,” “may,” “view,” “opportunity,” “potential,” “aim,” “could,” “would,” “seek,” “might,” “considered,” “continue,” “target” or words of similar meaning or the negatives of these words or other statements concerning opinions or judgments of the Company or its management about future events or outcomes or that otherwise convey uncertainty about future events or outcomes. By their nature, forward-looking statements address matters that involve risks and uncertainties because they relate to events and depend upon future circumstances that may or may not occur, such as the closing of the merger and the anticipated benefits thereof. There can be no assurance that actual results, performance, or achievements of the Company will not differ materially from any projected future results, performance or achievements expressed or implied by such forward-looking statements or any related oral statements. Actual future results, performance or achievements may differ materially from historical results or those anticipated depending on a variety of factors, some of which are beyond the control of the Company, including, but not limited to, (i) the occurrence of any event, change or other circumstances that could give rise to the termination of the merger agreement; (ii) the inability to close the proposed merger due to the failure to obtain stockholder approval for the proposed merger or the failure to satisfy other conditions to closing of the proposed merger; (iii) risks related to disruption of management’s attention from the Company’s ongoing business operations due to the proposed merger; (iv) unexpected costs, charges or expenses resulting from the proposed merger; (v) the Company’s ability to retain and hire key personnel; (vi) certain restrictions during the pendency of the proposed merger that may impact the company’s ability to pursue certain business opportunities or strategic transactions; (vii) the ability of the buyer to obtain necessary financing arrangements, if any; (viii) potential litigation relating to the proposed merger that could be instituted against the parties to the merger agreement or their respective directors, managers or officers, including the effects of any outcomes related thereto; (ix) the effect of the announcement of the proposed merger on the Company’s relationships with its customers, operating results and business generally; (x) continued availability of capital and financing and rating agency actions; (xi) legislative, regulatory and economic developments affecting the Company’s business; (xii) general economic and market developments and conditions; (xiii) unpredictability and severity of catastrophic events, including but not limited to acts of terrorism, pandemics, outbreaks of war or hostilities, as well as the Company’s response to any of the aforementioned factors; (xiv) significant transaction costs associated with the merger; (xv) the possibility that the merger may be more expensive to complete than anticipated, including as a result of unexpected factors or events; and (xvi) the risk that the proposed merger will not be consummated in a timely manner, if at all. Additional risk factors that could cause actual results to differ materially from expectations include, but are not limited to, the risks identified by the Company in the “Risk Factors” and “Management’s Discussion and Analysis of Financial Condition and Results of Operations” sections of the Company’s Form 10-K for the fiscal year ended January 31, 2025, and comparable sections of the Company’s Quarterly Reports on Form 10-Q and other filings, which have been filed with the SEC and are available on the SEC’s website at www.sec.gov. While the list of factors presented here and in such filings with the SEC is considered representative, no such list should be considered a complete statement of all potential risks and uncertainties. Unlisted factors may present significant additional obstacles to the realization of forward-looking statements. All of the forward-looking statements made in this press release are expressly qualified by the cautionary statements contained or referred to herein. The actual results or developments anticipated may not be realized or, even if substantially realized, they may not have the expected consequences to or effects on the Company or its business or operations. Consequences of material differences in results as compared with those anticipated in the forward-looking statements could include, among other things, business disruption, operational problems, financial loss, legal liability to third parties and similar risks, any of which could have a material impact on the Company’s financial condition, results of operations, credit rating or liquidity. Readers are cautioned not to rely on the forward-looking statements contained in this press release. Forward-looking statements and any related oral statements speak only as of the date they are made, and the Company does not undertake any obligation to update, revise or clarify these forward-looking statements, whether as a result of new information, future events or otherwise, except as required by applicable law.
+
+ Additional Information and Where to Find It 
+
+ This press release is not intended to and does not constitute an offer to sell or the solicitation of an offer to subscribe for or buy or an invitation to purchase or subscribe for any securities or the solicitation of any vote or approval in any jurisdiction, nor shall there be any sale, issuance or transfer of securities in any jurisdiction in contravention of applicable law. In connection with the proposed merger, the Company intends to file relevant materials with the Securities and Exchange Commission (the “SEC”), including a proxy statement on Schedule 14A, the definitive version of which will be sent or provided to the Company’s stockholders. This communication is not a substitute for the proxy statement or any other document that the Company may file with the SEC or send to its stockholders in connection with the proposed merger. STOCKHOLDERS OF THE COMPANY ARE ADVISED TO READ THE PROXY STATEMENT AND ANY OTHER DOCUMENTS FILED BY THE COMPANY WITH THE SEC IN CONNECTION WITH THE PROPOSED MERGER BECAUSE THEY WILL CONTAIN IMPORTANT INFORMATION ABOUT THE PROPOSED MERGER AND THE BUSINESS TO BE CONDUCTED AT THE SPECIAL MEETING. All such documents, when filed, may be obtained free of charge at the SEC’s website (http://www.sec.gov). These documents, once available, and the Company’s other filings with the SEC also will be available free of charge on the Company’s website at www.streamlinehealth.net.
+
+ Participants in the Solicitation 
+
+ The Company and its directors and executive officers may be deemed to be participants in the solicitation of proxies from the Company’s stockholders with respect to the proposed merger. Information about the Company’s directors and executive officers and their ownership of the Company’s common stock is set forth in the Company’s proxy statement on Schedule 14A filed with the SEC on August 19, 2024, and the Company’s Annual Report on Form 10-K for the fiscal year ended January 31, 2025, filed with the SEC on May 2, 2025. To the extent that such individual’s holdings of the Company’s common stock have changed since the amounts printed in the Company’s proxy statement, such changes have been or will be reflected on Statements of Change in Ownership on Form 4 filed with the SEC. Other information regarding the identity of the potential participants, and their direct or indirect interests in the proposed merger, by security holdings or otherwise, will be set forth in the proxy statement and other materials to be filed with the SEC in connection with the proposed merger. Free copies of these materials may be obtained as described in the preceding paragraph.
+
+ To Learn More 
+
+ For MDaudit 
+
+ Brian Martorana
+
+ Vice President, Marketing
+
+ 816.522.4886
+
+ bmartorana@hayesmanagement.com
+
+ For Streamline 
+
+ Jacob Goldberger
+
+ Vice President, Finance
+
+ 303.887.9625
+
+ jacob.goldberger@streamlinehealth.net
+
+ Source: Streamline Health Solutions, Inc.

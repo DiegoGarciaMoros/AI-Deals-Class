@@ -1,0 +1,291 @@
+SOURCE: https://www.sec.gov/Archives/edgar/data/1962918/000119312525086274/d849091dex991.htm
+FILER: ACELYRIN, Inc.  (SLRN)  (CIK 0001962918)
+FILED: 2025-04-21
+
+EX-99.1
+ 3
+ d849091dex991.htm
+ EX-99.1
+
+ EX-99.1 
+
+ Exhibit 99.1 Investor Presentation April 2025 
+
+ Disclaimer Forward-Looking Statements This communication contains
+forward-looking statements within the meaning of federal securities laws, including the “safe harbor” provisions of the Private Securities Litigation Reform Act of 1995. Such statements are based upon current plans, estimates and
+expectations of management of Alumis Inc. (“Alumis”) and ACELYRIN, Inc. (“ACELYRIN”) in light of historical results and trends, current conditions and potential future developments, and are subject to various risks and
+uncertainties that could cause actual results to differ materially from such statements. The inclusion of forward-looking statements should not be regarded as a representation that such plans, estimates and expectations will be achieved. Words such
+as “anticipate,” “expect,” “project,” “intend,” “believe,” “may,” “will,” “should,” “plan,” “could,” “continue,”
+“target,” “contemplate,” “estimate,” “forecast,” “guidance,” “predict,” “possible,” “potential,” “pursue,” “likely,” and words
+and terms of similar substance used in connection with any discussion of future plans, actions or events identify forward-looking statements. All statements, other than statements of historical facts, including express or implied statements
+regarding the proposed transaction; the conversion of equity interests contemplated by the agreement and plan of merger, dated as of February 6, 2025, as amended on April 20, 2025, by and among the parties (as amended, the “merger
+agreement”); the issuance of common stock of Alumis contemplated by the merger agreement; the expected filing by Alumis with the Securities and Exchanges Commission (the “SEC”) of a registration statement on Form S-4 (the
+“registration statement”) and a joint proxy statement/prospectus of Alumis and ACELYRIN to be included therein (the “joint proxy statement/prospectus”); the expected timing of the closing of the proposed transaction; the
+ability of the parties to complete the proposed transaction considering the various closing conditions; the expected benefits of the proposed transaction; the sufficiency of the combined company’s capital resources; the combined
+company’s cash runway, which is preliminary, unaudited and subject to change; the competitive ability and position of the combined company; the clinical pipeline of the combined company; and any assumptions underlying any of the foregoing, are
+forward-looking statements. Risks and uncertainties include, among other things, (i) the risk that the proposed transaction may not be completed in a timely basis or at all, which may adversely affect Alumis’ and ACELYRIN’s businesses
+and the price of their respective securities; (ii) the potential failure to receive, on a timely basis or otherwise, the required approvals of the proposed transaction, including stockholder approvals by both Alumis’ stockholders and
+ACELYRIN’S stockholders, and the potential failure to satisfy the other conditions to the consummation of the transaction; (iii) the effect of the announcement, pendency or completion of the proposed transaction on each of Alumis’ or
+ACELYRIN’s ability to attract, motivate, retain and hire key personnel and maintain relationships with partners, suppliers and others with whom Alumis or ACELYRIN does business, or on Alumis’ or ACELYRIN’s operating results and
+business generally; (iv) that the proposed transaction may divert management’s attention from each of Alumis’ and ACELYRIN’s ongoing business operations; (v) the risk of any legal proceedings related to the proposed transaction or
+otherwise, or the impact of the proposed transaction thereupon, including resulting expense or delay; (vi) that Alumis or ACELYRIN may be adversely affected by other economic, business and/or competitive factors; (vii) the occurrence of any event,
+change or other circumstance that could give rise to the termination of the merger agreement , including in circumstances which would require Alumis or ACELYRIN to pay a termination fee; (viii) the risk that restrictions during the pendency of the
+proposed transaction may impact Alumis’ or ACELYRIN’s ability to pursue certain business opportunities or strategic transactions; (ix) the risk that the anticipated benefits and synergies of the proposed transaction may not be fully
+realized or may take longer to realize than expected; (x) the impact of legislative, regulatory, economic, competitive and technological changes; (xi) risks relating to the value of Alumis securities to be issued in the proposed transaction; (xii)
+the risk that integration of the proposed transaction post-closing may not occur as anticipated or the combined company may not be able to achieve the growth prospects expected from the transaction; (xiii) the effect of the announcement, pendency or
+completion of the proposed transaction on the market price of the common stock of each of Alumis and ACELYRIN; (xiv) the implementation of each of Alumis’ and ACELYRIN’s business model and strategic plans for product candidates and
+pipeline, and challenges inherent in developing, commercializing, manufacturing, launching, marketing and selling potential existing and new products and product candidates; (xv) the scope, progress, results and costs of developing Alumis’ and
+ACELYRIN’s product candidates and any future product candidates, including conducting preclinical studies and clinical trials, and otherwise related to the research and development of Alumis’ and ACELYRIN’s pipeline; (xvi) the
+timing and costs involved in obtaining and maintaining regulatory approval for Alumis’ and ACELYRIN’s current or future product candidates, and any related restrictions, limitations and/or warnings in the label of any approved product;
+(xvii) the market for, adoption (including rate and degree of market acceptance) and pricing and reimbursement of Alumis’ and ACELYRIN’s product candidates, if approved, and their respective abilities to compete with therapies and
+procedures that are rapidly growing and evolving; (xviii) uncertainties in contractual relationships, including collaborations, partnerships, licensing or other arrangements and the performance of third-party suppliers and manufacturers; (xix) the
+ability of each of Alumis and ACELYRIN to establish and maintain intellectual property protection for products or avoid or defend claims of infringement; (xx) Alumis’ ability to successfully integrate ACELYRIN’s operations and personnel;
+and (xxi) potential delays in initiating, enrolling or completing preclinical studies and clinical trials. These risks, as well as other risks related to the proposed transaction, will be described in the registration statement and the joint proxy
+statement/prospectus that will be filed with the SEC in connection with the proposed transaction. While the list of factors presented here and the list of factors to be presented in the registration statement are considered representative, no such
+list should be considered to be a complete statement of all potential risks and uncertainties. For additional information about other factors that could cause actual results to differ materially from those described in the forward-looking
+statements, please refer to Alumis’ and ACELYRIN’s respective periodic reports and other filings with the SEC, including the risk factors identified in Alumis’ and ACELYRIN’s most recent Annual Reports on Form 10-K. The risks
+and uncertainties described above and in the SEC filings cited above are not exclusive and further information concerning Alumis and ACELYRIN and their respective businesses, including factors that potentially could materially affect their
+respective businesses, financial conditions or operating results, may emerge from time to time. Readers are urged to consider these factors carefully in evaluating these forward-looking statements, and not to place undue reliance on any
+forward-looking statements, which speak only as of the date hereof. Readers should also carefully review the risk factors described in other documents Alumis and ACELYRIN file from time to time with the SEC. The forward-looking statements included
+in this communication are made only as of the date hereof. Alumis assumes no obligation and does not intend to update these forward-looking statements, even if new information becomes available in the future, except as required by law. Additional
+Information and Where to Find It In connection with the proposed merger, Alumis intends to file with the SEC the registration statement, which will include the joint proxy statement/prospectus. After the registration statement has been declared
+effective by the SEC, the joint proxy statement/prospectus will be delivered to stockholders of Alumis and ACELYRIN. BEFORE MAKING ANY VOTING OR INVESTMENT DECISION, SECURITY HOLDERS OF ALUMIS AND ACELYRIN ARE URGED TO READ THE JOINT PROXY
+STATEMENT/PROSPECTUS (INCLUDING ALL AMENDMENTS AND SUPPLEMENTS THERETO) AND OTHER DOCUMENTS RELATING TO THE MERGER THAT WILL BE FILED WITH THE SEC WHEN THEY BECOME AVAILABLE BECAUSE THEY WILL CONTAIN IMPORTANT INFORMATION ABOUT THE PROPOSED MERGER.
+Investors and security holders will be able to obtain copies of the joint proxy statement/prospectus (when available) and other documents filed by Alumis and ACELYRIN with the SEC, without charge, through the website maintained by the SEC at
+www.sec.gov. Copies of the documents filed with the SEC by Alumis will be available free of charge under the SEC Filings heading of the Investor Relations section of Alumis’ website at https://investors.alumis.com/. Copies of the documents
+filed with the SEC by ACELYRIN will be available free of charge under the Financials & Filings heading of the Investor Relations section of ACELYRIN’s website at https://investors.acelyrin.com/. Participants in the Solicitation Alumis and
+ACELYRIN and their respective directors and executive officers may be deemed to be participants in the solicitation of proxies in respect of the proposed transaction. Information about Alumis’ directors and executive officers is set forth in
+the registration statement, which includes the joint proxy statement/prospectus. Information about ACELYRIN’s directors and executive officers is set forth in ACELYRIN’s Annual Report on Form 10-K, which was filed with the SEC on March
+19, 2025. Stockholders may obtain additional information regarding the interests of such participants by reading the registration statement and the joint proxy statement/prospectus and other relevant materials filed with the SEC regarding the
+proposed merger when they become available. Investors should read the joint proxy statement/prospectus carefully before making any voting or investment decisions. No Offer or Solicitation This communication shall not constitute an offer to sell or
+the solicitation of an offer to buy any securities or a solicitation of any vote or approval, nor shall there be any sale of securities in any jurisdiction in which such offer, solicitation or sale would be unlawful prior to registration or
+qualification under the securities laws of any such jurisdiction. No offering of securities shall be made except by means of a prospectus meeting the requirements of Section 10 of the Securities Act of 1933, as amended. 2 
+
+ Executive Summary The Alumis Merger Provides Significant Potential
+Upside For ACELYRIN Stockholders › The combination provides the opportunity to participate in the potential upside from Phase 3 data for Alumis’ lead program expected in 1Q26 and a combined pipeline with multiple upcoming milestones
+expected, with ACELYRIN stockholders retaining significant (~48%) ownership of the combined company, on a fully diluted basis › The pro forma discounted cash flow analysis reviewed by the ACELYRIN board implies a range of illustrative pro
+forma equity values per share of ACELYRIN common stock of $6.90 to $8.96 1 (inclusive of realized net synergies) based on the Pro Forma DCF analysis reviewed in the February 6, 2025 Presentation and adjusted for the improved 4/21 terms › Prior
+to the announcement of the strategic merger with Alumis, the market valued ACELYRIN at less than cash value despite Lonigutamab’s potential to be a differentiated medicine in a large and growing market › The ACELYRIN board believes that
+the combination with Alumis will be significantly value accretive to ACELYRIN stockholders as a result of synergies and scale to be achieved through the proposed merger as well as reduced execution risk versus a standalone path as a single asset
+company Combination Creates a Leading Clinical-Stage Immunology Company with a Diversified Portfolio of Product Candidates › Combination with Alumis is the best path forward to unlock Lonigutamab’s value and the combined company is
+well-capitalized with runway through impactful catalysts into 2027 › Combined company’s management team is well-positioned to execute and create value, including by unlocking the value of Lonigutamab. Alumis has meaningful ophthalmology
+expertise—its Chief Medical Officer was the CMO and co-founder of Viela Bio and its Chief Commercial Officer ran the TEPEZZA franchise at Amgen / Horizon › Members of ACELYRIN’s Lonigutamab team are expected to join Alumis
+(clinical, CMC and regulatory) › Combined company is well-positioned relative to publicly traded clinical-stage immunology peers, with the potential for significant upside Independent Board Committee Ran a Thorough Process to Review Multiple
+Alternatives and Optimize Terms From Alumis › The transaction process was spearheaded by an independent and highly accomplished Transaction Committee with extensive financial and biopharmaceutical company experience › The Transaction
+Committee secured multiple improvements in deal terms, including increasing ownership in the combined company from 40% to 48%, despite a declining ACELYRIN share price › This process included interactions with ~25 potential counterparties over
+~7 months, the exploration of a wide variety of potential transactions, robust evaluation of additional offers that emerged post signing of the definitive merger agreement, improved deal terms post signing of the 2/6 merger agreement in response to
+stockholder feedback and is unanimously recommended and approved by the disinterested and independent directors › The ACELYRIN Board is confident the Alumis strategic merger maximizes the potential value for ACELYRIN stockholders 1. The Joint
+Proxy/Prospectus contains a detailed summary of the financial analyses performed by Guggenheim Securities, LLC (“Guggenheim Securities”) in connection with its February 6, 2025 presentation to the ACELYRIN board (the “February 6,
+2025 Presentation”). Guggenheim Securities’ analyses were subject to the assumptions made, procedures followed, matters considered and limitations, qualifications and other conditions contained in the February 6, 2025 Presentation and
+related fairness opinion and were necessarily based on economic, business, capital markets and other conditions, and the information made available to Guggenheim Securities, as of the date of such presentation and fairness opinion. Range of
+illustrative pro forma equity values per share of ACELYRIN common stock reflects the revised exchange ratio of 0.4814x (the Improved Exchange Ratio ) in lieu of the original exchange ratio of 0.4274x (the Original Exchange Ratio ) used in the
+February 6, 2025 Presentation. 3 
+
+ The Alumis Merger Provides Significant Potential Upside For ACELYRIN
+Stockholders 4 
+
+ At Time of IPO, Investors Expected to Benefit from a Robust Pipeline but
+Several Clinical Setbacks and Management Departures Have Impacted Growth Prospects Overview Limited Pipeline Remaining From Time of IPO Stage at IPO › ACELYRIN IPO’d in May 2023 based on Phase 2b/3 Part A data for PC Ph1 Ph2 Ph3 Current
+Status Izokibep (“Izo”) in Hidradenitis Suppurativa (“HS”) Izokibep (anti-IL-17A) HS Hidradenitis Suppurativa Sept-23: Failed Ph2b/3 Part B • Izo is a next generation anti-IL-17A mAb Psoriatic Arthritis PsA Mar-24: Data
+not competitive • At the time of IPO, IL-17 was already a commercially validated target Ax Axial Spondylarthritis Aug-24: Suspended development based on Novartis’ Cosentyx ($4.8B FY22) and Lilly’s Taltz ($2.5B FY22) Spa UV Uveitis
+Dec-24: Failed Ph2b/3 • Humira was the only biologic approved for HS at that time with Lonigutamab (anti-IGF-1R) Cosentyx approved for HS shortly after SLRN’s IPO in Oct-23 TED Thyroid Eye Disease Development plan to be finalized ›
+Izo was designed, based on 4 major hypotheses, to overcome SLRN-517 (anti-c-KIT) limitations of prior generation IL-17s CSU Chronic Urticaria Jan-24: Divested 1. Higher affinity to IL-17A could translate to higher potency vs. Cosentyx Limited Senior
+Management Remaining From Time of IPO 2. Smaller molecular size could allow for better tissue penetration 3. Targeting IL-17A vs. IL-17F could lower rates of candidiasis and toxicity Name Position at IPO Current Position 4. Albumin binding could
+support longer half life vs. Cosentyx Shao-Lee Lin, M.D., Ph.D. Founder, CEO May-24: Departed › Izo ultimately suffered clinical setbacks which led to discontinuation Mardi Dier CFO & CBO Aug-23: Departed of further development by ACELYRIN
+Melanie Gloria COO Oct-24: Departed • Sept-23: Failed to achieve stat. sig. in Part B of the HS Ph2b/3 study Mina Kim CLO CEO • Mar-24: Achieved stat. sig. in Psoriatic Arthritis (“PsA”) but not Ron Oyston CPO Aug-24:
+Departed competitive vs. UCB’s bimekizumab Paul Peloso, M.D. CMO Dec-23: Departed • Dec-24: Failed to achieve stat. sig. in Uveitis Ph2b/3 study Remaining Programs / Personnel Source: Public company filings and Wall Street Equity
+Research. 5 
+
+ ACELYRIN Shares Have Been Under Significant Pressure Since Phase 2b/3
+Part B Izokibep Data in Hidradenitis Suppurativa (“HS”) in September 2023 › After additional readouts, Izokibep was deprioritized and ACELYRIN is focused on Lonigutamab › Lonigutamab has the potential to be a best-in-class
+next-generation subcutaneous anti-IGF-1R therapy in Thyroid Eye Disease (“TED”) Capitalization ($ in Millions Except Per Share Values) Unaffected Share Price (2/6/25) $1.90 9/11/23: Izokibep $30.00 Performance from IPO (89%) failed to
+meet Equity Value $199 primary endpoint in 1 (448) Less: 4Q24 Cash and Cash Equivalents Part B of the Ph2b/3 Enterprise Value ($249) study in HS 11% $20.00 1/6/25: Additional Ph1b/2 data 11/27/23: Announced and Ph3 development plan for CRO
+programming Lonigutamab announced error in Izokibep Ph2b/3 5/4/23: IPO trial in PsA 12/10/24: Data from 2/6/25: 5/9/24: Prior CEO exited & priced at Ph2b/3 study of $10.00 Alumis strategic Mina Kim appointed CEO $18/share Izokibep in Uveitis
+merger announcement ACELYRIN 3/11/24: Data from Ph2b/3 $1.90 trial of Izokibep in PsA and XBI long-term HS data (89%) $0.00 May-23 Jul-23 Oct-23 Dec-23 Mar-24 Jun-24 Aug-24 Nov-24 Feb-25 Source: Public company filings and FactSet as of 2/6/25.
+Strategic Alternatives Process 1. Cash, cash equivalents and marketable securities. 6 
+
+ ACELYRIN’s Board Believes Lonigutamab has the Potential to be a
+Differentiated Medicine in a Large and Growing Market … Product Profile Market Opportunity Efficacy in-line with IV anti-IGF-1R agents Minimally penetrated U.S. market Proptosis response in line with others, within the limitations of a small
+dose Estimated penetration of today’s standard of care <10% of patients but still escalation study 1 ~$2B annual sales Novel MoA and optimized PK support safety differentiation Potential lower risks of hearing impairment, menstrual
+disorders and hyperglycemia Current standard of care has serious side effects Demonstrated adverse reactions occurring in ≥5% of treated patients include muscle spasms, nausea, alopecia, hearing impairment and hyperglycemia Delivered via a
+low-volume auto-injector for at home 2 and menstrual disorders were reported in ~23% of menstruating women administration In distinction to the higher volume Amgen subcutaneous (SC) product Development plan may create additional flexibility for
+Market is growing and large enough to support multiple prescribers medicines Potential to be used chronically and/or episodically, inclusive of patients with Limited availability of a biologic option for ~80K patients based on today’s
+age-appropriate hearing loss, pre-diabetic and diabetic patients and women 3 standard of care of childbearing potential Lonigutamab delivers efficacy like others in its class, with the potential to be safer and may be developed in a way that
+differentiates 4 it and expands the market 1. ACELYRIN transcript from January 6, 2025 Special Call and Amgen SEC filings. 3. ACELYRIN January 6, 2025 presentation. 2. Tepezza prescribing information. 4. This claim is not based on head-to-head or
+comparator studies. Differences exist between study designs and subject characteristics, and caution should be exercised when comparing data across studies. 7 
+
+ … And that the Market Was Not Reflecting the Potential Upside for
+ACELYRIN 1 ACELYRIN Equity Value / Equity Value Per Share Post-Ph3 TED Trading Comp $2.3B / $20.00 2 $1.9B $1.2B Enterprise Value $602M / $5.68 $448M / $4.28 $481M / $4.59 $199M / $1.90 $314M / $3.00 Implied Per Share Price Reflected in 2/6
+Unaffected Analyst Price Targets 3 4Q24 Cash ACELYRIN Standalone DCF Analysis in 5 Trading Price as of 2/6 as of 2/6 4 the February 6, 2025 Presentation 1. Viridian’s lead asset Veligrotug, is a derisked anti-IGF-1R for TED with Phase 3
+topline data and BLA submission expected in the second half of 2025. 2. Market capitalization inclusive of full conversion of outstanding Series A and Series B Preferred Stock to common stock. 3. Illustrative ACELYRIN valuation where market cap is
+equivalent to the 4Q24 cash, cash equivalents and marketable securities on the balance sheet, implying $0 enterprise value, or in other words, no assigned value for Lonigutamab. 4. The Joint Proxy/Prospectus contains a detailed summary of the
+financial analyses performed by Guggenheim Securities in connection with its February 6, 2025 Presentation to the ACELYRIN board. Guggenheim Securities’ analyses were subject to the assumptions made, procedures followed, matters considered and
+limitations, qualifications and other conditions contained in the February 6, 2025 Presentation and related fairness opinion, and were necessarily based on economic, business, capital markets and other conditions, and the information made available
+to Guggenheim Securities as of the date of such presentation and fairness opinion. 5. Range of six analysts who provided price targets as of 2/6/25. Low estimate of $3.00 (Citi, 1/7/25); high estimate of $20.00 (Piper Sandler, 1/6/25). 8 
+
+ Significant Risk Exists for ACELYRIN Stock Price as a Standalone Company
+in This Environment Relative Share Price Performance Since Announcement $3.00 “Nearly 200 companies trade below their cash value…” $2.20 16% $2.00 1 Select Biotech Stocks ($ in Millions) (19%) Mkt Cap less Cash Mkt Cap Cash ▼
+% Performance (29%) Company (2/6/25) (12/31/24) (2/6/25) Current (4/17/25) Since 2/6/25 $1.00 ACELYRIN $631 $421 $210 ($159) (58%) 2 2 2 2 XBI 187 357 (170) (268) (52%) 3 BBC 154 371 (217) (278) (40%) $0.00 164 354 (191) (216) (15%) 2/6 2/13 2/20
+2/27 3/6 3/13 3/20 3/27 4/3 4/10 4/17 Unaffected Within the Biotech sector it is not uncommon for companies to trade below cash Source: Public company filings, Wall Street Equity Research and FactSet as of 4/17/25. 1. Select biotechs with >$300M
+of cash as of 12/31/24 and trading below cash. 2. Pliant began trading below cash value on 2/10/25. All statistics are as of 2/10/25 instead of 2/6/25. 3. The Virtus LifeSci Biotech Clinical Trials ETF (BBC) tracks the performance of 100+ select
+clinical trials stage US exchange-listed biotechnology companies. 9 
+
+ Strategic Merger Key Terms › All Stock Merger Consideration
+› ACELYRIN stockholders to receive 0.4814 shares of Alumis common stock for each share of ACELYRIN common stock owned Pro Forma › Alumis stockholders to own approximately 52% of the combined company 1 Ownership › ACELYRIN
+stockholders to own approximately 48% of the combined company › ~$737M pro forma cash at the end of Q4 2024 Cash Position › Expect pro forma financial plans to extend runway into 2027 › Combined company to operate under the Alumis
+name Leadership › The combined company will be led by current Alumis executive team › Alumis Board will expand to nine directors, including two additional directors from ACELYRIN’s Board Transaction › Expected in the second
+quarter of 2025 Closing › Subject to approval of Alumis and ACELYRIN stockholders and satisfaction of other customary closing conditions and Conditions 1. On a fully diluted basis based on the capitalizations of ACELYRIN and Alumis at the time
+of the merger agreement. 10 
+
+ With 48% Ownership in Combined Company, ACELYRIN Stockholders Have
+Ability to Participate in Significant Upside Potential › The strategic merger IS: A combination of strategically aligned I&I companies, creating a stronger company that is well-positioned to realize long-term value › The strategic
+merger IS NOT: A sale of ACELYRIN where stockholders monetize cash or Lonigutamab for short-term returns ACELYRIN Gives ACELYRIN Gets 52% of Lonigutamab 48% of ESK-001 • Next-gen TYK2 with Psoriasis Phase 3 topline data expected in 1Q26
+• Anti-IGF-1R with best-in-class potential in Thyroid Eye Disease • Currently being investigated in a Phase 2 clinical trial • Systemic Lupus Erythematosus Phase 2b topline data expected in 2026 • Core Lonigutamab program
+team 48% of A-005 ~$94M net cash contribution • Promising Phase 2-ready central nervous system penetrant TYK2 • Multiple Sclerosis Phase 2 topline data expected in 2026 • Contributes: ~$448M in cash, cash equivalents and marketable
+securities (4Q24) 48% of promising preclinical I&I pipeline 1 • Retains: ~48% of $737M pro forma 4Q24 cash (~$354M) • Includes IRF5 targeting and other earlier-stage assets World-class management team and strong balance sheet •
+Executives with history of successful drug development • Well-capitalized to execute on attractive portfolio 48% of synergies • Significant anticipated operational synergies Retains Significant Cash and Lonigutamab Upside with
+Diversified Portfolio to Deliver Long-Term Stockholder Value 11 1. Cash, cash equivalents and marketable securities. 
+
+ ACELYRIN’s Board Believes that it Achieved Favorable Terms and
+Attractive Pro Forma Ownership for ACELYRIN Stockholders (values in millions, except per share values) Alumis Discounted ACELYRIN Discounted 1 Cash Flow Analysis Exchange Ratio (Implied Ownership) Cash Flow Analysis Equity Value Equity Value $621 -
+$923 $481 - $602 ACELYRIN low ACELYRIN high 2 2 vs. vs. Equity Value Per Share Equity Value Per Share Alumis high Alumis low 0.2890x 0.5119x $11.10 - $15.88 $4.59 - $5.68 (34%) (49%) Based on ACELYRIN's Adjusted Based on ACELYRIN Management 3,4 3,4
+Financial Projections for Alumis Projections ▪ Discount rate of 14.5% to 12.5% ▪ Discount rate of 15.25% to 13.25% Pre-Announcement At-Market Improved Exchange Ratio: 0.4814x Exchange Ratio: 0.2883x Implied Ownership: 48% 1. All exchange
+ratios have been calculated using unrounded amounts. 2. Share prices are shown rounded to two digits. 3. The Joint Proxy/Prospectus contains a detailed summary of the financial analyses performed by Guggenheim Securities in connection with its
+February 6, 2025 Presentation to the ACELYRIN board. Guggenheim Securities’ analyses were subject to the assumptions made, procedures followed, matters considered and limitations, qualifications and other conditions contained in the February
+6, 2025 Presentation and related fairness opinion, and were necessarily based on economic, business, capital markets and other conditions, and the information made available to Guggenheim Securities as of the date of such presentation and fairness
+opinion. 4. Excludes synergies and transactions costs. 12 
+
+ The ACELYRIN Transaction Committee Secured Multiple Improvements in
+Economic Terms Despite a Declining ACELYRIN Share Price Original Improved Transaction Terms Transaction Terms Conducted rigorous, objective and Additional Ph1b/2 data and Ph3 Announced 2/6 Announced 4/21 competitive process including development
+plan for consideration of potential alternative ACELYRIN Transaction Committee reacted to Lonigutamab announced transactions over ~7 months feedback from stockholders and continued negotiations resulting in improved deal terms ~48% 45% ~45% 42% 40%
+40% 2 Date 5/29/2024 1/2/2025 1/10/2025 1/12/2025 2/6/2025 4/21/25 1 3 Implied Offer Exchange Ratio N/A 0.3486x 0.3783x 0.4274x 0.4274x 0.4814x 4 ACELYRIN Share Price $4.08 $3.30 $2.06 $2.06 $1.90 $1.90 4 Alumis Share Price N/A $8.22 $7.00 $7.00
+$6.59 $6.59 Implied Market Exchange Ratio N/A 0.4015x 0.2943x 0.2943x 0.2883x 0.2883x 5 Implied Premium / (Discount) N/A (13%) +29% +45% +48% +67% 1. Based on the Company’s capital structure as of 1/31/25. 4. Unaffected share price as of
+2/6/25. 2. Date of Alumis’ first indication of interest. 5. Going-in implied premium based on 2/6/25 prices and the Improved Exchange Ratio of 0.4814x. 3. Shown at Original Exchange Ratio as no changes in ownership between 1/12/25 and
+announcement. 13 % Ownership 
+
+ The ACELYRIN Board Believes that the Combination with Alumis is
+Expected to be Value Accretive to ACELYRIN Stockholders Via Synergies, Scale and Shared Ownership of a Diversified Portfolio › Opportunity to participate in significant upside from 1Q26 ESK-001 pivotal readout and future Lonigutamab catalysts
+ACELYRIN Equity Value Per Share Implied Per Share Values Based on the February 6, 2025 1 Trading Values 4 Presentation › ACELYRIN’s stockholders are receiving a significant going-in premium (based on Alumis’ 4/17 ›
+ACELYRIN’s stockholders are expected to experience trading VWAP since announcement × Improved Exchange Ratio) vs. 2/6 unaffected ACELYRIN significant DCF-based value accretion (Pro Forma Synergized trading price DCF per share ×
+Improved Exchange Ratio) vs. ACELYRIN Standalone DCF per share $8.96 49% going-in implied premium to ACELYRIN $5.68 2 stockholders $6.90 $2.83 $4.59 $2.20 $1.90 4/17 Implied Implied Per Share Price Implied Per Share Price 2/6 Unaffected 4/17
+ACELYRIN Consideration per Reflected in ACELYRIN Based on the Pro Forma ACELYRIN Trading Trading Price ACELYRIN Share Based on Standalone DCF Analysis DCF Analysis in the Price Alumis Trading VWAP in the February 6, 2025 February 6, 2025 3 4 Since
+Announcment Presentation Presentation (Synergized) and Adjusted for the 1. Based on ACELYRIN or Alumis closing prices (NASDAQ). 4 2. Based on implied consideration per ACELYRIN share divided by 2/6 unaffected ACELYRIN trading price. Improved
+Exchange Ratio 3. Implied value per ACELYRIN share based on Alumis trading volume weighted average price of $5.88 multiplied by the Improved Exchange Ratio of 0.4814x. 4. The Joint Proxy/Prospectus contains a detailed summary of the financial
+analyses performed by Guggenheim Securities in connection with its February 6, 2025 Presentation to the ACELYRIN board. Guggenheim Securities' analyses were subject to the assumptions made, procedures followed, matters considered and limitations,
+qualifications and other conditions contained in the February 6, 2025 Presentation and related fairness opinion, and were necessarily based on economic, business, capital markets and other conditions, and the information made available to Guggenheim
+Securities as of the date of such presentation and fairness opinion. The implied per share Standalone DCF Analysis equity values set forth above are based on the range of implied equity values calculated in the ACELYRIN Standalone DCF Analysis in
+the February 6, 2025 Presentation. The implied per share Pro Forma DCF Analysis (Synergized) equity values set forth above are based on the range of implied equity values calculated in the Pro Forma DCF Analysis (Synergized) in the February 6, 2025
+Presentation and have been adjusted to reflect the Improved Exchange Ratio in lieu of the Original Exchange Ratio. 14 
+
+ Research Analyst Reactions Were Favorable Toward The Strategic Merger
+Announcement, Even Prior to ACELYRIN Negotiating Improved Terms “We believe this [strategic merger] is a “It's refreshing to see a capital-efficient “Merger with SLRN relieves financing smart idea as it diversifies the assets and
+business combination like the one overhang while delivering a potential provides the cash to execute on announced by ALMS and SLRN this Phase 3-ready asset; reiterate development. Specifically, this would afternoon…We want to see more of these
+outperform” create a pro forma cash position of business combinations in our industry ~$737M (as of December 31, 2024), and applaud the Boards and which ALMS projects to provide runway Management teams of both companies” through key
+readouts and planned operations into 2027” 2/6/25 2/6/25 2/6/25 ACELYRIN Research Alumis Research Alumis Research Source: Wall Street Equity Research. 15 
+
+ Combination Creates a Leading Clinical-Stage Immunology Company with a
+Diversified Portfolio of Product Candidates 16 
+
+ Creating a Leading I&I Company with Multiple Upcoming Expected
+Development Milestones and Extended Runway into 2027 › Creates a late-stage clinical biopharma company dedicated to innovating, developing and commercializing transformative therapies for immune-mediated diseases › Differentiated
+pipeline with multiple upcoming milestones expected, including: › Topline data from Phase 3 ONWARD trials for ESK-001 in Moderate-to- Severe Plaque Psoriasis expected to readout in 1Q 2026 › Topline data from Phase 2b LUMUS trial for
+ESK-001 in Systemic Lupus Erythematosus on track for readout in 2026 › Phase 2 clinical trial initiation for A-005 in Multiple Sclerosis in 2H 2025 › Finalize clinical development plan for Lonigutamab in mid-2025 › Pro forma cash
+of ~$737 million as of December 31, 2024, provides runway into 2027 beyond multiple expected clinical readouts › Combined company to benefit from world-class leadership team with proven track record of operating discipline and capital
+efficiency 17 
+
+ Late-Stage Pipeline with Multiple Near-Term Catalysts Clinical
+Development Plan to be finalized mid-2025 Abbreviations: PsA = Psoriatic Arthritis; IBD = Inflammatory Bowel Disease; PAR = Parkinson’s Disease; AD = Alzheimer’s Disease. 18 
+
+ The Alumis Management Team has the Right Experience and Expertise to
+Effectively Deploy a Clinical Development Plan for Lonigutamab and Maximize the Value of the Full Pipeline Martin Babler John Schroer Jörn Drappa MD, PhD Jack Danilkowicz President, CEO and Chairman Chief Financial Officer Chief Medical Officer
+(CMO) Chief Commercial Officer (CCO) › Former President and CEO of › Former CFO of ArsenalBio and › Former CMO at Ventyx › Former SVP of Commercial Principia Biopharma, until its Translate Bio before its › Co-founded
+Viela Bio, an I&I / Strategy at Amgen acquisition by Sanofi in October acquisition by Sanofi in August Ophthalmology focused biotech › Spent a decade at Horizon, where 2020 2021 company acquired by Horizon he played a pivotal role in the
+› Previously VP of Immunology › Held Portfolio Manager and › Rheumatologist with over 25 launch of TEPEZZA, the Sales and Marketing at Senior Analyst investment roles years of experience in developing blockbuster medicine for
+Thyroid Genentech across the life sciences industry novel treatments for I&I diseases Eye Disease › Alumis is the right partner for ACELYRIN to continue a clinical development plan for Lonigutamab • The Alumis team has significant
+experience in optimizing PK/PD and target product profile • Team members also have meaningful ophthalmology expertise, including the CMO who is the former co-founder and CMO of Viela Bio and the CCO who is the former SVP of Commercial Strategy
+at Amgen and Horizon and was responsible for overseeing Amgen / Horizon’s TEPEZZA franchise • The team brings to bear R&D success as well as a proprietary data and analytics platform to support pipeline advancement › Members of
+the current Lonigutamab team are expected to join Alumis to provide insight, expertise, and to continue driving development 19 
+
+ The Combined Company Provides Multiple Late-Stage Assets and a Proven
+Leadership Team that Together Offers Significant Upside vs. Clinical-Stage Immunology Peers 1 2 Market Cap ($B) $0.5 $0.6 $0.8 $1.2 $1.3 $1.4 $2.0 $2.5 $2.6 1 3 Enterprise Value ($B) ($0.2) $0.4 $0.2 $0.5 $0.6 $0.8 $1.5 $2.0 $2.2 Multiple Late 4 5
+Stage (Phase 3 / POOOPPOOP Phase 2) Assets Portfolio Pivotal Readout in the Next ~12 POOOPPOPP Months CEO with Prior Public Company CEO Experience
+POOOOOOOO and Public Leadership / Company Exit Resources 6 >$700M of Cash POOPPOPOP 1. FactSet and Viridian company filings. Data as of 4/17/25. 5. Second asset MAU868
+completed a Phase 2 trial for reactivated BK virus infections in 2022. 2. Based on the pro forma capital structure as implied by the Improved Exchange Ratio of 0.4814x and the terms of the merger 6. Moonlake has access to up to $500M in
+multi-tranche non-dilutive financing of which $75M is currently available. agreement. 3. Not including $40M of upfront and near-term co-development payments from Kaken. 4. Viridian’s late-stage assets comprise two assets that share a binding
+domain – Veligrotug and VRDN-003. 20 
+
+ Independent Board Committee Ran a Thorough Process to Review Multiple
+Alternatives and Optimize Terms From Alumis 21 
+
+ Comprehensive ACELYRIN Strategic Process Led by a Highly Experienced
+and Accomplished Independent Transaction Committee Henry Gosebruch | Chairman of the Beth Seidenberg, MD Bruce C. Cozadd | Chairman of the Board Transaction Committee Founding Managing Director of Chairman and CEO of Jazz Pharmaceuticals Former
+President and CEO of Neumora Westlake BioPartners Joined Board in March 2022 (pre-IPO) Joined Board in March 2023 (pre-IPO) Joined Board in October 2020 (pre-IPO) › Co-founder and CEO of Jazz › Former CEO of Neumora › Managing
+Director and Founder of Pharmaceuticals, a public biopharma › Previously served as Chief Strategy Westlake Village BioPartners, a life company with a market capitalization Officer of AbbVie from December 2015 sciences venture capital firm of
+~$6B and ~$4B of FY24 sales; Bruce to February 2023 › Previously GP at Kleiner Perkins has served as Chairperson and CEO of › Previously Co-head of JP Morgan › Has incubated and invested in more Jazz since April 2009 North America
+M&A; part of JP than 40 biotech companies since 2005 › Previously served as EVP and COO of Morgan’s M&A team for 20+ years across various therapeutic areas ALZA Corporation until its acquisition where he was responsible for deals
+› Former CMO at Amgen with extensive by J&J for ~$11B in March 2001 representing over $375B in transaction experience developing I&I assets value (including ENBREL) Founding Venture Investor in ACELYRIN Disinterested Stockholder
+Source: Public company filings and FactSet as of 4/17/25. 22 
+
+ Supported by Disinterested and Independent Directors with Directly
+Applicable Expertise Dan Becker, MD, PhD Dawn Svoronos Lynn Tetrault, JD Managing Director, Former President of the Europe & Canada Former EVP of Human Resources and Access Biotechnology region for Merck & Co Corporate Affairs at AstraZeneca
+Joined Board in September 2022 (pre-IPO) Joined Board in December 2022 (pre-IPO) Joined Board in December 2023 › Managing Director at Access Bio, the › 23 year tenure at Merck & Co › 20+ year tenure at AstraZeneca biopharma
+investment arm of Access culminating in President of Europe & culminating in EVP of HR and Industries Canada Corporate Affairs › Formerly a Principal at New Leaf › Currently serves on the boards of › Currently serves on the
+boards of Venture Partners Xenon (Chair), Adverum, Neogenomics (Chair) and Rhythm › Has invested in multiple immunology Theratechnologies and AgNovos › M&A / organizational integration HR companies including Nimbus › Commercial
+pharmaceutical industry expertise Therapeutics (TYK2 lead asset) expertise Disinterested Stockholder 23 
+
+ The ACELYRIN Board Conducted a Rigorous, Objective and Competitive
+Process Board undertook an extensive process that began in 2Q 2024 and resulted in the proposed strategic merger with Alumis This process included interactions with ~25 potential counterparties and the exploration of a wide variety of potential
+transactions prior to signing the definitive merger agreement The Board thoroughly evaluated two additional offers which emerged post signing of the definitive merger agreement 1 In response to market changes and shareholder feedback, the Board,
+additionally, successfully negotiated a ~7% ownership increase in the combined company post signing of the definitive merger agreement The strategic merger is unanimously recommended and approved by the disinterested and independent directors The
+proposed strategic merger with Alumis offers an opportunity for substantial value accretion which the Board believes is well above the intrinsic standalone value of ACELYRIN The Board believes that the proposed merger offers a greater likelihood of
+maximizing the opportunity for Lonigutamab while adding assets, resources and talent for substantial long term value accretion 1. 48% of the combined company (ACELYRIN’s approximate pro forma ownership based on the improved 4/21 terms) is a
+~7% improvement to ACELYRIN shareholders (vs. 45% under original 2/6 terms). 24 
+
+ The ACELYRIN Board was Focused on Intrinsic Value and Value-Creation
+Potential, but Also Closely Monitored the Implied Market Value $12.00 Strategic Merger Strategic Merger Proxy Publicly Filed Announcement $10.00 Alumis $8.22 $8.00 $6.59 $6.00 ACELYRIN $5.00 Implied consideration Implied consideration per $3.30 per
+ACELYRIN share ACELYRIN share based on $4.00 1 based on the Improved Additional Ph1b/2 data and Ph3 original 2/6 deal terms 4 Exchange Ratio development plan for $2.82 $2.41 Lonigutamab announced $2.20 $2.00 $2.14 $2.20 $1.90 2 3 Tang Offer :
+Company D Offer : $3.00 upfront $2.70 upfront + CVR + up to $3.00 CVR – 1/2 1/9 1/16 1/23 1/30 2/6 2/13 2/20 2/27 3/6 3/13 3/20 3/27 4/3 4/10 4/17 Source: Public company filings and FactSet as of 4/17/25. 1. Implied value per ACELYRIN share
+based on Alumis closing price multiplied by the Original Exchange Ratio of 0.4274x. 2. 2/20/25, the ACELYRIN Board received an unsolicited indication of interest from Concentra Biosciences, LLC, of which Tang Capital Partners, LP is the controlling
+shareholder (the “Tang Proposal”). 3/4/25 ACELYRIN issued a press release that the Tang Proposal was not, and would not reasonably be expected to result in, a superior proposal. 3. 3/18/25, the ACELYRIN Board received an unsolicited
+indication of interest from Company D. 3/24/25 Company D informed ACELYRIN that it would no longer pursue discussions regarding a potential acquisition of ACELYRIN. 4. Implied value per ACELYRIN share based on Alumis closing price multiplied by the
+Improved Exchange Ratio of 0.4814x. 25 
+
+ The ACELYRIN Board Did Not Believe the Tang Acquisition Would Lead to a
+Superior Proposal › In accordance with its fiduciary duties, the ACELYRIN Board thoroughly evaluated and considered the Tang Proposal at the time of receipt, with the assistance of outside legal and financial advisors › Specifically, the
+Board discussed the following considerations against the expected value to ACELYRIN stockholders presented by the Tang Proposal › The potential value to ACELYRIN stockholders from the continued development of the Lonigutamab program by the
+post- closing combined company through the planned strategic merger with Alumis › The potential benefits to ACELYRIN stockholders of the increased scale and complementary attributes of the combined company through the Alumis strategic merger,
+including the differentiated and late-stage portfolio, the significant capital of the combined company and the depth and experience of the combined company’s leadership team as well as other cost synergies › The Board also considered the
+additional potential value that could be delivered to ACERLYRIN stockholders by receiving equity in the post-closing combined company as compared to the specified cash and CVR value presented by the Tang Proposal › The Board additionally
+reviewed Tang Capital’s bidding history with other companies › After a thorough evaluation, the Board believes that the planned strategic merger with Alumis represents the most value maximizing path forward for ACELYRIN stockholders
+26 
+
+ The Combination Could Be Transformative to ACELYRIN’s Business
+Standalone ACELYRIN Combined Company • ESK-001 • Lonigutamab Deep Pipeline of Product Candidates • Lonigutamab • A-005 Differentiated Assets • IRF5 • Additional Targets • Mid-2025: Finalize Plan for
+Lonigutamab Multiple • 2H25: A-005 – MS Phase 2 Initiation Anticipated rd • Previously announced start of Phase 3 • 2H25: IND Filing for 3 Clinical Candidate Near-Term Upcoming Milestones program in Q1 2025 with topline data
+in 2H • 2025: Once-Daily Formulation Established for ESK-001 Milestones 2026 • 1Q26: ESK-001 – PsO Phase 3 Topline Data Including Major • 2026: ESK-001 – SLE Phase 2b Topline Data • 2026: A-005 – MS Phase 2
+Topline Data Catalysts • PsO Substantial Market Potential Across Clinical-Stage • SLE • TED Immune-Mediated Diseases, Totaling Indications • TED 1 $60B+ • MS • Additional immunological indications Broad Potential
+for Potential Additional (e.g, PsA, cutaneous lupus, IBD, etc.) Additional Indications • Other neuroinflammatory or neurodegenerative Indications indications (e.g. PAR, AD, etc.) 1. GlobalData, market research reports; Market size estimates
+for 2030 worldwide. 27 
+
+ The ACELYRIN Board Believes that the Strategic Merger with Alumis is
+Value Maximizing for ACELYRIN Stockholders The Alumis Merger Provides Significant Potential Upside For ACELYRIN Stockholders › The combination provides the opportunity to participate in the potential upside from Phase 3 data for Alumis’
+lead program expected in 1Q26 and a combined pipeline with multiple upcoming milestones expected, with ACELYRIN stockholders retaining significant (~48%) ownership of the combined company, on a fully diluted basis › The pro forma discounted
+cash flow analysis reviewed by the ACELYRIN board implies a range of illustrative pro forma equity values per share of ACELYRIN common stock of $6.90 to $8.96 1 (inclusive of realized net synergies) based on the Pro Forma DCF analysis reviewed in
+the February 6, 2025 Presentation and adjusted for the improved 4/21 terms › Prior to the announcement of the strategic merger with Alumis, the market valued ACELYRIN at less than cash value despite Lonigutamab’s potential to be a
+differentiated medicine in a large and growing market › The ACELYRIN board believes that the combination with Alumis will be significantly value accretive to ACELYRIN stockholders as a result of synergies and scale to be achieved through the
+proposed merger as well as reduced execution risk versus a standalone path as a single asset company Combination Creates a Leading Clinical-Stage Immunology Company with a Diversified Portfolio of Product Candidates › Combination with Alumis
+is the best path forward to unlock Lonigutamab’s value and the combined company is well-capitalized with runway through impactful catalysts into 2027 › Combined company’s management team is well-positioned to execute and create
+value, including by unlocking the value of Lonigutamab. Alumis has meaningful ophthalmology expertise—its Chief Medical Officer was the CMO and co-founder of Viela Bio and its Chief Commercial Officer ran the TEPEZZA franchise at Amgen /
+Horizon › Members of ACELYRIN’s Lonigutamab team are expected to join Alumis (clinical, CMC and regulatory) › Combined company is well-positioned relative to publicly traded clinical-stage immunology peers, with the potential for
+significant upside Independent Board Committee Ran a Thorough Process to Review Multiple Alternatives and Optimize Terms From Alumis › The transaction process was spearheaded by an independent and highly accomplished Transaction Committee with
+extensive financial and biopharmaceutical company experience › The Transaction Committee secured multiple improvements in deal terms, including increasing ownership in the combined company from 40% to 48%, despite a declining ACELYRIN share
+price › This process included interactions with ~25 potential counterparties over ~7 months, the exploration of a wide variety of potential transactions, robust evaluation of additional offers that emerged post signing of the definitive merger
+agreement, improved deal terms post signing of the 2/6 merger agreement in response to stockholder feedback and is unanimously recommended and approved by the disinterested and independent directors › The ACELYRIN Board is confident the Alumis
+strategic merger maximizes the potential value for ACELYRIN stockholders 1. The Joint Proxy/Prospectus contains a detailed summary of the financial analyses performed by Guggenheim Securities in connection with its February 6, 2025 Presentation.
+Guggenheim Securities’ analyses were subject to the assumptions made, procedures followed, matters considered and limitations, qualifications and other conditions contained in the February 6, 2025 Presentation and related fairness opinion and
+were necessarily based on economic, business, capital markets and other conditions, and the information made available to Guggenheim Securities, as of the date of such presentation and fairness opinion. Range of illustrative pro forma equity values
+per share of ACELYRIN common stock reflects the Improved Exchange Ratio in lieu of the Original Exchange Ratio used in the February 6, 2025 Presentation. 28 
+
+ VOTE FOR THE MERGER PROPOSAL VOTE FOR COMPELLING VALUE FOR ACELYRIN
+STOCKHOLDERS For more information or assistance with voting your shares, please contact our proxy solicitor: Sodali & Co 333 Ludlow Street, 5th Floor, South Tower Stamford, CT 06902 Email: SLRN@investor.sodali.com Toll-Free: (800) 662-5200
+29
