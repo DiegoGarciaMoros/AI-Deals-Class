@@ -1,8 +1,8 @@
-"""File each casebook case under an area of property law and 1-2 doctrines (see TAXONOMY
-in briefing.py), from its existing brief. Cheap: it sends the brief, not the opinion.
+"""File each casebook case under a syllabus chapter and 1-2 class units (see TAXONOMY in
+briefing.py), from its existing brief. Cheap: it sends the brief, not the opinion.
 
-Writes data/topic_codes.json (kept by brief_cases.py when it rebuilds the casebook) and
-adds "area" and "doctrine_tags" to data/casebook.json. New briefs from the app are filed
+Writes data/topic_codes.json, then rebuilds data/casebook.json with brief_cases.write_outputs
+(which files syllabus cases in their own unit first). New briefs from the app are filed
 as they're written, so this is only for cases briefed before the taxonomy existed.
 
 Usage:
@@ -15,30 +15,25 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from briefing import DEFAULT_MODEL, call_openrouter, normalize_topics, split_reply, taxonomy_lines
+from brief_cases import write_outputs
+from briefing import DEFAULT_MODEL, SYLLABUS_UNIT, call_openrouter, normalize_topics, split_reply, taxonomy_lines
 
 HERE = Path(__file__).parent
 CASEBOOK_PATH = HERE / "data" / "casebook.json"
 CODES_PATH = HERE / "data" / "topic_codes.json"
 
-PROMPT = f"""File this Property case brief under the area of property law it is mainly about,
-and the 1-2 doctrines it most directly decides. Use ONLY these keys.
+PROMPT = f"""File this Property case brief in my syllabus: the chapter and class unit it mainly
+belongs in, plus at most one other unit it also speaks to. Use ONLY these keys.
 
-AREAS AND DOCTRINES (area: doctrine keys):
+SYLLABUS CHAPTERS AND CLASS UNITS (chapter: unit keys):
 {taxonomy_lines()}
 
 Reply with only a fenced ```json block:
-{{"area": "...", "doctrine_tags": ["main doctrine key", "optional second key"]}}
-The first doctrine must belong to "area".
+{{"area": "chapter", "doctrine_tags": ["main unit key", "optional second unit key"]}}
+The first unit must belong to "area". If the brief's case is assigned in a unit, use that unit first.
 
 BRIEF:
 """
-
-
-def apply_codes(casebook, codes):
-    for case in casebook:
-        case.update(codes.get(case["slug"], {}))
-    return casebook
 
 
 def main():
@@ -55,7 +50,9 @@ def main():
     todo = [c for c in casebook if c["slug"] not in codes]
 
     def classify(case):
-        reply, _ = call_openrouter(api_key, args.model, PROMPT + case["brief"])
+        assigned = SYLLABUS_UNIT.get(case["case_name"])
+        note = f"(This case is assigned in unit: {assigned})\n\n" if assigned else ""
+        reply, _ = call_openrouter(api_key, args.model, PROMPT + note + case["brief"])
         _, fields = split_reply("\n" + reply)
         return case["slug"], normalize_topics(fields)
 
@@ -65,8 +62,8 @@ def main():
             print(f"{slug}: {fields['area']} / {', '.join(fields['doctrine_tags'])}")
 
     CODES_PATH.write_text(json.dumps(codes, indent=1, sort_keys=True) + "\n")
-    CASEBOOK_PATH.write_text(json.dumps(apply_codes(casebook, codes), indent=1))
     print(f"filed {len(codes)} cases")
+    write_outputs()  # rebuild the casebook so syllabus cases stay in their own unit
 
 
 if __name__ == "__main__":

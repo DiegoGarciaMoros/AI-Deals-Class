@@ -1,0 +1,27 @@
+CASE: Anderson v. Gouldberg
+CITATION: 51 Minn. 294 (1892)
+CAP NAME: Sigfrid Anderson vs. Hans J. Gouldberg, et al.
+COURT: Minnesota Supreme Court
+DECIDED: 1892-11-17
+
+Sigfrid Anderson vs. Hans J. Gouldberg, et al.
+Argued by respondent, submitted on briefs by appellant, Nov. 3, 1892.
+Decided Nov. 17, 1892.
+Replevin — Possession Sufficient Title against Strangers.
+Bare possession of property, though wrongfully obtained, is sufficient title to enable the party enjoying it to maintain replevin against a mere stranger to the property, who takes it from him.
+Appeal by defendants, Hans J. Gouldberg and D. O. Anderson, from an order, of the District Court of Isanti County, Lochren, J., made November 14, 1892, refusing a new trial.
+This action was brought by the plaintiff, Sigfrid Anderson, against the defendants, partners as Gouldberg & Anderson, to recover the possession of ninety-three pine logs, marked L S X, or for the value thereof. Plaintiff claimed to have cut the logs on section 22, township 27, range 25, Isanti County, in the winter of 1889-1890, and to have hauled them to a mill on section 6, from which place defendants took them. The title to section 22 was in strangers, and plaintiff showed no authority from the_ owners to cut logs thereon. Defendants claimed that the logs were cut on section- 26, in the adjoining township, on land belonging to the Ann Eiver Logging Company, and that they took the logs by direction of the Logging Company, who were the owners. l_The court charged that even if plaintiff got possession of the logs as a trespasser, his title would be good as against any one except the real owner or some one who had authority from the owner to take them, and left the case to the jury on the question as to whether the logs were cut on the land of the Logging Company, and taken by defendants under its authority. The jury found a verdict for the plaintiff and assessed his damages at $153.45. From an order denying their motion for a new trial, defendants appeal.
+Clapp & Macartney, for appellants.
+It is admitted that plaintiff’s title to the logs is based solely on his possession as a mere trespasser. A wrongful possession is not sufficient title to support an action of trover or replevin. Loomis v» Yoale, 1 Minn. 175, (Gil. 150;) Turley v. Tucker, 6 Mo. 583; People v. Anderson, 14 Johns. 294; Mulligan jr. Bailey, ,28 Ga. 507 ; Ransom v. State, 22 Conn. 153. Possession of personal property un^doubtedly raises a presumption of ownership, and is sufficient title, when the character of the possession is unexplained. But it is I merely a presumption, and' may be rebutted by evidence showing the possession to be unlawful. 1 Greenleaf, Ev. 34; Raivley v. Brown, 71 N. Y. 85; Gillerson v. Mansur, 45 Me. 25; Clapp v. Glidden, 39 Me. 448; Morrill v. Goodenow, 65 Me. 178; Stearns v. Vincent, 50 Mich. 209; Spooner v. Cummings, 151 Mass. 313.
+H. F. Barker, for respondent.
+Bare possession of personal property, though wrongful, is sufficient title to support an action of replevin against a stranger to the property, who shows no better title in himself. Armory v. Delamiri&r 1 Strange, 504; Duncan v. Spear, 11 Wend. 54; Derby v. Gallup, 5 'Minn. 119, (Gil. 85;) Bates v. Campbell, 25 Wis'.'. 613; Cook v. Patterson, 35 Ala. 102; Cobbey, Bepl. §§ 60,-13"6.
+
+=== MAJORITY Mitchell, J. ===
+Mitchell, J.
+It is settled by the verdict of the jury that the logs in controversy were not cut upon the land of the defendants* and consequently that they were entire strangers to the property.
+For the purposes of this appeal, we must also assume the fact to be (as there was evidence from which the jury might have so found) that the plaintiffs obtained possession of the logs in the first instance by trespassing upon the land of some third party.
+Therefore the only question is whether bare possession of prop-' erty, though wrongfully obtained, is sufficient title to enable the party enjoying it to maintain replevin against a mere stranger, who takes it from him. We had supposed that this was settled in the* affirmative as long ago, at least, as the early ease of Armory v. Delamirie, 1 Strange, 505, so often cited on that point.
+When it is said that to maintain replevin the plaintiff’s posset sion must have been lawful, it means merely that it must have beer lawful as against the person who deprived him of it; and possess sion is good title against all the world except those having a better title.
+Counsel says that possession only raises a presumption of title, which, however, may be rebutted. Rightly understood, this is correct ; but counsel misapplies it. One who takes property from the possession of another can only rebut this presumption by showing a superior title in himself, or in some way connecting himself with one who has. ) One who has acquired the possession of property, whether by finding, bailment, or by mere tort, has a right to retain that possession as against a mere wrongdoer who is a stranger to /the property;. Any other rule would lead to an endless series of unlawful seizures and reprisals in every case where property had once passed out of the possession of the rightful owner.
+Order affirmed.
+(Opinion published 53 N. W. Rep. 636.)

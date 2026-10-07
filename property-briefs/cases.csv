@@ -1,35 +1,100 @@
-case_name,citation,year,class_topic
-Strain v. Green,25 Wash. 2d 692,1946,Accession & Fixtures
-Nebraska v. Iowa,143 U.S. 359,1892,Accretion & Avulsion
-Scott v. Anderson-Tully Co.,154 So. 3d 910,2015,Adverse Possession
-Carpenter v. Ruperto,315 N.W.2d 782,1982,Adverse Possession
-Howard v. Kunto,3 Wash. App. 393,1970,Adverse Possession
-Songbyrd Inc. v. Estate of Grossman,206 F.3d 172,2000,Adverse Possession
-Moore v. Regents of the University of California,51 Cal. 3d 120,1990,Persons & Commodities
-Hecht v. Superior Court,16 Cal. App. 4th 836,1993,Persons & Commodities
-Flynn v. Holder,684 F.3d 852,2012,Persons & Commodities
-Ghen v. Rich,8 F. 159,1881,Community & Custom
-United States v. Corrow,119 F.3d 796,1997,Community & Custom
-Illinois Central Railroad Co. v. Illinois,146 U.S. 387,1892,Public Rights
-State ex rel. Thornton v. Hay,254 Or. 584,1969,Public Rights
-Evans v. Merriweather,4 Ill. 492,1842,Water Law
-Coffin v. Left Hand Ditch Co.,6 Colo. 443,1882,Water Law
-Higday v. Nickolaus,469 S.W.2d 859,1971,Water Law
-Intel Corp. v. Hamidi,30 Cal. 4th 1342,2003,Owner Sovereignty
-Berg v. Wiley,264 N.W.2d 145,1978,Owner Sovereignty
-Williams v. Ford Motor Credit Co.,674 F.2d 717,1982,Owner Sovereignty
-Ploof v. Putnam,81 Vt. 471,1908,Owner Sovereignty
-Olwell v. Nye & Nissen Co.,26 Wash. 2d 282,1946,Equity & Abandonment
-Pile v. Pedrick,167 Pa. 296,1895,Equity & Abandonment
-Golden Press Inc. v. Rylands,124 Colo. 122,1951,Equity & Abandonment
-eBay Inc. v. MercExchange L.L.C.,547 U.S. 388,2006,Equity & Abandonment
-Producers Lumber & Supply Co. v. Olney Building Co.,333 S.W.2d 619,1960,Equity & Abandonment
-Edwards v. Allouez Mining Co.,38 Mich. 46,1878,Equity & Abandonment
-Pocono Springs Civic Association v. MacKenzie,667 A.2d 233,1995,Equity & Abandonment
-Eyerman v. Mercantile Trust Co.,524 S.W.2d 210,1975,Equity & Abandonment
-ProCD Inc. v. Zeidenberg,86 F.3d 1447,1996,Licenses & Bailments
-Allen v. Hyatt Regency-Nashville Hotel,668 S.W.2d 286,1984,Licenses & Bailments
-Cowen v. Pressprich,117 Misc. 663,1922,Licenses & Bailments
-Williams v. Estate of Williams,865 S.W.2d 3,1993,Estates in Land
-Brokaw v. Fairchild,135 Misc. 70,1929,Waste & Restraints on Alienation
-Mountain Brow Lodge No. 82 v. Toscano,257 Cal. App. 2d 22,1967,Waste & Restraints on Alienation
+case_name,citation,year,class_no,class_topic,chapter
+Jacque v. Steenberg Homes,209 Wis. 2d 605,1997,1,Trespass & Introductory Concepts,1. What is Property?
+Hinman v. Pacific Air Transport,84 F.2d 755,1936,1,Trespass & Introductory Concepts,1. What is Property?
+Hendricks v. Stalnaker,181 W. Va. 31,1989,2,Nuisance,1. What is Property?
+Jost v. Dairyland Power Cooperative,45 Wis. 2d 164,1969,2,Nuisance,1. What is Property?
+Campbell v. Seaman,63 N.Y. 568,1876,2,Nuisance,1. What is Property?
+Adams v. Cleveland-Cliffs Iron Co.,237 Mich. App. 51,1999,2,Nuisance,1. What is Property?
+Spur Industries Inc. v. Del E. Webb Development Co.,108 Ariz. 178,1972,2,Nuisance,1. What is Property?
+Pardee v. Camden Lumber Co.,70 W. Va. 68,1911,3,Privilege & First Possession,1. What is Property?
+Pierson v. Post,3 Cai. R. 175,1805,3,Privilege & First Possession,1. What is Property?
+Keeble v. Hickeringill,11 East 574 (K.B.),1707,3,Privilege & First Possession,1. What is Property?
+Briggs v. Southwestern Energy Production Co.,224 A.3d 334,2020,3,Privilege & First Possession,1. What is Property?
+Goddard v. Winchell,86 Iowa 71,1892,3,Privilege & First Possession,1. What is Property?
+Baker v. Howard County Hunt,171 Md. 159,1936,3,Privilege & First Possession,1. What is Property?
+Johnson v. M'Intosh,21 U.S. 543,1823,4,Discovery & Creation,2. Acquisition and Claim Scope
+International News Service v. Associated Press,248 U.S. 215,1918,4,Discovery & Creation,2. Acquisition and Claim Scope
+Haslem v. Lockwood,37 Conn. 500,1871,5,Prior Possession & Finders,2. Acquisition and Claim Scope
+Armory v. Delamirie,1 Strange 505 (K.B.),1722,5,Prior Possession & Finders,2. Acquisition and Claim Scope
+Clark v. Maloney,3 Del. 68,1840,5,Prior Possession & Finders,2. Acquisition and Claim Scope
+Anderson v. Gouldberg,51 Minn. 294,1892,5,Prior Possession & Finders,2. Acquisition and Claim Scope
+Hannah v. Peel,[1945] K.B. 509,1945,5,Prior Possession & Finders,2. Acquisition and Claim Scope
+Edwards v. Sims,232 Ky. 791,1929,6,Accession,2. Acquisition and Claim Scope
+Wetherbee v. Green,22 Mich. 311,1871,6,Accession,2. Acquisition and Claim Scope
+Strain v. Green,25 Wash. 2d 692,1946,6,Accession,2. Acquisition and Claim Scope
+Nebraska v. Iowa,143 U.S. 359,1892,6,Accession,2. Acquisition and Claim Scope
+Scott v. Anderson-Tully Co.,154 So. 3d 910,2015,7,Adverse Possession,2. Acquisition and Claim Scope
+Carpenter v. Ruperto,315 N.W.2d 782,1982,7,Adverse Possession,2. Acquisition and Claim Scope
+Howard v. Kunto,3 Wash. App. 393,1970,7,Adverse Possession,2. Acquisition and Claim Scope
+Songbyrd Inc. v. Estate of Grossman,206 F.3d 172,2000,7,Adverse Possession,2. Acquisition and Claim Scope
+Moore v. Regents of the University of California,51 Cal. 3d 120,1990,8,Persons & Commodities,3. Values Subject to Ownership
+Flynn v. Holder,684 F.3d 852,2012,8,Persons & Commodities,3. Values Subject to Ownership
+Ghen v. Rich,8 F. 159,1881,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+United States v. Corrow,119 F.3d 796,1997,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+Illinois Central Railroad Co. v. Illinois,146 U.S. 387,1892,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+State ex rel. Thornton v. Hay,254 Or. 584,1969,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+Evans v. Merriweather,4 Ill. 492,1842,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+Coffin v. Left Hand Ditch Co.,6 Colo. 443,1882,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+Higday v. Nickolaus,469 S.W.2d 859,1971,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+Fisher v. Steward,1 Smith 60,1804,9,"Communities & Customs, Public Rights, Water",3. Values Subject to Ownership
+Intel Corp. v. Hamidi,30 Cal. 4th 1342,2003,10,"Criminal Law, Self-Help & Common Law Defenses",4. Owner Sovereignty and Its Limits
+Berg v. Wiley,264 N.W.2d 145,1978,10,"Criminal Law, Self-Help & Common Law Defenses",4. Owner Sovereignty and Its Limits
+Williams v. Ford Motor Credit Co.,674 F.2d 717,1982,10,"Criminal Law, Self-Help & Common Law Defenses",4. Owner Sovereignty and Its Limits
+Ploof v. Putnam,81 Vt. 471,1908,10,"Criminal Law, Self-Help & Common Law Defenses",4. Owner Sovereignty and Its Limits
+Olwell v. Nye & Nissen Co.,26 Wash. 2d 282,1946,11,"Equity, Abandonment & Destruction",4. Owner Sovereignty and Its Limits
+Pile v. Pedrick,167 Pa. 296,1895,11,"Equity, Abandonment & Destruction",4. Owner Sovereignty and Its Limits
+Golden Press Inc. v. Rylands,124 Colo. 122,1951,11,"Equity, Abandonment & Destruction",4. Owner Sovereignty and Its Limits
+Edwards v. Allouez Mining Co.,38 Mich. 46,1878,11,"Equity, Abandonment & Destruction",4. Owner Sovereignty and Its Limits
+Pocono Springs Civic Association v. MacKenzie,667 A.2d 233,1995,11,"Equity, Abandonment & Destruction",4. Owner Sovereignty and Its Limits
+Eyerman v. Mercantile Trust Co.,524 S.W.2d 210,1975,11,"Equity, Abandonment & Destruction",4. Owner Sovereignty and Its Limits
+Wood v. Leadbitter,13 M. & W. 838 (Exch.),1845,12,Licenses & Bailments,4. Owner Sovereignty and Its Limits
+ProCD Inc. v. Zeidenberg,86 F.3d 1447,1996,12,Licenses & Bailments,4. Owner Sovereignty and Its Limits
+Allen v. Hyatt Regency-Nashville Hotel,668 S.W.2d 286,1984,12,Licenses & Bailments,4. Owner Sovereignty and Its Limits
+Cowen v. Pressprich,117 Misc. 663,1922,12,Licenses & Bailments,4. Owner Sovereignty and Its Limits
+Williams v. Estate of Williams,865 S.W.2d 3,1993,13,Traditional Forms of Property,5. The Forms of Ownership
+Charles v. Barzey,[2002] UKPC 68,2002,13,Traditional Forms of Property,5. The Forms of Ownership
+Brokaw v. Fairchild,135 Misc. 70,1929,14,Waste & Restraints on Alienation,5. The Forms of Ownership
+Mountain Brow Lodge No. 82 v. Toscano,257 Cal. App. 2d 22,1967,14,Waste & Restraints on Alienation,5. The Forms of Ownership
+Delfino v. Vealencis,181 Conn. 533,1980,15,Concurrent Owners,5. The Forms of Ownership
+Gillmor v. Gillmor,694 P.2d 1037,1984,15,Concurrent Owners,5. The Forms of Ownership
+Harms v. Sprague,105 Ill. 2d 215,1984,15,Concurrent Owners,5. The Forms of Ownership
+Postema v. Postema,189 Mich. App. 89,1991,15,Concurrent Owners,5. The Forms of Ownership
+Blackett v. Olanoff,371 Mass. 714,1977,16,"Leases, Traditional Rules",6. Entity Property
+Gotlieb v. Taco Bell Corp.,871 F. Supp. 147,1994,16,"Leases, Traditional Rules",6. Entity Property
+Medico-Dental Building Co. v. Horton & Converse,21 Cal. 2d 411,1942,17,"Leases, Reforms & Transfers",6. Entity Property
+Javins v. First National Realty Corp.,428 F.2d 1071,1970,17,"Leases, Reforms & Transfers",6. Entity Property
+Mullendore Theatres Inc. v. Growth Realty Investors Co.,39 Wash. App. 64,1984,17,"Leases, Reforms & Transfers",6. Entity Property
+Jaber v. Miller,219 Ark. 59,1951,17,"Leases, Reforms & Transfers",6. Entity Property
+Nahrstedt v. Lakeside Village Condominium Association,8 Cal. 4th 361,1994,18,"Entity Forms: Condos, Coops, Corps, Partnerships & Trusts",6. Entity Property
+Kiekel v. Four Colonies Homes Association,38 Kan. App. 2d 102,2007,18,"Entity Forms: Condos, Coops, Corps, Partnerships & Trusts",6. Entity Property
+In re Estate of Rothko,43 N.Y.2d 305,1977,18,"Entity Forms: Condos, Coops, Corps, Partnerships & Trusts",6. Entity Property
+40 West 67th Street v. Pullman,100 N.Y.2d 147,2003,18,"Entity Forms: Condos, Coops, Corps, Partnerships & Trusts",6. Entity Property
+Levandusky v. One Fifth Avenue Apartment Corp.,75 N.Y.2d 530,1990,18,"Entity Forms: Condos, Coops, Corps, Partnerships & Trusts",6. Entity Property
+Timmer v. Gray,,,19,Liens & Mortgages,7. Security Interests
+Murphy v. Financial Development Corp.,126 N.H. 536,1985,19,Liens & Mortgages,7. Security Interests
+Skendzel v. Marshall,261 Ind. 226,1973,19,Liens & Mortgages,7. Security Interests
+Wood v. Donohue,136 Ohio App. 3d 336,1999,20,"Title & Transfer: Land Transactions, Good Faith Purchasers & Recording",8. Title Records and the Transfer of Property
+Kotis v. Nowlin Jewelry Inc.,844 S.W.2d 920,1992,20,"Title & Transfer: Land Transactions, Good Faith Purchasers & Recording",8. Title Records and the Transfer of Property
+Hauck v. Crawford,75 S.D. 202,1953,20,"Title & Transfer: Land Transactions, Good Faith Purchasers & Recording",8. Title Records and the Transfer of Property
+Schwab v. Timmons,224 Wis. 2d 27,1999,21,Easements,9. The Law of Neighbors
+Warsaw v. Chicago Metallic Ceilings Inc.,35 Cal. 3d 564,1984,21,Easements,9. The Law of Neighbors
+Holbrook v. Taylor,532 S.W.2d 763,1976,21,Easements,9. The Law of Neighbors
+Fontainebleau Hotel Corp. v. Forty-Five Twenty-Five Inc.,114 So. 2d 357,1959,21,Easements,9. The Law of Neighbors
+Neponsit Property Owners' Association v. Emigrant Industrial Savings Bank,278 N.Y. 248,1938,22,Covenants,9. The Law of Neighbors
+Sanborn v. McLean,233 Mich. 227,1925,22,Covenants,9. The Law of Neighbors
+Shelley v. Kraemer,334 U.S. 1,1948,22,Covenants,9. The Law of Neighbors
+Fair Housing Council of San Fernando Valley v. Roommate.com LLC,666 F.3d 1216,2012,22,Covenants,9. The Law of Neighbors
+Village of Euclid v. Ambler Realty Co.,272 U.S. 365,1926,23,Conservation Easements & Zoning,9. The Law of Neighbors
+Harbison v. City of Buffalo,4 N.Y.2d 553,1958,23,Conservation Easements & Zoning,9. The Law of Neighbors
+Southern Burlington County NAACP v. Township of Mount Laurel,67 N.J. 151,1975,23,Conservation Easements & Zoning,9. The Law of Neighbors
+Charles River Bridge v. Warren Bridge,36 U.S. 420,1837,24,Contract Clause & Government Forbearance,10. Government Forbearance and Takings
+Kelo v. City of New London,545 U.S. 469,2005,25,Takings: Eminent Domain & Just Compensation,10. Government Forbearance and Takings
+United States v. Miller,317 U.S. 369,1943,25,Takings: Eminent Domain & Just Compensation,10. Government Forbearance and Takings
+Pennsylvania Coal Co. v. Mahon,260 U.S. 393,1922,26,Takings: Regulatory & Judicial,10. Government Forbearance and Takings
+Penn Central Transportation Co. v. New York City,438 U.S. 104,1978,26,Takings: Regulatory & Judicial,10. Government Forbearance and Takings
+Cedar Point Nursery v. Hassid,594 U.S. 139,2021,26,Takings: Regulatory & Judicial,10. Government Forbearance and Takings
+Lucas v. South Carolina Coastal Council,505 U.S. 1003,1992,26,Takings: Regulatory & Judicial,10. Government Forbearance and Takings
+Stop the Beach Renourishment Inc. v. Florida Department of Environmental Protection,560 U.S. 702,2010,26,Takings: Regulatory & Judicial,10. Government Forbearance and Takings
+Hecht v. Superior Court,16 Cal. App. 4th 836,1993,,Not on current syllabus,Other
+eBay Inc. v. MercExchange L.L.C.,547 U.S. 388,2006,,Not on current syllabus,Other
+Producers Lumber & Supply Co. v. Olney Building Co.,333 S.W.2d 619,1960,,Not on current syllabus,Other

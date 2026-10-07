@@ -9,29 +9,53 @@ code each case on the course's themes, and tie the cases together. The main them
 
 **Property Case Briefer**, a Streamlit app that runs on my OpenRouter key:
 
+The casebook is every case on my Fall 2026 syllabus (Brooks, Property; Merrill, Smith & Brady,
+4th ed.), listed by class in `cases.csv`: **88 of the 96 assigned cases are briefed**, plus three
+from an earlier syllabus (Hecht, eBay, Producers Lumber).
+
 - **Brief a case.** Type any published U.S. citation (e.g. `209 Wis. 2d 605`) or paste an opinion.
   The app pulls the full text from the Caselaw Access Project, briefs it in my format, codes it
-  on every theme below, files it under an area of property law and its doctrines, and places it
-  in my casebook. It names the 3 closest casebook cases by shared themes and doctrines and adds a
-  "Connections to my casebook" section to the brief.
+  on every theme below, files it under the syllabus chapter and class unit it belongs in, and
+  names the 3 closest casebook cases by shared themes and units.
 - **Add to casebook.** After a brief, one click adds the case to the casebook for everyone who
-  uses the site. It then counts in every chart, the table, Browse, and "closest cases". Added cases
+  uses the site. It then counts in every chart, table, Browse, and "closest cases". Added cases
   are saved to `data/added_cases.json` in this repo (see Deploy, step 4).
-- **Casebook map.** Filter by area of property law and doctrine, then see how often the owner
-  won in each doctrine and how the course's themes play out within that slice: charts by theme,
-  a timeline (added cases are diamonds), and a sortable table. Below it, a written synthesis of
-  the original 34 cases.
-- **Browse my briefs.** Every brief, sorted by area and doctrine, with its theme codes and nearest
-  neighbors.
+- **Casebook map.** Filter by syllabus chapter and class unit, then see how often the owner won
+  in each unit and how the course's themes play out within that slice: charts by theme, a
+  timeline (added cases are diamonds), and a sortable table. Below it, a written synthesis.
+- **Statistics.** Tables that each ask "when does the owner win?" against one factor:
+  by syllabus chapter, by class unit, and by any coded factor (what competed with ownership,
+  theory of property, stick, resource, rule vs. standard, entitlement protection, who made the
+  law, time, remedy, court, era, whether the owner sued or was sued, disposition, dissent), each
+  with a factor × chapter count table and a factor × era win-rate table. Built in `stats.py`;
+  `python stats.py` exports them all to `data/stats/*.csv`.
+- **Browse my briefs.** Every brief in syllabus order, filterable by chapter.
 
-### Areas and doctrines (`TAXONOMY` in `briefing.py`)
+### Syllabus chapters and class units (`TAXONOMY` in `briefing.py`)
 
-Each case is filed under one area and one or two doctrines, from a fixed list so cases sort
-consistently: Acquiring property, Rights and limits of ownership, Bailments and licenses,
-Remedies, Public and common property, Water, Estates and future interests, Co-ownership and
-leases, Land use and servitudes, Transfers and takings. New briefs are filed as they're written.
-The original 34 were filed from their briefs by `classify_topics.py`; the result is in
-`data/topic_codes.json`, which you can edit by hand to re-file a case.
+Built from `cases.csv`, so it follows the syllabus: 10 chapters (What is Property?, Acquisition
+and Claim Scope, Values Subject to Ownership, Owner Sovereignty and Its Limits, The Forms of
+Ownership, Entity Property, Security Interests, Title Records and the Transfer of Property, The
+Law of Neighbors, Government Forbearance and Takings) and their 26 class units. A syllabus case
+is filed in its own unit, plus at most one other unit it also speaks to (from
+`classify_topics.py`, saved in `data/topic_codes.json`, editable by hand). Cases from outside
+the syllabus are filed by the model.
+
+### Not briefed yet: paste their text
+
+These aren't in the Caselaw Access Project, so `fetch_opinions.py` can't get them. Paste each
+opinion into `data/opinions/<name>.txt` (names below) and run `python brief_cases.py`:
+
+| Case | Why | File |
+|---|---|---|
+| Keeble v. Hickeringill (1707) | English | `keeble-v-hickeringill.txt` |
+| Armory v. Delamirie (1722) | English | `armory-v-delamirie.txt` |
+| Hannah v. Peel (1945) | English | `hannah-v-peel.txt` |
+| Wood v. Leadbitter (1845) | English | `wood-v-leadbitter.txt` |
+| Charles v. Barzey, [2002] UKPC 68 | Privy Council | `charles-v-barzey.txt` |
+| Briggs v. Southwestern Energy (Pa. 2020) | too recent for CAP | `briggs-v-southwestern-energy-production-co.txt` |
+| Cedar Point Nursery v. Hassid (2021) | too recent for CAP | `cedar-point-nursery-v-hassid.txt` |
+| Timmer v. Gray | citation not found; add it to `cases.csv` | `timmer-v-gray.txt` |
 
 Each visit is capped at 8 briefs, and results are cached, so repeat lookups cost nothing.
 
@@ -54,9 +78,10 @@ Each visit is capped at 8 briefs, and results are cached, so repeat lookups cost
 
 | Step | Script | Output |
 |---|---|---|
-| 1. Get opinions | `fetch_opinions.py` | `data/opinions/*.txt`, full text of the 34 cases in `cases.csv` |
+| 1. Get opinions | `fetch_opinions.py` | `data/opinions/*.txt`, full text of the cases in `cases.csv` |
 | 2. Brief + code | `brief_cases.py` | `briefs/<case>.md`, `briefs/ALL_BRIEFS.md`, `data/case_data.csv`, `data/casebook.json` |
-| 2b. File by topic | `classify_topics.py` | `data/topic_codes.json` (area + doctrines for cases briefed before the taxonomy) |
+| 2b. File by unit | `classify_topics.py` | `data/topic_codes.json` (each case's chapter, unit, and one other unit it speaks to) |
+| 2c. Statistics | `stats.py` | `data/stats/*.csv` (the tables in the Statistics tab) |
 | 3. Synthesize | `synthesize.py` | `data/course_synthesis.md` |
 | 4. Chart | `visualize.py` | `data/owner_sovereignty.png` |
 
@@ -66,6 +91,8 @@ python fetch_opinions.py                 # anything it can't find: paste the tex
 export OPENROUTER_API_KEY=sk-or-...      # https://openrouter.ai/keys
 python brief_cases.py --limit 2          # try two first and read them
 python brief_cases.py                    # the rest (re-runnable; skips finished cases)
+python classify_topics.py --redo
+python stats.py
 python synthesize.py
 python visualize.py
 streamlit run app.py                     # the app, locally

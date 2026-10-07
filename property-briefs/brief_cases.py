@@ -22,7 +22,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from briefing import CASES, DEFAULT_MODEL, THEMES, brief_opinion, normalize
+from briefing import CASES, DEFAULT_MODEL, THEMES, brief_opinion, normalize, normalize_topics, unit_key
 
 HERE = Path(__file__).parent
 OPINION_DIR = HERE / "data" / "opinions"
@@ -35,7 +35,7 @@ OVERRIDES_PATH = HERE / "data" / "coding_overrides.csv"
 # Area of property law + doctrines per case, from classify_topics.py.
 TOPIC_CODES_PATH = HERE / "data" / "topic_codes.json"
 
-CSV_FIELDS = ["slug", "class_topic", "case_name", "citation", "year", "court", "court_level",
+CSV_FIELDS = ["slug", "class_no", "chapter", "class_topic", "case_name", "citation", "year", "court", "court_level",
               "plaintiff", "defendant", "winner", "disposition", "property_holder", "challenger",
               "owner_prevailed", "owner_prevailed_why", "area", "doctrine_tags", *THEMES, "principle", "remedy",
               "has_dissent", "has_concurrence", "doctrines", "check_flags", "model"]
@@ -64,10 +64,17 @@ def write_outputs():
         r, row = records[slug], syllabus.get(slug, {})
         fields = normalize(dict(r["fields"]))
         fields.update(topic_codes.get(slug, {}))
+        fields = normalize_topics(fields)
+        if row.get("class_no"):  # syllabus cases are filed by the syllabus; keep one extra unit from the model
+            unit = unit_key(row["class_topic"])
+            fields["area"] = row["chapter"]
+            fields["doctrine_tags"] = [unit] + [t for t in fields["doctrine_tags"] if t != unit][:1]
         fields.update(overrides.get(slug, {}))
         entry = dict(fields, slug=slug, model=r["model"], brief=r["brief"],
                      case_name=row.get("case_name", fields.get("case_name")),
                      citation=row.get("citation", ""),
+                     class_no=int(row["class_no"]) if row.get("class_no") else None,
+                     chapter=row.get("chapter", "Other"),
                      class_topic=row.get("class_topic", "Other"))
         casebook.append(entry)
         flat = {k: "; ".join(v) if isinstance(v, list) else v for k, v in entry.items()}

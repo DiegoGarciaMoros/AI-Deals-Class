@@ -14,6 +14,7 @@ import streamlit as st
 
 from briefing import DEFAULT_MODEL, DOCTRINE_LABEL, TAXONOMY, THEMES, brief_opinion, normalize_topics
 from casebook_store import Store, case_key
+import stats
 from caselaw import fetch_case
 
 HERE = Path(__file__).parent
@@ -34,16 +35,16 @@ THEME_LABELS = {
     "time_shifts_rights": "Did time create or end a right?",
 }
 EXAMPLES = {
-    "Pierson v. Post (fox hunt, 1805)": ("3 Cai. R. 175", "Pierson v. Post"),
-    "Jacque v. Steenberg Homes (trespass, 1997)": ("209 Wis. 2d 605", "Jacque v. Steenberg Homes"),
     "State v. Shack (right to exclude, 1971)": ("58 N.J. 297", "State v. Shack"),
-    "Kelo v. City of New London (takings, 2005)": ("545 U.S. 469", "Kelo v. City of New London"),
+    "Boomer v. Atlantic Cement (nuisance remedies, 1970)": ("26 N.Y.2d 219", "Boomer v. Atlantic Cement Co."),
+    "Van Valkenburgh v. Lutz (adverse possession, 1952)": ("304 N.Y. 95", "Van Valkenburgh v. Lutz"),
+    "Hadacheck v. Sebastian (land use, 1915)": ("239 U.S. 394", "Hadacheck v. Sebastian"),
 }
 
 st.set_page_config(page_title="Property Case Briefer", page_icon="⚖️", layout="wide")
 
 
-# ---------- the casebook: my original 34, plus cases added through the app ----------
+# ---------- the casebook: my syllabus cases, plus cases added through the app ----------
 
 def secrets():
     try:
@@ -65,7 +66,7 @@ def load_added():
 
 ADDED, ADDED_ERROR = load_added()
 for c in ORIGINAL:
-    c["source"] = "Original 34"
+    c["source"] = "Syllabus"
 for c in ADDED:
     c["source"] = "Added"
     normalize_topics(c)
@@ -187,7 +188,7 @@ def add_to_casebook(brief, fields, citation):
     st.caption(f"It's filed under {filed_under(fields)} and joins the charts, the table and the case "
                "comparisons for everyone who uses this site.")
     if st.button("Add to casebook", key=f"add-{case_key(name)}"):
-        entry = dict(fields, case_name=name, citation=citation, class_topic="Not in syllabus", brief=brief,
+        entry = dict(fields, case_name=name, citation=citation, class_topic="Not in syllabus", chapter=fields.get("area", "Other"), brief=brief,
                      slug=re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), model=DEFAULT_MODEL)
         year = re.search(r"\d{4}", str(fields.get("year", "")))
         entry["year"] = int(year.group()) if year else None
@@ -212,9 +213,9 @@ st.caption("Brief any published U.S. case in my Property-notes format, code it o
            f"and see where it fits among the {len(CASEBOOK)} cases in my casebook. AI-drafted study aid: "
            "check every brief against the opinion.")
 if ADDED_ERROR:
-    st.warning(f"Couldn't load the cases added through the app, so only the original 34 are shown. ({ADDED_ERROR})")
+    st.warning(f"Couldn't load the cases added through the app, so only the syllabus cases are shown. ({ADDED_ERROR})")
 
-tab_brief, tab_map, tab_browse = st.tabs(["Brief a case", "Casebook map", "Browse my briefs"])
+tab_brief, tab_map, tab_stats, tab_browse = st.tabs(["Brief a case", "Casebook map", "Statistics", "Browse my briefs"])
 
 with tab_brief:
     if not api_key():
@@ -285,15 +286,15 @@ with tab_map:
 
     f1, f2 = st.columns(2)
     areas = [a for a in [*TAXONOMY, "Other"] if a in set(df["Area"])]
-    area = f1.selectbox("Area of property law", ["All areas", *areas])
-    if area != "All areas":
+    area = f1.selectbox("Syllabus chapter", ["All chapters", *areas])
+    if area != "All chapters":
         df = df[df["Area"] == area]
     doctrines = [d for d in DOCTRINE_LABEL if any(d in tags for tags in df["doctrine_tags"])]
-    picked = f2.multiselect("Doctrines", doctrines, format_func=DOCTRINE_LABEL.get,
-                            placeholder="All doctrines in this area")
+    picked = f2.multiselect("Class units", doctrines, format_func=DOCTRINE_LABEL.get,
+                            placeholder="All units in this chapter")
     if picked:
         df = df[df["doctrine_tags"].apply(lambda tags: bool(set(tags) & set(picked)))]
-    scope = ", ".join(DOCTRINE_LABEL[d] for d in picked) if picked else (area if area != "All areas" else "")
+    scope = ", ".join(DOCTRINE_LABEL[d] for d in picked) if picked else (area if area != "All chapters" else "")
     # Charts size by row (alt.Step) and get a fresh key per filter; otherwise Streamlit keeps
     # the old chart height when a filter changes the number of rows.
     view = f"{include}-{area}-{'-'.join(picked)}"
@@ -317,7 +318,7 @@ with tab_map:
     doc_counts = by_doc.groupby(["Doctrine", "Outcome"]).agg(
         Cases=("Case", "count"), Names=("Case", lambda s: "; ".join(s))).reset_index()
     doc_sort = doc_counts.groupby("Doctrine")["Cases"].sum().sort_values(ascending=False).index.tolist()
-    st.markdown("**By doctrine: how often the owner won**")
+    st.markdown("**By class unit: how often the owner won** (a case counts in its own unit and one more it speaks to)")
     doc_bars = alt.Chart(doc_counts).mark_bar(cornerRadiusEnd=4, stroke="white", strokeWidth=2).encode(
         y=alt.Y("Doctrine:N", sort=doc_sort, title=None, axis=alt.Axis(labelLimit=240)),
         x=alt.X("Cases:Q", title="Cases", axis=alt.Axis(tickMinStep=1)),
@@ -347,34 +348,101 @@ with tab_map:
         y=alt.Y("Value:N", sort=sort, title=None, axis=alt.Axis(labelLimit=220)),
         color=color,
         size=alt.condition(alt.datum.source == "Added", alt.value(320), alt.value(140)),
-        shape=alt.Shape("source:N", scale=alt.Scale(domain=["Original 34", "Added"], range=["circle", "diamond"]),
+        shape=alt.Shape("source:N", scale=alt.Scale(domain=["Syllabus", "Added"], range=["circle", "diamond"]),
                         legend=alt.Legend(orient="top", title=None) if ADDED else None),
         tooltip=["Case", alt.Tooltip("year:Q", format="d", title="Year"), "Area", "Outcome",
                  alt.Tooltip("principle:N", title="Principle")])
     st.altair_chart(dots.properties(height=alt.Step(34)), width="stretch", key=f"dots-{view}-{theme}")
 
     with st.expander("Table view"):
-        cols = ["case_name", "year", "Area", "Doctrines", "class_topic", "source", "Outcome", "property_holder", "challenger",
+        cols = ["case_name", "year", "Area", "Units", "class_topic", "source", "Outcome", "property_holder", "challenger",
                 *THEMES, "principle"]
-        df["Doctrines"] = df["doctrine_tags"].apply(lambda t: ", ".join(DOCTRINE_LABEL[d] for d in t))
+        df["Units"] = df["doctrine_tags"].apply(lambda t: ", ".join(DOCTRINE_LABEL[d] for d in t))
         st.dataframe(df[cols].map(lambda v: ", ".join(map(pretty, v)) if isinstance(v, list) else v),
                      hide_index=True, width="stretch")
 
     if SYNTHESIS.exists():
         st.divider()
         if ADDED:
-            st.caption("The written synthesis below covers the original 34 cases; the charts and table above "
+            st.caption("The written synthesis below was written from the casebook before the added cases; the charts and table above "
                        "include the added ones.")
         st.markdown(SYNTHESIS.read_text())
 
+def _mix(hex_a, hex_b, t):
+    a, b = (tuple(int(h[i:i + 2], 16) for i in (1, 3, 5)) for h in (hex_a, hex_b))
+    return "#" + "".join(f"{round(x + (y - x) * t):02x}" for x, y in zip(a, b))
+
+
+def shaded(table, kind, counts=None):
+    """Shade a cross-table in the outcome colors. kind="count": white to blue by count;
+    kind="rate": orange (0%) through white (50%) to blue (100%). Empty cells stay blank."""
+    top = max(1, table.max().max()) if kind == "count" else 100
+
+    def css(v):
+        if pd.isna(v) or (kind == "count" and v == 0):
+            return "color: #9a9a9a"
+        if kind == "count":
+            return f"background-color: {_mix('#ffffff', '#7fb0eb', v / top)}"
+        return f"background-color: {_mix('#f6b493', '#ffffff', v / 50) if v < 50 else _mix('#ffffff', '#8db8ee', (v - 50) / 50)}"
+
+    display = table.map(lambda v: "" if pd.isna(v) else (f"{v:.0f}%" if kind == "rate" else f"{v:.0f}"))
+    if counts is not None:  # "40% (5)": the rate and how many cases it rests on
+        display = display.where(table.isna(), display + counts.reindex_like(table).map(lambda n: f" ({n:.0f})"))
+    styles = table.map(css)
+    return display.style.apply(lambda _: styles, axis=None)
+
+
+with tab_stats:
+    st.markdown("Every table asks one question, **when does the owner win?**, against a different factor. "
+                "Win % counts mixed outcomes as not won. Click a column header to sort; hover a table to "
+                "download it as CSV.")
+    include_s = st.toggle("Include cases added through the app", value=True, key="stats-include") if ADDED else True
+    sdf = stats.frame(CASEBOOK if include_s else ORIGINAL)
+    pct = lambda label: st.column_config.ProgressColumn(label, format="%d%%", min_value=0, max_value=100)  # noqa: E731
+    pct_cols = ["Owner win %", "Flexible standard %", "Property rule %", "Court made new law %", "Dissent %"]
+    pct_config = {c: pct(c) for c in pct_cols}
+    fit = lambda table: 38 + 35 * len(table)  # noqa: E731 - tall enough to show every row
+
+    st.subheader("1. By syllabus chapter")
+    chapters = stats.by_chapter(sdf)
+    st.dataframe(chapters, hide_index=True, width="stretch", height=fit(chapters), column_config=pct_config)
+
+    st.subheader("2. By class unit")
+    st.caption("Each case counted once, in its own syllabus unit.")
+    units = stats.by_unit(sdf)
+    st.dataframe(units, hide_index=True, width="stretch", height=fit(units), column_config=pct_config)
+
+    st.subheader("3. By factor")
+    factor = st.selectbox("Factor", [f for f in stats.FACTORS if f not in ("chapter", "unit_label")],
+                          format_func=lambda f: stats.FACTORS[f][0], key="stats-factor")
+    if stats.FACTORS[factor][1]:
+        st.caption("Cases can have several values here, so rows add up to more than the number of cases.")
+    factor_table = stats.by_factor(sdf, factor)
+    st.dataframe(factor_table, hide_index=True, width="stretch", height=min(fit(factor_table), 500),
+                 column_config={"Owner win %": pct("Owner win %"),
+                                "Cases (by year)": st.column_config.TextColumn("Cases (by year)", width="large")})
+
+    st.markdown(f"**{stats.FACTORS[factor][0]} × syllabus chapter** (number of cases)")
+    ct = stats.crosstab(sdf, factor)
+    ct.columns = [c.split(". ", 1)[0] for c in ct.columns]  # chapter numbers keep it narrow
+    st.dataframe(shaded(ct, "count"), width="stretch", height=fit(ct))
+    st.caption("Columns are syllabus chapters: " + "; ".join(f"{n}. {name}" for n, name in
+               (c.split(". ", 1) for c in TAXONOMY)))
+
+    st.markdown(f"**{stats.FACTORS[factor][0]} × era** (owner win %, with the number of cases in brackets; "
+                "blue = owner usually won, orange = usually lost, blank = no cases)")
+    wr = stats.win_rate_crosstab(sdf, factor)
+    st.dataframe(shaded(wr, "rate", stats.count_crosstab(sdf, factor)), width="stretch", height=fit(wr))
+
 with tab_browse:
     b1, b2 = st.columns([1, 2])
-    browse_area = b1.selectbox("Area", ["All areas", *[a for a in [*TAXONOMY, "Other"]
-                                                      if any(c.get("area", "Other") == a for c in CASEBOOK)]])
-    shown = sorted((c for c in CASEBOOK if browse_area in ("All areas", c.get("area", "Other"))),
-                   key=lambda c: (list(TAXONOMY).index(c["area"]) if c.get("area") in TAXONOMY else 99,
+    browse_area = b1.selectbox("Chapter", ["All chapters", *[a for a in [*TAXONOMY, "Other"]
+                                                         if any(c.get("area", "Other") == a for c in CASEBOOK)]])
+    shown = sorted((c for c in CASEBOOK if browse_area in ("All chapters", c.get("area", "Other"))),
+                   key=lambda c: (c.get("class_no") or 99,
+                                  list(TAXONOMY).index(c["area"]) if c.get("area") in TAXONOMY else 99,
                                   filed_under(c), c.get("year") or 0))
-    names = [f"{c['case_name']} ({c['year']}) — {filed_under(c)}" + (" · added" if c["source"] == "Added" else "")
+    names = [(f"Class {c['class_no']} · " if c.get("class_no") else "") + f"{c['case_name']} ({c['year']}) — {filed_under(c)}" + (" · added" if c["source"] == "Added" else "")
              for c in shown]
     pick = b2.selectbox("Case", range(len(shown)), format_func=names.__getitem__)
     case = shown[pick]

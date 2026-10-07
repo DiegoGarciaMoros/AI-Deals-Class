@@ -46,68 +46,18 @@ THEMES = {
 }
 
 
-# Where a case sits in property law: one area, and 1-2 doctrines from that area.
-# Used to file and sort cases, including ones from outside my syllabus.
-TAXONOMY = {
-    "Acquiring property": {
-        "first_possession": "First possession & capture",
-        "custom_and_practice": "Custom & industry practice",
-        "accession_fixtures": "Accession & fixtures",
-        "accretion_avulsion": "Accretion & avulsion",
-        "adverse_possession": "Adverse possession",
-        "finders": "Finders",
-        "gifts": "Gifts",
-    },
-    "Rights and limits of ownership": {
-        "exclusion_trespass": "Right to exclude & trespass",
-        "necessity_privilege": "Necessity & privilege",
-        "self_help_repossession": "Self-help & repossession",
-        "conversion_chattels": "Conversion & chattels",
-        "abandonment_destruction": "Abandonment & destruction",
-        "body_and_personhood": "Property in the body",
-        "intangible_digital": "Intellectual & digital property",
-    },
-    "Bailments and licenses": {
-        "bailments": "Bailments",
-        "licenses": "Licenses",
-    },
-    "Remedies": {
-        "injunction_vs_damages": "Injunctions vs. damages",
-        "unjust_enrichment": "Restitution & unjust enrichment",
-        "improver_and_mistake": "Good-faith improvers & mistake",
-    },
-    "Public and common property": {
-        "public_trust": "Public trust",
-        "public_access_custom": "Public access & customary rights",
-        "boundaries_between_sovereigns": "Boundaries between states",
-    },
-    "Water": {
-        "riparian_rights": "Riparian rights",
-        "prior_appropriation": "Prior appropriation",
-        "groundwater": "Groundwater",
-    },
-    "Estates and future interests": {
-        "present_estates": "Present estates",
-        "future_interests_defeasible": "Future interests & defeasible fees",
-        "waste": "Waste",
-        "restraints_on_alienation": "Restraints on alienation",
-        "wills_and_dead_hand": "Wills & dead-hand control",
-    },
-    "Co-ownership and leases": {
-        "concurrent_marital": "Concurrent & marital property",
-        "landlord_tenant": "Landlord & tenant",
-    },
-    "Land use and servitudes": {
-        "easements": "Easements",
-        "covenants_associations": "Covenants & owners' associations",
-        "nuisance": "Nuisance",
-        "zoning": "Zoning & land-use regulation",
-    },
-    "Transfers and takings": {
-        "sales_and_recording": "Sales, title & recording",
-        "takings": "Takings & eminent domain",
-    },
-}
+# Where a case sits in my course: its syllabus chapter ("area") and class unit ("doctrine"),
+# straight from cases.csv. Syllabus cases are filed by the syllabus; the model files cases from
+# outside it, and may add one more unit a case also speaks to.
+def unit_key(class_topic):
+    return re.sub(r"[^a-z0-9]+", "_", class_topic.lower()).strip("_")
+
+
+TAXONOMY = {}
+for _row in sorted((r for r in CASES if r.get("class_no")), key=lambda r: int(r["class_no"])):
+    TAXONOMY.setdefault(_row["chapter"], {})[unit_key(_row["class_topic"])] = _row["class_topic"]
+UNIT_CLASS = {unit_key(r["class_topic"]): int(r["class_no"]) for r in CASES if r.get("class_no")}
+SYLLABUS_UNIT = {r["case_name"]: unit_key(r["class_topic"]) for r in CASES if r.get("class_no")}
 DOCTRINE_AREA = {key: area for area, docs in TAXONOMY.items() for key in docs}
 DOCTRINE_LABEL = {key: label for docs in TAXONOMY.values() for key, label in docs.items()}
 
@@ -212,8 +162,8 @@ AFTER the brief, output a fenced ```json block with these fields:
   "owner_prevailed": one of ["yes", "no", "mixed", "not_applicable"],
   "owner_prevailed_why": "one sentence: did the court protect the property_holder's interest?",
 {_theme_lines()}
-  "area": the area of property law this case is mainly about, one of the areas listed below,
-  "doctrine_tags": [1-2 doctrine keys from the list below; the first is the main one and must be in "area"],
+  "area": the chapter of my Property syllabus this case belongs in, one of the chapters listed below,
+  "doctrine_tags": [1-2 class-unit keys from the list below; the first is the unit this case mainly belongs in and must be in "area", the optional second is another unit it also speaks to],
   "principle": "one sentence stating the case's lesson about property, in general terms",
   "remedy": one of ["injunction", "damages", "restitution", "title_or_declaration", "criminal_conviction", "none", "other"],
   "has_dissent": true/false,
@@ -224,7 +174,7 @@ AFTER the brief, output a fenced ```json block with these fields:
 
 Use ONLY the listed values for each field, and keep each value in its own field.
 
-AREAS AND DOCTRINES (area: doctrine keys):
+SYLLABUS CHAPTERS AND CLASS UNITS (chapter: unit keys):
 {taxonomy_lines()}
 
 HOW TO PICK THE OWNER ("property_holder"). Decide this BEFORE looking at who won.

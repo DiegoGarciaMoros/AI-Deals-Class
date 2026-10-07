@@ -59,7 +59,7 @@ RULES
 - 1000-1400 words.
 """
 
-KEEP = ["case_name", "year", "class_topic", "property_holder", "challenger", "owner_prevailed",
+KEEP = ["case_name", "year", "chapter", "class_topic", "property_holder", "challenger", "owner_prevailed",
         "owner_prevailed_why", *THEMES, "remedy", "doctrines", "principle"]
 
 
@@ -69,6 +69,9 @@ def counts(cases):
              f"owner_prevailed: {dict(Counter(c['owner_prevailed'] for c in cases))}",
              f"owner_prevailed before 1960: {dict(Counter(c['owner_prevailed'] for c in cases if c['year'] < 1960))}",
              f"owner_prevailed 1960 on: {dict(Counter(c['owner_prevailed'] for c in cases if c['year'] >= 1960))}"]
+    for chapter in dict.fromkeys(c.get("chapter", "Other") for c in cases):
+        tally = Counter(c["owner_prevailed"] for c in cases if c.get("chapter", "Other") == chapter)
+        lines.append(f"owner_prevailed in chapter {chapter!r}: {dict(tally)}")
     for name, (kind, _, _) in THEMES.items():
         tally = Counter(v for c in cases for v in (c[name] if kind == "many" else [c[name]]))
         lines.append(f"{name}: {dict(tally.most_common())}")

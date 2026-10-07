@@ -1,223 +1,633 @@
 {
- "allen-v-hyatt-regency-nashville-hotel": {
-  "area": "Bailments and licenses",
+ "40-west-67th-street-v-pullman": {
+  "area": "6. Entity Property",
   "doctrine_tags": [
-   "bailments"
+   "entity_forms_condos_coops_corps_partnerships_trusts",
+   "leases_traditional_rules"
+  ]
+ },
+ "adams-v-cleveland-cliffs-iron-co": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "nuisance",
+   "trespass_introductory_concepts"
+  ]
+ },
+ "allen-v-hyatt-regency-nashville-hotel": {
+  "area": "4. Owner Sovereignty and Its Limits",
+  "doctrine_tags": [
+   "licenses_bailments",
+   "equity_abandonment_destruction"
+  ]
+ },
+ "anderson-v-gouldberg": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "prior_possession_finders",
+   "trespass_introductory_concepts"
+  ]
+ },
+ "baker-v-howard-county-hunt": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "privilege_first_possession",
+   "nuisance"
   ]
  },
  "berg-v-wiley": {
-  "area": "Co-ownership and leases",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "landlord_tenant",
-   "self_help_repossession"
+   "criminal_law_self_help_common_law_defenses",
+   "leases_traditional_rules"
+  ]
+ },
+ "blackett-v-olanoff": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "leases_traditional_rules",
+   "nuisance"
   ]
  },
  "brokaw-v-fairchild": {
-  "area": "Estates and future interests",
+  "area": "5. The Forms of Ownership",
   "doctrine_tags": [
-   "waste"
+   "waste_restraints_on_alienation",
+   "traditional_forms_of_property"
+  ]
+ },
+ "campbell-v-seaman": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "nuisance",
+   "trespass_introductory_concepts"
   ]
  },
  "carpenter-v-ruperto": {
-  "area": "Acquiring property",
+  "area": "2. Acquisition and Claim Scope",
   "doctrine_tags": [
-   "adverse_possession"
+   "adverse_possession",
+   "prior_possession_finders"
+  ]
+ },
+ "charles-river-bridge-v-warren-bridge": {
+  "area": "10. Government Forbearance and Takings",
+  "doctrine_tags": [
+   "contract_clause_government_forbearance",
+   "takings_eminent_domain_just_compensation"
+  ]
+ },
+ "clark-v-maloney": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "prior_possession_finders",
+   "privilege_first_possession"
   ]
  },
  "coffin-v-left-hand-ditch-co": {
-  "area": "Water",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "prior_appropriation",
-   "riparian_rights"
+   "communities_customs_public_rights_water",
+   "privilege_first_possession"
   ]
  },
  "cowen-v-pressprich": {
-  "area": "Rights and limits of ownership",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "conversion_chattels",
-   "bailments"
+   "licenses_bailments",
+   "criminal_law_self_help_common_law_defenses"
+  ]
+ },
+ "delfino-v-vealencis": {
+  "area": "5. The Forms of Ownership",
+  "doctrine_tags": [
+   "concurrent_owners",
+   "waste_restraints_on_alienation"
   ]
  },
  "ebay-inc-v-mercexchange-l-l-c": {
-  "area": "Remedies",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "injunction_vs_damages"
+   "equity_abandonment_destruction"
   ]
  },
  "edwards-v-allouez-mining-co": {
-  "area": "Remedies",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "injunction_vs_damages",
-   "unjust_enrichment"
+   "equity_abandonment_destruction",
+   "nuisance"
+  ]
+ },
+ "edwards-v-sims": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "accession",
+   "discovery_creation"
   ]
  },
  "evans-v-merriweather": {
-  "area": "Water",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "riparian_rights"
+   "communities_customs_public_rights_water",
+   "nuisance"
   ]
  },
  "eyerman-v-mercantile-trust-co": {
-  "area": "Rights and limits of ownership",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "abandonment_destruction",
-   "wills_and_dead_hand"
+   "equity_abandonment_destruction",
+   "waste_restraints_on_alienation"
+  ]
+ },
+ "fair-housing-council-of-san-fernando-valley-v-roommate-com-llc": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "covenants",
+   "communities_customs_public_rights_water"
+  ]
+ },
+ "fisher-v-steward": {
+  "area": "3. Values Subject to Ownership",
+  "doctrine_tags": [
+   "communities_customs_public_rights_water",
+   "privilege_first_possession"
   ]
  },
  "flynn-v-holder": {
-  "area": "Rights and limits of ownership",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "body_and_personhood"
+   "persons_commodities",
+   "discovery_creation"
+  ]
+ },
+ "fontainebleau-hotel-corp-v-forty-five-twenty-five-inc": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "easements",
+   "nuisance"
   ]
  },
  "ghen-v-rich": {
-  "area": "Acquiring property",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "custom_and_practice",
-   "first_possession"
+   "communities_customs_public_rights_water",
+   "privilege_first_possession"
+  ]
+ },
+ "gillmor-v-gillmor": {
+  "area": "5. The Forms of Ownership",
+  "doctrine_tags": [
+   "concurrent_owners",
+   "equity_abandonment_destruction"
+  ]
+ },
+ "goddard-v-winchell": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "privilege_first_possession",
+   "accession"
   ]
  },
  "golden-press-inc-v-rylands": {
-  "area": "Remedies",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "injunction_vs_damages",
-   "unjust_enrichment"
+   "equity_abandonment_destruction",
+   "criminal_law_self_help_common_law_defenses"
+  ]
+ },
+ "gotlieb-v-taco-bell-corp": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "leases_traditional_rules",
+   "leases_reforms_transfers"
+  ]
+ },
+ "harbison-v-city-of-buffalo": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "conservation_easements_zoning",
+   "takings_regulatory_judicial"
+  ]
+ },
+ "harms-v-sprague": {
+  "area": "5. The Forms of Ownership",
+  "doctrine_tags": [
+   "concurrent_owners",
+   "waste_restraints_on_alienation"
+  ]
+ },
+ "haslem-v-lockwood": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "prior_possession_finders",
+   "accession"
+  ]
+ },
+ "hauck-v-crawford": {
+  "area": "8. Title Records and the Transfer of Property",
+  "doctrine_tags": [
+   "title_transfer_land_transactions_good_faith_purchasers_recording",
+   "criminal_law_self_help_common_law_defenses"
   ]
  },
  "hecht-v-superior-court": {
-  "area": "Rights and limits of ownership",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "body_and_personhood",
-   "wills_and_dead_hand"
+   "persons_commodities",
+   "equity_abandonment_destruction"
+  ]
+ },
+ "hendricks-v-stalnaker": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "nuisance",
+   "privilege_first_possession"
   ]
  },
  "higday-v-nickolaus": {
-  "area": "Water",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "groundwater"
+   "communities_customs_public_rights_water",
+   "takings_eminent_domain_just_compensation"
+  ]
+ },
+ "hinman-v-pacific-air-transport": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "trespass_introductory_concepts",
+   "communities_customs_public_rights_water"
+  ]
+ },
+ "holbrook-v-taylor": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "easements",
+   "equity_abandonment_destruction"
   ]
  },
  "howard-v-kunto": {
-  "area": "Acquiring property",
+  "area": "2. Acquisition and Claim Scope",
   "doctrine_tags": [
-   "adverse_possession"
+   "adverse_possession",
+   "prior_possession_finders"
   ]
  },
  "illinois-central-railroad-co-v-illinois": {
-  "area": "Public and common property",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "public_trust",
-   "boundaries_between_sovereigns"
+   "communities_customs_public_rights_water",
+   "takings_eminent_domain_just_compensation"
+  ]
+ },
+ "in-re-estate-of-rothko": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "entity_forms_condos_coops_corps_partnerships_trusts",
+   "equity_abandonment_destruction"
   ]
  },
  "intel-corp-v-hamidi": {
-  "area": "Rights and limits of ownership",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "exclusion_trespass",
-   "conversion_chattels"
+   "criminal_law_self_help_common_law_defenses"
   ]
  },
- "moore-v-regents-of-the-university-of-california": {
-  "area": "Rights and limits of ownership",
+ "international-news-service-v-associated-press": {
+  "area": "2. Acquisition and Claim Scope",
   "doctrine_tags": [
-   "body_and_personhood",
-   "conversion_chattels"
+   "discovery_creation"
   ]
  },
- "mountain-brow-lodge-no-82-v-toscano": {
-  "area": "Estates and future interests",
+ "jaber-v-miller": {
+  "area": "6. Entity Property",
   "doctrine_tags": [
-   "future_interests_defeasible",
-   "restraints_on_alienation"
+   "leases_reforms_transfers",
+   "leases_traditional_rules"
   ]
  },
- "nebraska-v-iowa": {
-  "area": "Acquiring property",
+ "jacque-v-steenberg-homes": {
+  "area": "1. What is Property?",
   "doctrine_tags": [
-   "accretion_avulsion"
-  ]
- },
- "olwell-v-nye-nissen-co": {
-  "area": "Remedies",
-  "doctrine_tags": [
-   "unjust_enrichment",
-   "conversion_chattels"
-  ]
- },
- "pile-v-pedrick": {
-  "area": "Rights and limits of ownership",
-  "doctrine_tags": [
-   "exclusion_trespass"
-  ]
- },
- "ploof-v-putnam": {
-  "area": "Rights and limits of ownership",
-  "doctrine_tags": [
-   "necessity_privilege"
-  ]
- },
- "pocono-springs-civic-association-v-mackenzie": {
-  "area": "Rights and limits of ownership",
-  "doctrine_tags": [
-   "abandonment_destruction"
-  ]
- },
- "procd-inc-v-zeidenberg": {
-  "area": "Rights and limits of ownership",
-  "doctrine_tags": [
-   "intangible_digital"
-  ]
- },
- "producers-lumber-supply-co-v-olney-building-co": {
-  "area": "Remedies",
-  "doctrine_tags": [
-   "improver_and_mistake",
-   "unjust_enrichment"
-  ]
- },
- "scott-v-anderson-tully-co": {
-  "area": "Acquiring property",
-  "doctrine_tags": [
+   "trespass_introductory_concepts",
    "adverse_possession"
   ]
  },
- "songbyrd-inc-v-estate-of-grossman": {
-  "area": "Rights and limits of ownership",
+ "javins-v-first-national-realty-corp": {
+  "area": "6. Entity Property",
   "doctrine_tags": [
-   "conversion_chattels"
+   "leases_reforms_transfers",
+   "leases_traditional_rules"
+  ]
+ },
+ "johnson-v-m-intosh": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "discovery_creation",
+   "prior_possession_finders"
+  ]
+ },
+ "jost-v-dairyland-power-cooperative": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "nuisance",
+   "privilege_first_possession"
+  ]
+ },
+ "kelo-v-city-of-new-london": {
+  "area": "10. Government Forbearance and Takings",
+  "doctrine_tags": [
+   "takings_eminent_domain_just_compensation",
+   "takings_regulatory_judicial"
+  ]
+ },
+ "kiekel-v-four-colonies-homes-association": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "entity_forms_condos_coops_corps_partnerships_trusts",
+   "covenants"
+  ]
+ },
+ "kotis-v-nowlin-jewelry-inc": {
+  "area": "8. Title Records and the Transfer of Property",
+  "doctrine_tags": [
+   "title_transfer_land_transactions_good_faith_purchasers_recording",
+   "prior_possession_finders"
+  ]
+ },
+ "levandusky-v-one-fifth-avenue-apartment-corp": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "entity_forms_condos_coops_corps_partnerships_trusts"
+  ]
+ },
+ "lucas-v-south-carolina-coastal-council": {
+  "area": "10. Government Forbearance and Takings",
+  "doctrine_tags": [
+   "takings_regulatory_judicial",
+   "nuisance"
+  ]
+ },
+ "medico-dental-building-co-v-horton-converse": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "leases_reforms_transfers",
+   "leases_traditional_rules"
+  ]
+ },
+ "moore-v-regents-of-the-university-of-california": {
+  "area": "3. Values Subject to Ownership",
+  "doctrine_tags": [
+   "persons_commodities",
+   "discovery_creation"
+  ]
+ },
+ "mountain-brow-lodge-no-82-v-toscano": {
+  "area": "5. The Forms of Ownership",
+  "doctrine_tags": [
+   "waste_restraints_on_alienation",
+   "traditional_forms_of_property"
+  ]
+ },
+ "mullendore-theatres-inc-v-growth-realty-investors-co": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "leases_reforms_transfers",
+   "covenants"
+  ]
+ },
+ "murphy-v-financial-development-corp": {
+  "area": "7. Security Interests",
+  "doctrine_tags": [
+   "liens_mortgages",
+   "equity_abandonment_destruction"
+  ]
+ },
+ "nahrstedt-v-lakeside-village-condominium-association": {
+  "area": "6. Entity Property",
+  "doctrine_tags": [
+   "entity_forms_condos_coops_corps_partnerships_trusts",
+   "covenants"
+  ]
+ },
+ "nebraska-v-iowa": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "accession",
+   "communities_customs_public_rights_water"
+  ]
+ },
+ "neponsit-property-owners-association-v-emigrant-industrial-savings-bank": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "covenants",
+   "easements"
+  ]
+ },
+ "olwell-v-nye-nissen-co": {
+  "area": "4. Owner Sovereignty and Its Limits",
+  "doctrine_tags": [
+   "equity_abandonment_destruction",
+   "privilege_first_possession"
+  ]
+ },
+ "pardee-v-camden-lumber-co": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "privilege_first_possession",
+   "nuisance"
+  ]
+ },
+ "penn-central-transportation-co-v-new-york-city": {
+  "area": "10. Government Forbearance and Takings",
+  "doctrine_tags": [
+   "takings_regulatory_judicial",
+   "communities_customs_public_rights_water"
+  ]
+ },
+ "pennsylvania-coal-co-v-mahon": {
+  "area": "10. Government Forbearance and Takings",
+  "doctrine_tags": [
+   "takings_regulatory_judicial",
+   "contract_clause_government_forbearance"
+  ]
+ },
+ "pierson-v-post": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "privilege_first_possession",
+   "trespass_introductory_concepts"
+  ]
+ },
+ "pile-v-pedrick": {
+  "area": "4. Owner Sovereignty and Its Limits",
+  "doctrine_tags": [
+   "equity_abandonment_destruction",
+   "trespass_introductory_concepts"
+  ]
+ },
+ "ploof-v-putnam": {
+  "area": "4. Owner Sovereignty and Its Limits",
+  "doctrine_tags": [
+   "criminal_law_self_help_common_law_defenses",
+   "trespass_introductory_concepts"
+  ]
+ },
+ "pocono-springs-civic-association-v-mackenzie": {
+  "area": "4. Owner Sovereignty and Its Limits",
+  "doctrine_tags": [
+   "equity_abandonment_destruction",
+   "traditional_forms_of_property"
+  ]
+ },
+ "postema-v-postema": {
+  "area": "5. The Forms of Ownership",
+  "doctrine_tags": [
+   "concurrent_owners",
+   "traditional_forms_of_property"
+  ]
+ },
+ "procd-inc-v-zeidenberg": {
+  "area": "4. Owner Sovereignty and Its Limits",
+  "doctrine_tags": [
+   "licenses_bailments",
+   "equity_abandonment_destruction"
+  ]
+ },
+ "producers-lumber-supply-co-v-olney-building-co": {
+  "area": "4. Owner Sovereignty and Its Limits",
+  "doctrine_tags": [
+   "criminal_law_self_help_common_law_defenses",
+   "accession"
+  ]
+ },
+ "sanborn-v-mclean": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "covenants",
+   "easements"
+  ]
+ },
+ "schwab-v-timmons": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "easements",
+   "title_transfer_land_transactions_good_faith_purchasers_recording"
+  ]
+ },
+ "scott-v-anderson-tully-co": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "adverse_possession",
+   "prior_possession_finders"
+  ]
+ },
+ "shelley-v-kraemer": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "covenants"
+  ]
+ },
+ "skendzel-v-marshall": {
+  "area": "7. Security Interests",
+  "doctrine_tags": [
+   "liens_mortgages",
+   "equity_abandonment_destruction"
+  ]
+ },
+ "songbyrd-inc-v-estate-of-grossman": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "adverse_possession",
+   "prior_possession_finders"
+  ]
+ },
+ "southern-burlington-county-naacp-v-township-of-mount-laurel": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "conservation_easements_zoning",
+   "takings_regulatory_judicial"
+  ]
+ },
+ "spur-industries-inc-v-del-e-webb-development-co": {
+  "area": "1. What is Property?",
+  "doctrine_tags": [
+   "nuisance",
+   "equity_abandonment_destruction"
   ]
  },
  "state-ex-rel-thornton-v-hay": {
-  "area": "Public and common property",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "public_access_custom"
+   "communities_customs_public_rights_water",
+   "easements"
+  ]
+ },
+ "stop-the-beach-renourishment-inc-v-florida-department-of-environmental-protection": {
+  "area": "10. Government Forbearance and Takings",
+  "doctrine_tags": [
+   "takings_regulatory_judicial",
+   "communities_customs_public_rights_water"
   ]
  },
  "strain-v-green": {
-  "area": "Acquiring property",
+  "area": "2. Acquisition and Claim Scope",
   "doctrine_tags": [
-   "accession_fixtures"
+   "accession",
+   "title_transfer_land_transactions_good_faith_purchasers_recording"
   ]
  },
  "united-states-v-corrow": {
-  "area": "Rights and limits of ownership",
+  "area": "3. Values Subject to Ownership",
   "doctrine_tags": [
-   "body_and_personhood",
-   "abandonment_destruction"
+   "communities_customs_public_rights_water",
+   "persons_commodities"
+  ]
+ },
+ "united-states-v-miller": {
+  "area": "10. Government Forbearance and Takings",
+  "doctrine_tags": [
+   "takings_eminent_domain_just_compensation",
+   "takings_regulatory_judicial"
+  ]
+ },
+ "village-of-euclid-v-ambler-realty-co": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "conservation_easements_zoning",
+   "nuisance"
+  ]
+ },
+ "warsaw-v-chicago-metallic-ceilings-inc": {
+  "area": "9. The Law of Neighbors",
+  "doctrine_tags": [
+   "easements",
+   "adverse_possession"
+  ]
+ },
+ "wetherbee-v-green": {
+  "area": "2. Acquisition and Claim Scope",
+  "doctrine_tags": [
+   "accession",
+   "prior_possession_finders"
   ]
  },
  "williams-v-estate-of-williams": {
-  "area": "Estates and future interests",
+  "area": "5. The Forms of Ownership",
   "doctrine_tags": [
-   "present_estates",
-   "future_interests_defeasible"
+   "traditional_forms_of_property",
+   "waste_restraints_on_alienation"
   ]
  },
  "williams-v-ford-motor-credit-co": {
-  "area": "Rights and limits of ownership",
+  "area": "4. Owner Sovereignty and Its Limits",
   "doctrine_tags": [
-   "self_help_repossession",
-   "conversion_chattels"
+   "criminal_law_self_help_common_law_defenses",
+   "licenses_bailments"
+  ]
+ },
+ "wood-v-donohue": {
+  "area": "8. Title Records and the Transfer of Property",
+  "doctrine_tags": [
+   "title_transfer_land_transactions_good_faith_purchasers_recording"
   ]
  }
 }
