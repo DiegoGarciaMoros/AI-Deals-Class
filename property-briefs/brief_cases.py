@@ -19,6 +19,7 @@ import json
 import os
 import re
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from briefing import CASES, DEFAULT_MODEL, THEMES, brief_opinion, normalize
@@ -29,6 +30,8 @@ BRIEF_DIR = HERE / "briefs"
 JSONL_PATH = HERE / "data" / "briefs.jsonl"
 CSV_PATH = HERE / "data" / "case_data.csv"
 CASEBOOK_PATH = HERE / "data" / "casebook.json"
+# Hand corrections to the model's coding (slug, field, value, note); applied last.
+OVERRIDES_PATH = HERE / "data" / "coding_overrides.csv"
 
 CSV_FIELDS = ["slug", "class_topic", "case_name", "citation", "year", "court", "court_level",
               "plaintiff", "defendant", "winner", "disposition", "property_holder", "challenger",
@@ -47,10 +50,16 @@ def write_outputs():
     order = list(syllabus)
     slugs = sorted(records, key=lambda s: order.index(s) if s in order else 999)
 
+    overrides = {}
+    if OVERRIDES_PATH.exists():
+        for o in csv.DictReader(open(OVERRIDES_PATH)):
+            overrides.setdefault(o["slug"], {})[o["field"]] = o["value"]
+
     casebook, rows = [], []
     for slug in slugs:
         r, row = records[slug], syllabus.get(slug, {})
         fields = normalize(dict(r["fields"]))
+        fields.update(overrides.get(slug, {}))
         entry = dict(fields, slug=slug, model=r["model"], brief=r["brief"],
                      case_name=row.get("case_name", fields.get("case_name")),
                      citation=row.get("citation", ""),
@@ -77,6 +86,7 @@ def main():
     ap.add_argument("--model", default=os.environ.get("OPENROUTER_MODEL", DEFAULT_MODEL))
     ap.add_argument("--limit", type=int)
     ap.add_argument("--redo", action="store_true")
+    ap.add_argument("--workers", type=int, default=4, help="opinions briefed at once")
     args = ap.parse_args()
 
     api_key = os.environ.get("OPENROUTER_API_KEY")
@@ -92,21 +102,23 @@ def main():
     opinions = sorted(OPINION_DIR.glob("*.txt"))[: args.limit]
     if not opinions:
         sys.exit("No opinions in data/opinions/. Run fetch_opinions.py first.")
-    for i, path in enumerate(opinions, 1):
-        slug = path.stem
-        if slug in done:
-            continue
-        print(f"[{i}/{len(opinions)}] {slug}")
-        record = {"slug": slug, "model": args.model}
+    todo = [p for p in opinions if p.stem not in done]
+
+    def brief_one(path):
+        record = {"slug": path.stem, "model": args.model}
         try:
             brief, fields, usage = brief_opinion(api_key, args.model, path.read_text())
             record.update(brief=brief, fields=fields, usage=usage)
-            (BRIEF_DIR / f"{slug}.md").write_text(brief + "\n")
+            (BRIEF_DIR / f"{path.stem}.md").write_text(brief + "\n")
         except Exception as e:  # noqa: BLE001 - log and continue
-            print(f"  failed: {e}")
             record["error"] = str(e)
-        with JSONL_PATH.open("a") as f:
-            f.write(json.dumps(record) + "\n")
+        return record
+
+    with ThreadPoolExecutor(args.workers) as pool:
+        for i, record in enumerate(pool.map(brief_one, todo), 1):
+            print(f"[{i}/{len(todo)}] {record['slug']}" + (f"  failed: {record['error']}" if "error" in record else ""))
+            with JSONL_PATH.open("a") as f:
+                f.write(json.dumps(record) + "\n")
 
     write_outputs()
 

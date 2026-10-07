@@ -1,82 +1,81 @@
 ## Intel Corp. v. Hamidi (Supreme Court of California, 2003)
 
 **Facts**
-- Intel Corporation (Intel) maintained an electronic mail system for employees, allowing reasonable nonbusiness use.
-- Kourosh Kenneth Hamidi, a former Intel employee, formed FACE-Intel to criticize Intel's employment practices.
-- Over 21 months, Hamidi sent six mass emails to thousands of Intel employees using Intel's email system.
-- Hamidi did not breach Intel's computer security to obtain addresses and offered to remove recipients from his mailing list upon request.
-- Hamidi's emails did not physically damage or functionally disrupt Intel's computers, but they caused discussion among employees and managers.
-- Intel demanded Hamidi stop sending emails in March 1998, but he sent another mass mailing in September 1998.
-- Intel staff spent time trying to block Hamidi's messages, and some employees asked management to stop them.
+- Intel Corporation (Intel) maintained an electronic mail system for its employees, allowing reasonable nonbusiness use.
+- Kourosh Kenneth Hamidi, a former Intel employee, formed an organization called Former and Current Employees of Intel (FACE-Intel) to criticize Intel's employment practices.
+- Over almost two years, Hamidi sent six mass e-mails to thousands of current Intel employees using Intel's e-mail system.
+- Hamidi obtained employee addresses from an anonymously sent floppy disk and did not breach Intel's computer security.
+- The messages criticized Intel's employment practices, warned employees, solicited participation in FACE-Intel, and urged employees to visit FACE-Intel's website.
+- Hamidi offered to remove recipients from his mailing list upon request, and did so for those who asked.
+- Intel demanded Hamidi stop sending e-mails in March 1998, but he sent another mass mailing in September 1998.
+- Intel's attempts to block the messages were only partially successful, as Hamidi evaded blocking efforts.
+- Hamidi's communications caused discussion among employees and managers, and some employees asked management to stop the messages.
+- Intel staff spent time attempting to block further messages.
+- Hamidi's messages caused no physical damage or functional disruption to Intel's computers.
 
 **Procedural History**
-- Intel sued Hamidi and FACE-Intel for trespass to chattels and nuisance, seeking damages and an injunction.
-- Intel later dismissed the nuisance claim and waived damages.
-- The trial court granted Intel's motion for summary judgment and permanently enjoined Hamidi from sending unsolicited emails to Intel's systems.
-- A divided Court of Appeal affirmed the injunction.
-- Hamidi appealed to the Supreme Court of California.
+- Intel sued Hamidi and FACE-Intel, alleging trespass to chattels and nuisance, and sought damages and an injunction.
+- Intel later dismissed its nuisance claim and waived its demand for damages.
+- The trial court granted Intel's motion for summary judgment and issued a permanent injunction against Hamidi and FACE-Intel from sending unsolicited e-mail to Intel's systems.
+- Hamidi appealed.
+- The Court of Appeal affirmed the injunction, with one justice dissenting.
+- The Supreme Court of California granted Hamidi's petition for review.
 
 **Issue**
-Can sending unsolicited emails to a company's computer system constitute trespass to chattels if the emails cause no physical damage or functional disruption to the system, but distract employees and consume company resources to block them?
+Can sending unsolicited e-mails that do not physically damage a computer system or impair its functioning constitute trespass to chattels?
 
 **Holding**
-Defendant (Hamidi) wins. Sending electronic communications that cause no physical damage or functional disruption to a computer system does not constitute actionable trespass to chattels under California law. Reversed.
+Hamidi (defendant) wins. Sending unsolicited e-mails that do not physically damage a computer system or impair its functioning does not constitute trespass to chattels under California law. Reversed.
 
 **Rules**
-- **Trespass to Chattels.** An intentional interference with the possession of personal property that proximately causes injury.
-- **Injury Requirement (Trespass to Chattels).** For interference with personal property not amounting to conversion, the owner can recover only actual damages suffered by reason of the impairment of the property or the loss of its use.
-- **Restatement (Second) of Torts § 218.** Dispossession alone is actionable, but other forms of interference require harm to the personal property or the possessor's interests in it. Intermeddling is actionable only if it is harmful to the possessor's materially valuable interest in the physical condition, quality, or value of the chattel, or if the possessor is deprived of its use for a substantial time.
-- **Rejected: Trespass to Chattels without Harm.** A harmless use or touching of personal property, while a technical trespass, is not actionable without a showing of harm under modern California and broader American law.
-- **Injunctions.** To obtain injunctive relief, a plaintiff must ordinarily show that the defendant's wrongful acts threaten to cause irreparable injuries that cannot be adequately compensated in damages.
+- **Trespass to Chattels (California Law).** Trespass to chattels requires an intentional interference with possession of personal property that proximately causes injury to the chattel or to the plaintiff's rights in it.
+- **Injury Requirement.** For interference with personal property not amounting to conversion, the owner may recover only actual damages suffered due to impairment of the property or loss of its use.
+- **Restatement (Second) of Torts § 218.** An actor who intermeddles with another's chattel is subject to liability only if the intermeddling is harmful to the possessor's materially valuable interest in the physical condition, quality, or value of the chattel, or if the possessor is deprived of the use of the chattel for a substantial time, or some other legally protected interest of the possessor is affected.
+- **Rejected: Trespass to Chattels without Actual Harm.** An interference with personal property (not amounting to dispossession) is not actionable without a showing of harm.
+- **Injunctive Relief.** To obtain injunctive relief, the plaintiff must ordinarily show that the defendant's wrongful acts threaten to cause irreparable injuries.
+- **Rejected: Computer Servers as Real Property.** Computer servers are personal property, not realty, for purposes of trespass law.
 
 **Reasoning**
-- Modern trespass to chattels requires actual injury to the chattel or the possessor's rights in it, unlike trespass to land.
-- Intel presented no evidence that Hamidi's emails caused physical damage, functional disruption, slowing, or impairment to its computer system.
-- The economic damage Intel claimed (lost productivity from employees reading emails, staff time blocking messages) is not an injury to the computer system itself, which worked as intended.
-- Prior cases finding trespass to chattels for electronic contact (e.g., spamming, robotic data collection) involved actual or threatened interference with the computer system's functioning (e.g., overburdening servers, reducing memory/processing power).
-    - Hamidi's occasional messages, though numerous, were minuscule compared to commercial spam volumes that caused functional burdens.
-- The court rejects the idea that unauthorized use alone is actionable without injury; temporary use of computer resources is not enough without measurable loss.
-- The court rejects "impairment by content" as a basis for trespass to chattels, as it would stretch the tort far beyond its purpose of protecting possessory interests in property.
-    - Injuries from unwelcome communications due to their content are protected by other torts (e.g., defamation, interference with economic relations), not trespass to chattels.
-- Intel cannot assert a property interest in its employees' time; employees are not chattels.
-- The time Intel staff spent blocking messages cannot be bootstrapped into an injury to Intel's possessory interest in its computers.
-- The court declines to extend California common law to cover harmless electronic communications whose contents are objectionable, noting the complex policy debate about "propertization" of the Internet.
-    - Treating servers as real property for trespass purposes would be a rash judicial act with potentially high social costs.
-    - The Legislature is better suited to address these issues.
-- Constitutional arguments are not reached because the injunction is improper on common law grounds.
-
-**Concurrence (Kennard, J.)**
-- Agrees that trespass to chattels requires damage to equipment or significant impairment of its usefulness/availability.
-- Intel has not shown such damage or impairment from Hamidi's emails.
-- Intel is not helpless: employees can delete messages and request removal from mailing lists; other tort theories (defamation, interference with economic interests) might apply; and the Legislature can address bulk emails.
+- The tort of trespass to chattels requires actual injury to the chattel or the possessor's rights in it.
+    - This is consistent with California law (Zaslow v. Kroenert) and the Restatement (Second) of Torts § 218.
+    - Unlike trespass to land, trespass to chattels generally does not allow for nominal damages for harmless intermeddling.
+- Intel failed to demonstrate actual or threatened injury to its computer system or its rights in the property.
+    - There was no evidence of physical damage, functional impairment, or dispossession of Intel's computers.
+    - Hamidi's messages did not slow or impair the system's functioning, nor did they impose marginal costs on its operation.
+    - The economic damage Intel claimed (lost employee productivity, staff time blocking messages) is not an injury to the computers themselves, which worked as intended.
+    - This is distinct from "spamming" cases (e.g., CompuServe Inc. v. Cyber Promotions, Inc.) where the sheer volume of messages overburdened systems and impaired functioning.
+    - The court rejected the idea that "impairment by content" (distraction from message content) constitutes injury to the computer system itself.
+    - Intel cannot assert a property interest in its employees' time through trespass to chattels.
+    - The cost of Intel's self-help efforts to block messages cannot be bootstrapped into an injury to its possessory interest in its computers.
+- The court declined to extend California common law to cover harmless electronic communications whose contents are objectionable.
+    - Extending trespass law to treat computer servers as real property, as suggested by some amici, would create a rigid property rule with potentially high costs to communication and network benefits.
+    - The Internet is not a physical space, and applying real property rules to intangible intrusions (like electromagnetic transmissions) would require physical damage, which was not present here.
+    - The Legislature is better suited to regulate unwanted electronic communications.
+- Constitutional considerations (First Amendment) were not fully addressed because the common law grounds were dispositive, but the court noted that state action (like an injunction) must comply with First Amendment limits.
+    - The injunction was sweeping, covering all communication to Intel addresses, which would not be justified by a "right not to listen" that applies to individual recipients.
 
 **Dissent (Brown, J.)**
-- Intel invested in its computer system for productivity, not as a public forum. Hamidi's emails diverted employees and undermined system utility.
-- Intel's objection is to Hamidi's use of its property, not just the message content. Private property owners can exclude unwanted mail for any reason.
-- Analogizes to spray-painting a car bumper: the time and expense to remove paint is an injury, even if the car's market value isn't reduced.
-- Cites cases where unauthorized use of a system (e.g., searching for phone codes) was trespass even without physical damage or significant burden.
-- Argues the law protects a person's right not to listen, and Intel, as property owner, can make that decision for its system.
-- Finds actual injury:
-    - Economic loss from employee time spent dealing with emails and company resources spent blocking them.
-    - Impairment of the chattel's subjective utility to the owner (like a used toothbrush), not just market value.
-    - Unlawful appropriation of Intel's resources for Hamidi's own use (like using another's mooring buoy).
-- Argues that injunctive relief is proper for repetitive trespasses even without actual damages, especially when damages are impractical to recover.
+- Intel suffered actual injury through lost employee productivity and the expense of blocking messages, which impaired the value and utility of its computer system.
+- The tort of trespass to chattels does not require physical damage; impairment of the chattel's value to the owner (subjective utility) is sufficient, as illustrated by the "toothbrush" example in the Restatement.
+- Unauthorized use of another's property, even without damage, can be a trespass, especially when one party appropriates resources paid for by another (e.g., Buchanan Marine Inc. v. McCormack Sand Co.).
+- Injunctive relief is appropriate for continuing trespasses, even without a showing of actual damage, to protect property rights and avoid multiplicity of suits (Mendelson v. McCabe).
+- The right to exclude unwanted speech, recognized in cases like Rowan v. U.S. Post Office Dept., applies to private property owners like Intel, regardless of the content of the messages.
+- The majority's ruling creates a perverse incentive for companies to invest less in computer capacity.
 
 **Dissent (Mosk, J.)**
-- Hamidi's repeated bulk emails to Intel's proprietary confidential email lists, despite demands to cease, constituted actionable trespass to chattels.
-- Distinguishes between open communication on the public Internet and unauthorized intrusion into a private intranet.
-- Hamidi's actions are like intruding into a private office mailroom and distributing unwanted materials.
-- Intel's security measures were circumvented, leaving it with no recourse unless a malfunction or crash occurs.
-- The law of trespass to chattels is not universally limited to physical damage; it applies when a proprietary system is used contrary to the owner's purposes and self-help is ineffective.
-- Intel suffered substantial harm from blocking efforts and diminished employee productivity, which impaired the quality and value of its system.
-- Other courts have applied trespass to chattels to similar electronic intermeddling without requiring physical damage or system overload.
-- Intel's connection to the Internet for business does not forfeit its right to control access to its private system.
-- Trespass to chattels is the most efficient remedy, as it focuses on unauthorized use of property without evaluating content.
-- The law should evolve to protect property interests in the digital age.
-- There is no constitutional right to trespass.
+- The repeated transmission of bulk e-mails by Hamidi to Intel employees, despite demands to cease, constituted an actionable trespass to chattels.
+- The majority fails to distinguish between open communication in the public internet and unauthorized intermeddling on a private, proprietary intranet.
+- Hamidi's actions are akin to intruding into a private office mailroom and distributing unwanted broadsides.
+- Intel's security measures were circumvented, leaving Intel with no recourse unless a malfunction or system crash occurs.
+- The law of trespass to chattels is not limited to physical damage and can apply when a proprietary system is used contrary to its owner's purposes and desires, and self-help is ineffective.
+- The costs incurred by Intel to block messages and the diminished employee productivity constitute sufficient damages to establish trespass to chattels.
+- Other courts have applied trespass to chattels to similar situations involving unauthorized electronic contact with computer systems (e.g., CompuServe, eBay).
+- Intel's connection to the Internet for business purposes does not forfeit its right to control access to its private system.
+- Trespass to chattels is the most efficient and appropriate remedy, as it focuses on unauthorized use rather than content.
+- There is no federal or state constitutional right to trespass.
 
 **NOTES:**
-1. This case is crucial for understanding the **trespass to chattels** doctrine in the context of intangible digital interactions. It clarifies that unlike trespass to land, trespass to chattels generally requires actual harm to the chattel or the possessor's interest in it, not just unauthorized contact. It distinguishes itself from cases like *eBay Inc. v. MercExchange L.L.C.* (though *eBay* is cited in the opinion, the *eBay* case you studied was about patent injunctions, not trespass to chattels, so this is a different *eBay* case) and *CompuServe Inc. v. Cyber Promotions, Inc.* (cited in the opinion), where functional impairment of computer systems due to high volume was present. This case limits the expansion of trespass to chattels to situations where the "harm" is merely the content of a message or the distraction it causes, rather than a physical or functional impact on the property itself.
-2. This case raises the question of how property law should adapt to new technologies. If a company's private network is constantly bombarded with unwanted messages that cause significant productivity loss but no technical damage, what legal recourse should exist? Is the majority's reliance on other torts sufficient, or does it leave a gap in protecting proprietary digital infrastructure?
+1. This case is important for understanding the modern application of the common law tort of **trespass to chattels** in the context of digital property and the internet. It distinguishes between physical harm/functional impairment and mere annoyance or economic disruption caused by content. It connects to **Intel Corp. v. Hamidi** itself, as it is the case. It also relates to cases like **eBay Inc. v. MercExchange L.L.C.** and **ProCD Inc. v. Zeidenberg** by exploring the boundaries of property rights in digital and intangible assets, and the tension between property protection and open access/communication. The discussion of the "right to exclude" and its limits is central, echoing themes in **Illinois Central Railroad Co. v. Illinois** (public trust doctrine limiting exclusion) and **State ex rel. Thornton v. Hay** (public access to beaches).
+2. The case raises the question of how to balance a property owner's right to exclude with the public interest in free communication, especially in digital spaces. What if Hamidi's messages had caused a measurable, but small, slowdown in Intel's system? Would that be enough for trespass? What if the messages were not just critical, but contained false information that directly harmed Intel's business? Would other torts be more appropriate, and if so, does that mean trespass to chattels is simply not the right tool for these types of harms?
 
-**Takeaway:** For trespass to chattels involving electronic communications, California law requires actual physical damage or functional impairment to the computer system, not just economic harm from the content of the messages or the effort to block them.
+**Takeaway:** For trespass to chattels in California, unauthorized electronic contact with a computer system requires actual or threatened physical damage or functional impairment to the system itself, not merely economic harm or annoyance caused by the content of the communication.

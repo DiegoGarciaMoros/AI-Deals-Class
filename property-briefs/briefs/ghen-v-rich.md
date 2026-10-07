@@ -2,54 +2,47 @@
 
 **Facts**
 - In the early spring months, fin-back whales frequent the easterly part of Massachusetts Bay.
-- Fishermen from Provincetown pursue these whales in open boats and shoot them with bomb-lances.
-- When killed, the whales sink but rise to the surface in one to three days.
-- The person who finds a stranded whale usually sends word to Provincetown and receives a small salvage payment.
-- Each boat's crew has a unique mark on its lances, identifying who killed a whale.
+- Provincetown fishermen pursue these whales in open boats and shoot them with bomb-lances.
+- When killed, the whales sink and rise to the surface one to three days later.
 - The usage on Cape Cod for many years has been that the person who kills a whale in this manner owns it.
-- On April 9, 1880, the libellant shot and instantly killed a fin-back whale with a bomb-lance near Cape Cod.
+- On April 9, 1880, the libellant (Ghen) shot and instantly killed a fin-back whale with a bomb-lance near Cape Cod.
 - The whale sank immediately.
 - On April 12, the whale was found stranded on a beach in Brewster, 17 miles from where it was killed, by one Ellis.
-- Ellis advertised the whale for sale at auction and sold it to the respondent.
-- The respondent shipped off the blubber and tried out the oil.
-- On April 13, the libellant heard the whale had been found and sent his men to claim it.
-- Neither the respondent nor Ellis knew the libellant had killed the whale, but they knew or could have known it was killed by a bomb-lance by someone in the business.
+- Ellis advertised the whale for sale at auction and sold it to the respondent (Rich).
+- Rich shipped off the blubber and tried out the oil.
+- On April 13, Ghen heard the whale had been found and sent his men to claim it.
+- Neither Rich nor Ellis knew Ghen had killed the whale, but they knew it had been killed by a bomb-lance by someone in the whaling business.
 
 **Procedural History**
-- The libellant brought a libel action to recover the value of the whale.
-- The court found for the libellant.
+- Libellant (Ghen) brought a libel to recover the value of the whale.
+- The District Court ruled in favor of the libellant.
 
 **Issue**
-Can a whaler claim ownership of a whale they killed, even if it was found and processed by another party, based on a local custom?
+Can a local custom among whalers establish ownership of a whale killed by a bomb-lance, even if another party finds the whale after it floats to the surface?
 
 **Holding**
-Libellant (whaler) wins. The usage among whalers on Cape Cod, where the killer of a fin-back whale owns it, is reasonable and valid, establishing the libellant's property right. Affirmed.
+Libellant (Ghen) wins. The usage among whalers is valid, and the property in the whale was in the libellant. Affirmed.
 
 **Rules**
-- **First Possession (Wild Animals).** A wild animal does not become property until firm possession has been established by the taker.
-- **Usage/Custom.** A long-standing, reasonable custom that embraces an entire business and is generally concurred in by those engaged in the trade can establish property rights.
-- Rejected: **Finder's Keepers (Wild Animals).** The mere finding of a wild animal, even if adrift, does not automatically confer ownership if a prior taker has established possession.
+- **First Possession (General Rule).** An animal *ferae naturae* does not become property until a firm possession has been established by the taker.
+- **Customary Law.** A long-standing, reasonable, and widely accepted custom within a particular industry can establish property rights, especially when the general common law rule is difficult to apply.
+- Rejected: **First Possession (Finder's Rule).** A whale found adrift in the ocean is the property of the finder. *(The court implicitly rejects this as a primary rule in this specific context.)*
 
 **Reasoning**
-- The court found the usage on Cape Cod, where the killer owns the whale, to be reasonable and valid.
-    - The usage requires the only act of appropriation possible given the nature of fin-back whaling (killing with a bomb-lance).
-    - Without this usage, the industry would cease because the fruits of labor could be appropriated by chance finders.
-    - The usage provides reasonable salvage for securing or reporting the property.
-    - The usage has been recognized and acquiesced in for many years, demonstrating its practical effectiveness.
-    - Its application is extremely limited and affects few people, so it does not disturb general understanding.
-- The court distinguished this case from others where actual physical possession or firm attachment was maintained.
-    - In *Taber v. Jenny*, the whale was anchored and marked, showing appropriation.
-    - In *Bartlett v. Budd*, the first taker had killed and taken actual possession, and ownership vested.
-- The court referenced *Swift v. Gifford*, which upheld a custom that "the iron holds the whale," finding it reasonable and valid.
-    - This custom, like the one in the present case, is limited in application and specific to the whaling industry.
-- The court noted that even without usage, common law might reach the same result, as doing all that is possible to make the animal one's own could be sufficient for ownership. *(dicta)*
-- The respondent was liable for conversion because the libellant had property in the whale.
+- The court found the usage among Cape Cod whalers to be reasonable and valid.
+- The application of this usage is limited and affects few people.
+- The usage has been recognized and acquiesced in for many years.
+- It requires the first taker to perform the only act of appropriation possible given the nature of the whale.
+- Without this usage, the industry would cease because no one would engage in it if their labor's fruits could be taken by a chance finder.
+- The usage provides reasonable salvage for securing or reporting the property.
+- The success of the industry under this rule demonstrates its practical effectiveness and general acceptance.
+- The court noted that it is not clear the common law, without regard to usage, would not reach the same result, citing cases where actual possession and appropriation by the first taker were deemed sufficient.
 
 **Dissent ([Judge])**
 None.
 
 **NOTES:**
-1. This case is a foundational case for **first possession** of wild animals, particularly in the context of custom. It contrasts with cases like *Pierson v. Post* (not on our list, but a classic comparison) which emphasizes actual physical capture, by showing how custom can define what constitutes "possession" or "appropriation" in specific industries. It also connects to the idea of **constructive possession** where physical control isn't always necessary if intent and effort are clear.
-2. This case raises the question of how far custom can extend to define property rights, especially when it might seem to contradict a more general common law principle (like "finder's keepers"). What if the custom was less reasonable or only benefited a very small, exclusive group?
+1. This case is a classic example of how **custom** can define property rights, especially when traditional rules of **first possession** (like actual physical control) are difficult to apply due to the nature of the resource. It connects to *Ghen v. Rich* by showing how the specific characteristics of a resource (a whale that sinks) necessitate a different approach to establishing ownership than, for example, a fox caught in a trap. It contrasts with cases like *Pierson v. Post* where the court rejected custom in favor of a more formal rule of capture.
+2. What if the custom was that the finder owned the whale, and the killer received a small fee? Would the court have found that custom equally valid?
 
-**Takeaway:** Local custom can define what constitutes sufficient appropriation for establishing property rights in wild animals, especially when that custom is reasonable, long-standing, and essential for the industry's viability.
+**Takeaway:** Well-established and reasonable customs within a specific industry can define property rights where traditional rules of first possession are impractical.

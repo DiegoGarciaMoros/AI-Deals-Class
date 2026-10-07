@@ -220,7 +220,7 @@ with tab_map:
         Cases=("Case", "count"), Names=("Case", lambda s: "; ".join(s))).reset_index()
     sort = counts.groupby("Value")["Cases"].sum().sort_values(ascending=False).index.tolist()
     bars = alt.Chart(counts).mark_bar(cornerRadiusEnd=4, stroke="white", strokeWidth=2).encode(
-        y=alt.Y("Value:N", sort=sort, title=None),
+        y=alt.Y("Value:N", sort=sort, title=None, axis=alt.Axis(labelLimit=220)),
         x=alt.X("Cases:Q", title="Cases", axis=alt.Axis(tickMinStep=1)),
         color=color, order=alt.Order("Outcome:N", sort="descending"),
         tooltip=["Value", "Outcome", "Cases", alt.Tooltip("Names:N", title="Cases")])
@@ -229,7 +229,7 @@ with tab_map:
     st.markdown(f"**Every case by year, grouped by {THEME_LABELS[theme].lower()}**")
     dots = alt.Chart(long).mark_circle(size=140, stroke="white", strokeWidth=2, opacity=1).encode(
         x=alt.X("year:Q", title="Year decided", scale=alt.Scale(zero=False), axis=alt.Axis(format="d")),
-        y=alt.Y("Value:N", sort=sort, title=None),
+        y=alt.Y("Value:N", sort=sort, title=None, axis=alt.Axis(labelLimit=220)),
         color=color,
         tooltip=["Case", alt.Tooltip("year:Q", format="d", title="Year"), "class_topic", "Outcome",
                  alt.Tooltip("principle:N", title="Principle")])

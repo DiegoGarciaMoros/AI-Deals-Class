@@ -125,7 +125,7 @@ AFTER the brief, output a fenced ```json block with these fields:
   "defendant": "...",
   "winner": one of ["plaintiff", "defendant", "mixed"],
   "disposition": one of ["affirmed", "reversed", "reversed_and_remanded", "affirmed_in_part", "original_decision"],
-  "property_holder": "who holds the ownership / title / possessory interest at stake, and in what (e.g. 'Moore, in his excised cells')",
+  "property_holder": "the OWNER: who held established ownership of the thing before the dispute, and in what (e.g. 'Moore, in his excised cells')",
   "challenger": "who or what is asserting a claim against that interest",
   "owner_prevailed": one of ["yes", "no", "mixed", "not_applicable"],
   "owner_prevailed_why": "one sentence: did the court protect the property_holder's interest?",
@@ -140,11 +140,24 @@ AFTER the brief, output a fenced ```json block with these fields:
 
 Use ONLY the listed values for each field, and keep each value in its own field.
 
-Decide "owner_prevailed" by comparing the winner to "property_holder", NOT to the plaintiff
-or defendant: an owner can be the plaintiff (a car owner suing a garage over a theft) or the defendant. It asks
-the theme of the course: did the court protect the person holding the property interest
-(owner sovereignty), or did another interest (necessity, custom, public rights, equity, a
-non-owner) win? Use "mixed" when both sides hold competing property interests and each
+HOW TO PICK THE OWNER ("property_holder"). Decide this BEFORE looking at who won.
+The owner is whoever held established ownership of the thing before the dispute arose:
+the record title holder, the fee owner of the land, the owner of the chattel, the patentee,
+the person whose body it came from, or the testator/settlor. It is NOT whoever asserts a newer
+or narrower claim against that ownership. In particular:
+- Adverse possession: the record owner, not the possessor.
+- Landlord vs. tenant, lender vs. borrower: the fee owner of the thing (landlord; the
+  borrower who owns the car), not the holder of the lease, lien or security interest.
+- Necessity, trespass, public access: the landowner or system owner being entered.
+- Abandonment, waste, restraints, wills: the owner (or estate) trying to use, transfer,
+  destroy or give up the thing, or the testator whose instructions are at stake.
+- Regulation of sale (organs, artifacts): the person who wants to sell their own property.
+- Who-owns-it-first cases (wild animals, accretion, appropriation, competing grants): the
+  party with the earlier formal title or claim; if neither has one, use "mixed".
+
+"owner_prevailed" then asks the theme of the course: did the court protect that owner's
+claim (owner sovereignty), or did another interest (necessity, custom, public rights, equity,
+a non-owner) win? The owner can be the plaintiff or the defendant. Use "mixed" when each side
 partly wins, and "not_applicable" only when no one's property interest is at stake.
 """
 

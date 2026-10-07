@@ -8,6 +8,7 @@ Usage:
 """
 import argparse
 import json
+from collections import Counter
 import os
 import sys
 from pathlib import Path
@@ -50,16 +51,28 @@ point is connections the syllabus order hides.]
 [A numbered checklist of 6-8 questions drawn from these cases, each followed by the case(s) it comes from.]
 
 RULES
+- Use the COUNTS below exactly; do not count anything yourself.
+- In each section, name the 3-5 most telling cases. Never list every case that fits a code.
 - Name only cases in the data. Never invent holdings: rely on the principle, holder,
   challenger and codes given.
 - Write for a student: plain sentences, case names in *italics*, no filler.
-- 900-1300 words.
-
-DATA (one JSON object per case):
+- 1000-1400 words.
 """
 
 KEEP = ["case_name", "year", "class_topic", "property_holder", "challenger", "owner_prevailed",
         "owner_prevailed_why", *THEMES, "remedy", "doctrines", "principle"]
+
+
+def counts(cases):
+    """Exact tallies for the model to quote, so it never has to count."""
+    lines = [f"cases: {len(cases)}",
+             f"owner_prevailed: {dict(Counter(c['owner_prevailed'] for c in cases))}",
+             f"owner_prevailed before 1960: {dict(Counter(c['owner_prevailed'] for c in cases if c['year'] < 1960))}",
+             f"owner_prevailed 1960 on: {dict(Counter(c['owner_prevailed'] for c in cases if c['year'] >= 1960))}"]
+    for name, (kind, _, _) in THEMES.items():
+        tally = Counter(v for c in cases for v in (c[name] if kind == "many" else [c[name]]))
+        lines.append(f"{name}: {dict(tally.most_common())}")
+    return "\n".join(lines)
 
 
 def main():
@@ -72,7 +85,8 @@ def main():
 
     cases = json.loads(CASEBOOK_PATH.read_text())
     data = "\n".join(json.dumps({k: c.get(k) for k in KEEP}) for c in cases)
-    reply, usage = call_openrouter(api_key, args.model, PROMPT + data)
+    reply, usage = call_openrouter(api_key, args.model,
+                                   PROMPT + f"\nCOUNTS:\n{counts(cases)}\n\nDATA (one JSON object per case):\n" + data)
     note = (f"\n\n---\n*Written by {args.model} from the coded briefs of all {len(cases)} cases. "
             "Check it against the cases themselves.*\n")
     OUT_PATH.write_text(reply.strip() + note)

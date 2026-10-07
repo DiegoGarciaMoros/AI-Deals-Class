@@ -1,61 +1,61 @@
 ## Higday v. Nickolaus (Kansas City Court of Appeals, 1971)
 
 **Facts**
-- Plaintiffs own about 6000 acres of farmland in the McBaine Bottom, overlying an alluvial water basin.
-- This basin contains a large underground reservoir of percolating water, which maintains a high water table, benefiting plaintiffs' crops and providing water for personal and livestock use.
-- Since 1948, the City of Columbia has sought a new water source due to dwindling supplies.
-- The City decided to withdraw water from the McBaine Bottom via shallow wells and transport it 12 miles away for sale.
-- In December 1966, City voters approved a bond issue for this project.
-- Scientific analysis showed the water table is normally 10 feet below the surface, moves at 2 feet per day, and displaces 10.5 million gallons daily.
+- Plaintiffs own approximately 6,000 acres of farmland in the McBaine Bottom, overlying an alluvial water basin.
+- The land is fertile due to a high subterranean water level, which supplies moisture to crops and is used for personal consumption and livestock.
+- The City of Columbia, a municipality of 50,000 inhabitants, sought a new water source due to dwindling supplies.
+- Consulting engineers advised the City to withdraw water from the McBaine Bottom via shallow wells and transport it 12 miles away for sale.
+- In December 1966, the electorate approved a revenue bond issue for this municipal water supply project.
+- Scientific analysis determined the underground percolating water table, when undisturbed, rises to an average of ten feet below the soil surface and moves laterally at two feet per day, displacing 10.5 million gallons daily.
 - The City acquired five well sites totaling 17.25 acres from some plaintiffs through threat of condemnation.
-- The City plans to extract 11.5 million gallons of groundwater daily for sale, which will lower the water table from 10 feet to 20 feet below the surface.
-- Plaintiffs allege this will deprive them of water for their crops, livestock, and personal use, eventually making their land arid.
+- The City intends to extract groundwater at a rate of 11.5 million gallons daily for sale, purposes unrelated to the beneficial use of the overlying land.
+- This extraction will reduce the water table from an average of ten feet to twenty feet below the surface.
+- Plaintiffs allege this reduction will divert percolating waters normally available, turning their land into an arid and sterile surface.
 
 **Procedural History**
-- Plaintiffs filed a Petition for Declaratory Judgment and Injunction in trial court.
-- The trial court dismissed the petition based on the City's motion, which argued the petition failed to plead a justiciable controversy or a claim for relief.
+- Plaintiffs filed a Petition for Declaratory Judgment and Injunction.
+- The trial court dismissed the petition based on the City's Motion to Dismiss, which alleged failure to plead a justiciable controversy or a claim for relief.
 - Plaintiffs appealed the dismissal.
 
 **Issue**
-- Can a city extract percolating groundwater from land it owns for sale and transport away from the land, if doing so will injure adjacent landowners by lowering the water table and depriving them of water for beneficial use of their own land?
+Can a municipality withdraw percolating groundwater from beneath landowners' property for sale to its inhabitants, if doing so significantly lowers the water table and injures the landowners' beneficial use of their land?
 
 **Holding**
-- Plaintiffs (landowners) win. The City may not extract percolating groundwater for sale away from the land if it injures adjacent landowners' beneficial use of their land. Reversed and remanded.
+Plaintiffs (landowners) win. A municipality may not withdraw percolating water and transport it for sale away from the land from which it was taken if the result is to impair the supply of an adjoining landowner to his injury. Reversed and remanded.
 
 **Rules**
-- **Declaratory Judgment.** A petition for declaratory judgment must allege facts showing a subsisting justiciable controversy between parties regarding their rights and duties, allowing for specific, conclusive relief.
-- **Injunction.** An injunction requires a substantial legal right to be protected, a wrongful and injurious invasion (or threatened invasion) of that right, and often irreparable harm with no adequate legal remedy.
-- **Percolating Waters.** Waters that pass through the ground without a definite channel, oozing, seeping, or filtering through subsurface strata. All underground waters are presumed to be percolating.
-- **English Common Law Rule (Percolating Waters).** A landowner has absolute ownership of percolating waters under their land and may withdraw any quantity for any purpose without liability, even if it drains water from adjoining lands.
-- **Rejected: English Common Law Rule (Percolating Waters).** The court rejects the application of the English rule in Missouri.
-- **American Rule / Rule of Reasonable Use (Percolating Waters).** An overlying landowner has a proprietary interest in the water under their land, but this ownership is usufructuary and restricted. They may use groundwater freely without liability to an adjoining owner only if the use is for purposes incident to the beneficial enjoyment of the land from which the water was taken.
-    - Under this rule, an overlying owner, including a municipality, may not withdraw percolating water and transport it for sale or other use away from the land if it impairs an adjoining landowner's supply to their injury. Such a use is unreasonable.
-- **Correlative Rights Rule.** (Distinguished from reasonable use) A doctrine based on proportionate sharing of withdrawals among landowners overlying a common basin, where overlying owners have no proprietary interest in the water itself. (California rule).
-- **Comparative Injury Doctrine (Injunctions).** When considering injunctive relief, a court must weigh the relative convenience and inconvenience, and the comparative injuries to the parties and the public. An injunction may be denied if it would cause great public harm compared to the injury complained of, even if the legal remedy is inadequate.
+- **Justiciable Controversy.** A petition for declaratory relief must allege facts showing a subsisting justiciable controversy between the parties as to their respective rights and duties, admitting of specific relief that is conclusive and determinative.
+- **Declaratory Judgment.** A dispute as to legal rights does not require an accomplished injury to be ripe for declaratory adjudication.
+- **Injunction.** An injunction requires a substantial right to be protected and a wrongful and injurious invasion of that legal right, or a threatened invasion by one with the power to do wrong.
+- **Percolating Waters.** All underground waters are presumed to be percolating, meaning they pass through the ground without a definite channel.
+- **English Common Law Rule (Percolating Waters).** A landowner has absolute ownership of percolating waters under their land and may withdraw any quantity for any purpose without liability, even if it drains water from neighbors' lands. Rejected: This rule is based on unsound scientific postulates and does not consider the rights of adjoining landowners.
+- **American Rule / Rule of Reasonable Use (Percolating Waters).** An overlying owner has a proprietary interest in the water under their land, but incidents of ownership are restricted to reasonable exercise of rights and reasonable use of property, in view of similar rights of others.
+- **Reasonable Use (Percolating Waters - Specific Application).** An overlying owner, including a municipality, may not withdraw percolating water and transport it for sale or other use away from the land from which it was taken if the result is to impair the supply of an adjoining landowner to his injury. Such a use is unreasonable because it is non-beneficial to the overlying land.
+- **Eminent Domain (Injunction).** If injunctive relief is appropriate for an appropriation of private property for a public purpose, a court may condition the injunction on the acquiring party exercising its power of eminent domain to acquire the violated rights.
+- **Comparative Injury (Injunction).** Injunctions are matters of grace, not right, and courts must consider their effect on all parties and the public, weighing relative convenience, inconvenience, and comparative injuries.
 
 **Reasoning**
-- The petition sufficiently pleads a justiciable controversy because it describes an actual, existing dispute where the City's planned actions will inevitably damage plaintiffs, creating uncertainty about their rights.
-    - The City has committed significant resources and acquired well sites, indicating the threat is impending and real, not hypothetical.
-- The court rejects the City's argument that the English common law rule of absolute ownership applies in Missouri, which would make plaintiffs' alleged damage *damnum absque injuria*.
-    - The English rule was established in 1843, after Missouri adopted common law in 1816, so it is not binding.
-    - The only Missouri case on point, *Springfield Waterworks Co. v. Jenkins* (1895), did not definitively adopt the absolute ownership rule and its language actually recognized limitations akin to reasonable use.
-    - Modern scientific understanding discredits the common law's premises about the unknowable nature of groundwater.
-    - Missouri's increasing population and water demands necessitate a more equitable allocation standard.
-- The court adopts the **rule of reasonable use** for percolating waters.
-    - This rule aligns with the maxim that one must use their property so as not to injure another.
-    - It allows use for beneficial enjoyment of the overlying land but prohibits withdrawal for sale or transport away from the land if it injures an adjoining landowner.
-    - A municipality acting as a private owner cannot claim special rights to extract water at the expense of adjoining landowners.
-- Plaintiffs' petition sufficiently alleges a property right to reasonable use of percolating waters threatened by wrongful invasion, thus stating a claim for injunctive relief.
-    - The City's threatened appropriation of private property for public use without authority or compliance with constitutional conditions is an irremediable invasion of rights, justifying injunctive consideration without typical requirements of irreparable damage or inadequate legal remedy.
-- While injunctive relief is discretionary, the trial court must consider the **comparative injury** to all parties and the public.
-    - The public's need for water is vital, and the court may deny an injunction if it would cause great public harm compared to the plaintiffs' injury.
-    - The trial court could condition an injunction on the City exercising its power of eminent domain to acquire the water rights, or plaintiffs could pursue inverse condemnation.
+- The petition sufficiently pleads a justiciable controversy because it describes an actual, existing, and real controversy where the City's actions will inevitably culminate in damage to plaintiffs' lands by lowering the water table.
+- The City's argument that the English common law rule of absolute ownership applies in Missouri is rejected.
+    - The English rule was established after Missouri adopted the common law, so it is not binding.
+    - The single Missouri case on groundwater, *Springfield Waterworks Co. v. Jenkins*, contained dictum suggesting the English rule but its holding could be reconciled with a reasonable use limitation.
+    - The scientific premises underlying the English rule (that groundwater movement is "secret, changeable, and uncontrollable") have been discredited by modern hydrology.
+    - The Supreme Court of Missouri has already applied the rule of reasonable use to riparian owners and subterranean streams, suggesting a uniform standard for all waters is appropriate.
+- The **rule of reasonable use** is adopted for percolating waters.
+    - This rule recognizes a proprietary interest but restricts it to beneficial enjoyment of the overlying land.
+    - Transporting water for sale away from the land, to the injury of an adjoining landowner, is an unreasonable use.
+    - A municipality acts as a private owner when acquiring land for water, and its need for water does not justify injuring adjoining landowners.
+- Plaintiffs' petition sufficiently pleads a property right to the reasonable use of percolating waters threatened by the City's actions, thus invoking the court's equitable jurisdiction for injunctive relief.
+- While an injunction is an extraordinary remedy and the court must consider public interest (e.g., the City's water supply), the trial court erred in dismissing the petition without an evidentiary hearing.
+- If the City's withdrawals do not interfere with plaintiffs' beneficial use, there would be no basis for complaint.
+- If the City's actions cause injury, it will be accountable for damages.
+- The trial court could condition an injunction on the City exercising its power of eminent domain to acquire the water rights it is violating, or plaintiffs could pursue inverse condemnation.
 
 **Dissent ([Judge])**
-- None.
+None.
 
 **NOTES:**
-1. This case is important because it rejects the **English Common Law Rule** of absolute ownership for percolating groundwater and adopts the **American Rule of Reasonable Use**. This shifts the focus from unlimited extraction to a more equitable balancing of landowners' rights, especially when a municipality seeks to export water. It connects to broader themes of property rights limitations and the evolving understanding of natural resources. It contrasts with cases like *Edwards v. Allouez Mining Co.* where the court refused to enjoin a nuisance, but here the court is willing to consider an injunction for water rights.
-2. The court leaves open the question of whether an injunction will ultimately be granted, emphasizing the **comparative injury** doctrine. This raises a tension: how much weight should be given to public need (municipal water supply) versus private property rights (farmers' water for crops)? What if the City's entire water supply depends on this source?
+1. This case is significant for the shift from the **English Rule of Absolute Ownership** to the **American Rule of Reasonable Use** for percolating groundwater. It connects to **Evans v. Merriweather** and **Coffin v. Left Hand Ditch Co.** by illustrating different approaches to water rights (riparian vs. prior appropriation) and the evolution of common law to address changing societal needs and scientific understanding. The court explicitly rejects the "dogma of absolute ownership" in favor of a more equitable allocation, similar to how courts might balance competing interests in other property disputes.
+2. The court mentions that the City could limit its withdrawals to the daily recharge rate (10.5 million gallons) to avoid damage. What if the City's need for water exceeds this rate, and there are no other viable sources? Does the "reasonable use" rule effectively cap a municipality's growth if it relies on groundwater?
 
-**Takeaway:** Missouri adopts the reasonable use rule for percolating groundwater, meaning landowners (including municipalities) cannot extract water for sale away from the land if it harms adjacent landowners' beneficial use of their property.
+**Takeaway:** Courts may evolve common law property rules, such as those governing percolating groundwater, to reflect modern scientific understanding and balance competing beneficial uses, particularly when public and private interests clash.
