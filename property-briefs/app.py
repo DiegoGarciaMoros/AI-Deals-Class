@@ -12,11 +12,12 @@ import altair as alt
 import pandas as pd
 import streamlit as st
 
-from briefing import DEFAULT_MODEL, THEMES, brief_opinion
+from briefing import DEFAULT_MODEL, DOCTRINE_LABEL, TAXONOMY, THEMES, brief_opinion, normalize_topics
+from casebook_store import Store, case_key
 from caselaw import fetch_case
 
 HERE = Path(__file__).parent
-CASEBOOK = json.loads((HERE / "data" / "casebook.json").read_text())
+ORIGINAL = json.loads((HERE / "data" / "casebook.json").read_text())
 SYNTHESIS = HERE / "data" / "course_synthesis.md"
 MAX_BRIEFS_PER_VISIT = 8  # every brief is paid for with my OpenRouter key
 
@@ -40,6 +41,36 @@ EXAMPLES = {
 }
 
 st.set_page_config(page_title="Property Case Briefer", page_icon="⚖️", layout="wide")
+
+
+# ---------- the casebook: my original 34, plus cases added through the app ----------
+
+def secrets():
+    try:
+        return dict(st.secrets)
+    except Exception:  # noqa: BLE001 - no secrets file when run locally
+        return {}
+
+
+STORE = Store(secrets())
+
+
+@st.cache_data(ttl=60, show_spinner=False)
+def load_added():
+    try:
+        return STORE.load(), None
+    except Exception as e:  # noqa: BLE001 - still show the original casebook
+        return [], str(e)
+
+
+ADDED, ADDED_ERROR = load_added()
+for c in ORIGINAL:
+    c["source"] = "Original 34"
+for c in ADDED:
+    c["source"] = "Added"
+    normalize_topics(c)
+CASEBOOK = ORIGINAL + ADDED
+CASEBOOK_KEYS = {case_key(c["case_name"]) for c in CASEBOOK}
 
 
 # ---------- helpers ----------
@@ -69,6 +100,7 @@ def takeaway(brief):
 def tags(case):
     """The case's theme codes as a set, for comparing cases."""
     out = {f"owner:{case.get('owner_prevailed')}"}
+    out |= {f"doctrine:{d}" for d in case.get("doctrine_tags") or []}
     for name in THEMES:
         for v in as_list(case.get(name)):
             if v is True:
@@ -113,7 +145,13 @@ def verdict_badge(fields):
                 f"font-weight:600'>{label}</span>", unsafe_allow_html=True)
 
 
+def filed_under(case):
+    docs = " · ".join(DOCTRINE_LABEL[d] for d in case.get("doctrine_tags") or [])
+    return f"{case.get('area', 'Other')}" + (f" › {docs}" if docs else "")
+
+
 def theme_card(fields):
+    st.markdown(f"**Filed under:** {filed_under(fields)}")
     verdict_badge(fields)
     st.markdown(f"**Property holder:** {fields.get('property_holder', '')}  \n"
                 f"**Challenger:** {fields.get('challenger', '')}  \n"
@@ -126,18 +164,55 @@ def theme_card(fields):
 def similar_cases(fields):
     st.markdown("**Closest cases in my casebook** (by shared themes)")
     for score, other, shared in closest(fields):
-        common = ", ".join(pretty(t.split(":")[1]) for t in sorted(shared) if not t.startswith("owner:"))
+        common = ", ".join(DOCTRINE_LABEL.get(t.split(":")[1]) if t.startswith("doctrine:") else pretty(t.split(":")[1])
+                           for t in sorted(shared) if not t.startswith("owner:"))
         st.markdown(f"- **{other['case_name']}** ({other['year']}, {other['class_topic']}) "
                     f"— {OUTCOME.get(other['owner_prevailed'], 'Mixed').lower()}. "
                     f"Shares: {common or 'outcome only'}")
+
+
+def add_to_casebook(brief, fields, citation):
+    st.divider()
+    st.markdown("**Add this case to the casebook**")
+    name = (fields.get("case_name") or "").strip()
+    if not name:
+        st.caption("The model didn't return a case name, so this brief can't be added. Try briefing it again.")
+        return
+    if case_key(name) in CASEBOOK_KEYS:
+        if st.session_state.get("just_added") == name:
+            st.success(f"Added {name}. It's in the Casebook map and Browse tabs now.")
+        else:
+            st.caption(f"{name} is already in the casebook.")
+        return
+    st.caption(f"It's filed under {filed_under(fields)} and joins the charts, the table and the case "
+               "comparisons for everyone who uses this site.")
+    if st.button("Add to casebook", key=f"add-{case_key(name)}"):
+        entry = dict(fields, case_name=name, citation=citation, class_topic="Not in syllabus", brief=brief,
+                     slug=re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-"), model=DEFAULT_MODEL)
+        year = re.search(r"\d{4}", str(fields.get("year", "")))
+        entry["year"] = int(year.group()) if year else None
+        try:
+            with st.spinner("Saving…"):
+                added = STORE.add(entry, CASEBOOK_KEYS)
+        except Exception as e:  # noqa: BLE001 - show the user what went wrong
+            st.error(f"Couldn't save it: {e}")
+            return
+        if added:
+            load_added.clear()
+            st.session_state.just_added = name
+            st.rerun()
+        else:
+            st.info(f"{name} is already in the casebook.")
 
 
 # ---------- page ----------
 
 st.title("Property Case Briefer")
 st.caption("Brief any published U.S. case in my Property-notes format, code it on the course's themes, "
-           "and see where it fits among the 34 cases in my casebook. AI-drafted study aid: check every "
-           "brief against the opinion.")
+           f"and see where it fits among the {len(CASEBOOK)} cases in my casebook. AI-drafted study aid: "
+           "check every brief against the opinion.")
+if ADDED_ERROR:
+    st.warning(f"Couldn't load the cases added through the app, so only the original 34 are shown. ({ADDED_ERROR})")
 
 tab_brief, tab_map, tab_browse = st.tabs(["Brief a case", "Casebook map", "Browse my briefs"])
 
@@ -179,12 +254,12 @@ with tab_brief:
             with st.spinner("Reading and briefing the opinion (about 20–60 seconds)…"):
                 brief, fields = run_brief(text, DEFAULT_MODEL)
             st.session_state.briefs_used += 1
-            st.session_state.last = (brief, fields)
+            st.session_state.last = (brief, fields, citation.strip())
         except Exception as e:  # noqa: BLE001 - show the user what went wrong
             st.error(f"Couldn't brief that case: {e}")
 
     if "last" in st.session_state:
-        brief, fields = st.session_state.last
+        brief, fields, last_cite = st.session_state.last
         st.divider()
         if fields.get("principle"):
             st.markdown(f"> **Principle:** {fields['principle']}")
@@ -196,9 +271,35 @@ with tab_brief:
         with right:
             theme_card(fields)
             similar_cases(fields)
+            add_to_casebook(brief, fields, last_cite)
 
 with tab_map:
-    df = pd.DataFrame(CASEBOOK)
+    include = True
+    if ADDED:
+        include = st.toggle(f"Include the {len(ADDED)} case{'s' if len(ADDED) > 1 else ''} added through the app",
+                            value=True)
+    df = pd.DataFrame(CASEBOOK if include else ORIGINAL)
+    df["year"] = pd.to_numeric(df["year"], errors="coerce")
+    df["Area"] = df["area"].fillna("Other")
+    df["doctrine_tags"] = df["doctrine_tags"].apply(lambda v: v if isinstance(v, list) else [])
+
+    f1, f2 = st.columns(2)
+    areas = [a for a in [*TAXONOMY, "Other"] if a in set(df["Area"])]
+    area = f1.selectbox("Area of property law", ["All areas", *areas])
+    if area != "All areas":
+        df = df[df["Area"] == area]
+    doctrines = [d for d in DOCTRINE_LABEL if any(d in tags for tags in df["doctrine_tags"])]
+    picked = f2.multiselect("Doctrines", doctrines, format_func=DOCTRINE_LABEL.get,
+                            placeholder="All doctrines in this area")
+    if picked:
+        df = df[df["doctrine_tags"].apply(lambda tags: bool(set(tags) & set(picked)))]
+    scope = ", ".join(DOCTRINE_LABEL[d] for d in picked) if picked else (area if area != "All areas" else "")
+    # Charts size by row (alt.Step) and get a fresh key per filter; otherwise Streamlit keeps
+    # the old chart height when a filter changes the number of rows.
+    view = f"{include}-{area}-{'-'.join(picked)}"
+    if scope:
+        st.caption(f"Showing the {len(df)} case{'s' if len(df) != 1 else ''} filed under {scope}. "
+                   "Every count and chart below covers only these cases.")
     df["Outcome"] = df["owner_prevailed"].map(OUTCOME).fillna("Mixed")
     won = (df["Outcome"] == "Owner won").sum()
     m1, m2, m3, m4 = st.columns(4)
@@ -207,13 +308,27 @@ with tab_map:
     m3.metric("Owner won 1960 on", f"{(df[df.year >= 1960].Outcome == 'Owner won').sum()} of {(df.year >= 1960).sum()}")
     m4.metric("Flexible standards", f"{(df.rule_or_standard == 'flexible_standard').sum()} of {len(df)}")
 
+    order = list(OUTCOME_COLORS)
+    color = alt.Color("Outcome:N", scale=alt.Scale(domain=order, range=[OUTCOME_COLORS[o] for o in order]),
+                      legend=alt.Legend(orient="top", title=None))
+
+    by_doc = df.assign(Doctrine=df["doctrine_tags"].apply(lambda t: [DOCTRINE_LABEL[d] for d in t] or ["Unfiled"]),
+                       Case=df["case_name"]).explode("Doctrine")
+    doc_counts = by_doc.groupby(["Doctrine", "Outcome"]).agg(
+        Cases=("Case", "count"), Names=("Case", lambda s: "; ".join(s))).reset_index()
+    doc_sort = doc_counts.groupby("Doctrine")["Cases"].sum().sort_values(ascending=False).index.tolist()
+    st.markdown("**By doctrine: how often the owner won**")
+    doc_bars = alt.Chart(doc_counts).mark_bar(cornerRadiusEnd=4, stroke="white", strokeWidth=2).encode(
+        y=alt.Y("Doctrine:N", sort=doc_sort, title=None, axis=alt.Axis(labelLimit=240)),
+        x=alt.X("Cases:Q", title="Cases", axis=alt.Axis(tickMinStep=1)),
+        color=color, order=alt.Order("Outcome:N", sort="descending"),
+        tooltip=["Doctrine", "Outcome", "Cases", alt.Tooltip("Names:N", title="Cases")])
+    st.altair_chart(doc_bars.properties(height=alt.Step(30)), width="stretch", key=f"doc-{view}")
+
     theme = st.selectbox("Compare the cases by", list(THEMES), format_func=THEME_LABELS.get)
     long = df.assign(value=df[theme].apply(as_list)).explode("value")
     long["Value"] = long["value"].map(pretty)
     long["Case"] = long["case_name"]
-    order = list(OUTCOME_COLORS)
-    color = alt.Color("Outcome:N", scale=alt.Scale(domain=order, range=[OUTCOME_COLORS[o] for o in order]),
-                      legend=alt.Legend(orient="top", title=None))
 
     st.markdown(f"**{THEME_LABELS[theme]}: how often the owner won**")
     counts = long.groupby(["Value", "Outcome"]).agg(
@@ -224,31 +339,45 @@ with tab_map:
         x=alt.X("Cases:Q", title="Cases", axis=alt.Axis(tickMinStep=1)),
         color=color, order=alt.Order("Outcome:N", sort="descending"),
         tooltip=["Value", "Outcome", "Cases", alt.Tooltip("Names:N", title="Cases")])
-    st.altair_chart(bars.properties(height=max(160, 34 * len(sort))), width="stretch")
+    st.altair_chart(bars.properties(height=alt.Step(34)), width="stretch", key=f"bars-{view}-{theme}")
 
     st.markdown(f"**Every case by year, grouped by {THEME_LABELS[theme].lower()}**")
-    dots = alt.Chart(long).mark_circle(size=140, stroke="white", strokeWidth=2, opacity=1).encode(
+    dots = alt.Chart(long).mark_point(filled=True, stroke="white", strokeWidth=2, opacity=1).encode(
         x=alt.X("year:Q", title="Year decided", scale=alt.Scale(zero=False), axis=alt.Axis(format="d")),
         y=alt.Y("Value:N", sort=sort, title=None, axis=alt.Axis(labelLimit=220)),
         color=color,
-        tooltip=["Case", alt.Tooltip("year:Q", format="d", title="Year"), "class_topic", "Outcome",
+        size=alt.condition(alt.datum.source == "Added", alt.value(320), alt.value(140)),
+        shape=alt.Shape("source:N", scale=alt.Scale(domain=["Original 34", "Added"], range=["circle", "diamond"]),
+                        legend=alt.Legend(orient="top", title=None) if ADDED else None),
+        tooltip=["Case", alt.Tooltip("year:Q", format="d", title="Year"), "Area", "Outcome",
                  alt.Tooltip("principle:N", title="Principle")])
-    st.altair_chart(dots.properties(height=max(160, 34 * len(sort))), width="stretch")
+    st.altair_chart(dots.properties(height=alt.Step(34)), width="stretch", key=f"dots-{view}-{theme}")
 
     with st.expander("Table view"):
-        cols = ["case_name", "year", "class_topic", "Outcome", "property_holder", "challenger",
+        cols = ["case_name", "year", "Area", "Doctrines", "class_topic", "source", "Outcome", "property_holder", "challenger",
                 *THEMES, "principle"]
+        df["Doctrines"] = df["doctrine_tags"].apply(lambda t: ", ".join(DOCTRINE_LABEL[d] for d in t))
         st.dataframe(df[cols].map(lambda v: ", ".join(map(pretty, v)) if isinstance(v, list) else v),
                      hide_index=True, width="stretch")
 
     if SYNTHESIS.exists():
         st.divider()
+        if ADDED:
+            st.caption("The written synthesis below covers the original 34 cases; the charts and table above "
+                       "include the added ones.")
         st.markdown(SYNTHESIS.read_text())
 
 with tab_browse:
-    names = [f"{c['case_name']} ({c['year']}) — {c['class_topic']}" for c in CASEBOOK]
-    pick = st.selectbox("Case", range(len(CASEBOOK)), format_func=names.__getitem__)
-    case = CASEBOOK[pick]
+    b1, b2 = st.columns([1, 2])
+    browse_area = b1.selectbox("Area", ["All areas", *[a for a in [*TAXONOMY, "Other"]
+                                                      if any(c.get("area", "Other") == a for c in CASEBOOK)]])
+    shown = sorted((c for c in CASEBOOK if browse_area in ("All areas", c.get("area", "Other"))),
+                   key=lambda c: (list(TAXONOMY).index(c["area"]) if c.get("area") in TAXONOMY else 99,
+                                  filed_under(c), c.get("year") or 0))
+    names = [f"{c['case_name']} ({c['year']}) — {filed_under(c)}" + (" · added" if c["source"] == "Added" else "")
+             for c in shown]
+    pick = b2.selectbox("Case", range(len(shown)), format_func=names.__getitem__)
+    case = shown[pick]
     left, right = st.columns([3, 2], gap="large")
     with left:
         st.markdown(case["brief"])

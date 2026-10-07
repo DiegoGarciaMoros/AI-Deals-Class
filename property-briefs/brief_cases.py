@@ -32,10 +32,12 @@ CSV_PATH = HERE / "data" / "case_data.csv"
 CASEBOOK_PATH = HERE / "data" / "casebook.json"
 # Hand corrections to the model's coding (slug, field, value, note); applied last.
 OVERRIDES_PATH = HERE / "data" / "coding_overrides.csv"
+# Area of property law + doctrines per case, from classify_topics.py.
+TOPIC_CODES_PATH = HERE / "data" / "topic_codes.json"
 
 CSV_FIELDS = ["slug", "class_topic", "case_name", "citation", "year", "court", "court_level",
               "plaintiff", "defendant", "winner", "disposition", "property_holder", "challenger",
-              "owner_prevailed", "owner_prevailed_why", *THEMES, "principle", "remedy",
+              "owner_prevailed", "owner_prevailed_why", "area", "doctrine_tags", *THEMES, "principle", "remedy",
               "has_dissent", "has_concurrence", "doctrines", "check_flags", "model"]
 
 
@@ -55,10 +57,13 @@ def write_outputs():
         for o in csv.DictReader(open(OVERRIDES_PATH)):
             overrides.setdefault(o["slug"], {})[o["field"]] = o["value"]
 
+    topic_codes = json.loads(TOPIC_CODES_PATH.read_text()) if TOPIC_CODES_PATH.exists() else {}
+
     casebook, rows = [], []
     for slug in slugs:
         r, row = records[slug], syllabus.get(slug, {})
         fields = normalize(dict(r["fields"]))
+        fields.update(topic_codes.get(slug, {}))
         fields.update(overrides.get(slug, {}))
         entry = dict(fields, slug=slug, model=r["model"], brief=r["brief"],
                      case_name=row.get("case_name", fields.get("case_name")),

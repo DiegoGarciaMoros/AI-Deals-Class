@@ -46,6 +46,88 @@ THEMES = {
 }
 
 
+# Where a case sits in property law: one area, and 1-2 doctrines from that area.
+# Used to file and sort cases, including ones from outside my syllabus.
+TAXONOMY = {
+    "Acquiring property": {
+        "first_possession": "First possession & capture",
+        "custom_and_practice": "Custom & industry practice",
+        "accession_fixtures": "Accession & fixtures",
+        "accretion_avulsion": "Accretion & avulsion",
+        "adverse_possession": "Adverse possession",
+        "finders": "Finders",
+        "gifts": "Gifts",
+    },
+    "Rights and limits of ownership": {
+        "exclusion_trespass": "Right to exclude & trespass",
+        "necessity_privilege": "Necessity & privilege",
+        "self_help_repossession": "Self-help & repossession",
+        "conversion_chattels": "Conversion & chattels",
+        "abandonment_destruction": "Abandonment & destruction",
+        "body_and_personhood": "Property in the body",
+        "intangible_digital": "Intellectual & digital property",
+    },
+    "Bailments and licenses": {
+        "bailments": "Bailments",
+        "licenses": "Licenses",
+    },
+    "Remedies": {
+        "injunction_vs_damages": "Injunctions vs. damages",
+        "unjust_enrichment": "Restitution & unjust enrichment",
+        "improver_and_mistake": "Good-faith improvers & mistake",
+    },
+    "Public and common property": {
+        "public_trust": "Public trust",
+        "public_access_custom": "Public access & customary rights",
+        "boundaries_between_sovereigns": "Boundaries between states",
+    },
+    "Water": {
+        "riparian_rights": "Riparian rights",
+        "prior_appropriation": "Prior appropriation",
+        "groundwater": "Groundwater",
+    },
+    "Estates and future interests": {
+        "present_estates": "Present estates",
+        "future_interests_defeasible": "Future interests & defeasible fees",
+        "waste": "Waste",
+        "restraints_on_alienation": "Restraints on alienation",
+        "wills_and_dead_hand": "Wills & dead-hand control",
+    },
+    "Co-ownership and leases": {
+        "concurrent_marital": "Concurrent & marital property",
+        "landlord_tenant": "Landlord & tenant",
+    },
+    "Land use and servitudes": {
+        "easements": "Easements",
+        "covenants_associations": "Covenants & owners' associations",
+        "nuisance": "Nuisance",
+        "zoning": "Zoning & land-use regulation",
+    },
+    "Transfers and takings": {
+        "sales_and_recording": "Sales, title & recording",
+        "takings": "Takings & eminent domain",
+    },
+}
+DOCTRINE_AREA = {key: area for area, docs in TAXONOMY.items() for key in docs}
+DOCTRINE_LABEL = {key: label for docs in TAXONOMY.values() for key, label in docs.items()}
+
+
+def taxonomy_lines():
+    return "\n".join(f'  {area}: {", ".join(docs)}' for area, docs in TAXONOMY.items())
+
+
+def normalize_topics(fields):
+    """Keep only known doctrines (max 2) and make the area match the first one."""
+    tags = fields.get("doctrine_tags")
+    tags = [t for t in (tags if isinstance(tags, list) else [tags]) if t in DOCTRINE_AREA][:2]
+    fields["doctrine_tags"] = tags
+    if tags:
+        fields["area"] = DOCTRINE_AREA[tags[0]]
+    elif fields.get("area") not in TAXONOMY:
+        fields["area"] = "Other"
+    return fields
+
+
 def _theme_lines():
     lines = []
     for name, (kind, question, options) in THEMES.items():
@@ -130,6 +212,8 @@ AFTER the brief, output a fenced ```json block with these fields:
   "owner_prevailed": one of ["yes", "no", "mixed", "not_applicable"],
   "owner_prevailed_why": "one sentence: did the court protect the property_holder's interest?",
 {_theme_lines()}
+  "area": the area of property law this case is mainly about, one of the areas listed below,
+  "doctrine_tags": [1-2 doctrine keys from the list below; the first is the main one and must be in "area"],
   "principle": "one sentence stating the case's lesson about property, in general terms",
   "remedy": one of ["injunction", "damages", "restitution", "title_or_declaration", "criminal_conviction", "none", "other"],
   "has_dissent": true/false,
@@ -139,6 +223,9 @@ AFTER the brief, output a fenced ```json block with these fields:
 }}
 
 Use ONLY the listed values for each field, and keep each value in its own field.
+
+AREAS AND DOCTRINES (area: doctrine keys):
+{taxonomy_lines()}
 
 HOW TO PICK THE OWNER ("property_holder"). Decide this BEFORE looking at who won.
 The owner is whoever held established ownership of the thing before the dispute arose:
@@ -230,7 +317,7 @@ def brief_opinion(api_key, model, text, index=None, retries=2):
         reply, usage = call_openrouter(api_key, model, prompt)
         try:
             brief, fields = split_reply(reply)
-            return brief, normalize(fields), usage
+            return brief, normalize_topics(normalize(fields)), usage
         except ValueError:
             if attempt == retries - 1:
                 raise

@@ -11,11 +11,27 @@ code each case on the course's themes, and tie the cases together. The main them
 
 - **Brief a case.** Type any published U.S. citation (e.g. `209 Wis. 2d 605`) or paste an opinion.
   The app pulls the full text from the Caselaw Access Project, briefs it in my format, codes it
-  on every theme below, and places it in my casebook. It names the 3 closest casebook cases by
-  shared themes and adds a "Connections to my casebook" section to the brief.
-- **Casebook map.** Charts of all 34 casebook cases by any theme, colored by whether the owner
-  won, on a timeline, plus a written synthesis of the threads that run through the course.
-- **Browse my briefs.** Every casebook brief with its theme codes and nearest neighbors.
+  on every theme below, files it under an area of property law and its doctrines, and places it
+  in my casebook. It names the 3 closest casebook cases by shared themes and doctrines and adds a
+  "Connections to my casebook" section to the brief.
+- **Add to casebook.** After a brief, one click adds the case to the casebook for everyone who
+  uses the site. It then counts in every chart, the table, Browse, and "closest cases". Added cases
+  are saved to `data/added_cases.json` in this repo (see Deploy, step 4).
+- **Casebook map.** Filter by area of property law and doctrine, then see how often the owner
+  won in each doctrine and how the course's themes play out within that slice: charts by theme,
+  a timeline (added cases are diamonds), and a sortable table. Below it, a written synthesis of
+  the original 34 cases.
+- **Browse my briefs.** Every brief, sorted by area and doctrine, with its theme codes and nearest
+  neighbors.
+
+### Areas and doctrines (`TAXONOMY` in `briefing.py`)
+
+Each case is filed under one area and one or two doctrines, from a fixed list so cases sort
+consistently: Acquiring property, Rights and limits of ownership, Bailments and licenses,
+Remedies, Public and common property, Water, Estates and future interests, Co-ownership and
+leases, Land use and servitudes, Transfers and takings. New briefs are filed as they're written.
+The original 34 were filed from their briefs by `classify_topics.py`; the result is in
+`data/topic_codes.json`, which you can edit by hand to re-file a case.
 
 Each visit is capped at 8 briefs, and results are cached, so repeat lookups cost nothing.
 
@@ -40,6 +56,7 @@ Each visit is capped at 8 briefs, and results are cached, so repeat lookups cost
 |---|---|---|
 | 1. Get opinions | `fetch_opinions.py` | `data/opinions/*.txt`, full text of the 34 cases in `cases.csv` |
 | 2. Brief + code | `brief_cases.py` | `briefs/<case>.md`, `briefs/ALL_BRIEFS.md`, `data/case_data.csv`, `data/casebook.json` |
+| 2b. File by topic | `classify_topics.py` | `data/topic_codes.json` (area + doctrines for cases briefed before the taxonomy) |
 | 3. Synthesize | `synthesize.py` | `data/course_synthesis.md` |
 | 4. Chart | `visualize.py` | `data/owner_sovereignty.png` |
 
@@ -64,6 +81,16 @@ streamlit run app.py                     # the app, locally
    ```toml
    OPENROUTER_API_KEY = "sk-or-..."
    ```
-5. Deploy. The key stays on Streamlit's server; visitors never see it.
+   To save cases added through the app, also add a GitHub token. On GitHub: Settings → Developer
+   settings → Fine-grained tokens → Generate new token, choose **only this repository**, and set
+   **Contents** to **Read and write**. Then add it on its own line:
+   ```toml
+   GITHUB_TOKEN = "github_pat_..."
+   ```
+   Without it the app still works, but added cases disappear when the app restarts. If you deploy
+   from a branch other than `claude/amazing-gauss-ggp9w6`, add `GITHUB_BRANCH = "main"` (or yours).
+5. Deploy. The keys stay on Streamlit's server; visitors never see them.
+
+To remove a case someone added, delete its entry from `data/added_cases.json` on GitHub.
 
 **Study aid only.** Read every case yourself and check each brief against the opinion.

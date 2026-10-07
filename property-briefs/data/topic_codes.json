@@ -1,0 +1,223 @@
+{
+ "allen-v-hyatt-regency-nashville-hotel": {
+  "area": "Bailments and licenses",
+  "doctrine_tags": [
+   "bailments"
+  ]
+ },
+ "berg-v-wiley": {
+  "area": "Co-ownership and leases",
+  "doctrine_tags": [
+   "landlord_tenant",
+   "self_help_repossession"
+  ]
+ },
+ "brokaw-v-fairchild": {
+  "area": "Estates and future interests",
+  "doctrine_tags": [
+   "waste"
+  ]
+ },
+ "carpenter-v-ruperto": {
+  "area": "Acquiring property",
+  "doctrine_tags": [
+   "adverse_possession"
+  ]
+ },
+ "coffin-v-left-hand-ditch-co": {
+  "area": "Water",
+  "doctrine_tags": [
+   "prior_appropriation",
+   "riparian_rights"
+  ]
+ },
+ "cowen-v-pressprich": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "conversion_chattels",
+   "bailments"
+  ]
+ },
+ "ebay-inc-v-mercexchange-l-l-c": {
+  "area": "Remedies",
+  "doctrine_tags": [
+   "injunction_vs_damages"
+  ]
+ },
+ "edwards-v-allouez-mining-co": {
+  "area": "Remedies",
+  "doctrine_tags": [
+   "injunction_vs_damages",
+   "unjust_enrichment"
+  ]
+ },
+ "evans-v-merriweather": {
+  "area": "Water",
+  "doctrine_tags": [
+   "riparian_rights"
+  ]
+ },
+ "eyerman-v-mercantile-trust-co": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "abandonment_destruction",
+   "wills_and_dead_hand"
+  ]
+ },
+ "flynn-v-holder": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "body_and_personhood"
+  ]
+ },
+ "ghen-v-rich": {
+  "area": "Acquiring property",
+  "doctrine_tags": [
+   "custom_and_practice",
+   "first_possession"
+  ]
+ },
+ "golden-press-inc-v-rylands": {
+  "area": "Remedies",
+  "doctrine_tags": [
+   "injunction_vs_damages",
+   "unjust_enrichment"
+  ]
+ },
+ "hecht-v-superior-court": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "body_and_personhood",
+   "wills_and_dead_hand"
+  ]
+ },
+ "higday-v-nickolaus": {
+  "area": "Water",
+  "doctrine_tags": [
+   "groundwater"
+  ]
+ },
+ "howard-v-kunto": {
+  "area": "Acquiring property",
+  "doctrine_tags": [
+   "adverse_possession"
+  ]
+ },
+ "illinois-central-railroad-co-v-illinois": {
+  "area": "Public and common property",
+  "doctrine_tags": [
+   "public_trust",
+   "boundaries_between_sovereigns"
+  ]
+ },
+ "intel-corp-v-hamidi": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "exclusion_trespass",
+   "conversion_chattels"
+  ]
+ },
+ "moore-v-regents-of-the-university-of-california": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "body_and_personhood",
+   "conversion_chattels"
+  ]
+ },
+ "mountain-brow-lodge-no-82-v-toscano": {
+  "area": "Estates and future interests",
+  "doctrine_tags": [
+   "future_interests_defeasible",
+   "restraints_on_alienation"
+  ]
+ },
+ "nebraska-v-iowa": {
+  "area": "Acquiring property",
+  "doctrine_tags": [
+   "accretion_avulsion"
+  ]
+ },
+ "olwell-v-nye-nissen-co": {
+  "area": "Remedies",
+  "doctrine_tags": [
+   "unjust_enrichment",
+   "conversion_chattels"
+  ]
+ },
+ "pile-v-pedrick": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "exclusion_trespass"
+  ]
+ },
+ "ploof-v-putnam": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "necessity_privilege"
+  ]
+ },
+ "pocono-springs-civic-association-v-mackenzie": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "abandonment_destruction"
+  ]
+ },
+ "procd-inc-v-zeidenberg": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "intangible_digital"
+  ]
+ },
+ "producers-lumber-supply-co-v-olney-building-co": {
+  "area": "Remedies",
+  "doctrine_tags": [
+   "improver_and_mistake",
+   "unjust_enrichment"
+  ]
+ },
+ "scott-v-anderson-tully-co": {
+  "area": "Acquiring property",
+  "doctrine_tags": [
+   "adverse_possession"
+  ]
+ },
+ "songbyrd-inc-v-estate-of-grossman": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "conversion_chattels"
+  ]
+ },
+ "state-ex-rel-thornton-v-hay": {
+  "area": "Public and common property",
+  "doctrine_tags": [
+   "public_access_custom"
+  ]
+ },
+ "strain-v-green": {
+  "area": "Acquiring property",
+  "doctrine_tags": [
+   "accession_fixtures"
+  ]
+ },
+ "united-states-v-corrow": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "body_and_personhood",
+   "abandonment_destruction"
+  ]
+ },
+ "williams-v-estate-of-williams": {
+  "area": "Estates and future interests",
+  "doctrine_tags": [
+   "present_estates",
+   "future_interests_defeasible"
+  ]
+ },
+ "williams-v-ford-motor-credit-co": {
+  "area": "Rights and limits of ownership",
+  "doctrine_tags": [
+   "self_help_repossession",
+   "conversion_chattels"
+  ]
+ }
+}
