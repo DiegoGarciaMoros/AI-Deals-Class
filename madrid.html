@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Things to Do in Madrid</title>
+<style>
+  :root {
+    --red: #c60b1e;
+    --yellow: #ffc400;
+    --bg: #fdf8f0;
+    --card: #ffffff;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+  }
+  header {
+    background: linear-gradient(180deg, var(--red) 0 25%, var(--yellow) 25% 75%, var(--red) 75% 100%);
+    padding: 40px 16px;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 2.4rem;
+    color: var(--red);
+    text-shadow: 1px 1px 0 #fff;
+  }
+  header p { margin: 8px 0 0; font-weight: 600; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .controls input {
+    flex: 1 1 220px;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    border: 1px solid var(--red);
+    background: #fff;
+    color: var(--red);
+    padding: 8px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  .chip.active { background: var(--red); color: #fff; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--card);
+    border-radius: 12px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--yellow);
+  }
+  .card h3 { margin: 0 0 4px; font-size: 1.15rem; }
+  .card .emoji { font-size: 1.8rem; }
+  .tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    background: #fff3cc;
+    color: #7a5a00;
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+  .card p { margin: 0 0 10px; color: var(--muted); line-height: 1.4; }
+  .fav {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--red);
+    padding: 0;
+  }
+  .count { color: var(--muted); margin: 0 0 12px; }
+  footer { text-align: center; color: var(--muted); font-size: 0.85rem; padding-bottom: 24px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>¡Hola, Madrid!</h1>
+  <p>Things to do in Spain's capital</p>
+</header>
+
+<main>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search activities...">
+  </div>
+  <div class="chips" id="chips"></div>
+  <p class="count" id="count"></p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<footer>Made for the AI Deals Class exercise</footer>
+
+<script>
+  const activities = [
+    { emoji: "🖼️", name: "Museo del Prado", category: "Museums", desc: "Velázquez, Goya and El Greco in one of the world's great art museums." },
+    { emoji: "🎨", name: "Museo Reina Sofía", category: "Museums", desc: "Modern art, including Picasso's Guernica." },
+    { emoji: "🏛️", name: "Thyssen-Bornemisza", category: "Museums", desc: "Completes the Golden Triangle of Art with works from the 13th–20th centuries." },
+    { emoji: "🌳", name: "Parque del Retiro", category: "Outdoors", desc: "Row a boat on the lake and visit the Crystal Palace." },
+    { emoji: "🌇", name: "Templo de Debod", category: "Outdoors", desc: "A real Egyptian temple, and the best sunset spot in the city." },
+    { emoji: "👑", name: "Palacio Real", category: "Landmarks", desc: "Western Europe's largest royal palace, with 3,000+ rooms." },
+    { emoji: "🏟️", name: "Plaza Mayor", category: "Landmarks", desc: "The historic arcaded square at the heart of old Madrid." },
+    { emoji: "🚶", name: "Puerta del Sol", category: "Landmarks", desc: "Kilometre Zero of Spain's roads and home of the bear and strawberry tree statue." },
+    { emoji: "🍫", name: "Chocolate con churros", category: "Food & Drink", desc: "A Madrid ritual at Chocolatería San Ginés, open since 1894." },
+    { emoji: "🦑", name: "Bocadillo de calamares", category: "Food & Drink", desc: "Fried squid sandwich, a classic near Plaza Mayor." },
+    { emoji: "🍷", name: "Tapas in La Latina", category: "Food & Drink", desc: "Bar-hop along Cava Baja for tapas and vermut." },
+    { emoji: "🛒", name: "Mercado de San Miguel", category: "Food & Drink", desc: "An iron-and-glass market full of gourmet bites." },
+    { emoji: "🛍️", name: "El Rastro", category: "Culture", desc: "Huge open-air flea market every Sunday morning." },
+    { emoji: "💃", name: "Flamenco show", category: "Nightlife", desc: "Catch a live tablao performance, like Corral de la Morería." },
+    { emoji: "🌙", name: "Rooftop at Círculo de Bellas Artes", category: "Nightlife", desc: "360° views over Gran Vía and the Metropolis building." },
+    { emoji: "⚽", name: "Santiago Bernabéu", category: "Culture", desc: "Tour Real Madrid's stadium and trophy room." },
+  ];
+
+  const favs = new Set();
+  try { JSON.parse(localStorage.getItem("madridFavs") || "[]").forEach(f => favs.add(f)); } catch (e) {}
+
+  let activeCategory = "All";
+  const categories = ["All", "★ Favorites", ...new Set(activities.map(a => a.category))];
+
+  const chipsEl = document.getElementById("chips");
+  const gridEl = document.getElementById("grid");
+  const countEl = document.getElementById("count");
+  const searchEl = document.getElementById("search");
+
+  function saveFavs() {
+    try { localStorage.setItem("madridFavs", JSON.stringify([...favs])); } catch (e) {}
+  }
+
+  function renderChips() {
+    chipsEl.innerHTML = "";
+    categories.forEach(cat => {
+      const b = document.createElement("button");
+      b.className = "chip" + (cat === activeCategory ? " active" : "");
+      b.textContent = cat;
+      b.onclick = () => { activeCategory = cat; renderChips(); render(); };
+      chipsEl.appendChild(b);
+    });
+  }
+
+  function render() {
+    const q = searchEl.value.trim().toLowerCase();
+    const list = activities.filter(a =>
+      (activeCategory === "All" ||
+       (activeCategory === "★ Favorites" ? favs.has(a.name) : a.category === activeCategory)) &&
+      (a.name + " " + a.desc).toLowerCase().includes(q)
+    );
+    countEl.textContent = list.length + " of " + activities.length + " activities";
+    gridEl.innerHTML = "";
+    list.forEach(a => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="emoji">${a.emoji}</div>
+        <h3>${a.name}</h3>
+        <span class="tag">${a.category}</span>
+        <p>${a.desc}</p>`;
+      const fav = document.createElement("button");
+      fav.className = "fav";
+      fav.textContent = favs.has(a.name) ? "★ Saved" : "☆ Save";
+      fav.onclick = () => {
+        favs.has(a.name) ? favs.delete(a.name) : favs.add(a.name);
+        saveFavs();
+        render();
+      };
+      card.appendChild(fav);
+      gridEl.appendChild(card);
+    });
+  }
+
+  searchEl.addEventListener("input", render);
+  renderChips();
+  render();
+</script>
+</body>
+</html>
