@@ -79,6 +79,10 @@ def main():
             match = [c for c in cases if str(c.get("first_page")) == str(page)]
             if not match:
                 raise LookupError(f"no case starting at page {page}")
+            # Short opinions can share a first page; pick the one naming a party.
+            parties = [w for w in re.split(r"\W+", row["case_name"].lower())
+                       if len(w) > 3 and w not in ("united", "states", "state", "estate", "inc")]
+            match.sort(key=lambda c: not any(p in c.get("name", "").lower() for p in parties))
             case = get_json(f"{BASE}/{slug}/{vol}/cases/{match[0]['file_name']}.json")
             header = (f"CASE: {row['case_name']}\nCITATION: {row['citation']} ({row['year']})\n"
                       f"CAP NAME: {case.get('name')}\nCOURT: {case.get('court', {}).get('name')}\n"
