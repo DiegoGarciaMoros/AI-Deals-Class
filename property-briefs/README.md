@@ -7,7 +7,7 @@ code each case on the course's themes, and tie the cases together. The main them
 
 ## The app (`app.py`)
 
-**Property Case Briefer**, a Streamlit app that runs on my OpenRouter key:
+**Foundations of Property Law**, a Streamlit app that runs on my OpenRouter key:
 
 The casebook is every case on my Fall 2026 syllabus (Brooks, Property; Merrill, Smith & Brady,
 4th ed.), listed by class in `cases.csv`: **88 of the 96 assigned cases are briefed**, plus three

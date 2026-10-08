@@ -1,4 +1,4 @@
-"""Property Case Briefer: brief any U.S. case in my format and place it in my casebook.
+"""Foundations of Property Law: brief any U.S. case in my format and place it in my casebook.
 
 Run locally:   streamlit run app.py   (with OPENROUTER_API_KEY in the environment)
 Deploy:        Streamlit Community Cloud, with OPENROUTER_API_KEY in the app's Secrets.
@@ -49,7 +49,7 @@ EXAMPLES = {
     "Hadacheck v. Sebastian (land use, 1915)": ("239 U.S. 394", "Hadacheck v. Sebastian"),
 }
 
-st.set_page_config(page_title="Property Case Briefer", page_icon="⚖️", layout="wide")
+st.set_page_config(page_title="Foundations of Property Law", page_icon="⚖️", layout="wide")
 
 
 # ---------- the casebook: my syllabus cases, plus cases added through the app ----------
@@ -370,7 +370,7 @@ def search_panel():
 
 # ---------- page ----------
 
-st.title("Property Case Briefer")
+st.title("Foundations of Property Law")
 st.caption("Brief any published U.S. case in my Property-notes format, code it on the course's themes, "
            f"and see where it fits among the {len(CASEBOOK)} cases in my casebook. AI-drafted study aid: "
            "check every brief against the opinion.")

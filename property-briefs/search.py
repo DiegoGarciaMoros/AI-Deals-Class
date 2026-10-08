@@ -107,7 +107,7 @@ def court_ids(jurisdictions=(), levels=(), extra=""):
 
 
 def _get(url, token=None):
-    headers = {"User-Agent": "Property Case Briefer (NYU Law study tool)", "Accept": "application/json"}
+    headers = {"User-Agent": "Foundations of Property Law (NYU Law study tool)", "Accept": "application/json"}
     if token:
         headers["Authorization"] = f"Token {token}"
     try:

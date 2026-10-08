@@ -56,7 +56,7 @@ class Store:
                                      headers={"Authorization": f"Bearer {self.token}",
                                               "Accept": "application/vnd.github+json",
                                               "Content-Type": "application/json",
-                                              "User-Agent": "property-case-briefer"})
+                                              "User-Agent": "foundations-of-property-law"})
         with urllib.request.urlopen(req, timeout=30) as resp:
             return json.loads(resp.read())
 
