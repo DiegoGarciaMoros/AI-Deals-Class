@@ -90,6 +90,7 @@ def retrieve(casebook, query, k=6):
 QUESTION_PROMPT = """You write exam questions for {course}
 
 Write {n_mc} multiple-choice question(s) and {n_sa} short-answer question(s) on: {scope}.
+{difficulty_line}
 
 MULTIPLE CHOICE (like a law school final):
 - A short hypothetical fact pattern (2-6 sentences), then a call of the question.
@@ -215,12 +216,30 @@ def ask_json(api_key, model, prompt, tries=3):
                 raise
 
 
-def generate(api_key, scope, context, n_mc=2, n_sa=1, model=PRACTICE_MODEL):
-    prompt = QUESTION_PROMPT.format(course=COURSE, n_mc=n_mc, n_sa=n_sa, scope=scope,
+DIFFICULTY = {
+    "easy": "one rule applied to clear facts; the answer follows directly from a case's holding",
+    "medium": "a rule applied to new facts with a twist, or two issues; distractors use rejected or neighboring rules",
+    "hard": "several interacting doctrines, a close call, or a majority/minority split; subtle distractors that a well-prepared student might pick",
+}
+
+
+def generate(api_key, scope, context, n_mc=2, n_sa=1, model=PRACTICE_MODEL, difficulty=None):
+    """Write questions; `difficulty` ("easy" / "medium" / "hard") pins the level of every question."""
+    line = (f'Make every question "{difficulty}": {DIFFICULTY[difficulty]}. Set "difficulty" to "{difficulty}".'
+            if difficulty in DIFFICULTY else
+            "Mix difficulties (easy: " + DIFFICULTY["easy"] + "; medium: " + DIFFICULTY["medium"]
+            + "; hard: " + DIFFICULTY["hard"] + ").")
+    prompt = QUESTION_PROMPT.format(course=COURSE, n_mc=n_mc, n_sa=n_sa, scope=scope, difficulty_line=line,
                                     guardrails=GUARDRAILS, context=context)
     data = ask_json(api_key, model, prompt)
     items = data.get("questions", data) if isinstance(data, dict) else data
-    return [q for q in (clean_question(dict(x)) for x in items if isinstance(x, dict)) if q]
+    made = [q for q in (clean_question(dict(x)) for x in items if isinstance(x, dict)) if q]
+    for q in made:
+        if difficulty in DIFFICULTY:
+            q["difficulty"] = difficulty
+        elif q.get("difficulty") not in DIFFICULTY:
+            q["difficulty"] = "medium"
+    return made
 
 
 def check_mc(api_key, q, context, model=CHECK_MODEL):

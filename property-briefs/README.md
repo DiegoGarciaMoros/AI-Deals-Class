@@ -36,16 +36,28 @@ from an earlier syllabus (Hecht, eBay, Producers Lumber).
   law, time, remedy, court, era, whether the owner sued or was sued, disposition, dissent), each
   with a factor × chapter count table and a factor × era win-rate table. Built in `stats.py`;
   `python stats.py` exports them all to `data/stats/*.csv`.
-- **Doctrinal overview.** A short essay on each syllabus chapter and each of its 26 class units:
-  the core rules, how the cases build or limit them, the main tension, and an exam tip. Every
-  cited case links to its brief. Written by `make_overview.py` into `data/overview.json`.
+- **Doctrinal overview.** A study guide to each syllabus chapter and its 26 class units: pick a
+  chapter, then a unit. Each unit shows the black-letter rules (each tied to its cases), diagrams
+  (decision trees and flowcharts drawn with Graphviz), a table of the unit's cases (question,
+  holding, why it matters), tensions, exam traps and an exam tip. The estates units (Traditional
+  Forms, Waste & Restraints, Concurrent Owners) are **hand-written** guides in `doctrine.py`, with
+  tables of present estates and future interests, a future-interest classification tree, the Rule
+  Against Perpetuities, restraints on alienation, and the forms of co-ownership. The other units
+  are written by `make_overview.py` (into `data/overview.json`) with the hand-written guides as
+  authority, then reviewed and corrected by hand. Every cited case links to its brief.
+- **Treatises on Property Law.** Hand-written briefs (`treatises.py`) of every academic reading the
+  syllabus assigns (Calabresi & Melamed, Commons, Hahn, Wahl, Bertrand, with classes and pages):
+  the thesis, the argument, key terms, the cases each connects to, how to use it on the exam, and
+  its limits. Plus short entries for the theorists excerpted in the casebook (Demsetz, Radin,
+  Hardin, Ostrom, Heller, Rose, Sax, Coase, Penner, Grey).
 - **Practice.** Exam-style multiple-choice and short-answer questions, **by topic** (chapter or
-  class unit), **by case**, or **ask anything** (a freestyle question gets a tutor-style answer
+  class unit), **by case**, or **ask anything**, filtered by **difficulty** (easy / medium / hard;
+  pick one level and newly written questions match it) (a freestyle question gets a tutor-style answer
   from the casebook, or "quiz me" writes a question on it). Multiple choice is graded instantly
   with an explanation of every option. Short answers are graded by AI against a 10-point rubric:
   score, rubric breakdown, what worked, what to fix, cases and doctrine to cite (linked), an
   improved version of your answer, and the model answer. The bank (`data/question_bank.json`,
-  364 questions: 5 MC + 2 short answer per unit, 2 MC + 1 short answer per case) is built by
+  416 questions: 5 MC + 2 short answer per unit plus 2 easy MC + 1 easy short answer per unit, and 2 MC + 1 short answer per case) is built by
   `make_questions.py`; every MC answer key was checked by a second model (GPT-4.1 mini)
   answering blind, and questions where the two disagreed were dropped. "Write me a new one"
   makes a fresh question (its key isn't double-checked). Code: `practice.py`.

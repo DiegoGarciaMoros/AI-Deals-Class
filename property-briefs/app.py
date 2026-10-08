@@ -15,9 +15,11 @@ import streamlit as st
 
 from briefing import DEFAULT_MODEL, DOCTRINE_LABEL, TAXONOMY, THEMES, brief_opinion, normalize_topics
 from casebook_store import Store, case_key, setting
+import doctrine
 import practice
 import search
 import stats
+import treatises
 from caselaw import fetch_case
 
 HERE = Path(__file__).parent
@@ -226,11 +228,18 @@ def find_case(name):
     key = ALIASES.get(case_key(name), case_key(name))
     if key in CASE_BY_KEY:
         return CASE_BY_KEY[key]
-    for k, c in CASE_BY_KEY.items():
-        if key and (key in k or k in key):
-            return c
-    first = case_key(str(name).split(" v.")[0])
-    matches = [c for k, c in CASE_BY_KEY.items() if len(first) > 4 and k.startswith(first)]
+    loose = [c for k, c in CASE_BY_KEY.items() if key and (key in k or k in key)]
+    starts = [c for k, c in CASE_BY_KEY.items() if key and k.startswith(key)]
+    for found in (loose, starts):
+        if len(found) == 1:
+            return found[0]
+    # Short forms ("Gillmor v. Gillmor" vs. a longer caption): both parties must match.
+    parts = str(name).split(" v. ")
+    if len(parts) != 2:
+        return None
+    first, second = case_key(parts[0]), case_key(parts[1])
+    matches = [c for k, c in CASE_BY_KEY.items()
+               if len(first) > 3 and k.startswith(first) and len(second) > 3 and second[:6] in k]
     return matches[0] if len(matches) == 1 else None
 
 
@@ -370,8 +379,9 @@ if ADDED_ERROR:
 
 TARGET = st.query_params.get("case")
 TARGET = TARGET if TARGET in CASE_BY_SLUG else None
-tab_brief, tab_overview, tab_practice, tab_map, tab_stats, tab_browse = st.tabs(
-    ["Brief a case", "Doctrinal overview", "Practice", "Casebook map", "Statistics", "Browse my briefs"],
+tab_brief, tab_overview, tab_treatises, tab_practice, tab_map, tab_stats, tab_browse = st.tabs(
+    ["Brief a case", "Doctrinal overview", "Treatises on Property Law", "Practice", "Casebook map", "Statistics",
+     "Browse my briefs"],
     default="Browse my briefs" if TARGET else None)
 
 with tab_brief:
@@ -429,26 +439,90 @@ with tab_brief:
             similar_cases(fields)
             add_to_casebook(brief, fields, last_cite)
 
+def render_unit(unit, label, u):
+    """One class unit: hand-written guide or AI rules, diagrams, case table, tensions, traps, tip."""
+    cases = sorted((c for c in CASEBOOK if (c.get("doctrine_tags") or [None])[0] == unit),
+                   key=lambda c: c.get("year") or 0)
+    won = sum(c["owner_prevailed"] == "yes" for c in cases)
+    st.subheader(label)
+    if cases:
+        st.caption(f"Class {cases[0].get('class_no', '')} · owner won {won} of {len(cases)} · "
+                   + ", ".join(case_link(c["case_name"]) for c in cases))
+    u = u if isinstance(u, dict) else {}
+    guide = doctrine.GUIDES.get(unit)
+    if guide:
+        st.markdown(linkify(guide))
+    else:
+        if u.get("summary"):
+            st.info(linkify(u["summary"]))
+        if u.get("rules"):
+            st.markdown("#### Black-letter rules")
+            st.markdown("\n".join(
+                f"{i}. {linkify(r.get('rule', ''))}"
+                + (f" ({', '.join(linkify(c) for c in r.get('cases', []) if c not in r.get('rule', ''))})"
+                   if [c for c in r.get("cases", []) if c not in r.get("rule", "")] else "")
+                for i, r in enumerate(u["rules"], 1)))
+    for title, chart, caption in doctrine.DIAGRAMS.get(unit, []):
+        st.markdown(f"#### {title}")
+        st.graphviz_chart(chart)
+        if caption:
+            st.caption(caption)
+    rows = u.get("cases") or []
+    if rows:
+        st.markdown("#### The cases")
+        cell = lambda t: str(t or "").replace("|", "/").replace("\n", " ")  # noqa: E731
+        table = ["| Case | Question | Holding | Why it matters |", "|---|---|---|---|"]
+        table += [f"| {linkify(cell(r.get('case')))} ({r.get('year', '')}) | {cell(r.get('question'))} | "
+                  f"{linkify(cell(r.get('answer')))} | {linkify(cell(r.get('why')))} |" for r in rows]
+        st.markdown("\n".join(table))
+    t1, t2 = st.columns(2)
+    with t1:
+        if u.get("tensions"):
+            st.markdown("#### Tensions and policy")
+            st.markdown("\n".join(f"- {linkify(t)}" for t in u["tensions"]))
+    with t2:
+        if u.get("traps"):
+            st.markdown("#### Exam traps")
+            st.markdown("\n".join(f"- {linkify(t)}" for t in u["traps"]))
+    if u.get("exam_tip") and not guide:
+        st.success(f"**Exam tip:** {linkify(u['exam_tip'])}")
+    if not u and not guide:
+        st.caption("The study guide for this unit hasn't been written yet.")
+
+
 with tab_overview:
     OVERVIEW = load_json(OVERVIEW_PATH, mtime(OVERVIEW_PATH))
-    if not OVERVIEW:
-        st.info("The doctrinal overview hasn't been written yet (run make_overview.py).")
-    else:
-        st.caption("A short essay on each part of the syllabus. Case names link to their briefs. "
-                   "AI-written from my briefs: check it against the cases and your class notes.")
-        chapters = [c for c in TAXONOMY if c in OVERVIEW]
-        chapter = st.selectbox("Syllabus chapter", chapters, key="ov-chapter")
-        entry = OVERVIEW[chapter]
-        st.header(chapter)
-        st.markdown(linkify(entry.get("intro", "")))
-        for unit, label in TAXONOMY[chapter].items():
-            cases = [c for c in CASEBOOK if (c.get("doctrine_tags") or [None])[0] == unit]
-            won = sum(c["owner_prevailed"] == "yes" for c in cases)
-            st.subheader(label)
-            if cases:
-                st.caption(f"Class {cases[0].get('class_no', '')} · owner won {won} of {len(cases)} · "
-                           + ", ".join(case_link(c["case_name"]) for c in sorted(cases, key=lambda c: c.get("year") or 0)))
-            st.markdown(linkify(entry["units"].get(unit, "")) or "_Not written yet._")
+    st.caption("A study guide to each part of the syllabus: the rules, diagrams, how the cases fit, and exam "
+               "traps. Case names link to their briefs. The estates units are hand-written; the rest is "
+               "AI-written from my briefs and reviewed, so check it against the cases and your class notes.")
+    chapter = st.selectbox("Syllabus chapter", list(TAXONOMY), key="ov-chapter")
+    entry = OVERVIEW.get(chapter) or {}
+    st.header(chapter)
+    if entry.get("intro"):
+        st.markdown(linkify(entry["intro"]))
+    unit_labels = TAXONOMY[chapter]
+    picked_unit = st.pills("Class unit", list(unit_labels), format_func=unit_labels.get,
+                           default=list(unit_labels)[0], key=f"ov-unit-{chapter}") or list(unit_labels)[0]
+    st.divider()
+    render_unit(picked_unit, unit_labels[picked_unit], (entry.get("units") or {}).get(picked_unit))
+
+with tab_treatises:
+    st.caption("Briefs of the academic readings: first the articles the syllabus assigns (with class and pages), "
+               "then the theorists excerpted in the casebook. Case names link to their briefs.")
+    st.subheader("Assigned on the syllabus")
+    for i, t in enumerate(treatises.ASSIGNED):
+        with st.expander(f"**{t['author']}**, *{t['title']}*", expanded=i == 0):
+            st.caption(f"{t['cite']} · Assigned: {t['assigned']}")
+            st.info(t["one_line"])
+            st.markdown("**The argument**\n" + "\n".join(f"- {linkify(x)}" for x in t["argument"]))
+            st.markdown(f"**Key terms:** {t['terms']}")
+            st.markdown(f"**Connects to:** {linkify(t['cases'])}")
+            st.success(f"**On the exam:** {t['exam']}")
+            st.markdown(f"**Limits:** {linkify(t['critique'])}")
+    st.subheader("Also in the casebook readings")
+    st.markdown("\n".join(
+        f"- **{t['author']}**, *{t['title']}*, {t['cite']}. {t['one_line']} Connects to: {linkify(t['cases'])}"
+        for t in treatises.CASEBOOK))
 
 with tab_practice:
     BANK = load_json(BANK_PATH, mtime(BANK_PATH))
@@ -460,6 +534,10 @@ with tab_practice:
     if pmode != "Ask anything":
         qtype = st.radio("Question type", ["Multiple choice", "Short answer", "Both"], horizontal=True)
     want = {"Multiple choice": {"mc"}, "Short answer": {"sa"}, "Both": {"mc", "sa"}}.get(qtype, {"mc", "sa"})
+    levels = st.pills("Difficulty", ["easy", "medium", "hard"], selection_mode="multi",
+                      default=["easy", "medium", "hard"], format_func=str.capitalize, key="pq-level") \
+        or ["easy", "medium", "hard"]
+    level_for_new = levels[0] if len(levels) == 1 else None  # one level picked: new questions match it
 
     pool, scope_cases, scope_label = [], [], ""
     if pmode == "By topic":
@@ -469,7 +547,7 @@ with tab_practice:
         punit = p2.selectbox("Class unit", ["All units in this chapter", *units],
                              format_func=lambda u: DOCTRINE_LABEL.get(u, u), key="pq-unit")
         chosen = units if punit == "All units in this chapter" else [punit]
-        pool = [q for q in BANK if q["unit"] in chosen and q["type"] in want]
+        pool = [q for q in BANK if q["unit"] in chosen and q["type"] in want and q.get("difficulty", "medium") in levels]
         scope_cases = [c for u in chosen for c in practice.unit_cases(CASEBOOK, u)]
         scope_label = (f"the class unit '{DOCTRINE_LABEL[punit]}'" if punit in DOCTRINE_LABEL
                        else f"the syllabus chapter '{pchapter}'")
@@ -477,7 +555,8 @@ with tab_practice:
         ordered = sorted(CASEBOOK, key=lambda c: (c.get("class_no") or 99, c.get("year") or 0))
         pcase = st.selectbox("Case", ordered, format_func=lambda c: (f"Class {c['class_no']} · " if c.get("class_no") else "")
                              + f"{c['case_name']} ({c.get('year')})", key="pq-case")
-        pool = [q for q in BANK if q["type"] in want and (q.get("case_slug") == pcase["slug"] or
+        pool = [q for q in BANK if q["type"] in want and q.get("difficulty", "medium") in levels
+                and (q.get("case_slug") == pcase["slug"] or
                 (q["kind"] == "unit" and any(find_case(n) is pcase for n in q.get("cases", []))))]
         scope_cases = [pcase]
         scope_label = f"the case {pcase['case_name']} ({pcase.get('year')})"
@@ -520,14 +599,17 @@ with tab_practice:
             st.session_state.current_ctx = [c["slug"] for c in scope_cases]
         if n2.button("Write me a new one (AI)", disabled=ai_budget_left() <= 0 or not scope_cases):
             st.session_state.make_new = True
-        n3.caption(f"{len(pool)} question{'s' if len(pool) != 1 else ''} in the bank for this selection.")
+        n3.caption(f"{len(pool)} question{'s' if len(pool) != 1 else ''} in the bank for this selection."
+                   if pool else "No bank questions match these filters yet. Use \"Write me a new one\" to make one at "
+                   "the chosen difficulty.")
     if st.session_state.pop("make_new", False):
         try:
             with st.spinner("Writing a question…"):
                 spend_ai()
                 ctx = practice.brief_context(scope_cases)
                 kind = "mc" if want == {"mc"} else "sa" if want == {"sa"} else random.choice(["mc", "sa"])
-                made = practice.generate(api_key(), scope_label, ctx, n_mc=int(kind == "mc"), n_sa=int(kind == "sa"))
+                made = practice.generate(api_key(), scope_label, ctx, n_mc=int(kind == "mc"), n_sa=int(kind == "sa"),
+                                         difficulty=level_for_new or random.choice(levels))
             if not made:
                 raise ValueError("the model didn't return a usable question; try again")
             q = made[0]

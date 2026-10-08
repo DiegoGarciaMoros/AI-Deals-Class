@@ -1,6 +1,7 @@
 """Build the exam-practice question bank: data/question_bank.json.
 
-For each class unit: 5 multiple-choice + 2 short-answer questions on the unit's cases.
+For each class unit: 5 multiple-choice + 2 short-answer questions on the unit's cases, plus
+2 easy multiple-choice + 1 easy short-answer question.
 For each case: 2 multiple-choice + 1 short-answer question on that case.
 Every MC answer key is checked by a second model answering blind; questions where the two
 models disagree are dropped (their count is printed), so the bank keeps only keys that two
@@ -29,25 +30,27 @@ BANK_PATH = HERE / "data" / "question_bank.json"
 
 
 def scopes(casebook, only=None):
-    """(scope_id, kind, label, cases, n_mc, n_sa) for every unit and case."""
+    """(scope_id, kind, label, cases, n_mc, n_sa, difficulty) for every unit and case, plus an
+    extra set of easy questions per unit (the main pass skews medium/hard)."""
     out = []
     if only in (None, "units"):
         for unit, label in DOCTRINE_LABEL.items():
             cases = practice.unit_cases(casebook, unit)
             if cases:
-                out.append((f"unit:{unit}", "unit", f"the class unit '{label}'", cases, 5, 2))
+                out.append((f"unit:{unit}", "unit", f"the class unit '{label}'", cases, 5, 2, None))
+                out.append((f"unit-easy:{unit}", "unit", f"the class unit '{label}'", cases, 2, 1, "easy"))
     if only in (None, "cases"):
         for c in casebook:
-            out.append((f"case:{c['slug']}", "case", f"the case {c['case_name']} ({c.get('year')})", [c], 2, 1))
+            out.append((f"case:{c['slug']}", "case", f"the case {c['case_name']} ({c.get('year')})", [c], 2, 1, None))
     return out
 
 
 def build(api_key, scope):
-    scope_id, kind, label, cases, n_mc, n_sa = scope
+    scope_id, kind, label, cases, n_mc, n_sa, difficulty = scope
     context = practice.brief_context(cases)
     kept, dropped = [], 0
     try:
-        questions = practice.generate(api_key, label, context, n_mc, n_sa)
+        questions = practice.generate(api_key, label, context, n_mc, n_sa, difficulty=difficulty)
     except Exception as e:  # noqa: BLE001 - report and keep going
         return scope_id, [], 0, str(e)
     main = cases[0]

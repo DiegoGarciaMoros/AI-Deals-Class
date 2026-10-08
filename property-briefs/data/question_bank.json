@@ -13677,5 +13677,1936 @@
   "case_slug": "gillmor-v-gillmor",
   "model": "google/gemini-2.5-flash",
   "id": "c0b5acab14"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Sarah owns a large, undeveloped tract of land. One day, she discovers that a local drone enthusiast, Tom, has been regularly flying his drone at an altitude of 300 feet over her property to capture scenic photographs. Tom's drone does not cause any physical damage to Sarah's land, nor does it interfere with any of her current activities on the property. Sarah, however, feels that her privacy is being invaded and wants to assert her property rights.\n\nUnder the principles established in *Hinman v. Pacific Air Transport*, can Sarah successfully sue Tom for trespass?",
+  "options": {
+   "A": "Yes, because the ad coelum doctrine grants Sarah absolute ownership of the airspace above her land to an indefinite height, making any unauthorized entry a trespass.",
+   "B": "No, because a landowner's rights in airspace are limited to what they can actually use or occupy, and mere flight at 300 feet without actual damage or interference is not a trespass.",
+   "C": "Yes, because even without physical damage, the regular flight of a drone constitutes an interference with Sarah's exclusive possession of her property, which is the essence of trespass.",
+   "D": "No, because Tom's actions are a lawful use of public airspace, and Sarah cannot claim ownership of air that is by its nature incapable of private ownership."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option incorrectly applies the ad coelum doctrine, which *Hinman* explicitly rejected as not being the law for indefinite airspace ownership.",
+   "B": "This option correctly reflects the holding of *Hinman v. Pacific Air Transport*, which states that a landowner's rights in airspace are limited to what they can actually use or occupy, and mere flight through unused airspace without actual damage or interference is not a trespass.",
+   "C": "This option misapplies the concept of exclusive possession; *Hinman* clarified that for airspace, exclusive possession is limited to the portion actually used or occupied, and mere flight above that without interference is not a trespass.",
+   "D": "While *Hinman* states air is incapable of private ownership, the core reason for denying trespass in this scenario is the lack of actual use or interference with the landowner's enjoyment, not simply that it's 'public airspace' in the modern sense."
+  },
+  "explanation": "The *Hinman* court rejected the literal application of the ad coelum doctrine, holding that a landowner only owns as much of the airspace as they can occupy or make use of in connection with the enjoyment of their land. Since Tom's drone is flying at 300 feet and causes no actual damage or interference with Sarah's use, it does not constitute a trespass.",
+  "cases": [
+   "Hinman v. Pacific Air Transport"
+  ],
+  "doctrines": [
+   "Ad Coelum Doctrine",
+   "Property Rights in Airspace",
+   "Trespass to Airspace"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:trespass_introductory_concepts",
+  "kind": "unit",
+  "unit": "trespass_introductory_concepts",
+  "chapter": "1. What is Property?",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "94b112ddb9"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The 'Right to Exclude' is considered a fundamental aspect of property ownership. Which of the following scenarios best illustrates the strong protection afforded to this right, even in the absence of significant measurable harm?",
+  "options": {
+   "A": "A commercial airline flying at 500 feet over a private farm, causing no physical damage or interference with farming operations.",
+   "B": "A construction company intentionally driving a heavy vehicle across a landowner's field to deliver materials to an adjacent property, despite the landowner's explicit refusal, resulting in only minor, easily repairable tire tracks.",
+   "C": "A neighbor's tree branch extending over a property line, dropping leaves onto the adjacent yard, which the neighbor refuses to trim.",
+   "D": "A factory emitting faint, barely perceptible odors that occasionally drift onto a neighboring residential property, causing no health issues but slight annoyance."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This scenario aligns with *Hinman v. Pacific Air Transport*, where flight through unused airspace without actual damage or interference is not considered a trespass, thus not illustrating the strong protection of the right to exclude for minor intrusions.",
+   "B": "This scenario directly reflects the principles of *Jacque v. Steenberg Homes*, where an intentional trespass, even if causing only nominal damages, is a significant violation of the right to exclude and can warrant substantial punitive damages.",
+   "C": "This is typically addressed under nuisance law or self-help (trimming the branch), not as a direct trespass that triggers the strong protection of the right to exclude for minor intrusions.",
+   "D": "This scenario describes an intangible interference, which in many jurisdictions (like Michigan in *Adams v. Cleveland-Cliffs Iron Co.*) would be addressed under nuisance law, requiring actual and substantial harm, rather than trespass."
+  },
+  "explanation": "The *Jacque v. Steenberg Homes* case established that the right to exclude is one of the most essential rights of property, and its intentional violation, even without measurable economic harm, constitutes actual harm and can justify substantial punitive damages to deter future misconduct and uphold the integrity of the legal system. The intentional driving across the land, despite refusal, is a direct parallel.",
+  "cases": [
+   "Jacque v. Steenberg Homes"
+  ],
+  "doctrines": [
+   "Right to Exclude",
+   "Intentional Trespass Harm",
+   "Punitive Damages (Intentional Trespass Exception)"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:trespass_introductory_concepts",
+  "kind": "unit",
+  "unit": "trespass_introductory_concepts",
+  "chapter": "1. What is Property?",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "9d6f33fead"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "David owns a small cabin in a remote, mountainous area. One winter, a severe blizzard unexpectedly hits, trapping David and his family inside. Their only access road becomes impassable due to heavy snow and fallen trees. David's neighbor, Emily, owns a snowmobile and has a private, cleared path that runs directly from her property to the nearest main road, bypassing David's blocked access. David, fearing for his family's safety due to dwindling supplies and a sick child, uses Emily's private path with his snowmobile to reach the main road and get help, without first obtaining Emily's permission. Emily later discovers this and sues David for trespass.\n\nAnalyze whether David is liable for trespass under these circumstances.",
+  "model_answer": "I. Issue: Is David liable for trespass when he used Emily's private path out of necessity during a severe blizzard to ensure his family's safety and obtain help?\n\nII. Rule: The doctrine of necessity allows for interference with another's real or personal property that would otherwise be a trespass, especially to preserve human life or avoid bodily harm, when movements are started without fault and in the proper exercise of a strict right. (*Ploof v. Putnam*).\n\nIII. Analysis: David's actions, while an unauthorized entry onto Emily's land, fall squarely within the necessity doctrine as articulated in *Ploof v. Putnam*. The facts state that a \"severe blizzard unexpectedly hits,\" trapping David and his family, and their access road became \"impassable.\" David's fear for his family's safety due to \"dwindling supplies and a sick child\" establishes a clear and immediate danger to human life and bodily harm. His use of Emily's path was not a matter of convenience but a direct response to this emergency to \"reach the main road and get help.\" This situation is analogous to the plaintiff in *Ploof* mooring his sloop to the defendant's dock during a tempest to save his family and vessel. The *Ploof* court held that such an act, compelled by necessity, is not a trespass. David's entry onto Emily's land was necessitated by an inability to control movements started without fault (the blizzard) and was for the preservation of human life and avoidance of bodily harm.\n\nIV. Conclusion: Therefore, David is not liable for trespass because his entry onto Emily's property was justified by the doctrine of necessity.",
+  "rubric": [
+   {
+    "point": "Identifies the correct issue regarding trespass and necessity.",
+    "points": 2
+   },
+   {
+    "point": "States the rule of necessity, citing *Ploof v. Putnam*.",
+    "points": 3
+   },
+   {
+    "point": "Applies the facts to the rule, explaining how David's situation meets the criteria for necessity (unforeseen event, danger to life/health, lack of fault, purpose of preserving life/safety).",
+    "points": 3
+   },
+   {
+    "point": "Reaches a clear conclusion consistent with the analysis.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Ploof v. Putnam"
+  ],
+  "doctrines": [
+   "Necessity Doctrine",
+   "Trespass"
+  ],
+  "scope": "unit-easy:trespass_introductory_concepts",
+  "kind": "unit",
+  "unit": "trespass_introductory_concepts",
+  "chapter": "1. What is Property?",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "f529c875ec"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Alice owns a small farm in a rural area. For twenty years, she has operated a small, lawful pig farm, raising about 50 pigs. Bob then purchases an adjacent 100-acre parcel and begins developing a luxury residential community, \"Oakhaven Estates.\" As Oakhaven Estates expands closer to Alice's farm, residents begin complaining about the odor and flies emanating from the pig farm. Bob, the developer, sues Alice, seeking an injunction to shut down her pig farm, arguing it is a public nuisance. Based on the principles established in *Spur Industries Inc. v. Del E. Webb Development Co.*, what is the most likely outcome?",
+  "options": {
+   "A": "Alice's pig farm will not be enjoined because she was operating a lawful business in a rural area before Bob developed Oakhaven Estates, and the residents \"came to the nuisance.\"",
+   "B": "Alice's pig farm will be enjoined as a public nuisance, but Bob will be required to indemnify Alice for the costs of relocating or ceasing her operations.",
+   "C": "Alice's pig farm will be enjoined as a public nuisance, and Alice will receive no compensation because the health and welfare of the new residents outweigh her business interests.",
+   "D": "Alice's pig farm will not be enjoined because the odor and flies, while annoying, do not constitute a substantial and unreasonable interference with the residents' use and enjoyment of their land."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects the 'coming to the nuisance' doctrine as an absolute bar, which *Spur* rejected when public interest is involved.",
+   "B": "This option correctly applies the equitable remedy from *Spur*, where a lawful business established in a rural area can be enjoined as a public nuisance if a developer brings residents to it, but the developer must indemnify the business.",
+   "C": "This option correctly identifies that the farm can be enjoined as a public nuisance but incorrectly states that Alice would receive no compensation, which contradicts the equitable remedy established in *Spur*.",
+   "D": "This option misapplies the nuisance standard; the facts describe conditions (odor, flies) that are typically considered substantial and unreasonable interferences, especially when affecting a community, as seen in *Spur*."
+  },
+  "explanation": "In *Spur Industries Inc. v. Del E. Webb Development Co.*, the court held that a lawful business operating in a rural area could be enjoined as a public nuisance when a developer brought residents to the area. However, because the developer created the conditions that made the injunction necessary, the developer was required to indemnify the business for the costs of relocation or cessation of operations.",
+  "cases": [
+   "Spur Industries Inc. v. Del E. Webb Development Co."
+  ],
+  "doctrines": [
+   "Public Nuisance",
+   "Coming to the Nuisance",
+   "Balancing Equities",
+   "Indemnification"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:nuisance",
+  "kind": "unit",
+  "unit": "nuisance",
+  "chapter": "1. What is Property?",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "64c5b09dc7"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "A chemical plant has been operating for 30 years, emitting a noticeable, but not physically harmful, odor into the air. The plant complies with all environmental regulations and uses the most advanced odor-reduction technology available. A group of homeowners living downwind, whose homes were built 5 years ago, sue the plant for nuisance, seeking damages for the diminished enjoyment of their property. Based on the principles from *Jost v. Dairyland Power Cooperative*, what is the most likely outcome regarding the plant's defense that it uses due care and has high social utility?",
+  "options": {
+   "A": "The plant will likely avoid liability because it uses due care and its social utility (providing jobs and products) outweighs the harm to the homeowners.",
+   "B": "The plant's defense of due care and social utility will likely be rejected, and it may be held liable for damages if the odor constitutes a substantial injury.",
+   "C": "The plant will likely avoid liability because the homeowners \"came to the nuisance\" by building their homes near an existing industrial operation.",
+   "D": "The plant will be found liable for nuisance, but only if the homeowners can prove the plant was negligent in its operations."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option incorrectly applies the balancing test for damages in nuisance, which *Jost* explicitly rejected in Wisconsin, stating that due care and social utility are not defenses to a claim for damages.",
+   "B": "This option correctly reflects the holding of *Jost*, which stated that in a suit for damages for nuisance, a defendant cannot avoid liability by showing due care or that the social utility of its conduct outweighs the harm.",
+   "C": "This option introduces the 'coming to the nuisance' doctrine, which was not the central issue or holding in *Jost* regarding defenses for damages, and *Spur* showed it's not an absolute bar.",
+   "D": "This option incorrectly conflates nuisance with negligence; *Jost* clarified that freedom from negligence is no defense if the consequences of continued conduct cause substantial injury."
+  },
+  "cases": [],
+  "doctrines": [],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:nuisance",
+  "kind": "unit",
+  "unit": "nuisance",
+  "chapter": "1. What is Property?",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "aeab5794e1"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "A small town, Harmonyville, relies on a single, natural spring for its drinking water. The spring is located on private land owned by Mr. Green. For generations, residents have collected water from the spring without issue. Recently, Ms. Blue purchased the adjacent property upstream from the spring. Ms. Blue plans to build a large commercial pig farm on her land. Environmental studies indicate that runoff from the pig farm, even with standard waste management practices, will inevitably contaminate the spring, making it unsafe for drinking. The town of Harmonyville sues Ms. Blue, seeking an injunction to prevent her from operating the pig farm. Based on the principles of nuisance law, particularly as discussed in *Hendricks v. Stalnaker* and *Campbell v. Seaman*, how should a court rule on Harmonyville's request for an injunction?",
+  "model_answer": "The court should grant Harmonyville's request for an injunction to prevent Ms. Blue from operating the pig farm.\n\n**Issue:** The issue is whether Ms. Blue's proposed pig farm constitutes a private nuisance warranting an injunction, given its potential to contaminate Harmonyville's sole drinking water source.\n\n**Rule:** A private nuisance is a substantial and unreasonable interference with the private use and enjoyment of another\u2019s land. An interference is unreasonable when the gravity of the harm outweighs the social value of the activity alleged to cause the harm. An injunction is appropriate to prevent irreparable injury, interminable litigation, and a multiplicity of suits, especially when the injury is substantial and cannot be adequately compensated by damages. (Hendricks v. Stalnaker; Campbell v. Seaman)\n\n**Analysis:** Ms. Blue's proposed pig farm, if allowed to operate, would cause a substantial interference with Harmonyville's use and enjoyment of its land by contaminating its sole drinking water source. This interference is clearly substantial, as access to safe drinking water is a fundamental necessity for the town's residents. The harm is also irreparable, as the contamination of a natural spring, especially one relied upon for drinking water, cannot be easily remedied by monetary damages or by simply finding an alternative source, which may not exist. As established in *Campbell v. Seaman*, an injunction is appropriate to prevent such irreparable injury. While Ms. Blue's pig farm may have social value, the gravity of the harm\u2014loss of safe drinking water for an entire town\u2014far outweighs the social value of her commercial pig farming operation, making the interference unreasonable under the balancing test from *Hendricks v. Stalnaker*. Unlike *Hendricks*, where both parties' uses were necessary and equally balanced, here the harm to Harmonyville is far greater and more fundamental than the utility of Ms. Blue's proposed use.\n\n**Conclusion:** Therefore, the court should grant the injunction, preventing Ms. Blue from operating the pig farm, as it would constitute an unreasonable and irreparable private nuisance.",
+  "rubric": [
+   {
+    "point": "Identifies that the court should grant the injunction.",
+    "points": 1
+   },
+   {
+    "point": "Correctly states the rule for private nuisance (substantial and unreasonable interference) and the balancing test for unreasonableness, citing *Hendricks v. Stalnaker*.",
+    "points": 3
+   },
+   {
+    "point": "Applies the rule to the facts, explaining why the contamination is a substantial and irreparable harm, and why the gravity of this harm outweighs the social value of the pig farm.",
+    "points": 3
+   },
+   {
+    "point": "Explains why an injunction is the appropriate remedy, citing *Campbell v. Seaman* for irreparable injury and inadequacy of damages.",
+    "points": 3
+   }
+  ],
+  "cases": [
+   "Hendricks v. Stalnaker",
+   "Campbell v. Seaman"
+  ],
+  "doctrines": [
+   "Private Nuisance",
+   "Unreasonable Interference (Balancing Test)",
+   "Irreparable Injury",
+   "Injunction for Nuisance"
+  ],
+  "scope": "unit-easy:nuisance",
+  "kind": "unit",
+  "unit": "nuisance",
+  "chapter": "1. What is Property?",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "93b231da8c"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Sarah, a renowned cave explorer, discovers a vast, previously uncharted cave system beneath her property in Kentucky. She spends years mapping, developing, and promoting the cave as a tourist attraction, investing significant time and money. Her neighbor, Tom, suspects that a portion of Sarah's popular cave system extends under his undeveloped, forested land. Tom files a lawsuit claiming trespass and seeks a court order to survey the cave system, requiring access through Sarah's property. Sarah argues that the cave system, having been discovered and developed by her, belongs entirely to her, and that a survey would reveal her trade secrets and destroy the value she created. Based on the principles established in *Edwards v. Sims*, how should the court rule on Tom's request for a survey?",
+  "options": {
+   "A": "The court should deny Tom's request because Sarah, through her labor and investment, has established a superior property right to the entire cave system, regardless of surface boundaries.",
+   "B": "The court should deny Tom's request because allowing a survey would constitute an unwarranted invasion of Sarah's property and would destroy the commercial value she created, which equity should prevent.",
+   "C": "The court should grant Tom's request for a survey because the owner of the surface is presumed to own everything beneath it, and a court has the inherent power to order an inspection to ascertain the truth of a potential trespass.",
+   "D": "The court should grant Tom's request only if Tom can prove that he has a plan to develop the portion of the cave under his land, as mere suspicion of trespass is insufficient to justify an invasion of property."
+  },
+  "answer": "C",
+  "why": {
+   "A": "This option reflects the dissenting view in *Edwards v. Sims*, which argued for a property right based on discovery and development, but it is not the holding of the majority.",
+   "B": "This option reflects the dissenting judge's concern about the destruction of value and the limits of equity, but the majority in *Edwards v. Sims* found that a temporary inspection for justice did not constitute irreparable injury.",
+   "C": "This option correctly applies the *ad coelum* doctrine and the court's inherent equitable power to order inspections, as established in *Edwards v. Sims*.",
+   "D": "This option introduces an additional requirement not found in the *Edwards v. Sims* holding; the court only requires a bona fide claim and necessity for the inspection, not a plan for development."
+  },
+  "explanation": "In *Edwards v. Sims*, the court affirmed the *ad coelum* doctrine, stating that the owner of the surface is entitled to control everything beneath it. It also held that a court has the inherent equitable power to order an inspection of subterranean property, such as a cave, to ascertain the truth of a potential trespass, provided there is a bona fide claim and necessity for the inspection. Therefore, the court should grant Tom's request for a survey.",
+  "cases": [
+   "Edwards v. Sims"
+  ],
+  "doctrines": [
+   "Ad Coelum Doctrine",
+   "Equity Power to Order Inspection"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:discovery_creation",
+  "kind": "unit",
+  "unit": "discovery_creation",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "8eeeea67e6"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Global News Network (GNN) invests heavily in sending reporters to remote, dangerous locations to gather exclusive news stories. They publish these stories on their website and through their wire service. Rival News Corp (RNC), without sending its own reporters, systematically monitors GNN's website and wire service, then immediately rewrites the GNN stories and publishes them on its own platforms, often within minutes of GNN's publication. RNC does not claim the stories are its own original reporting, but simply presents the information. GNN sues RNC for unfair competition. Based on the principles established in *International News Service v. Associated Press*, how should the court rule?",
+  "options": {
+   "A": "The court should rule in favor of RNC because news, once published, becomes public information and cannot be subject to property rights, allowing anyone to use it freely.",
+   "B": "The court should rule in favor of GNN, recognizing a quasi-property right in the news it gathered, and find that RNC's systematic appropriation constitutes unfair competition.",
+   "C": "The court should rule in favor of RNC because GNN's only recourse is copyright law, and the factual information itself is not copyrightable.",
+   "D": "The court should rule in favor of GNN only if RNC was 'passing off' the news as its own original reporting, as mere appropriation of uncopyrighted material is not unfair competition."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects the general principle that news is not subject to absolute property rights, but *INS v. AP* created an exception for quasi-property rights between competitors.",
+   "B": "This option correctly applies the holding of *INS v. AP*, which established a quasi-property right in news between competitors to prevent unfair misappropriation of labor and investment.",
+   "C": "This option correctly states that news itself is not copyrightable, but *INS v. AP* found a different basis for protection (unfair competition/quasi-property) outside of copyright.",
+   "D": "This option reflects a traditional view of unfair competition (passing off) that Justice Brandeis argued for in his dissent, but it was rejected by the majority in *INS v. AP*."
+  },
+  "explanation": "In *International News Service v. Associated Press*, the Supreme Court held that as between competitors in the business of gathering and distributing news, the news itself, gathered at pains and expense, is considered quasi-property. The systematic appropriation of this news for commercial gain, where one party reaps where it has not sown, constitutes unfair competition. Therefore, the court should rule in favor of GNN.",
+  "cases": [
+   "International News Service v. Associated Press"
+  ],
+  "doctrines": [
+   "Quasi-Property Right",
+   "Unfair Competition",
+   "Misappropriation"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:discovery_creation",
+  "kind": "unit",
+  "unit": "discovery_creation",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "11a0ea8179"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "While walking along a public beach, Alice discovers a beautiful, intact conch shell partially buried in the sand. She carefully digs it out, cleans off the sand, and places it on a nearby rock, intending to return for it after she finishes her walk and can carry it home. An hour later, Bob, also walking on the beach, sees the conch shell on the rock. Believing it to be abandoned, he picks it up and takes it home. Alice returns to find the shell gone and later discovers Bob displaying it in his living room. Alice demands the shell back, but Bob refuses. Who has a superior claim to the conch shell?\n\nA. Alice, because she was the first to take possession of the shell and intended to return for it.\nB. Bob, because Alice abandoned the shell by leaving it on the rock.\nC. Bob, because he took actual physical possession of the shell and Alice did not.\nD. Alice, but only if she can prove the shell was originally hers before she found it.",
+  "options": {
+   "A": "Alice, because she was the first to take possession of the shell and intended to return for it.",
+   "B": "Bob, because Alice abandoned the shell by leaving it on the rock.",
+   "C": "Bob, because he took actual physical possession of the shell and Alice did not.",
+   "D": "Alice, but only if she can prove the shell was originally hers before she found it."
+  },
+  "answer": "A",
+  "why": {
+   "A": "This is the correct answer because Alice, as the first finder, established a prior possession right by expending labor to gather and place the shell, and she had a reasonable intent to return for it, making her claim superior to a subsequent finder.",
+   "B": "This is incorrect because Alice's intent to return for the shell, coupled with her labor, indicates she did not abandon it, similar to the manure in Haslem v. Lockwood.",
+   "C": "This is incorrect because Bob's physical possession is secondary to Alice's prior possession, which was established through her labor and intent to remove the item, as per Haslem v. Lockwood.",
+   "D": "This is incorrect because a finder's right is good against all but the true owner, and Alice does not need to prove prior ownership, only prior possession, as established in Clark v. Maloney."
+  },
+  "explanation": "Alice, as the first finder, acquired a right to the conch shell by expending labor to gather it and placing it on the rock with the intent to return. This establishes prior possession, which is superior to a subsequent finder like Bob, provided she intended to remove it within a reasonable time, similar to the principle in Haslem v. Lockwood.",
+  "cases": [
+   "Haslem v. Lockwood",
+   "Clark v. Maloney"
+  ],
+  "doctrines": [
+   "Prior Possession",
+   "Finder's Rights",
+   "Abandonment",
+   "Labor and Value Enhancement",
+   "Reasonable Time for Removal"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:prior_possession_finders",
+  "kind": "unit",
+  "unit": "prior_possession_finders",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "fef6e51d92"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "David is exploring an old, abandoned cabin deep in the woods. Inside, he finds a dusty wooden chest containing several antique coins. He carefully collects the coins, places them in a cloth bag, and hides the bag under a loose floorboard in the cabin, intending to retrieve them the following weekend. Before David can return, Emily, also exploring the cabin, discovers the cloth bag with the coins. She takes the coins, believing them to be abandoned. David later learns Emily has the coins and demands their return. Who has a superior claim to the coins?\n\nA. Emily, because she is the current possessor of the coins.\nB. David, because his prior possession of the coins gives him a superior right against Emily, a subsequent finder.\nC. Emily, because David did not remove the coins from the cabin, thus abandoning them.\nD. David, but only if he can prove the coins were originally his before he found them.",
+  "options": {
+   "A": "Emily, because she is the current possessor of the coins.",
+   "B": "David, because his prior possession of the coins gives him a superior right against Emily, a subsequent finder.",
+   "C": "Emily, because David did not remove the coins from the cabin, thus abandoning them.",
+   "D": "David, but only if he can prove the coins were originally his before he found them."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect because Emily's current possession is not superior to David's prior possession, as established in Clark v. Maloney.",
+   "B": "This is the correct answer because David, as the first finder, acquired a special property right in the coins that is not divested by his temporary loss of possession, making his claim superior to a subsequent finder like Emily, as per Clark v. Maloney.",
+   "C": "This is incorrect because David's act of collecting and hiding the coins, with an intent to retrieve them, demonstrates he did not abandon his special property right, similar to the logs in Clark v. Maloney.",
+   "D": "This is incorrect because a finder's right is good against all but the true owner, and David does not need to prove prior ownership, only prior possession, as established in Clark v. Maloney."
+  },
+  "explanation": "David, as the first finder, acquired a special property right in the antique coins when he collected and hid them, intending to retrieve them. This right is not lost simply because he temporarily lost possession. Therefore, his claim is superior to Emily, a subsequent finder, as established in Clark v. Maloney.",
+  "cases": [
+   "Clark v. Maloney"
+  ],
+  "doctrines": [
+   "Prior Possession",
+   "Finder's Rights",
+   "Special Property",
+   "Loss of Chattel"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:prior_possession_finders",
+  "kind": "unit",
+  "unit": "prior_possession_finders",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "3f1b2b0dde"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "Sarah, a professional diver, was exploring a sunken shipwreck off the coast. She discovered an ancient ceramic vase, carefully brought it to the surface, and placed it in her dive boat. Before she could secure it, a sudden wave knocked the vase overboard. The vase sank to the seabed again, but this time it landed in a shallow, sandy area. Later that day, Mark, a recreational diver, found the same vase on the seabed. He brought it to the surface and took it home. Sarah learned of Mark's discovery and demanded the vase back, claiming it was hers. Mark refused, arguing he was the one who actually found it on the seabed. Analyze whether Sarah or Mark has a superior claim to the vase.",
+  "model_answer": "I. Rule\nUnder the principle of prior possession, a finder of lost chattel acquires a property right in it that is good against all but the rightful owner. This special property right is not divested by subsequent loss, making the first finder's claim superior to a later finder (Clark v. Maloney).\n\nII. Application\nSarah was the first finder of the ancient ceramic vase. She discovered it in the shipwreck, brought it to the surface, and placed it in her dive boat. These actions demonstrate her initial possession and control over the vase. Although the vase was subsequently lost due to a wave and sank again, Sarah's special property right as the first finder was not extinguished by this loss. Mark, as the second finder, discovered the vase after Sarah had already established her prior possession. Mark does not claim to be the true owner of the vase, nor does he claim under the true owner. Therefore, his claim as a subsequent finder is inferior to Sarah's established prior possession.\n\nIII. Conclusion\nSarah has a superior claim to the vase over Mark based on her prior possession.",
+  "rubric": [
+   {
+    "point": "Identifies the core rule of prior possession and finder's rights (Clark v. Maloney).",
+    "points": 3
+   },
+   {
+    "point": "Applies the rule to Sarah's initial actions as establishing first possession.",
+    "points": 3
+   },
+   {
+    "point": "Explains that Sarah's subsequent loss of the vase does not divest her special property right.",
+    "points": 2
+   },
+   {
+    "point": "Concludes that Mark's claim as a second finder is inferior to Sarah's.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Clark v. Maloney"
+  ],
+  "doctrines": [
+   "Prior Possession",
+   "Finder's Rights",
+   "Special Property",
+   "Loss of Chattel"
+  ],
+  "scope": "unit-easy:prior_possession_finders",
+  "kind": "unit",
+  "unit": "prior_possession_finders",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "2f94a742be"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Farmer Giles owns a large tract of land. One day, a rare, valuable meteorite falls from the sky and buries itself five feet deep in the middle of his pasture. The next morning, before Giles has discovered the meteorite, his neighbor, Farmer John, who was walking his dog, sees the impact crater, digs up the meteorite, and takes it home. John plans to sell it to a collector. Giles later learns of the meteorite and demands its return. Who has the superior claim to the meteorite?",
+  "options": {
+   "A": "Farmer John, because he was the first to discover and take possession of the meteorite.",
+   "B": "Farmer Giles, because the meteorite became part of his land when it embedded itself in the soil.",
+   "C": "Farmer John, because the meteorite was unowned property until he found and claimed it.",
+   "D": "The state, because rare meteorites are considered natural resources belonging to the public."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect. While first possession is a principle in property law, it does not apply to objects that have become part of the realty.",
+   "B": "This is the correct answer. According to the principle established in Goddard v. Winchell, an object that falls from the sky and embeds itself in the soil becomes part of the land and thus belongs to the landowner.",
+   "C": "This is incorrect. The meteorite ceased to be unowned property once it became embedded in the land, making it part of the landowner's realty.",
+   "D": "This is incorrect. There is no general rule in the provided briefs stating that rare meteorites are state property; the relevant rule concerns ownership of objects embedded in private land."
+  },
+  "explanation": "The case of Goddard v. Winchell established that an aerolite (meteorite) that falls from the sky and embeds itself in the soil becomes part of the land. Therefore, it belongs to the landowner, not the person who discovers and digs it up.",
+  "cases": [
+   "Goddard v. Winchell"
+  ],
+  "doctrines": [
+   "Accession",
+   "Quicquid plantatur solo, solo cedit"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:accession",
+  "kind": "unit",
+  "unit": "accession",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "4aca688ec4"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "Olney Building Co. mistakenly constructs a partially completed dwelling on Lot 8, which is owned by Producers Lumber & Supply Co. The construction occurs without Producers Lumber & Supply Co.'s knowledge or consent. Upon discovering the error, Olney Building Co. attempts to negotiate a settlement with Producers Lumber & Supply Co., but no agreement is reached. Frustrated, Olney Building Co. then sends a crew with heavy equipment to Lot 8 and completely demolishes the dwelling, leaving only debris. The dwelling had a value of $5,000 and would have enhanced the lot's value by $5,000. Producers Lumber & Supply Co. sues Olney Building Co. for damages. Discuss the likely outcome, citing relevant legal principles.",
+  "options": {
+   "A": "The landowner is entitled to the furniture, as the lumber company never had title to the original timber.",
+   "B": "The lumber company retains title to the furniture, but must pay the landowner the original value of the timber.",
+   "C": "The landowner is entitled to the furniture, but must reimburse the lumber company for the cost of its labor and materials.",
+   "D": "The lumber company must return the furniture and also pay punitive damages for the trespass."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect. While the lumber company did not have title to the original timber, the significant transformation in good faith can transfer title to the new product.",
+   "B": "This is the correct answer. According to Wetherbee v. Green, when a party in good faith transforms another's property into an immensely more valuable and substantially different article, title passes to the transformer, and the original owner is limited to damages for the value of the original materials.",
+   "C": "This is incorrect. The rule established in Wetherbee v. Green does not require the original owner to reimburse the transformer; rather, the original owner's remedy is limited to the value of the original materials.",
+   "D": "This is incorrect. Punitive damages are typically reserved for willful trespass or bad faith, which is explicitly excluded by the facts of this hypothetical.",
+   "explanation": "The case of Wetherbee v. Green holds that when a party in good faith transforms another's property into an article immensely more valuable and substantially different, title to the transformed article passes to the party who wrought the change. The original owner's remedy is limited to damages for the value of the original materials. Here, timber worth $500 was transformed into furniture worth $10,000, representing a significant increase in value due to the lumber company's good faith labor.",
+   "cases": [
+    "Wetherbee v. Green"
+   ],
+   "doctrines": [
+    "Accession",
+    "Good Faith Transformation"
+   ]
+  },
+  "rubric": [
+   {
+    "point": "Identify the core legal issue as whether the builder, Olney Building Co., can claim good faith improver status and what remedies are available given its actions.",
+    "points": 2
+   },
+   {
+    "point": "State the rule from Producers Lumber & Supply Co. v. Olney Building Co. regarding fixtures: a building erected on another's land without consent becomes a fixture and belongs to the landowner.",
+    "points": 2
+   },
+   {
+    "point": "State the rule from Producers Lumber & Supply Co. v. Olney Building Co. regarding good faith improvers: a remedy is available only if the improver acts in good faith, and this remedy typically involves compensation for enhanced value or removal if possible without injury.",
+    "points": 2
+   },
+   {
+    "point": "Apply the rule regarding the builder's demolition: Olney Building Co.'s malicious demolition of the dwelling constitutes waste and forfeits any claim to good faith improver status or equitable relief.",
+    "points": 2
+   },
+   {
+    "point": "Conclude that Olney Building Co. is liable for the value of the destroyed dwelling (the fixture) and potentially for exemplary damages, as its self-help and malicious actions negate any equitable claims.",
+    "points": 2
+   }
+  ],
+  "model_answer": "Issue: The central issue is whether Olney Building Co. can claim good faith improver status and avoid liability for the value of the destroyed dwelling, given its actions of constructing on another's land and then maliciously demolishing the structure.\n\nRule: According to Producers Lumber & Supply Co. v. Olney Building Co., where a person erects a building upon the land of another without their knowledge and consent, the building becomes a fixture and belongs to the owner of the land. While a good faith improver may have a remedy (such as compensation for enhanced value or permission to remove the improvement if possible without injury), this remedy is contingent on their good faith. Crucially, an improver is not authorized to go upon the land of another, without knowledge and consent, and demolish improvements they have mistakenly placed thereon; if they do so, they commit waste and can be required to pay the landowner for such waste. Such actions also invoke the 'unclean hands' doctrine, preventing the improver from seeking equitable relief.\n\nAnalysis: Here, Olney Building Co. constructed a dwelling on Lot 8, which belonged to Producers Lumber & Supply Co., without the latter's knowledge or consent. Under the fixture rule, this dwelling became the property of Producers Lumber & Supply Co. While the jury initially found that Olney Building Co. acted in good faith in erecting the building, this finding is complicated by the fact that the deed to Producers Lumber & Supply Co. was recorded, implying a duty to investigate. More importantly, Olney Building Co.'s subsequent malicious demolition of the dwelling, as found by the jury, constitutes waste. By resorting to self-help and destroying the property that had become a fixture of Producers Lumber & Supply Co., Olney Building Co. forfeited any potential claim to good faith improver status or equitable relief. Its actions were malicious and caused significant destruction to property that legally belonged to Producers Lumber & Supply Co.\n\nConclusion: Olney Building Co. is liable to Producers Lumber & Supply Co. for the value of the destroyed dwelling ($5,000) because the dwelling became a fixture belonging to Producers Lumber & Supply Co. upon its construction. Olney Building Co.'s malicious demolition of the property constituted waste and negated any equitable claims it might have had as a good faith improver. Furthermore, the jury's finding of malice supports an award of exemplary damages.",
+  "cases": [
+   "Producers Lumber & Supply Co. v. Olney Building Co."
+  ],
+  "doctrines": [
+   "Fixtures",
+   "Good Faith Improver",
+   "Waste",
+   "Self-Help",
+   "Unclean Hands Doctrine"
+  ],
+  "scope": "unit-easy:accession",
+  "kind": "unit",
+  "unit": "accession",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "11faee1d18"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "In 1995, Emily purchased a residential lot. Her deed clearly indicated the boundaries of her property. However, the adjacent lot, owned by Frank, was undeveloped and overgrown. Emily, knowing her deed did not include the overgrown section, decided to clear a 20-foot strip of Frank's land along her property line, plant a vegetable garden, and install a small fence. She openly maintained this garden and fence for 12 years. During this time, Frank visited his property occasionally but never confronted Emily about her use, assuming it was part of her property due to the overgrown nature of his own land. In 2007, Frank decided to sell his lot and had a survey done, which revealed Emily's encroachment. Frank demanded Emily remove her garden and fence. Emily refused, claiming adverse possession. The statutory period for adverse possession in this jurisdiction is 10 years. Will Emily likely succeed in her claim of adverse possession? Explain your reasoning, citing relevant case law.",
+  "model_answer": "I. Issue: The issue is whether Emily can establish adverse possession of the 20-foot strip of Frank's land, specifically regarding the 'claim of right' element, given her knowledge of the true boundary.\n\nII. Rule: To establish adverse possession, a claimant must prove by clear and convincing evidence that their possession was hostile, actual, open, exclusive, and continuous for the statutory period, and under a claim of right. In some jurisdictions, a 'claim of right' requires good faith. As established in *Carpenter v. Ruperto*, a party cannot establish a good faith claim of right if they knew they had no title and no basis for claiming an interest in the property when they entered possession. This is distinct from a mistaken belief about a boundary.\n\nIII. Analysis: Emily's actions of clearing, gardening, and fencing the 20-foot strip for 12 years (exceeding the 10-year statutory period) were actual, open, notorious, exclusive, and continuous. The key element in question is the 'claim of right.' The facts state that Emily 'knew her deed did not include the overgrown section' when she began her use. This direct knowledge that she had no legal right to the land, rather than a mistaken belief about the boundary, directly implicates the rule from *Carpenter v. Ruperto*. In *Carpenter*, the court denied adverse possession because the claimant knew her lot's dimensions and that the disputed land was not hers. Emily's situation is analogous: she knew she had no title and no basis for claiming the land, yet she proceeded to possess it. This lack of good faith in her claim of right would likely defeat her adverse possession claim.\n\nIV. Conclusion: Emily will likely not succeed in her claim of adverse possession because she lacked a good faith 'claim of right,' as she knew she had no legal basis to possess Frank's land when she began her encroachment, as per the reasoning in *Carpenter v. Ruperto*.",
+  "rubric": [
+   {
+    "point": "Identifies the core issue as Emily's knowledge impacting the 'claim of right' element.",
+    "points": 2
+   },
+   {
+    "point": "States the rule for adverse possession, specifically focusing on the 'claim of right' and citing *Carpenter v. Ruperto* for the good faith requirement when the possessor knows they have no title.",
+    "points": 3
+   },
+   {
+    "point": "Applies the rule to the facts, explaining how Emily's knowledge that her deed did not include the land defeats the good faith claim of right, distinguishing it from a mere mistake.",
+    "points": 3
+   },
+   {
+    "point": "Reaches a clear conclusion consistent with the analysis.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Carpenter v. Ruperto"
+  ],
+  "doctrines": [
+   "Adverse Possession",
+   "Claim of Right",
+   "Good Faith"
+  ],
+  "scope": "unit-easy:adverse_possession",
+  "kind": "unit",
+  "unit": "adverse_possession",
+  "chapter": "2. Acquisition and Claim Scope",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "c67e9e332e"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Dr. Anya Sharma, a renowned geneticist, treats Mr. Robert Vance for a rare blood disorder. During his treatment, Dr. Sharma discovers that Mr. Vance's blood contains unique stem cells with significant potential for developing new therapies. Without informing Mr. Vance or obtaining his consent for research, Dr. Sharma isolates these cells, develops a stable cell line, and patents it. She then enters into a lucrative agreement with a pharmaceutical company to commercialize the cell line, receiving substantial royalties and stock options. Mr. Vance later learns of these developments and sues Dr. Sharma for conversion of his cells.\n\nWhich of the following is the most likely outcome of Mr. Vance's conversion claim?",
+  "options": {
+   "A": "Mr. Vance will likely win his conversion claim because he had a property interest in his unique cells, and Dr. Sharma's unauthorized use constituted conversion.",
+   "B": "Mr. Vance will likely lose his conversion claim because, under established precedent, a patient does not retain a sufficient ownership interest in excised cells to support a cause of action for conversion.",
+   "C": "Mr. Vance will likely win his conversion claim because the cells were unique and had commercial value, making them distinct from ordinary bodily tissues.",
+   "D": "Mr. Vance will likely lose his conversion claim, but only if Dr. Sharma can prove that the patented cell line is factually and legally distinct from Mr. Vance's original cells."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because the holding in Moore v. Regents of the University of California explicitly states that a patient does not retain a sufficient ownership interest in excised cells to support a cause of action for conversion.",
+   "B": "This option is correct because the Supreme Court of California in Moore v. Regents of the University of California held that a patient does not retain an ownership interest in excised cells sufficient to support a conversion claim.",
+   "C": "This option is incorrect because the commercial value or uniqueness of the cells does not alter the legal principle that a patient generally does not retain a property interest in excised bodily tissues for conversion purposes, as established in Moore.",
+   "D": "This option is incorrect because the primary reason for denying the conversion claim in Moore was the lack of a retained ownership interest by the patient in the excised cells themselves, not solely the distinctiveness of the patented cell line, although the latter was a supporting argument."
+  },
+  "explanation": "The holding in Moore v. Regents of the University of California directly addresses this scenario, stating that a patient does not retain a sufficient ownership interest in excised cells to support a cause of action for conversion. Therefore, Mr. Vance's conversion claim would likely fail.",
+  "cases": [
+   "Moore v. Regents of the University of California"
+  ],
+  "doctrines": [
+   "Conversion",
+   "Property Interest in Excised Cells"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:persons_commodities",
+  "kind": "unit",
+  "unit": "persons_commodities",
+  "chapter": "3. Values Subject to Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "78b747b2f0"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The National Organ Transplant Act (NOTA) prohibits compensation for human organs, including \"bone marrow.\" A new medical procedure, \"peripheral blood stem cell apheresis,\" allows for the extraction of hematopoietic stem cells from a donor's peripheral blood, which are then used in transplants. These cells are not extracted from the soft, fatty substance within bone cavities. A non-profit organization proposes to offer financial incentives to donors who provide these stem cells via apheresis. The government argues this violates NOTA.\n\nBased on the interpretation of NOTA, what is the most likely legal conclusion regarding the proposed financial incentives for apheresis donors?",
+  "options": {
+   "A": "The incentives are prohibited because hematopoietic stem cells, regardless of extraction method, are ultimately derived from bone marrow and thus fall under NOTA's definition of \"bone marrow\" or a \"subpart thereof.\"",
+   "B": "The incentives are not prohibited because hematopoietic stem cells extracted via apheresis are considered part of blood, which is explicitly excluded from NOTA's definition of \"human organ.\"",
+   "C": "The incentives are prohibited because the legislative intent behind NOTA was to prevent the commodification of all human biological materials used in transplantation, including stem cells.",
+   "D": "The incentives are not prohibited, but only if the financial incentives are structured as scholarships or charitable gifts, rather than direct cash payments, to avoid the appearance of commodification."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because Flynn v. Holder specifically rejected the argument that hematopoietic stem cells from peripheral blood are a \"subpart\" of bone marrow for NOTA purposes, distinguishing them as part of blood.",
+   "B": "This option is correct because Flynn v. Holder held that hematopoietic stem cells extracted from peripheral blood via apheresis are considered part of blood, not \"bone marrow\" or a \"subpart thereof,\" and thus compensation for them is not prohibited by NOTA.",
+   "C": "This option is incorrect because Flynn v. Holder focused on the ordinary meaning of the statutory terms and the explicit exclusion of \"blood\" from NOTA, rather than a broad interpretation of legislative intent to cover all biological materials.",
+   "D": "This option is incorrect because Flynn v. Holder's reasoning was based on the statutory definition of \"human organ\" and the nature of the cells themselves (as blood), not on the specific form of compensation offered."
+  },
+  "explanation": "In Flynn v. Holder, the court determined that hematopoietic stem cells extracted from peripheral blood via apheresis are considered part of blood, not \"bone marrow\" or a \"subpart thereof\" under NOTA. Since NOTA explicitly excludes \"blood\" from its definition of \"human organ,\" compensation for these cells is not prohibited.",
+  "cases": [
+   "Flynn v. Holder"
+  ],
+  "doctrines": [
+   "Statutory Interpretation",
+   "National Organ Transplant Act (NOTA)",
+   "Definition of \"Human Organ\" under NOTA"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:persons_commodities",
+  "kind": "unit",
+  "unit": "persons_commodities",
+  "chapter": "3. Values Subject to Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "37fa3f4fcc"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "A small coastal town in Oregon, 'Seaside Haven,' has a long-standing tradition. For over 150 years, residents and tourists alike have freely used the dry-sand area of all ocean-front properties for recreational activities like sunbathing, picnicking, and beachcombing. This use has been open, continuous, and never challenged by property owners. Recently, a new owner, Mr. Henderson, purchased a beachfront lot and began constructing a fence along the boundary between his wet-sand and dry-sand property, intending to exclude the public from his dry-sand area. The State of Oregon, on behalf of the public, seeks to enjoin Mr. Henderson from building the fence.\n\nWhich of the following is the most likely outcome?",
+  "options": {
+   "A": "Mr. Henderson will be permitted to build the fence because he holds fee simple title to the dry-sand area, and the public's use was merely permissive.",
+   "B": "Mr. Henderson will be enjoined from building the fence because the public has acquired a right to use the dry-sand area based on custom.",
+   "C": "Mr. Henderson will be enjoined from building the fence because the public has acquired a prescriptive easement over the dry-sand area.",
+   "D": "Mr. Henderson will be permitted to build the fence because the public trust doctrine only applies to the wet-sand area and navigable waters, not privately owned dry sand."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect because the public's long-standing, open, and unchallenged use meets the criteria for a public easement by custom, which overrides the landowner's fee simple title in this context.",
+   "B": "This is the correct answer. As established in *State ex rel. Thornton v. Hay*, a public right to use private land can be established by long-standing custom if it is ancient, exercised without interruption, peaceable, reasonable, certain, obligatory, and not repugnant to law.",
+   "C": "This is incorrect because while prescriptive easements can be acquired by the public in Oregon, *Thornton v. Hay* explicitly stated that the doctrine of custom provides a better legal basis for affirming public rights in dry-sand areas due to its broader applicability and the unique nature of the land.",
+   "D": "This is incorrect. While the public trust doctrine primarily applies to navigable waters and their beds, *Thornton v. Hay* established a separate, though related, doctrine of public easement by custom for dry-sand areas, which limits private ownership rights."
+  },
+  "explanation": "The facts closely mirror those in *State ex rel. Thornton v. Hay*, where the Oregon Supreme Court held that the public had acquired an easement for recreational purposes in the dry-sand area of ocean-front property based on the doctrine of custom. The public's use in Seaside Haven meets all the criteria for a valid custom, thus limiting the landowner's right to exclude.",
+  "cases": [
+   "State ex rel. Thornton v. Hay"
+  ],
+  "doctrines": [
+   "Public Easement by Custom"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:communities_customs_public_rights_water",
+  "kind": "unit",
+  "unit": "communities_customs_public_rights_water",
+  "chapter": "3. Values Subject to Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "9d5ebfd997"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The State of Illinois granted a private energy company, 'PowerGen Corp.,' a perpetual right to construct and operate a large offshore wind farm covering 500 acres of submerged land in Lake Michigan, just outside the Chicago harbor. The grant specified that PowerGen would pay the state 5% of its gross revenues and that the wind farm would not impede navigation. Five years later, the Illinois legislature, concerned about the extensive private control over public waters, passed a law repealing the grant to PowerGen. PowerGen sues, arguing the repeal is an unconstitutional impairment of contract.\n\nWhich of the following is the most likely outcome?",
+  "options": {
+   "A": "The repeal is unconstitutional because the state entered into a valid contract with PowerGen, and the state cannot unilaterally revoke a perpetual grant for which it received consideration.",
+   "B": "The repeal is constitutional because the state cannot abdicate its public trust over a substantial portion of navigable waters to a private corporation, and such a grant is inherently revocable.",
+   "C": "The repeal is unconstitutional because PowerGen's wind farm is an aid to commerce and does not substantially impair public navigation, thus falling within the state's permissible grants of submerged lands.",
+   "D": "The repeal is constitutional, but the state must compensate PowerGen for the value of its lost rights under the grant, as it constitutes a taking of private property for public use."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect. While the state did enter into a contract, the Supreme Court in *Illinois Central Railroad Co. v. Illinois* held that a state cannot make an irrepealable contract when it involves the abdication of a public trust over navigable waters.",
+   "B": "This is the correct answer. Following *Illinois Central Railroad Co. v. Illinois*, a state holds navigable waters and the lands beneath them in trust for the public. A grant of a substantial portion of these lands to a private entity, even for a beneficial purpose, is an impermissible abdication of this trust and is necessarily revocable.",
+   "C": "This is incorrect. While grants for wharves or docks in aid of commerce are permissible, *Illinois Central Railroad Co. v. Illinois* specifically rejected the idea that a large-scale grant of over 1,000 acres (or 500 acres in this hypothetical) to a private corporation, even with conditions, is consistent with the state's public trust duty.",
+   "D": "This is incorrect. *Illinois Central Railroad Co. v. Illinois* explicitly stated that there can be no irrepealable contract in a conveyance of property by a grantor in disregard of a public trust, implying that the state's resumption of the trust is not a taking requiring compensation for the lost 'rights' under the invalid grant."
+  },
+  "short_answer": [
+   {
+    "type": "sa",
+    "difficulty": "easy",
+    "stem": "Farmer Brown owns a large agricultural property in a semi-arid region of Colorado. A small stream, 'Willow Creek,' flows through his land. For the past 30 years, Farmer Brown has diverted a significant portion of Willow Creek's water through a series of ditches to irrigate his cornfields, which are located entirely on his property. This diversion has been open, continuous, and well-known in the community. Recently, a new neighbor, Rancher Jones, purchased land upstream from Farmer Brown. Rancher Jones, whose land also borders Willow Creek, began diverting all of the creek's water to fill a large pond for his cattle, claiming that as an upstream riparian owner, he has a right to use the water first. This diversion has left Farmer Brown's cornfields without sufficient water, threatening his harvest.\n\nAnalyze whether Farmer Brown can successfully assert a claim to the water against Rancher Jones under Colorado law.",
+    "model_answer": "Under Colorado law, Farmer Brown can successfully assert a claim to the water against Rancher Jones based on the doctrine of prior appropriation.\n\n**Rule:** The Colorado Supreme Court, in *Coffin v. Left Hand Ditch Co.*, established the prior appropriation doctrine. This doctrine holds that the first appropriator of water from a natural stream for a beneficial purpose has a prior right to that water, to the extent of such appropriation. This rule was adopted due to the arid climate and the necessity of artificial irrigation, rejecting the common law riparian rights doctrine.\n\n**Application:** Farmer Brown has been diverting a significant portion of Willow Creek's water for 30 years to irrigate his cornfields, which constitutes a beneficial purpose. This long-standing, open, and continuous diversion establishes him as the first appropriator of that water. Rancher Jones, as a new upstream landowner, is attempting to divert all the water for his cattle pond. While a cattle pond is a beneficial use, Rancher Jones's claim is based on his status as an upstream riparian owner, which is not the governing principle in Colorado for allocating water rights from natural streams. Under prior appropriation, the timing of the appropriation, not the location of the land relative to the stream, dictates the superior right.\n\n**Conclusion:** Because Farmer Brown was the first to appropriate the water from Willow Creek for a beneficial use, he has a prior right to that water over Rancher Jones, who is a later appropriator. Therefore, Farmer Brown can successfully assert his claim and enjoin Rancher Jones from diverting water that interferes with his established prior appropriation.",
+    "rubric": [
+     {
+      "point": "Identifies the correct governing doctrine (Prior Appropriation) for Colorado water law.",
+      "points": 2
+     },
+     {
+      "point": "States the rule of prior appropriation, including the 'first in time, first in right' principle and 'beneficial use' requirement, citing *Coffin v. Left Hand Ditch Co.*",
+      "points": 3
+     },
+     {
+      "point": "Applies the rule to Farmer Brown's actions, explaining how his 30-year diversion for irrigation establishes him as the first appropriator for a beneficial use.",
+      "points": 2
+     },
+     {
+      "point": "Applies the rule to Rancher Jones's actions, explaining that his upstream location does not grant him priority under Colorado law and that his appropriation is later in time.",
+      "points": 2
+     },
+     {
+      "point": "Reaches a clear conclusion that Farmer Brown will succeed based on prior appropriation.",
+      "points": 1
+     }
+    ],
+    "cases": [
+     "Coffin v. Left Hand Ditch Co."
+    ],
+    "doctrines": [
+     "Prior Appropriation Doctrine",
+     "Riparian Rights (Rejected in Colorado)"
+    ]
+   }
+  ],
+  "cases": [],
+  "doctrines": [],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:communities_customs_public_rights_water",
+  "kind": "unit",
+  "unit": "communities_customs_public_rights_water",
+  "chapter": "3. Values Subject to Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "20ff840ced"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Sarah, a landlord, became frustrated when her tenant, Mark, fell two months behind on rent. Despite repeated notices, Mark refused to pay or vacate the premises. One afternoon, while Mark was at work, Sarah entered the apartment with a locksmith and changed all the locks. She then placed Mark's belongings in storage and sent him a notice that his lease was terminated. Mark had not abandoned the property and intended to return. Did Sarah's actions constitute a lawful eviction?",
+  "options": {
+   "A": "Yes, because Mark had breached the lease by failing to pay rent, giving Sarah the right to retake possession.",
+   "B": "No, because a landlord must always resort to judicial process to dispossess a tenant who has not abandoned or voluntarily surrendered the premises.",
+   "C": "Yes, because Sarah's reentry was peaceable, as she changed the locks in Mark's absence and without actual violence.",
+   "D": "No, because Sarah failed to provide Mark with sufficient notice before changing the locks, making her actions a wrongful eviction."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects a common-law understanding of a landlord's right to possession upon breach, but it ignores the modern rule against self-help eviction.",
+   "B": "This option correctly states the modern rule adopted in Berg v. Wiley, which prohibits self-help eviction for tenants who have not abandoned or voluntarily surrendered the premises.",
+   "C": "This option reflects the common-law 'peaceable reentry' rule, which was explicitly rejected by the court in Berg v. Wiley as inherently prone to breaches of the peace.",
+   "D": "While notice is often required, the primary issue here is the method of eviction itself, not merely the lack of notice. The modern rule in Berg v. Wiley prohibits self-help regardless of notice."
+  },
+  "explanation": "In Berg v. Wiley, the court held that a landlord may not use self-help to dispossess a tenant who has not abandoned or voluntarily surrendered the premises, but must instead resort to judicial process. Sarah's actions, though without actual violence, were a self-help eviction against a tenant who had not abandoned, making them unlawful.",
+  "cases": [
+   "Berg v. Wiley"
+  ],
+  "doctrines": [
+   "Self-help eviction",
+   "Landlord-tenant law"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:criminal_law_self_help_common_law_defenses",
+  "kind": "unit",
+  "unit": "criminal_law_self_help_common_law_defenses",
+  "chapter": "4. Owner Sovereignty and Its Limits",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "409ef94b84"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "A software company, 'CodeCorp,' maintains a private internal server for its employees. A disgruntled former employee, Alex, repeatedly sends mass emails to thousands of current CodeCorp employees, criticizing the company's management and urging them to unionize. Alex obtains the email addresses from a publicly available directory and does not hack into CodeCorp's system. The emails cause no physical damage to CodeCorp's servers, do not slow down the system, and do not impair its functioning. However, CodeCorp employees spend time discussing the emails, and IT staff spend time trying to block Alex's messages. CodeCorp sues Alex for trespass to chattels. Will CodeCorp likely succeed?",
+  "options": {
+   "A": "Yes, because Alex's unauthorized use of CodeCorp's email system and the resulting disruption to employee productivity and IT resources constitute an injury to CodeCorp's property rights.",
+   "B": "No, because trespass to chattels requires actual physical damage or functional impairment to the computer system itself, which was not present here.",
+   "C": "Yes, because Alex's repeated and unwanted communications interfere with CodeCorp's possessory interest in its private server, regardless of physical damage.",
+   "D": "No, because Alex's actions are protected by free speech principles, and trespass to chattels cannot be used to suppress critical communications."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects the dissent's view in Intel Corp. v. Hamidi, which argued that lost productivity and IT costs should constitute injury, but the majority rejected this.",
+   "B": "This option correctly states the holding of Intel Corp. v. Hamidi, which requires actual physical damage or functional impairment for trespass to chattels in the context of electronic communications.",
+   "C": "This option misapplies the concept of possessory interest; the court in Intel Corp. v. Hamidi clarified that mere unwanted content or economic disruption not tied to physical harm is not sufficient for trespass to chattels.",
+   "D": "While First Amendment issues were noted in Intel Corp. v. Hamidi, the court explicitly stated that its decision was based on common law grounds, not constitutional ones, making this an incorrect primary reason for the outcome."
+  },
+  "explanation": "In Intel Corp. v. Hamidi, the court held that sending unsolicited emails that do not physically damage a computer system or impair its functioning does not constitute trespass to chattels. The economic harm (lost productivity, IT costs) and annoyance caused by the content were not considered injury to the chattel itself.",
+  "cases": [
+   "Intel Corp. v. Hamidi"
+  ],
+  "doctrines": [
+   "Trespass to chattels",
+   "Electronic communications",
+   "Injury requirement"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:criminal_law_self_help_common_law_defenses",
+  "kind": "unit",
+  "unit": "criminal_law_self_help_common_law_defenses",
+  "chapter": "4. Owner Sovereignty and Its Limits",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "9c30ebf9a2"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "During a sudden and severe thunderstorm, a small fishing boat carrying a family of four was caught in rough waters on a large lake. The boat's engine failed, and the boat began to drift dangerously close to a rocky shore. Seeing a private dock nearby, owned by Mr. Henderson, the boat's captain, fearing for the lives of his family, quickly steered the boat towards the dock and moored it securely. Mr. Henderson, observing the boat from his lakeside home, became angry that someone was using his private dock without permission. He immediately went down to the dock and, despite the ongoing storm and the captain's pleas, unmoored the boat. The boat, now adrift again, was battered by the storm, sustaining significant damage, and the family suffered minor injuries. The captain sues Mr. Henderson for damages. Will the captain likely succeed?",
+  "model_answer": "The captain will likely succeed in his claim against Mr. Henderson for damages. The issue is whether Mr. Henderson was justified in unmooring the boat, or if the captain's mooring was lawful under the doctrine of necessity.\n\nUnder the necessity doctrine, as established in *Ploof v. Putnam*, an interference with another's property that would otherwise be a trespass can be justified if it is done out of necessity to preserve human life or to avoid bodily harm. This doctrine applies when an individual is unable to control movements started without fault and in the proper exercise of a strict right, and it allows for temporary, non-damaging entry onto another's property to prevent greater harm.\n\nHere, the facts indicate a clear case of necessity. The captain's boat was caught in a sudden and severe thunderstorm, its engine failed, and it was drifting towards a rocky shore, placing the family in great danger. Mooring to Mr. Henderson's private dock was a necessary action to save lives and prevent further harm to the boat and its occupants. This situation directly parallels the facts in *Ploof*, where a sloop was moored to a private dock during a tempest to save lives and property.\n\nMr. Henderson's act of unmooring the boat, despite the ongoing storm and the captain's pleas, directly caused the boat to be damaged and the family to suffer injuries. Because the initial mooring was justified by necessity, it was not a trespass. Therefore, Mr. Henderson's interference with the lawfully moored boat was wrongful, making him liable for the resulting damages.\n\nThus, the captain will likely succeed because his actions were justified by the doctrine of necessity, and Mr. Henderson's subsequent unmooring of the boat was an unlawful interference.",
+  "rubric": [
+   {
+    "point": "Identifies the core issue as the applicability of the necessity doctrine.",
+    "points": 2
+   },
+   {
+    "point": "States the rule for the necessity doctrine, citing Ploof v. Putnam.",
+    "points": 3
+   },
+   {
+    "point": "Applies the necessity doctrine to the facts, explaining why the captain's mooring was justified (danger to life/property, engine failure, storm).",
+    "points": 3
+   },
+   {
+    "point": "Concludes that Mr. Henderson's unmooring was wrongful because the initial mooring was lawful, leading to liability for damages.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Ploof v. Putnam"
+  ],
+  "doctrines": [
+   "Necessity doctrine",
+   "Trespass"
+  ],
+  "scope": "unit-easy:criminal_law_self_help_common_law_defenses",
+  "kind": "unit",
+  "unit": "criminal_law_self_help_common_law_defenses",
+  "chapter": "4. Owner Sovereignty and Its Limits",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "fa1346f1d4"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Amelia owns a small, historic cottage in a quaint village. Her neighbor, Ben, decides to build a new fence along their shared property line. Ben hires a reputable surveyor, but due to a slight error in the survey, the fence's concrete footings inadvertently extend 2 inches onto Amelia's property, 18 inches below ground. The fence itself is entirely on Ben's side of the line. Amelia discovers the encroachment after the fence is completed and demands its removal. Ben offers to pay Amelia for the small strip of land or to chip off the encroaching footings if Amelia allows him access to her property, but Amelia refuses both offers, insisting on complete removal from Ben's side, even if it means rebuilding the entire fence. The cost to remove the footings from Ben's side would be substantial, requiring the demolition and reconstruction of a significant portion of the new fence, while the encroachment causes no actual interference with Amelia's current use of her property.\n\nWhich of the following is the most likely outcome if Amelia sues Ben for a mandatory injunction to remove the encroachment?",
+  "options": {
+   "A": "The court will grant the mandatory injunction, compelling Ben to remove the entire encroaching portion of the footings, even if it requires rebuilding the fence, because Amelia has an absolute right to exclude trespassers from her property.",
+   "B": "The court will deny the mandatory injunction and relegate Amelia to monetary damages, because the encroachment is slight and unintentional, causes no actual harm, and the cost of removal is disproportionate to the damage caused.",
+   "C": "The court will grant the mandatory injunction, but will require Amelia to pay for the cost of removal, as Ben's encroachment was unintentional and he offered reasonable alternatives.",
+   "D": "The court will deny the mandatory injunction because Amelia refused Ben's offer to pay for the land or chip off the footings, demonstrating a lack of good faith on her part."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects the strict rule from Pile v. Pedrick, but Golden Press Inc. v. Rylands provides an exception for slight, unintentional encroachments where the cost of removal is disproportionate to the harm.",
+   "B": "This option correctly applies the balancing of equities principle from Golden Press Inc. v. Rylands, where a mandatory injunction may be denied for a slight, unintentional encroachment with disproportionate removal costs and minimal harm.",
+   "C": "While courts can balance equities, requiring the plaintiff to pay for removal in such a scenario is not the typical remedy when denying an injunction for an encroachment; damages are usually awarded instead.",
+   "D": "While a plaintiff's motive can be considered in equity (Edwards v. Allouez Mining Co.), refusing an offer for a trespass is not necessarily bad faith when the encroachment is still present, and the primary reason for denying the injunction here would be the disproportionate hardship, not the plaintiff's motive."
+  },
+  "explanation": "In cases of slight, unintentional encroachments that cause minimal damage and do not affect the plaintiff's use, courts may deny a mandatory injunction and award damages instead, especially when the cost of removal is disproportionately high compared to the harm suffered, as established in Golden Press Inc. v. Rylands. The facts here align with the reasoning in Golden Press, where the encroachment was small, underground, unintentional, caused no interference with use, and removal would be unconscionable.",
+  "cases": [
+   "Golden Press Inc. v. Rylands",
+   "Pile v. Pedrick",
+   "Edwards v. Allouez Mining Co."
+  ],
+  "doctrines": [
+   "Mandatory Injunction for Encroachment",
+   "Equitable Remedies",
+   "Relative Hardship",
+   "Balancing of Equities"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:equity_abandonment_destruction",
+  "kind": "unit",
+  "unit": "equity_abandonment_destruction",
+  "chapter": "4. Owner Sovereignty and Its Limits",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "7c6a1d3e23"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Sarah owned a valuable antique music box, a family heirloom. Her neighbor, Tom, admired the music box and, without Sarah's knowledge or permission, secretly borrowed it from her unlocked shed. Tom used the music box for three months to entertain guests at his weekly dinner parties, which he charged admission for. During this time, the music box was well-maintained and suffered no damage. Sarah eventually discovered Tom's unauthorized use and demanded its return, which Tom promptly did. Sarah then sued Tom, seeking to recover the profits Tom made from charging admission to his dinner parties, arguing that his use of her music box contributed to the entertainment value. Sarah admits she had no immediate plans to use the music box herself during those three months and suffered no direct financial loss from its absence.\n\nWhich of the following is the most likely outcome of Sarah's lawsuit?",
+  "options": {
+   "A": "Sarah will not recover any profits because she suffered no direct loss or damage to the music box, and she had no immediate use for it.",
+   "B": "Sarah will recover the profits Tom gained from using the music box, as his unauthorized use was a wrongful invasion of her property rights, entitling her to restitution for unjust enrichment.",
+   "C": "Sarah will only recover the fair rental value of the music box for the three months, as that represents the market value of its use.",
+   "D": "Sarah will not recover any profits because Tom returned the music box undamaged, and his use was not malicious."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because, as established in Olwell v. Nye & Nissen Co., an owner can recover profits from unauthorized use even without direct loss or immediate use for the chattel.",
+   "B": "This option correctly applies the principle from Olwell v. Nye & Nissen Co., which allows an owner to recover a tortfeasor's profits from unauthorized use of property based on unjust enrichment and the right to exclusive use.",
+   "C": "While fair rental value might be a measure of damages in some tort actions, Olwell v. Nye & Nissen Co. allows for recovery of the tortfeasor's actual profits, which can exceed mere rental value, under a theory of unjust enrichment.",
+   "D": "The fact that the music box was returned undamaged and the use was not malicious does not negate the tortfeasor's obligation to disgorge unjustly acquired profits from unauthorized use, as per Olwell v. Nye & Nissen Co."
+  },
+  "explanation": "As established in Olwell v. Nye & Nissen Co., an owner can elect to 'waive the tort' and sue in assumpsit for restitution to recover the profits a tortfeasor gained from the unauthorized use of their chattel. This is based on the principle of unjust enrichment and the owner's fundamental right to exclusive use, even if the owner suffered no direct loss or had no immediate use for the property.",
+  "cases": [
+   "Olwell v. Nye & Nissen Co."
+  ],
+  "doctrines": [
+   "Waiver of Tort and Suit in Assumpsit",
+   "Unjust Enrichment",
+   "Essence of Property",
+   "Measure of Restitution for Tortious Conduct"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:equity_abandonment_destruction",
+  "kind": "unit",
+  "unit": "equity_abandonment_destruction",
+  "chapter": "4. Owner Sovereignty and Its Limits",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "55ad159714"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "Mr. and Mrs. Chen purchased a beautiful, undeveloped lakefront lot in a private residential community in 1990. The community's covenants require all lot owners to pay annual association fees for road maintenance, security, and common area upkeep. In 2015, the Chens decided they no longer wanted the lot, as their children had grown, and they rarely visited the area. They attempted to sell the lot, but due to a downturn in the market and new environmental regulations making construction difficult, they found no buyers. Frustrated, the Chens sent a notarized letter to the community association, stating their intention to \"abandon all rights, title, and interest\" in the lot and ceased paying the annual fees and property taxes. They also stopped visiting the lot and ignored all correspondence regarding it. The community association continued to send bills for the unpaid fees. In 2023, the community association sued the Chens for the accumulated unpaid fees.\n\nWill the Chens be successful in arguing that they abandoned the lot and are therefore no longer liable for the association fees? Explain your reasoning.",
+  "model_answer": "Under Pennsylvania law, the Chens will not be successful in arguing that they abandoned the lot and are therefore no longer liable for the association fees. The general rule is that real property held in fee simple cannot be abandoned.\n\nIn Pocono Springs Civic Association v. MacKenzie, the court held that owners of real property in fee simple cannot abandon their property. The court reasoned that while abandonment applies to imperfect titles or inchoate rights, it does not apply to perfect titles like fee simple ownership. The MacKenzies' actions, such as attempting to give the lot away, ceasing tax payments, and signing a statement of abandonment, were deemed insufficient to legally abandon fee simple real property.\n\nHere, the Chens hold a fee simple interest in their lakefront lot. Their actions, including sending a notarized letter of abandonment, ceasing fee and tax payments, and ignoring correspondence, are analogous to the MacKenzies' efforts. Despite their clear intent to relinquish ownership, Pennsylvania law dictates that such actions do not legally divest them of their perfect title. Therefore, as long as they retain title, they remain bound by the community covenants to pay the association fees.",
+  "rubric": [
+   {
+    "point": "States the correct conclusion: Chens will not be successful.",
+    "points": 1
+   },
+   {
+    "point": "Identifies the core rule: Real property held in fee simple cannot be abandoned.",
+    "points": 3
+   },
+   {
+    "point": "Cites Pocono Springs Civic Association v. MacKenzie as the controlling case.",
+    "points": 2
+   },
+   {
+    "point": "Applies the rule and facts from Pocono Springs to the Chens' situation (e.g., their actions like letters, non-payment, non-use are insufficient to abandon fee simple title).",
+    "points": 3
+   },
+   {
+    "point": "Explains that as long as they retain title, they are liable for fees.",
+    "points": 1
+   }
+  ],
+  "cases": [
+   "Pocono Springs Civic Association v. MacKenzie"
+  ],
+  "doctrines": [
+   "Abandonment of Real Property",
+   "Fee Simple"
+  ],
+  "scope": "unit-easy:equity_abandonment_destruction",
+  "kind": "unit",
+  "unit": "equity_abandonment_destruction",
+  "chapter": "4. Owner Sovereignty and Its Limits",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "a320bf18c7"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Sarah, a collector of rare books, purchased a limited edition novel from \"Rare Reads Inc.\" online. The website stated that by completing the purchase, Sarah agreed to the terms and conditions, which included a clause prohibiting the resale of the book for profit within five years. This clause was also printed on a sticker affixed to the book's dust jacket, which Sarah saw when she unboxed it. Sarah, intending to resell the book for a quick profit, ignored the clause and listed the book on an auction site the next day. Rare Reads Inc. discovered her listing and sued to enforce the resale restriction. Will Rare Reads Inc. likely succeed in enforcing the resale restriction?",
+  "options": {
+   "A": "No, because the resale restriction was not explicitly negotiated and agreed upon before Sarah completed the purchase, making it an unenforceable hidden term.",
+   "B": "Yes, because Sarah accepted the terms of the license by completing the purchase and opening the package, and such licenses are generally enforceable.",
+   "C": "No, because federal copyright law preempts state contract laws that attempt to restrict the resale of copyrighted works, as this would grant rights equivalent to copyright.",
+   "D": "Yes, because the book itself is a copyrighted work, and the seller has an inherent right to control its distribution, including subsequent resales."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects a rejected rule from ProCD v. Zeidenberg, where the court held that terms do not need to be explicitly negotiated or known at the moment of payment to be enforceable, as long as the buyer has an opportunity to review and reject them.",
+   "B": "This option correctly applies the holding of ProCD v. Zeidenberg, which established that shrinkwrap licenses (or similar online agreements) are enforceable contracts when the buyer has notice and an opportunity to reject the terms, and then proceeds to use the product.",
+   "C": "This option reflects a rejected argument from ProCD v. Zeidenberg, where the court held that contractual rights are generally not preempted by federal copyright law because they bind only the parties to the agreement, not the world at large.",
+   "D": "This option misapplies copyright law; while the book is copyrighted, the 'first sale doctrine' generally limits a copyright holder's control over subsequent resales of a lawfully purchased copy, and the enforceability here stems from contract law, not inherent copyright rights."
+  },
+  "explanation": "In ProCD v. Zeidenberg, the court held that shrinkwrap licenses are enforceable contracts under the UCC. A vendor can propose terms that a buyer accepts by using the product after having an opportunity to review the license. Sarah's completion of the purchase and subsequent unboxing, where she saw the terms, constitutes acceptance.",
+  "cases": [
+   "ProCD Inc. v. Zeidenberg"
+  ],
+  "doctrines": [
+   "Shrinkwrap License",
+   "Contract Formation",
+   "UCC"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:licenses_bailments",
+  "kind": "unit",
+  "unit": "licenses_bailments",
+  "chapter": "4. Owner Sovereignty and Its Limits",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "2d9b675ab0"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Mr. and Mrs. Thompson owned a vacant lot in a planned community in Pennsylvania, which they purchased in fee simple. After several years, they decided they no longer wanted the lot due to increasing association fees and property taxes. They stopped paying the fees and taxes, sent a notarized letter to the community association stating their intent to abandon the property, and ceased all use and visitation of the lot. The community association subsequently sued the Thompsons for unpaid fees. Based on Pennsylvania law, what is the most likely outcome?",
+  "options": {
+   "A": "The Thompsons are not liable for the fees because their actions clearly demonstrated an intent to abandon the property, thus relinquishing their ownership.",
+   "B": "The Thompsons are liable for the fees because real property held in fee simple cannot be abandoned under Pennsylvania law, regardless of their intent.",
+   "C": "The Thompsons are not liable for the fees because their non-payment of taxes and non-use of the property constitute constructive abandonment.",
+   "D": "The Thompsons are liable for the fees, but only until the property is sold at a tax sale, as their intent to abandon is recognized once the state takes action."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect. While the Thompsons' actions show intent, Pocono Springs Civic Association v. MacKenzie explicitly states that intent to abandon is irrelevant when the law prohibits abandonment of fee simple real property.",
+   "B": "This is the correct answer. As established in Pocono Springs Civic Association v. MacKenzie, Pennsylvania law does not permit the abandonment of real property held in fee simple, meaning the owners retain title and associated obligations.",
+   "C": "This is incorrect. Pocono Springs Civic Association v. MacKenzie directly refutes this, stating that neither non-payment of taxes nor non-use constitutes abandonment of perfect title.",
+   "D": "This is incorrect. The liability for fees continues as long as the Thompsons hold title. The law does not recognize their intent to abandon as a means to shed obligations, even in anticipation of a tax sale, as per Pocono Springs Civic Association v. MacKenzie."
+  },
+  "explanation": "Under Pennsylvania law, as established in Pocono Springs Civic Association v. MacKenzie, real property held in fee simple cannot be abandoned. Therefore, despite the Thompsons' clear intent and actions to relinquish the property, they still hold title and remain responsible for the associated obligations, such as association fees.",
+  "cases": [
+   "Pocono Springs Civic Association v. MacKenzie"
+  ],
+  "doctrines": [
+   "Abandonment of Real Property",
+   "Fee Simple"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:traditional_forms_of_property",
+  "kind": "unit",
+  "unit": "traditional_forms_of_property",
+  "chapter": "5. The Forms of Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "84252be59d"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Eleanor devised her family estate, 'The Oaks,' to her son, Frederick, for life, with the remainder to her grandchildren. The estate includes a historic mansion built in 1890. Over the years, the neighborhood has become increasingly commercial, and the mansion is now very expensive to maintain and difficult to rent as a residence. Frederick proposes to demolish the mansion and build a modern office complex, which he estimates would generate substantial income and significantly increase the property's market value. The grandchildren object, stating they want to inherit the historic mansion as it is. Can Frederick proceed with his plan?",
+  "options": {
+   "A": "Yes, because the proposed office complex would substantially increase the property's value, constituting ameliorating waste.",
+   "B": "No, because demolishing the mansion would permanently change the nature and character of the inheritance, constituting waste, especially since the remaindermen object.",
+   "C": "Yes, because as a life tenant, Frederick has the right to manage the property in the most economically beneficial way, even if it alters the original structure.",
+   "D": "No, because the will specifically devised 'The Oaks' as a residence, and any change to its use is prohibited by the terms of the devise."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option misapplies the concept of ameliorating waste; courts generally reject it when it fundamentally changes the inheritance and remaindermen object, as seen in Brokaw v. Fairchild.",
+   "B": "This option correctly identifies that a life tenant cannot materially change the nature and character of the property, even if it increases value, if it permanently injures the inheritance and the remaindermen object, as held in Brokaw v. Fairchild.",
+   "C": "This option incorrectly asserts a life tenant's right to fundamentally alter the property for economic benefit; a life tenant cannot exercise an act of dominion or ownership that permanently changes the inheritance.",
+   "D": "While the testator's intent regarding the residence is important, the primary reason for prohibiting the demolition is the permanent injury to the inheritance and the material change in its character, not solely a specific prohibition in the will, as established in Brokaw v. Fairchild."
+  },
+  "explanation": "According to Brokaw v. Fairchild, a life tenant cannot demolish a valuable residence and replace it with a new structure, even if it would be more profitable and the neighborhood has changed, if it permanently injures the inheritance and the remaindermen object. Such an act constitutes waste because it fundamentally changes the nature and character of the property the remaindermen are entitled to receive.",
+  "cases": [
+   "Brokaw v. Fairchild"
+  ],
+  "doctrines": [
+   "Waste",
+   "Life Tenant's Rights",
+   "Ameliorating Waste"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:waste_restraints_on_alienation",
+  "kind": "unit",
+  "unit": "waste_restraints_on_alienation",
+  "chapter": "5. The Forms of Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "67e99f4dbc"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "A deed conveyed a parcel of land 'to the Springfield Historical Society, to be used solely for the purpose of maintaining a public museum, and in the event of sale or transfer by the Society, or if it ceases to be used as a public museum, the property shall revert to the grantor or his heirs.' The Society later decided to sell the property to a private developer to fund a new, larger museum elsewhere. The grantor's heirs claim the property should revert to them. Which of the following is the most likely outcome regarding the validity of the deed's conditions?",
+  "options": {
+   "A": "Both the condition against sale/transfer and the condition regarding use are void as restraints on alienation, so the Society holds a fee simple absolute.",
+   "B": "The condition against sale or transfer is void as a restraint on alienation, but the condition restricting use to a public museum is valid, creating a fee simple subject to a condition subsequent.",
+   "C": "Both conditions are valid because they reflect the grantor's clear intent to control the property's use and disposition, and the Society accepted the deed with these terms.",
+   "D": "The condition regarding use is void because it indirectly restrains alienation by limiting the pool of potential buyers, thus the Society holds a fee simple absolute."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect; while the restraint on alienation is void, the use restriction is generally held to be valid, as established in Mountain Brow Lodge No. 82 v. Toscano.",
+   "B": "This option correctly applies the rule from Mountain Brow Lodge No. 82 v. Toscano, which distinguishes between void restraints on alienation and valid use restrictions that create a defeasible estate.",
+   "C": "This is incorrect; direct restraints on alienation are generally void as against public policy, even if they reflect grantor intent, as per Mountain Brow Lodge No. 82 v. Toscano.",
+   "D": "This reflects the dissent's view in Mountain Brow Lodge No. 82 v. Toscano, but the majority held that a restriction on the *kind* of use is distinct from a direct restraint on alienation and is generally valid."
+  },
+  "explanation": "As established in Mountain Brow Lodge No. 82 v. Toscano, a condition in a deed that directly restrains alienation (e.g., 'in the event of sale or transfer') is void. However, a separate condition that restricts the use of the property (e.g., 'to be used solely for the purpose of maintaining a public museum') is generally valid and creates a fee simple subject to a condition subsequent, allowing for reverter if the condition is breached. These two types of conditions are severable.",
+  "cases": [
+   "Mountain Brow Lodge No. 82 v. Toscano"
+  ],
+  "doctrines": [
+   "Restraints on Alienation",
+   "Fee Simple Subject to Condition Subsequent",
+   "Severability of Conditions",
+   "Use Restrictions"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:waste_restraints_on_alienation",
+  "kind": "unit",
+  "unit": "waste_restraints_on_alienation",
+  "chapter": "5. The Forms of Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "913434bfc1"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "Eleanor, a wealthy eccentric, owned a unique, architecturally significant Victorian mansion in a historic district. Her will contained a clause stating, 'I direct my executor to immediately demolish my mansion at 123 Heritage Lane upon my death, sell the vacant lot, and distribute the proceeds to my distant cousin, Bartholomew.' The mansion is a local landmark, and its demolition would significantly decrease the property values of neighboring homes and create an unsightly gap in the historic streetscape. The neighbors and the local historical society seek to enjoin the demolition. Discuss whether the court should permit the executor to carry out Eleanor's testamentary instruction.",
+  "model_answer": "I. Issue: Can a testamentary direction to destroy a valuable, architecturally significant house be enjoined as contrary to public policy when it causes significant harm to the community and estate, and benefits no one?\n\nII. Rule: A testamentary direction to destroy valuable property can be voided as against public policy if it is capricious, causes significant economic and community harm, and benefits no one (Eyerman v. Mercantile Trust Co.). While a living person has broad rights to manage their property, a will's directions are subject to public policy, and the state has the power to impose conditions on the right to devise property.\n\nIII. Application: Eleanor's direction to demolish her mansion is likely void as against public policy. First, the demolition appears capricious; there is no stated beneficial purpose, and it primarily serves to destroy value. Second, the demolition would cause significant harm: it would result in an unwarranted loss to the estate (destroying a valuable asset), depreciate adjoining property values, and harm the community by creating an unsightly gap in a historic district and destroying a local landmark. These harms are similar to those identified in Eyerman, where the court found the destruction of a valuable home to be against public policy. The fact that the mansion is architecturally significant and in a historic district further strengthens the public policy argument against its destruction. The court in Eyerman emphasized that the general principle of an owner's 'free and untrammeled' use of real property is narrowed by competing interests of the community and other owners. Here, the community's interest in preserving the historic character and property values outweighs Eleanor's capricious post-mortem instruction.\n\nIV. Conclusion: The court should enjoin the executor from demolishing the mansion, as Eleanor's testamentary instruction is contrary to public policy.",
+  "rubric": [
+   {
+    "point": "Identifies the core issue: whether a testamentary direction to destroy property can be enjoined as against public policy.",
+    "points": 2
+   },
+   {
+    "point": "States the rule from Eyerman v. Mercantile Trust Co. regarding capricious destruction by will and public policy.",
+    "points": 3
+   },
+   {
+    "point": "Applies the rule to the facts, noting the capricious nature of the destruction and the specific harms (loss to estate, harm to neighbors' property values, harm to community/historic district).",
+    "points": 3
+   },
+   {
+    "point": "Concludes that the demolition should be enjoined based on public policy grounds.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Eyerman v. Mercantile Trust Co."
+  ],
+  "doctrines": [
+   "Public Policy",
+   "Testamentary Freedom",
+   "Right to Destroy"
+  ],
+  "scope": "unit-easy:waste_restraints_on_alienation",
+  "kind": "unit",
+  "unit": "waste_restraints_on_alienation",
+  "chapter": "5. The Forms of Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "ce83cfaf2d"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Alice and Bob own a 10-acre undeveloped parcel of land as tenants in common. Alice owns a 70% interest, and Bob owns a 30% interest. Alice wants to develop the entire parcel into a commercial shopping center. Bob, who lives in a small cabin on a corner of the property and uses the surrounding land for a small organic farm, wants to continue his farming operation. Alice files a petition for partition by sale, arguing that a commercial development would yield the highest economic value for the property. Bob requests a partition in kind, suggesting the property could be easily divided into two parcels, one for his farm and one for Alice's development. The land is flat and has road access on two sides. Which of the following is the most likely outcome?",
+  "options": {
+   "A": "The court will order a partition by sale because Alice's proposed commercial development would maximize the economic value of the property, thus promoting the interests of the owners.",
+   "B": "The court will order a partition in kind because physical division is practicable, and it would better protect Bob's established possessory interest and livelihood.",
+   "C": "The court will order a partition by sale, but award Bob a larger share of the proceeds to compensate him for the loss of his farm and home.",
+   "D": "The court will deny any partition, requiring Alice and Bob to negotiate a private settlement, as courts are reluctant to interfere with co-ownership arrangements."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because maximizing economic value for one co-tenant is not the sole or primary consideration; the court must consider the interests of all co-tenants, and there is a strong preference for partition in kind when practicable, as established in Delfino v. Vealencis.",
+   "B": "This option is correct because, as held in Delfino v. Vealencis, courts strongly prefer partition in kind when physical division is practicable, especially when one co-tenant has a significant reliance interest, such as a home and livelihood, tied to continued possession.",
+   "C": "This option is incorrect because while compensation might be considered in some partition by sale scenarios, the primary preference is for partition in kind when feasible, particularly to protect a co-tenant's possessory interest and livelihood, rather than forcing a sale and then compensating for the loss, as per Delfino v. Vealencis.",
+   "D": "This option is incorrect because courts do have the power to order partition and will do so when requested by a co-tenant; they do not simply deny partition and force private negotiation, as seen in Delfino v. Vealencis where the court ultimately ordered a partition."
+  },
+  "explanation": "The case of Delfino v. Vealencis establishes a strong preference for partition in kind over partition by sale, especially when physical division is practicable and one co-tenant has a significant possessory interest and livelihood tied to the property. Here, the land is easily divisible, and Bob's farm and home represent a substantial reliance interest that a partition in kind would protect.",
+  "cases": [
+   "Delfino v. Vealencis"
+  ],
+  "doctrines": [
+   "Partition in Kind Preference",
+   "Partition by Sale Conditions",
+   "Consideration of All Owners' Interests"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:concurrent_owners",
+  "kind": "unit",
+  "unit": "concurrent_owners",
+  "chapter": "5. The Forms of Ownership",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "fdaaa9cc4e"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Laura leases an apartment from David. The lease agreement specifies that Laura will use the premises for residential purposes only. David also owns the adjacent commercial space and leases it to 'The Loud Lounge,' a bar known for its late-night live music. Despite Laura's repeated complaints to David about the excessive noise from The Loud Lounge, which often continues until 3 AM, David takes no effective action. The lease for The Loud Lounge includes a clause requiring the establishment to conduct its business in a manner that does not disturb residential tenants. After two months of sleepless nights, Laura vacates her apartment and stops paying rent. David sues Laura for unpaid rent.\n\nWhich of the following is the most likely outcome?",
+  "options": {
+   "A": "Laura is liable for the unpaid rent because a landlord is generally not responsible for disturbances caused by other tenants.",
+   "B": "Laura is not liable for the unpaid rent because David breached the implied warranty of quiet enjoyment, leading to a constructive eviction.",
+   "C": "Laura is liable for the unpaid rent because she failed to obtain a court order declaring the noise a nuisance before vacating the premises.",
+   "D": "Laura is not liable for the unpaid rent, but only if she can prove that David intended to force her out of the apartment by allowing the noise."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because, under the facts, the landlord had the ability to control the nuisance created by the other tenant, making him responsible.",
+   "B": "This option is correct because the landlord's failure to control the noise from a commercial tenant, over whom he had control, constitutes a breach of the implied warranty of quiet enjoyment, leading to constructive eviction when the tenant vacates within a reasonable time.",
+   "C": "This option is incorrect because a tenant is not required to obtain a court order before vacating due to a constructive eviction; vacating within a reasonable time is sufficient.",
+   "D": "This option is incorrect because a landlord's intent is not controlling in determining a breach of the implied warranty of quiet enjoyment; the landlord's conduct is."
+  },
+  "explanation": "The implied warranty of quiet enjoyment is breached when a landlord's actions or inactions substantially deprive a tenant of the quiet enjoyment of their premises. If the landlord has the ability to control a nuisance created by another tenant and fails to do so, and the tenant vacates within a reasonable time, it constitutes a constructive eviction, relieving the tenant of rent obligations.",
+  "cases": [
+   "Blackett v. Olanoff"
+  ],
+  "doctrines": [
+   "Implied Warranty of Quiet Enjoyment",
+   "Constructive Eviction",
+   "Landlord Control Over Nuisance"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:leases_traditional_rules",
+  "kind": "unit",
+  "unit": "leases_traditional_rules",
+  "chapter": "6. Entity Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "e415ce02a7"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Acme Corp. leased a commercial space from Realty Holdings Inc. for a five-year term, with a clause stating the premises were to be used \"solely as an office for Acme Corp. and for no other purpose.\" The lease also included a restrictive covenant where Realty Holdings agreed \"not to lease any other space in the building to any entity whose primary business is corporate consulting.\" Two years into the lease, Realty Holdings leased an adjacent office to Global Solutions LLC, a corporate consulting firm. Acme Corp. immediately notified Realty Holdings of the breach and demanded they terminate Global Solutions' lease. Realty Holdings responded that they could not do anything about it. Acme Corp. then vacated the premises and stopped paying rent. Realty Holdings sued Acme Corp. for unpaid rent.\n\nWhich of the following is the most likely outcome?",
+  "options": {
+   "A": "Acme Corp. is liable for the unpaid rent because covenants in commercial leases are always independent, meaning Acme Corp.'s obligation to pay rent is separate from Realty Holdings' obligation to uphold the restrictive covenant.",
+   "B": "Acme Corp. is not liable for the unpaid rent because Realty Holdings breached a dependent covenant that went to the whole consideration of the lease, justifying Acme Corp.'s rescission.",
+   "C": "Acme Corp. is liable for the unpaid rent because it failed to prove specific pecuniary damages resulting from Global Solutions LLC operating next door.",
+   "D": "Acme Corp. is not liable for the unpaid rent, but only if it can prove that Realty Holdings intentionally leased to Global Solutions LLC to harm Acme Corp.'s business."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because the rule that all covenants in leases are independent has been rejected; covenants can be dependent if they go to the entire consideration of the lease, as established in Medico-Dental Building Co. v. Horton & Converse.",
+   "B": "This option is correct because, as held in Medico-Dental Building Co. v. Horton & Converse, if a landlord breaches a restrictive covenant that is material and goes to the whole consideration of the lease, the tenant is justified in rescinding the lease and stopping rent payments.",
+   "C": "This option is incorrect because, as per Medico-Dental Building Co. v. Horton & Converse, a tenant is not required to prove exact pecuniary detriment when a material breach of a dependent covenant occurs; the substantial nature of the breach itself is sufficient.",
+   "D": "This option is incorrect because the landlord's intent to harm the tenant is not a requirement for a tenant to rescind a lease due to a material breach of a restrictive covenant; the focus is on the breach's impact on the tenant's bargained-for consideration, as shown in Medico-Dental Building Co. v. Horton & Converse."
+  },
+  "explanation": "In Medico-Dental Building Co. v. Horton & Converse, the court held that a tenant can rescind a lease and stop paying rent if the landlord breaches a restrictive covenant that goes to the whole consideration of the lease. Here, the restrictive covenant was likely material to Acme Corp.'s business, and Realty Holdings' failure to enforce it constitutes a material breach, allowing Acme Corp. to rescind.",
+  "cases": [
+   "Medico-Dental Building Co. v. Horton & Converse"
+  ],
+  "doctrines": [
+   "Dependent Covenants",
+   "Material Breach",
+   "Lease as Contract"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:leases_reforms_transfers",
+  "kind": "unit",
+  "unit": "leases_reforms_transfers",
+  "chapter": "6. Entity Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "3b7d23589a"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Sarah leased an apartment from Landlord Corp. in a large urban building. The lease did not explicitly mention any repair obligations for Landlord Corp. Three months into her lease, Sarah discovered significant plumbing issues, including a persistent leak in the bathroom ceiling and a non-functioning toilet, which Landlord Corp. refused to fix despite repeated requests. Sarah subsequently withheld her rent payment, arguing that the apartment was uninhabitable. Landlord Corp. initiated an eviction action for nonpayment of rent.\n\nWhich of the following is the most likely outcome?",
+  "options": {
+   "A": "Sarah will be evicted because, under traditional common law, a lease is a conveyance of land, and the landlord has no implied duty to repair unless explicitly stated in the lease.",
+   "B": "Sarah will not be evicted because an implied warranty of habitability, measured by housing code standards, exists in urban dwelling leases, and Landlord Corp. breached this warranty.",
+   "C": "Sarah will be evicted because she did not first pay the rent into an escrow account before withholding payment, which is a prerequisite for asserting a habitability defense.",
+   "D": "Sarah will not be evicted, but only if she can prove that the plumbing issues existed before she moved in and Landlord Corp. fraudulently concealed them."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because the traditional common law view of leases as mere conveyances without implied repair duties has been largely superseded for urban dwelling units by the implied warranty of habitability, as established in Javins v. First National Realty Corp.",
+   "B": "This option is correct because, as held in Javins v. First National Realty Corp., an implied warranty of habitability exists in leases of urban dwelling units, and a landlord's breach of this warranty can be used as a defense against an eviction action for nonpayment of rent.",
+   "C": "This option is incorrect because while a court may require rent to be paid into a registry during litigation, it is not a prerequisite for asserting the defense of implied warranty of habitability, as discussed in Javins v. First National Realty Corp.",
+   "D": "This option is incorrect because the implied warranty of habitability, as established in Javins v. First National Realty Corp., applies to conditions that arise during the term of the lease, not just those existing at the time of move-in or involving fraudulent concealment."
+  },
+  "explanation": "Javins v. First National Realty Corp. established an implied warranty of habitability in leases of urban dwelling units, measured by housing code standards. A landlord's breach of this warranty, such as failing to fix significant plumbing issues rendering an apartment uninhabitable, can be used by the tenant as a defense against an eviction action for nonpayment of rent.",
+  "cases": [
+   "Javins v. First National Realty Corp."
+  ],
+  "doctrines": [
+   "Implied Warranty of Habitability",
+   "Modern Contract Law",
+   "Contractual Interdependence"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:leases_reforms_transfers",
+  "kind": "unit",
+  "unit": "leases_reforms_transfers",
+  "chapter": "6. Entity Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "7394c3a740"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "Tech Innovations Inc. leased a commercial office space from Downtown Properties LLC for a term of ten years. Three years into the lease, Tech Innovations decided to relocate its headquarters. It entered into an agreement with Startup Solutions Co., titled \"Lease Transfer Agreement,\" which stated that Tech Innovations \"hereby transfers and assigns\" its entire remaining seven-year lease term to Startup Solutions. The agreement also stipulated that Startup Solutions would pay the monthly rent directly to Downtown Properties and would also pay Tech Innovations a separate monthly fee for the duration of the original lease term. Tech Innovations reserved a right to re-enter and retake possession if Startup Solutions failed to pay either the rent to Downtown Properties or the monthly fee to Tech Innovations. Six months later, the building was severely damaged by a fire, rendering the office space unusable. Startup Solutions immediately stopped paying both the rent to Downtown Properties and the monthly fee to Tech Innovations, arguing that its obligations terminated with the destruction of the premises. Tech Innovations sued Startup Solutions for the unpaid monthly fees.\n\nAnalyze whether the agreement between Tech Innovations and Startup Solutions was an assignment or a sublease, and determine the likely outcome of Tech Innovations' suit for unpaid fees.",
+  "model_answer": "Issue: The central issue is whether the transfer of the leasehold interest from Tech Innovations to Startup Solutions constitutes an assignment or a sublease, which will determine Startup Solutions' ongoing liability for the monthly fees to Tech Innovations after the premises were destroyed.\n\nRule: In Jaber v. Miller, the court rejected the common law rule that distinguished between an assignment and a sublease based solely on whether the entire term was transferred. Instead, the court held that the intention of the parties governs in determining whether an instrument is an assignment or a sublease. Factors indicating intent include the language used in the document, the nature of the consideration, and whether promissory notes were used.\n\nApplication: Here, the agreement is titled \"Lease Transfer Agreement\" and explicitly states that Tech Innovations \"hereby transfers and assigns\" its entire remaining seven-year lease term. This language strongly indicates an intent to assign the lease. The fact that Startup Solutions agreed to pay a separate monthly fee directly to Tech Innovations, in addition to the rent paid to Downtown Properties, suggests that this fee was part of the consideration for the transfer of the lease itself, rather than rent for a sublease. While Tech Innovations reserved a right of re-entry, which under the rejected \"Massachusetts Rule\" might suggest a sublease, the prevailing rule from Jaber v. Miller prioritizes the parties' overall intent. The transfer of the entire remaining term, coupled with the assignment language and the nature of the payments, points towards an assignment. As an assignment, the monthly fees owed to Tech Innovations are deferred payments for the assignment, not rent. The destruction of the premises would typically terminate rent obligations, but not obligations arising from an assignment unless specifically provided for in the assignment agreement.\n\nConclusion: Based on the parties' intent as evidenced by the language and structure of their agreement, the transfer was an assignment. Therefore, the monthly fees owed by Startup Solutions to Tech Innovations are deferred payments for the assignment, not rent. The destruction of the building does not automatically terminate Startup Solutions' obligation to pay these fees to Tech Innovations, and Tech Innovations is likely to succeed in its suit.",
+  "rubric": [
+   {
+    "point": "Identifies the core issue: assignment vs. sublease and its impact on liability.",
+    "points": 2
+   },
+   {
+    "point": "States the rule from Jaber v. Miller: intent of the parties governs, rejecting the common law 'entire term' rule.",
+    "points": 3
+   },
+   {
+    "point": "Applies the rule to the facts, analyzing the 'assignment' language, transfer of the entire term, and nature of the payments as indicative of intent.",
+    "points": 3
+   },
+   {
+    "point": "Concludes that it is an assignment and explains why the destruction of the premises does not terminate the obligation to pay the fees to Tech Innovations.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Jaber v. Miller"
+  ],
+  "doctrines": [
+   "Assignment vs. Sublease",
+   "Intent of the Parties"
+  ],
+  "scope": "unit-easy:leases_reforms_transfers",
+  "kind": "unit",
+  "unit": "leases_reforms_transfers",
+  "chapter": "6. Entity Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "0bbce34bf2"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The 'Oakhaven Estates' condominium complex has a recorded declaration of covenants, conditions, and restrictions (CC&Rs) that includes a prohibition against keeping any pets other than fish. Sarah, a new resident, moves in with her well-behaved, indoor cat, 'Whiskers.' She claims Whiskers is quiet, causes no disturbance, and she was unaware of the pet restriction when she purchased her unit. The Oakhaven Estates Condominium Association demands she remove Whiskers and assesses fines. Sarah sues the Association, arguing the pet restriction is unreasonable as applied to her specific circumstances. Based on the principles established in *Nahrstedt v. Lakeside Village Condominium Association*, how should a court rule on the enforceability of the pet restriction?",
+  "options": {
+   "A": "The court should rule in favor of Sarah because the pet restriction is unreasonable as applied to her specific circumstances, given that her cat is noiseless and creates no nuisance.",
+   "B": "The court should rule in favor of the Oakhaven Estates Condominium Association because recorded use restrictions are presumed reasonable and are enforceable unless arbitrary, violate public policy, or impose burdens disproportionate to benefits for the development as a whole, not based on individual circumstances.",
+   "C": "The court should rule in favor of Sarah because the restriction violates her fundamental right to privacy and the enjoyment of her property, which includes keeping a pet.",
+   "D": "The court should rule in favor of the Oakhaven Estates Condominium Association, but only if the Association can prove that Sarah's cat has, in fact, caused a nuisance or disturbance to other residents."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because *Nahrstedt* explicitly rejected a case-by-case reasonableness test, stating that the enforceability of a recorded restriction is determined by reference to the development as a whole, not individual circumstances.",
+   "B": "This option is correct because *Nahrstedt* held that recorded use restrictions are presumed reasonable and are enforceable unless they are arbitrary, violate a fundamental public policy, or impose burdens on the affected land that substantially outweigh the restriction's benefits to the development as a whole. The court specifically rejected considering the reasonableness based on an individual homeowner's specific circumstances.",
+   "C": "This option is incorrect because *Nahrstedt* found no fundamental public policy, constitutional right, or statute in California that guarantees condominium owners the right to keep household pets.",
+   "D": "This option is incorrect because *Nahrstedt* held that the pet restriction itself is rationally related to legitimate concerns in a high-density living environment, and the Association does not need to prove an individual pet has caused a nuisance for the restriction to be enforceable."
+  },
+  "explanation": "In *Nahrstedt v. Lakeside Village Condominium Association*, the court established that recorded use restrictions in common interest developments are presumed reasonable and are enforceable unless they are arbitrary, violate a fundamental public policy, or impose burdens disproportionate to the benefits for the development as a whole. The court explicitly rejected a case-by-case reasonableness test based on an individual homeowner's specific circumstances, meaning Sarah's claims about her cat's behavior are irrelevant to the restriction's enforceability.",
+  "cases": [
+   "Nahrstedt v. Lakeside Village Condominium Association"
+  ],
+  "doctrines": [
+   "Presumption of Validity",
+   "Test for Unreasonableness",
+   "Focus of Unreasonableness Test"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:entity_forms_condos_coops_corps_partnerships_trusts",
+  "kind": "unit",
+  "unit": "entity_forms_condos_coops_corps_partnerships_trusts",
+  "chapter": "6. Entity Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "bc85f49351"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The 'Maplewood Heights' cooperative apartment building has a proprietary lease that requires shareholder-tenants to obtain prior written consent for any structural alterations. David, a shareholder-tenant, decides to combine two small bathrooms into one larger one, which involves moving a non-load-bearing wall and rerouting some plumbing. He submits plans to the cooperative board, which, after consulting its engineer, denies his request, citing a general policy against altering internal plumbing systems due to the age of the building and potential risks. David argues the board's decision is arbitrary and capricious because his proposed alterations are safe and would improve his unit. Under the standard established in *Levandusky v. One Fifth Avenue Apartment Corp.*, how should a court review the board's decision?",
+  "options": {
+   "A": "The court should independently evaluate the reasonableness of the board's decision, requiring the board to prove that David's specific alterations pose an actual, significant risk to the building.",
+   "B": "The court should apply the business judgment rule, deferring to the board's decision as long as it acted for the purposes of the cooperative, within its authority, and in good faith.",
+   "C": "The court should rule in favor of David, as a shareholder-tenant has a fundamental right to make reasonable improvements to their own property, provided they do not create a nuisance.",
+   "D": "The court should apply a heightened scrutiny standard, requiring the board to demonstrate a compelling reason for denying an alteration that would otherwise enhance the value and utility of a shareholder's unit."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because *Levandusky* explicitly rejected an independent judicial evaluation of the reasonableness of a cooperative board's decision, stating that courts are ill-equipped to make such judgments.",
+   "B": "This option is correct because *Levandusky* held that the business judgment rule is the appropriate standard of review for decisions made by cooperative boards. Under this rule, courts defer to the board's determination so long as it acts for the purposes of the cooperative, within the scope of its authority, and in good faith.",
+   "C": "This option is incorrect because *Levandusky* emphasizes that cooperative living entails voluntary, shared control, and shareholder-tenants agree to submit to the authority of the board, which can significantly restrict individual property rights.",
+   "D": "This option is incorrect because *Levandusky* established the business judgment rule as the standard, which is deferential, not a heightened scrutiny standard that would require a 'compelling reason' for board decisions on alterations."
+  },
+  "explanation": "In *Levandusky v. One Fifth Avenue Apartment Corp.*, the New York Court of Appeals established that the business judgment rule governs a cooperative board's decisions regarding alterations. Under this rule, courts will defer to the board's determination as long as it acts for the purposes of the cooperative, within the scope of its authority, and in good faith. The board's decision to maintain a general policy against altering internal plumbing due to building age and potential risks falls within this deferential standard, and David would need to show bad faith, arbitrariness, or a lack of authority to overcome it.",
+  "cases": [
+   "Levandusky v. One Fifth Avenue Apartment Corp."
+  ],
+  "doctrines": [
+   "Business Judgment Rule",
+   "Cooperative Board Authority"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:entity_forms_condos_coops_corps_partnerships_trusts",
+  "kind": "unit",
+  "unit": "entity_forms_condos_coops_corps_partnerships_trusts",
+  "chapter": "6. Entity Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "41d4db0d76"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Alice purchased a home from Bob under a land sale contract for $100,000. The contract stipulated an initial payment of $10,000 and monthly payments thereafter. It also included a clause stating that if Alice defaulted on any payment for more than 30 days, all prior payments would be forfeited to Bob as liquidated damages, and Bob would regain possession of the property. Alice made payments totaling $60,000 over several years, significantly reducing the principal. She then fell on hard times and missed three consecutive monthly payments. Bob, relying on the contract's forfeiture clause, sought to terminate the contract, retain the $60,000 already paid, and reclaim the property. Alice argues that this would be an unconscionable penalty.\n\nWhich of the following is the most likely outcome if Alice challenges Bob's attempt to enforce the forfeiture clause?",
+  "options": {
+   "A": "The court will enforce the forfeiture clause as written, as Alice freely entered into the contract and defaulted on its terms.",
+   "B": "The court will treat the land sale contract as a mortgage and require Bob to pursue a judicial foreclosure, allowing Alice to protect her equitable interest.",
+   "C": "The court will allow Bob to retain the $60,000 as liquidated damages but will require him to sell the property to a third party and give Alice any proceeds above the remaining debt.",
+   "D": "The court will find the forfeiture clause to be a valid liquidated damages provision because the parties agreed to it, but will reduce the amount Bob can retain to only cover his actual damages."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option is incorrect because courts generally disfavor forfeitures, especially when a substantial amount has been paid, and will often intervene on equitable grounds.",
+   "B": "This option is correct because, as established in Skendzel v. Marshall, courts view land sale contracts with substantial payments as analogous to mortgages and require judicial foreclosure to protect the vendee's equitable interest.",
+   "C": "This option is incorrect because while it attempts to provide some relief, it does not align with the specific remedy of judicial foreclosure, which is the preferred equitable solution for land sale contracts treated as mortgages.",
+   "D": "This option is incorrect because while courts may scrutinize liquidated damages, the primary remedy for a land sale contract with substantial payments is to treat it as a mortgage and require foreclosure, not merely to adjust the liquidated damages amount."
+  },
+  "explanation": "In cases where a vendee has paid a substantial portion of the purchase price under a land sale contract, courts, as seen in Skendzel v. Marshall, will treat the contract as a mortgage. This means that instead of enforcing a forfeiture clause, the vendor must pursue a judicial foreclosure, which allows the vendee to protect their equitable interest in the property.",
+  "cases": [
+   "Skendzel v. Marshall"
+  ],
+  "doctrines": [
+   "Equitable relief against forfeiture",
+   "Land sale contract as secured transaction",
+   "Judicial foreclosure"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:liens_mortgages",
+  "kind": "unit",
+  "unit": "liens_mortgages",
+  "chapter": "7. Security Interests",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "17e9154e27"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "The Green family purchased a home from XYZ Bank under a power of sale mortgage. After several years, Mr. Green lost his job, and the family fell behind on their mortgage payments. XYZ Bank initiated foreclosure proceedings. They sent the Greens all statutorily required notices and advertised the sale in a local newspaper for three consecutive weeks. The Greens, distraught, did not seek an injunction to stop the sale. At the foreclosure auction, only a representative from XYZ Bank and one other potential bidder, Mr. Jones, were present. Mr. Jones bid $150,000, which was $10,000 more than the outstanding mortgage debt. The bank's representative then bid $155,000, and Mr. Jones, believing the bank would outbid him indefinitely, withdrew. The property was sold to XYZ Bank for $155,000. Two weeks later, XYZ Bank sold the property to Mr. Jones for $180,000.\n\nThe Greens sue XYZ Bank, alleging that the bank failed to exercise its duty of good faith and due diligence in conducting the foreclosure sale. Analyze the Greens' likelihood of success, discussing the relevant duties of the mortgagee and potential remedies.",
+  "model_answer": "The Greens are likely to succeed in their claim that XYZ Bank failed to exercise its duty of due diligence in conducting the foreclosure sale, though not necessarily bad faith.\n\n**Issue:** Did XYZ Bank fulfill its duty of good faith and due diligence in conducting the foreclosure sale?\n\n**Rule:** A mortgagee executing a power of sale must comply with statutory procedural requirements and has a duty to protect the mortgagor's interests through good faith and due diligence. This duty is essentially that of a fiduciary, requiring the mortgagee to exert every reasonable effort to obtain a \"fair and reasonable price under the circumstances,\" which may include adjourning the sale or establishing an upset price. Inadequacy of price alone is not sufficient to demonstrate bad faith unless the price is so low as to shock the judicial conscience. Lack of due diligence is determined by whether a reasonable person in the mortgagee's place would have taken additional measures to receive a fair price. (Murphy v. Financial Development Corp.)\n\n**Analysis:** XYZ Bank complied with statutory notice requirements, but this alone is insufficient to satisfy its duty. The bank's actions suggest a lack of due diligence. First, the bank bid only slightly above the outstanding debt, effectively discouraging the only other bidder, Mr. Jones, who was willing to pay more. Second, the bank's quick resale of the property to Mr. Jones for a significantly higher price ($180,000) just two weeks later demonstrates that the bank had reason to know a higher price was attainable at the time of the foreclosure sale. A reasonable mortgagee, acting with due diligence, would have taken steps to secure this higher price at the initial sale, such as encouraging further bidding or setting a higher upset price, rather than acquiring the property itself only to flip it for a substantial profit. While there is no evidence of bad faith (intentional disregard or purpose to injure), the bank's failure to maximize the sale price for the Greens' benefit constitutes a lack of due diligence.\n\n**Conclusion:** The Greens are likely to succeed on their claim of lack of due diligence. The appropriate remedy would be damages, calculated as the difference between a fair price for the property (likely closer to the $180,000 resale price) and the $155,000 obtained at the foreclosure sale. The Greens' failure to seek an injunction before the sale does not bar their action, as the unfairness of the price became apparent during and after the sale itself. (Murphy v. Financial Development Corp.)",
+  "rubric": [
+   {
+    "point": "Identifies the mortgagee's duty of due diligence as the central issue.",
+    "points": 2
+   },
+   {
+    "point": "Applies the rule from Murphy v. Financial Development Corp. regarding the mortgagee's fiduciary-like duty to obtain a fair price.",
+    "points": 3
+   },
+   {
+    "point": "Analyzes the facts to demonstrate how the bank's actions (discouraging bidders, quick profitable resale) indicate a lack of due diligence.",
+    "points": 3
+   },
+   {
+    "point": "Distinguishes between lack of due diligence and bad faith, and correctly identifies the appropriate remedy (damages for lack of due diligence).",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Murphy v. Financial Development Corp."
+  ],
+  "doctrines": [
+   "Mortgagee's duty of due diligence",
+   "Power of sale foreclosure",
+   "Fair price in foreclosure",
+   "Damages for lack of due diligence"
+  ],
+  "scope": "unit-easy:liens_mortgages",
+  "kind": "unit",
+  "unit": "liens_mortgages",
+  "chapter": "7. Security Interests",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "ee4075612a"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "In 2020, Alice entered into a land installment contract with Bob to purchase a lakeside cabin. Alice made a substantial down payment and agreed to monthly payments over five years. The contract stipulated that Alice was responsible for maintaining the property and paying for hazard insurance. In 2022, before Alice had paid the full purchase price, a severe storm caused significant damage to the cabin, reducing its market value. The insurance company paid out a settlement for the damage. Who is entitled to the insurance settlement proceeds?",
+  "options": {
+   "A": "Alice and Bob should split the proceeds based on the percentage of the purchase price Alice had paid at the time of the storm.",
+   "B": "Alice, as the equitable owner of the property, is entitled to the full insurance settlement proceeds.",
+   "C": "Bob, as the legal title holder, is entitled to the full insurance settlement proceeds to repair the property or reduce Alice's outstanding debt.",
+   "D": "The insurance company should hold the funds in escrow until the contract is fully performed, then distribute them based on who ultimately bears the risk of loss."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option incorrectly applies a pro-rata division based on payments made, which is not supported by the doctrine of equitable conversion.",
+   "B": "This option is correct because, under the doctrine of equitable conversion, the buyer in a land installment contract becomes the equitable owner and is entitled to all benefits, including insurance proceeds for property diminution.",
+   "C": "This option is incorrect because while Bob holds legal title, his interest is primarily as security for the purchase price, and equitable ownership (and thus the right to benefits like insurance proceeds) passes to Alice upon contract formation.",
+   "D": "This option introduces an unnecessary escrow arrangement and misinterprets the immediate effect of equitable conversion on the distribution of benefits."
+  },
+  "explanation": "Under the doctrine of equitable conversion, once a land installment contract is executed, equitable title passes to the buyer. As the equitable owner, the buyer is entitled to all benefits that accrue to the property, including insurance settlements for damage or diminution in value, even if legal title has not yet passed. The seller's retention of legal title is merely as security for the unpaid purchase price.",
+  "cases": [
+   "Wood v. Donohue"
+  ],
+  "doctrines": [
+   "Equitable Conversion",
+   "Land Installment Contract"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:title_transfer_land_transactions_good_faith_purchasers_recording",
+  "kind": "unit",
+  "unit": "title_transfer_land_transactions_good_faith_purchasers_recording",
+  "chapter": "8. Title Records and the Transfer of Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "5c9eca1939"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "David, a car dealer, purchased a rare vintage motorcycle from Sarah for $5,000. Sarah had acquired the motorcycle from its original owner, Mark, by presenting a forged cashier's check. David knew the motorcycle was worth at least $20,000, but he did not inquire further into the low price or Sarah's ownership history. After David purchased the motorcycle, Mark discovered the fraud and sought to reclaim it from David. Can David claim good title to the motorcycle as a good faith purchaser?",
+  "options": {
+   "A": "Yes, because Sarah had voidable title, and David paid value for the motorcycle, fulfilling the requirements of a good faith purchaser.",
+   "B": "No, because Sarah had void title, as she obtained the motorcycle through forgery, meaning she could not transfer good title to anyone.",
+   "C": "No, because David's purchase at an unreasonably low price, coupled with his lack of inquiry into suspicious circumstances, indicates a lack of good faith.",
+   "D": "Yes, because the test for good faith is purely subjective, and there is no evidence David actually knew the motorcycle was stolen, only that he should have been suspicious."
+  },
+  "answer": "C",
+  "why": {
+   "A": "This option is incorrect because while Sarah had voidable title, David's lack of good faith prevents him from acquiring good title.",
+   "B": "This option is incorrect; Sarah obtained voidable title because Mark voluntarily delivered the motorcycle, even if induced by fraud, rather than it being taken against his will.",
+   "C": "This option is correct. An unreasonably low price for goods is evidence that the buyer knows the goods are stolen, and a buyer cannot claim good faith if they willfully disregard suspicious facts, even if the test for good faith is primarily actual belief.",
+   "D": "This option misapplies the good faith standard; while actual belief is key, willful disregard of suspicious facts, such as an extremely low price, can negate a claim of good faith."
+  },
+  "explanation": "Under UCC \u00a7 2.403(a), a person with voidable title can transfer good title to a good faith purchaser for value. However, 'good faith' requires honesty in fact. An unreasonably low price for goods is strong evidence that the buyer knows the goods are stolen or unlawfully obtained. While the test for good faith is actual belief, it does not sanction willful disregard of suspicious facts. David's purchase at a fraction of the motorcycle's value, without further inquiry, demonstrates a lack of good faith, preventing him from acquiring good title.",
+  "cases": [
+   "Kotis v. Nowlin Jewelry Inc."
+  ],
+  "doctrines": [
+   "Good Faith Purchaser",
+   "Voidable Title",
+   "UCC \u00a7 2.403(a)"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:title_transfer_land_transactions_good_faith_purchasers_recording",
+  "kind": "unit",
+  "unit": "title_transfer_land_transactions_good_faith_purchasers_recording",
+  "chapter": "8. Title Records and the Transfer of Property",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "37df14df0a"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "Alice owns a large tract of land that borders a public road. She decides to subdivide her property into two parcels: Parcel A, which retains direct access to the public road, and Parcel B, which is located behind Parcel A and has no direct access to the public road. Alice then sells Parcel B to Bob. After the sale, Bob discovers he cannot access the public road from Parcel B without crossing Parcel A. Bob sues Alice, claiming an easement by necessity over Parcel A. Will Bob likely succeed in establishing an easement by necessity?\n\nA. Yes, because Parcel B is landlocked and was created by Alice's severance of her property.\nB. No, because an easement by necessity can only be claimed by a grantor over land retained by the grantee.\nC. Yes, because the necessity for access was created by the original common owner, Alice.\nD. No, because Bob should have negotiated an express easement before purchasing the landlocked parcel.",
+  "options": {
+   "A": "Yes, because Parcel B is landlocked and was created by Alice's severance of her property.",
+   "B": "No, because an easement by necessity can only be claimed by a grantor over land retained by the grantee.",
+   "C": "Yes, because the necessity for access was created by the original common owner, Alice.",
+   "D": "No, because Bob should have negotiated an express easement before purchasing the landlocked parcel."
+  },
+  "answer": "A",
+  "why": {
+   "A": "This option correctly states the conditions under which an easement by necessity typically arises: common ownership followed by severance that creates a landlocked parcel, with the easement implied over the grantor's retained land for the benefit of the grantee. This aligns with the rule from Schwab v. Timmons.",
+   "B": "This option misstates the rule for an easement by necessity; it is typically claimed by the grantee of the landlocked parcel over the grantor's retained land, not the other way around, as clarified in Schwab v. Timmons.",
+   "C": "While the necessity was created by the common owner, the statement 'Yes, because the necessity for access was created by the original common owner, Alice' is not the most precise legal reason for success. The key is that the common owner severed a landlocked parcel and the easement is implied over the retained land.",
+   "D": "While negotiating an express easement is prudent, the failure to do so does not automatically preclude an easement by necessity if the legal requirements are met, as established in Schwab v. Timmons."
+  },
+  "explanation": "An easement by necessity arises when an owner severs a landlocked portion of their property by conveying such parcel to another. To establish it, a party must show common ownership of the two parcels prior to severance of the landlocked parcel, and that the owner of the now landlocked parcel cannot access a public roadway from their own property. Here, Alice, the common owner, created the landlocked Parcel B by selling it to Bob, thus Bob, as the grantee, can claim an easement over Alice's retained Parcel A.",
+  "cases": [
+   "Schwab v. Timmons"
+  ],
+  "doctrines": [
+   "Easement by Necessity",
+   "Common Ownership",
+   "Severance"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:easements",
+  "kind": "unit",
+  "unit": "easements",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "7fb1a7f277"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "For over six years, a local delivery company, 'QuickShip,' has regularly driven its trucks across a corner of Sarah's undeveloped commercial property to access a loading dock at an adjacent business. QuickShip's drivers use a consistent path, which is clearly visible due to tire tracks. Sarah has seen the trucks using her property multiple times but has never given QuickShip explicit permission, nor has she objected. QuickShip now claims a prescriptive easement over Sarah's property. Which of the following elements is most likely to be disputed by Sarah to defeat QuickShip's claim?\n\nA. The use was not continuous for the statutory period.\nB. The use was not open and notorious.\nC. The use was not adverse.\nD. The use was not for a definite and certain line of travel.",
+  "options": {
+   "A": "The use was not continuous for the statutory period.",
+   "B": "The use was not open and notorious.",
+   "C": "The use was not adverse.",
+   "D": "The use was not for a definite and certain line of travel."
+  },
+  "answer": "C",
+  "why": {
+   "A": "The facts state the use occurred 'for over six years,' which exceeds the five-year statutory period mentioned in Warsaw v. Chicago Metallic Ceilings Inc., making this element unlikely to be disputed successfully.",
+   "B": "The facts state the path is 'clearly visible due to tire tracks' and Sarah 'has seen the trucks using her property multiple times,' indicating the use was open and notorious, as required by Warsaw v. Chicago Metallic Ceilings Inc.",
+   "C": "The facts state Sarah 'has never given QuickShip explicit permission, nor has she objected.' While continuous use without objection can create a presumption of adversity, Sarah could argue that her lack of objection implied permissive use, which would defeat the 'adverse' element, as discussed in Warsaw v. Chicago Metallic Ceilings Inc. This is the most common point of contention in prescriptive easement cases when permission is not explicitly granted or denied.",
+   "D": "The facts state QuickShip's drivers use a 'consistent path,' which satisfies the requirement for a definite and certain line of travel, as noted in Warsaw v. Chicago Metallic Ceilings Inc., even with slight deviations."
+  },
+  "explanation": "To establish a prescriptive easement, the use must be open, notorious, continuous, and adverse for the statutory period. The most likely element for Sarah to dispute is 'adverse use.' While QuickShip's use was without explicit permission, Sarah's lack of objection could be interpreted as implied permission, which would negate the adversity requirement. The burden would then shift to QuickShip to prove their use was indeed adverse, not permissive, as highlighted in Warsaw v. Chicago Metallic Ceilings Inc.",
+  "cases": [
+   "Warsaw v. Chicago Metallic Ceilings Inc."
+  ],
+  "doctrines": [
+   "Prescriptive Easement",
+   "Adverse Use",
+   "Permissive Use"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:easements",
+  "kind": "unit",
+  "unit": "easements",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "a7b96b2759"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "David owns a large undeveloped parcel of land. In 2018, he orally granted his neighbor, Emily, permission to build and use a gravel driveway across a corner of his property to access a new garage she was constructing on her adjacent lot. Emily, relying on David's permission, spent $5,000 to grade the land, lay down gravel, and install a culvert for the driveway. David observed Emily's work and did not object. For the next five years, Emily regularly used the driveway. In 2023, David had a falling out with Emily and decided to block the driveway, claiming he had merely granted her a revocable license. Emily sues David, seeking to prevent him from blocking the driveway. Discuss whether Emily can establish an irrevocable right to use the driveway across David's property.",
+  "model_answer": "Issue: Can Emily establish an irrevocable right to use the driveway across David's property based on the doctrine of irrevocable license by estoppel?\n\nRule: An easement may be created by estoppel. Where a license is not a bare right of entry, but includes the right to erect structures and acquire an interest in the land in the nature of an easement by the construction of improvements thereon, the licensor may not revoke the license after the licensee has exercised the privilege given by the license and erected the improvements at considerable expense. This doctrine applies when the licensee makes substantial expenditures and improvements on the faith of the license, with the licensor's knowledge and acquiescence, as established in *Holbrook v. Taylor*.\n\nAnalysis: Here, David orally granted Emily permission to build and use a driveway across his property. This initial grant was a license, which is typically revocable. However, Emily, relying on this permission, made substantial expenditures and improvements by spending $5,000 to grade the land, lay gravel, and install a culvert for the driveway. David observed Emily's work and did not object, indicating his knowledge and acquiescence. Emily then used the driveway for five years. Under the rule from *Holbrook v. Taylor*, when a licensee makes substantial expenditures and improvements in reliance on a license, and the licensor has knowledge and acquiescence, the license becomes irrevocable by estoppel. Emily's actions and David's knowledge and inaction meet these criteria.\n\nConclusion: Emily can likely establish an irrevocable right to use the driveway across David's property based on the doctrine of irrevocable license by estoppel, preventing David from blocking her access.",
+  "rubric": [
+   {
+    "point": "Identifies the issue as whether an irrevocable license by estoppel can be established.",
+    "points": 2
+   },
+   {
+    "point": "States the rule for irrevocable license by estoppel, including the elements of substantial expenditures/improvements, reliance, and licensor's knowledge/acquiescence, citing *Holbrook v. Taylor*.",
+    "points": 3
+   },
+   {
+    "point": "Applies the facts to each element of the rule: Emily's expenditures ($5,000, grading, gravel, culvert) demonstrate substantial improvements and reliance, and David's observation and lack of objection show knowledge and acquiescence.",
+    "points": 3
+   },
+   {
+    "point": "Concludes that Emily can likely establish an irrevocable right to use the driveway.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Holbrook v. Taylor"
+  ],
+  "doctrines": [
+   "Irrevocable License by Estoppel",
+   "Easement by Estoppel",
+   "License"
+  ],
+  "scope": "unit-easy:easements",
+  "kind": "unit",
+  "unit": "easements",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "23b4355df5"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "In 1900, the developer of the 'Sunny Acres' subdivision recorded a declaration stating that all lots were restricted to residential use only and that 'these covenants shall run with the land.' The declaration required a 75% vote of lot owners to amend. In 1950, a gas station was built on Lot 10, and the owner of Lot 11, seeing the success of the gas station, decided to convert their property into a small convenience store. The deed for Lot 11, purchased in 1948, did not explicitly mention the residential restriction, but the entire subdivision had been exclusively residential for 48 years. Owners of neighboring lots sued to prevent the construction of the convenience store. Will the court likely enforce the residential restriction against the owner of Lot 11?",
+  "options": {
+   "A": "No, because the deed for Lot 11 did not contain an express restriction, and the owner therefore lacked actual notice.",
+   "B": "Yes, because the uniform residential character of the neighborhood for nearly 50 years provided constructive notice of a reciprocal negative easement.",
+   "C": "No, because the original declaration did not explicitly state that a reciprocal negative easement would arise, making the restriction unenforceable against a subsequent purchaser without express notice.",
+   "D": "Yes, because the declaration stated that 'these covenants shall run with the land,' which is sufficient to bind all subsequent purchasers regardless of notice."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect. While actual notice is one form of notice, constructive notice through the character of the neighborhood can also bind a purchaser, as established in Sanborn v. McLean.",
+   "B": "This is correct. As held in Sanborn v. McLean, the uniform residential character of a neighborhood can provide constructive notice of a reciprocal negative easement, even if the specific deed does not contain the restriction.",
+   "C": "This is incorrect. Sanborn v. McLean established that a reciprocal negative easement can arise by implication from a common scheme of development and notice, even without explicit language in every deed or the original declaration stating that such an easement would arise.",
+   "D": "This is incorrect. While intent for a covenant to run is important, as seen in Neponsit, the 'run with the land' language alone is not always sufficient to bind a purchaser if other requirements, such as notice, are not met or if the covenant is not properly established as a reciprocal negative easement."
+  },
+  "explanation": "The court in Sanborn v. McLean held that a reciprocal negative easement can be enforced against a property owner whose deed does not contain express restrictions if the owner had constructive notice of a general residential plan for the subdivision. The uniform residential character of the neighborhood for nearly 50 years would put a reasonable purchaser on inquiry notice.",
+  "cases": [
+   "Sanborn v. McLean"
+  ],
+  "doctrines": [
+   "Reciprocal Negative Easement",
+   "Constructive Notice"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:covenants",
+  "kind": "unit",
+  "unit": "covenants",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "c6912e91c6"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "A developer created a new residential community, 'Green Meadows,' and recorded a Declaration of Covenants, Conditions, and Restrictions (CC&Rs). The CC&Rs included a provision requiring each homeowner to pay an annual assessment of $500 to the Green Meadows Homeowners' Association for the maintenance of common areas, parks, and private roads. The CC&Rs explicitly stated that this assessment 'shall run with the land' and be enforceable by the Association. Sarah purchased a home in Green Meadows, and her deed referenced the recorded CC&Rs. After a year, Sarah refused to pay the assessment, arguing that the Association did not own any property in the community and therefore lacked the necessary privity of estate to enforce an affirmative covenant to pay money. Will the Green Meadows Homeowners' Association likely be able to enforce the assessment against Sarah?",
+  "options": {
+   "A": "No, because an affirmative covenant to pay money generally does not run with the land, especially when the promisee (the Association) does not own property benefiting from the covenant, lacking strict privity of estate.",
+   "B": "Yes, because the covenant 'touches and concerns' the land by benefiting Sarah's property through the maintenance of common areas, and the Association, acting as a representative of the property owners, satisfies the privity of estate requirement in substance.",
+   "C": "No, because the covenant to pay money is a personal obligation of the original grantee and cannot bind subsequent purchasers like Sarah, regardless of the 'run with the land' language.",
+   "D": "Yes, because the recorded CC&Rs provide Sarah with actual notice of the assessment, making it enforceable as an equitable servitude, even if it doesn't strictly run with the land at law."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This is incorrect. While historically affirmative covenants to pay money were viewed skeptically, Neponsit Property Owners' Association v. Emigrant Industrial Savings Bank established an exception where the covenant benefits the land and the association acts as a representative.",
+   "B": "This is correct. As held in Neponsit Property Owners' Association v. Emigrant Industrial Savings Bank, an affirmative covenant to pay money for the maintenance of common areas 'touches and concerns' the land, and a property owners' association, acting as a representative of the property owners, satisfies the privity of estate requirement in substance.",
+   "C": "This is incorrect. Neponsit Property Owners' Association v. Emigrant Industrial Savings Bank explicitly rejected this rigid view, finding that such covenants can run with the land when they meet the 'touch and concern' and 'substantive privity' requirements.",
+   "D": "This is incorrect. While notice is important for equitable servitudes, the question specifically asks about the enforceability of the covenant running with the land, and Neponsit directly addresses the common law requirements for such affirmative covenants in this context."
+  },
+  "explanation": "The court in Neponsit Property Owners' Association v. Emigrant Industrial Savings Bank held that an affirmative covenant to pay money for the maintenance of common areas 'touches and concerns' the land because it benefits the property. Furthermore, a property owners' association, even without owning property itself, can satisfy the privity of estate requirement in substance by acting as a representative for the property owners for whose benefit the covenant was created.",
+  "cases": [
+   "Neponsit Property Owners' Association v. Emigrant Industrial Savings Bank"
+  ],
+  "doctrines": [
+   "Covenants Running with the Land",
+   "Touch and Concern",
+   "Privity of Estate",
+   "Affirmative Covenants"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:covenants",
+  "kind": "unit",
+  "unit": "covenants",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "97a3209ec5"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "In 2000, a developer created the 'Harmony Heights' condominium complex. The recorded Declaration of Covenants, Conditions, and Restrictions (CC&Rs) for Harmony Heights included a provision stating, 'No pets of any kind, including dogs and cats, shall be kept in any unit.' The CC&Rs also stated that they could be amended by a 75% vote of the unit owners. In 2020, Alice purchased a unit in Harmony Heights. She was aware of the pet restriction but believed it was unreasonable. Alice moved in with her two small, quiet dogs, which she kept exclusively indoors. The Harmony Heights Condominium Association (the 'Association') learned of Alice's dogs and demanded their removal, assessing fines against her. Alice sued the Association, arguing that the pet restriction was unreasonable as applied to her specific circumstances because her dogs were well-behaved, caused no nuisance, and were kept indoors, and therefore the restriction should not be enforced against her. Will Alice likely succeed in her claim that the pet restriction is unreasonable as applied to her?",
+  "model_answer": "Issue: The issue is whether a condominium owner can prevent enforcement of a pet restriction in a recorded declaration by arguing it is unreasonable as applied to her specific circumstances.\n\nRule: In California, under the Common Interest Development Act, use restrictions contained in a recorded declaration of a common interest development are presumed reasonable and are enforceable as equitable servitudes unless they are arbitrary, violate a fundamental public policy, or impose burdens on the affected land that substantially outweigh the restriction's benefits to the development as a whole. The reasonableness of a restriction is determined by reference to the common interest development as a whole, not by reference to facts specific to the objecting homeowner. (Nahrstedt v. Lakeside Village Condominium Association).\n\nApplication: Alice is challenging a pet restriction contained in the recorded CC&Rs of Harmony Heights. According to Nahrstedt v. Lakeside Village Condominium Association, such a restriction is presumed reasonable. To overcome this presumption, Alice must show that the restriction is arbitrary, violates a fundamental public policy, or imposes disproportionate burdens on the development as a whole. Alice's argument focuses on her specific circumstances\u2014that her dogs are quiet, well-behaved, and kept indoors, causing no nuisance. However, Nahrstedt explicitly states that the reasonableness of a recorded use restriction is determined by reference to the common interest development as a whole, not by the conduct of a particular owner. The court in Nahrstedt found that a similar pet restriction was not arbitrary because it was rationally related to legitimate health, sanitation, and noise concerns in a high-density condominium project. There is no fundamental public policy in California that guarantees condominium owners the right to keep household pets. Therefore, Alice's individual circumstances, while perhaps personally compelling, are legally insufficient to demonstrate that the restriction is unreasonable for the entire Harmony Heights community.\n\nConclusion: Alice will likely not succeed in her claim. The pet restriction is presumed reasonable and will be enforced because Alice's arguments are based on her individual circumstances, which are not the proper standard for evaluating the reasonableness of a recorded CC&R in a common interest development.",
+  "rubric": [
+   {
+    "point": "Identifies the correct issue regarding the enforceability of a recorded pet restriction in a condominium.",
+    "points": 2
+   },
+   {
+    "point": "States the rule from Nahrstedt v. Lakeside Village Condominium Association regarding the presumption of validity for recorded CC&Rs and the standard for unreasonableness (arbitrary, public policy, disproportionate burden) focusing on the development as a whole.",
+    "points": 3
+   },
+   {
+    "point": "Applies the rule by explaining that Alice's argument based on her specific circumstances (quiet, indoor dogs) is insufficient under the Nahrstedt standard, which requires evaluating the restriction's impact on the development as a whole.",
+    "points": 3
+   },
+   {
+    "point": "Concludes that Alice will likely not succeed, consistent with the application of the Nahrstedt holding.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "Nahrstedt v. Lakeside Village Condominium Association"
+  ],
+  "doctrines": [
+   "Equitable Servitudes",
+   "Common Interest Development",
+   "Unreasonableness Test",
+   "CC&Rs"
+  ],
+  "scope": "unit-easy:covenants",
+  "kind": "unit",
+  "unit": "covenants",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "ece362e9ea"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The City of Harmony, a rapidly growing suburb, enacted a comprehensive zoning ordinance in 2020. The ordinance designated 80% of the city's undeveloped land for single-family homes on minimum one-acre lots, effectively prohibiting multi-family dwellings, townhouses, and mobile homes. The stated purpose of these regulations was to preserve the city's 'rural character' and manage infrastructure costs. As a result, housing prices in Harmony soared, making it impossible for low and moderate-income families to afford to live there. A local housing advocacy group challenged the ordinance, arguing it was exclusionary. Based on the principles established in *Southern Burlington County NAACP v. Township of Mount Laurel*, how should a court likely rule on the validity of Harmony's zoning ordinance?",
+  "options": {
+   "A": "The ordinance is likely valid because municipalities have broad discretion under their police power to zone for single-family homes and preserve rural character, as long as it's not arbitrary.",
+   "B": "The ordinance is likely invalid because a developing municipality cannot use land use regulations to prevent the opportunity for low and moderate-income housing, especially when motivated by fiscal concerns.",
+   "C": "The ordinance is likely valid because the city's desire to manage infrastructure costs and preserve rural character constitutes a legitimate public welfare goal, even if it has an incidental effect on housing affordability.",
+   "D": "The ordinance is likely invalid only if the city explicitly stated its intent to exclude low and moderate-income residents; otherwise, the court should defer to the legislative judgment."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option misapplies the holding of *Mount Laurel*, which limits a developing municipality's discretion when its zoning effectively excludes low and moderate-income housing.",
+   "B": "This option correctly applies the core holding of *Mount Laurel*, which established that developing municipalities have an obligation to provide a realistic opportunity for low and moderate-income housing and cannot use zoning to exclude it, particularly for fiscal reasons.",
+   "C": "This option presents a rejected justification from *Mount Laurel*; while managing infrastructure costs can be a legitimate concern, it cannot be used as a pretext to exclude low and moderate-income housing.",
+   "D": "This option misstates the burden of proof and the standard from *Mount Laurel*; a facial showing of exclusion shifts the burden to the municipality, and explicit intent is not required for invalidation if the effect is exclusionary."
+  },
+  "explanation": "In *Southern Burlington County NAACP v. Township of Mount Laurel*, the court held that a developing municipality cannot use land use regulations to prevent the opportunity for low and moderate-income housing. The ordinance in Harmony, by effectively prohibiting affordable housing types and driving up costs, directly contravenes this principle, especially if the underlying motivation is to manage costs by excluding certain populations.",
+  "cases": [
+   "Southern Burlington County NAACP v. Township of Mount Laurel"
+  ],
+  "doctrines": [
+   "Exclusionary Zoning",
+   "Mount Laurel Doctrine",
+   "General Welfare"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:conservation_easements_zoning",
+  "kind": "unit",
+  "unit": "conservation_easements_zoning",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "f2d65d6694"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "In 1950, Mr. Henderson established a small, noisy metal fabrication shop in the town of Riverside. At that time, the area was largely industrial. In 1960, Riverside enacted its first zoning ordinance, designating Mr. Henderson's area as residential. His shop was permitted to continue as a nonconforming use. In 1980, as the neighborhood became fully residential, the town amended its ordinance to require all nonconforming industrial uses in residential zones to cease operations within five years. Mr. Henderson, who had operated his shop for 30 years and made minor improvements over time, challenged this ordinance. Based on the principles from *Harbison v. City of Buffalo*, how should a court likely rule?",
+  "options": {
+   "A": "The ordinance is unconstitutional because Mr. Henderson has a vested, perpetual right to continue his nonconforming use, regardless of the amortization period.",
+   "B": "The ordinance is constitutional if the five-year period is deemed reasonable, allowing Mr. Henderson to amortize his investment and make other plans.",
+   "C": "The ordinance is unconstitutional because it constitutes a taking of Mr. Henderson's property without just compensation, as he is being forced to cease a lawful business.",
+   "D": "The ordinance is constitutional only if the town can prove that Mr. Henderson's shop is a public nuisance, as zoning cannot otherwise terminate existing uses."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects a rejected rule from *Harbison*; the court explicitly stated that the right to continue a nonconforming use is not perpetual.",
+   "B": "This option correctly applies the holding of *Harbison*, which established that municipalities can require the termination of nonconforming uses after a reasonable amortization period, balancing public benefit against private injury.",
+   "C": "This option misapplies the concept of a taking; *Harbison* held that such an ordinance, if reasonable, is a valid exercise of police power, not a taking requiring compensation.",
+   "D": "This option reflects an outdated view of zoning's power; *Harbison* clarified that zoning can terminate nonconforming uses even if they are not nuisances, provided there is a reasonable amortization period."
+  },
+  "explanation": "In *Harbison v. City of Buffalo*, the court held that a city ordinance requiring the termination of a pre-existing nonconforming use after a reasonable amortization period is a valid exercise of police power. The key is the reasonableness of the period, which allows the owner to recoup their investment. The five-year period here would be assessed for its reasonableness in light of Mr. Henderson's investment and the nature of his business.",
+  "cases": [
+   "Harbison v. City of Buffalo"
+  ],
+  "doctrines": [
+   "Nonconforming Use",
+   "Amortization Period",
+   "Police Power"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:conservation_easements_zoning",
+  "kind": "unit",
+  "unit": "conservation_easements_zoning",
+  "chapter": "9. The Law of Neighbors",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "9e1a454de7"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The City of Harmony, facing economic stagnation, develops a comprehensive revitalization plan. Part of this plan involves condemning a privately owned, but economically underperforming, shopping mall. The City intends to transfer this property to a private developer who has promised to build a state-of-the-art technology park, projected to create thousands of jobs and significantly increase tax revenue. The mall owners sue, arguing that taking their property for transfer to another private entity is not a \"public use\" under the Fifth Amendment. Based on Supreme Court precedent, what is the most likely outcome?",
+  "options": {
+   "A": "The taking is unconstitutional because the Fifth Amendment's \"public use\" clause requires the condemned property to be directly used by the general public, not transferred to a private developer.",
+   "B": "The taking is constitutional because economic development, when part of a comprehensive plan to revitalize a distressed area, serves a public purpose, even if the property is transferred to a private entity.",
+   "C": "The taking is unconstitutional because the mall is not blighted, and the Fifth Amendment only permits takings for transfer to private parties if the original property is a source of harm to the community.",
+   "D": "The taking is constitutional only if the City can demonstrate with reasonable certainty that the promised public benefits, such as jobs and tax revenue, will actually materialize."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option reflects a narrow, literal interpretation of \"public use\" that the Supreme Court has explicitly rejected, as established in Kelo v. City of New London.",
+   "B": "This option correctly states the holding of Kelo v. City of New London, which broadly interprets \"public use\" to include economic development as a public purpose.",
+   "C": "This option reflects a distinction made by the dissent in Kelo v. City of New London, but the majority rejected the idea that takings for private transfer are limited to eliminating blight or other harmful uses.",
+   "D": "This option reflects a standard of \"reasonable certainty\" for public benefits that the Supreme Court explicitly rejected in Kelo v. City of New London, stating it would involve courts in empirical debates over legislative wisdom."
+  },
+  "explanation": "In Kelo v. City of New London, the Supreme Court held that a city's taking of private property for economic development, as part of a comprehensive plan to revitalize an economically distressed area, satisfies the \"public use\" requirement of the Fifth Amendment, even if the property is transferred to private parties. The Court rejected a narrow interpretation of \"public use\" and affirmed deference to legislative judgments regarding public purpose.",
+  "cases": [
+   "Kelo v. City of New London"
+  ],
+  "doctrines": [
+   "Takings Clause",
+   "Public Use Doctrine",
+   "Eminent Domain"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:takings_eminent_domain_just_compensation",
+  "kind": "unit",
+  "unit": "takings_eminent_domain_just_compensation",
+  "chapter": "10. Government Forbearance and Takings",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "e60f8306d5"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The State of Evergreen plans to build a new highway through a rural area. Years before the official condemnation proceedings began, the state announced its intention to build the highway, and several landowners along the proposed route began to subdivide their properties and build small commercial establishments, anticipating increased traffic and property values. When the state finally initiates eminent domain proceedings, these landowners demand compensation that includes the increased value of their properties due to the highway project itself. Based on Supreme Court precedent, how should the court determine \"just compensation\"?",
+  "options": {
+   "A": "The court should include the full market value of the properties at the time of the taking, including any increase in value attributable to the anticipated highway project, to ensure the owners are made whole.",
+   "B": "The court should exclude any increase in value attributable to the highway project if the properties were probably within the scope of the project from the time the government committed to it.",
+   "C": "The court should only exclude value increases if the landowners acted in bad faith, such as by intentionally inflating property values after learning of the project.",
+   "D": "The court should include the increased value, as the landowners' entrepreneurial efforts in developing their properties in anticipation of the project should be rewarded as part of their property rights."
+  },
+  "answer": "B",
+  "why": {
+   "A": "This option incorrectly includes project-enhanced value, which the Supreme Court in United States v. Miller held should be excluded from just compensation.",
+   "B": "This option correctly states the rule from United States v. Miller, which holds that just compensation should not include value increases due to the government's project if the land was probably within the project's scope.",
+   "C": "United States v. Miller does not base the exclusion of project-enhanced value on the landowner's intent or good faith, but rather on whether the land was probably within the project's scope.",
+   "D": "This option contradicts the principle established in United States v. Miller that landowners should not gain from speculating on the government's activities when their land is likely to be taken for the project."
+  },
+  "explanation": "In United States v. Miller, the Supreme Court held that \"just compensation\" for condemned land should not include any increase in value attributable to the government's project if the land was probably within the scope of the project from the time the government committed to it. The purpose of just compensation is to indemnify the owner for their loss, not to allow them to gain from the taker's need or from speculating on the government's activities.",
+  "cases": [
+   "United States v. Miller"
+  ],
+  "doctrines": [
+   "Takings Clause",
+   "Just Compensation",
+   "Eminent Domain",
+   "Market Value"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:takings_eminent_domain_just_compensation",
+  "kind": "unit",
+  "unit": "takings_eminent_domain_just_compensation",
+  "chapter": "10. Government Forbearance and Takings",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "d67608c865"
+ },
+ {
+  "type": "sa",
+  "difficulty": "easy",
+  "stem": "The City of Riverbend, a rapidly growing municipality, decides it needs a new reservoir to meet its increasing water demands. The chosen site is a large tract of undeveloped land owned by the Evergreen Family Trust. The Trust has held the land for generations, intending to preserve it as a natural habitat. The City initiates eminent domain proceedings to acquire the land. During the valuation process, the Trust argues that the \"just compensation\" should include a premium because the land is uniquely suited for a reservoir, which is precisely why the City wants it. The City counters that this unique suitability should not increase the compensation. How should the court determine the \"just compensation\" for the Evergreen Family Trust's land, specifically addressing the argument about the land's unique suitability for a reservoir?",
+  "model_answer": "Issue: The issue is whether the \"just compensation\" for the Evergreen Family Trust's land should include a premium for its unique suitability as a reservoir site, given that this is the reason for the City's condemnation.\n\nRule: The Fifth Amendment requires \"just compensation\" for private property taken for public use, which means the full and perfect equivalent in money of the property taken, putting the owner in as good a pecuniary position as if the property had not been taken. Courts use market value as a practical standard. However, the market value of property taken must exclude its special value to the condemnor, as distinguished from others who may or may not possess the power to condemn. Additionally, if lands were probably within the scope of a public project from the time the government was committed to it, any increase in value arising from the known fact that the lands probably would be condemned should not be included in just compensation. (United States v. Miller).\n\nApplication: Here, the Evergreen Family Trust argues for a premium based on the land's unique suitability for a reservoir, which is its special value to the City of Riverbend (the condemnor). Under the rule from United States v. Miller, the market value of the property must exclude this special value to the condemnor. The purpose of just compensation is to indemnify the owner for their loss, not to allow them to gain from the taker's need. Allowing a premium for the land's unique suitability to the City would be to compensate the Trust for the City's need, rather than for the fair market value of the property as if it were sold to a willing buyer for general purposes, excluding the specific project.\n\nConclusion: The court should determine \"just compensation\" based on the market value of the land, but it must exclude any premium or increase in value attributable to its unique suitability as a reservoir site for the City of Riverbend. The Trust should not receive compensation for the special value the land holds for the condemnor.",
+  "rubric": [
+   {
+    "point": "Identifies the correct legal issue regarding special value to the condemnor.",
+    "points": 2
+   },
+   {
+    "point": "States the rule for \"just compensation\" and specifically the exclusion of special value to the condemnor, citing United States v. Miller.",
+    "points": 3
+   },
+   {
+    "point": "Applies the rule to the facts, explaining why the unique suitability for a reservoir is a special value to the condemnor that must be excluded.",
+    "points": 3
+   },
+   {
+    "point": "Concludes that the premium for unique suitability should be excluded from just compensation.",
+    "points": 2
+   }
+  ],
+  "cases": [
+   "United States v. Miller"
+  ],
+  "doctrines": [
+   "Just Compensation",
+   "Eminent Domain",
+   "Market Value",
+   "Exclusion of Special Value to Condemnor"
+  ],
+  "scope": "unit-easy:takings_eminent_domain_just_compensation",
+  "kind": "unit",
+  "unit": "takings_eminent_domain_just_compensation",
+  "chapter": "10. Government Forbearance and Takings",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "207a2d679d"
+ },
+ {
+  "type": "mc",
+  "difficulty": "easy",
+  "stem": "The City of Metropolis designates the historic 'Daily Planet Building' as a landmark under its Landmarks Preservation Ordinance. The ordinance requires owners of designated landmarks to maintain the exterior and obtain approval for any alterations or new construction. The Daily Planet, Inc., the owner, wishes to construct a modern, multi-story addition on top of the existing building to house new media operations. The Landmarks Preservation Commission denies the application, stating the proposed addition is incompatible with the building's historic character. The Daily Planet, Inc. argues this denial constitutes a regulatory taking. The company continues to operate its newspaper and other businesses profitably within the existing building. Based on the principles of *Penn Central Transportation Co. v. New York City*, what is the most likely outcome?",
+  "options": {
+   "A": "The city's action is a taking because it prevents the owner from developing the property to its highest and best use, thereby significantly diminishing its value.",
+   "B": "The city's action is not a taking because the ordinance serves a legitimate public purpose of historic preservation, and the owner retains a reasonable beneficial use of the property as a whole.",
+   "C": "The city's action is a taking because it singles out one property owner to bear a public burden without providing 'average reciprocity of advantage'.",
+   "D": "The city's action is not a taking because the owner still has the right to sell the property, even if its development potential is restricted."
+  },
+  "answer": "B",
+  "why": {
+   "A": "While the regulation may prevent the highest and best use or diminish value, *Penn Central* held that diminution in value alone does not establish a taking if the owner retains a reasonable beneficial use of the property as a whole.",
+   "B": "This option correctly applies the *Penn Central* factors: historic preservation is a legitimate public purpose, and the owner retains a reasonable beneficial use of the property as a whole, despite the inability to build the specific addition.",
+   "C": "The 'average reciprocity of advantage' argument was raised in the dissent in *Penn Central* but was not adopted by the majority as a decisive factor for finding a taking in this context. The majority found the law applied to many structures and provided general benefits.",
+   "D": "While the right to sell is an aspect of ownership, *Penn Central* focuses on the economic impact and interference with investment-backed expectations regarding the *use* of the property, not merely its alienability."
+  },
+  "explanation": "In *Penn Central Transportation Co. v. New York City*, the Supreme Court held that a landmark preservation law did not constitute a taking because it served a legitimate public purpose, allowed the owner to continue its existing profitable use of the property, and did not interfere with distinct investment-backed expectations for the parcel as a whole. The inability to develop 'air rights' was not considered a taking when the existing use remained viable.",
+  "cases": [
+   "Penn Central Transportation Co. v. New York City"
+  ],
+  "doctrines": [
+   "Ad Hoc Factual Inquiries",
+   "Legitimate Public Purpose",
+   "Single Parcel Rule",
+   "Diminution in Value"
+  ],
+  "checked_by": "openai/gpt-4.1-mini",
+  "scope": "unit-easy:takings_regulatory_judicial",
+  "kind": "unit",
+  "unit": "takings_regulatory_judicial",
+  "chapter": "10. Government Forbearance and Takings",
+  "case_slug": null,
+  "model": "google/gemini-2.5-flash",
+  "id": "4cd62ca421"
  }
 ]
