@@ -13,6 +13,13 @@ The casebook is every case on my Fall 2026 syllabus (Brooks, Property; Merrill, 
 4th ed.), listed by class in `cases.csv`: **88 of the 96 assigned cases are briefed**, plus three
 from an earlier syllabus (Hecht, eBay, Producers Lumber).
 
+- **Search for a case.** Find any published U.S. opinion by name, with a Westlaw-style
+  **Advanced search**: terms & connectors (`AND`, `OR`, `NOT`, "phrases", `~` proximity,
+  `*` wildcards), jurisdiction (federal + every state), court level (highest / intermediate
+  appellate / trial), decision years, citation, judge, docket number, minimum citing references,
+  published-only, and sort (relevance, most cited, newest, oldest). Results come from
+  CourtListener (Free Law Project); "Brief this case" gets the full text from the Caselaw Access
+  Project by citation, or from CourtListener. Code: `search.py`.
 - **Brief a case.** Type any published U.S. citation (e.g. `209 Wis. 2d 605`) or paste an opinion.
   The app pulls the full text from the Caselaw Access Project, briefs it in my format, codes it
   on every theme below, files it under the syllabus chapter and class unit it belongs in, and
@@ -29,7 +36,23 @@ from an earlier syllabus (Hecht, eBay, Producers Lumber).
   law, time, remedy, court, era, whether the owner sued or was sued, disposition, dissent), each
   with a factor × chapter count table and a factor × era win-rate table. Built in `stats.py`;
   `python stats.py` exports them all to `data/stats/*.csv`.
-- **Browse my briefs.** Every brief in syllabus order, filterable by chapter.
+- **Doctrinal overview.** A short essay on each syllabus chapter and each of its 26 class units:
+  the core rules, how the cases build or limit them, the main tension, and an exam tip. Every
+  cited case links to its brief. Written by `make_overview.py` into `data/overview.json`.
+- **Practice.** Exam-style multiple-choice and short-answer questions, **by topic** (chapter or
+  class unit), **by case**, or **ask anything** (a freestyle question gets a tutor-style answer
+  from the casebook, or "quiz me" writes a question on it). Multiple choice is graded instantly
+  with an explanation of every option. Short answers are graded by AI against a 10-point rubric:
+  score, rubric breakdown, what worked, what to fix, cases and doctrine to cite (linked), an
+  improved version of your answer, and the model answer. The bank (`data/question_bank.json`,
+  364 questions: 5 MC + 2 short answer per unit, 2 MC + 1 short answer per case) is built by
+  `make_questions.py`; every MC answer key was checked by a second model (GPT-4.1 mini)
+  answering blind, and questions where the two disagreed were dropped. "Write me a new one"
+  makes a fresh question (its key isn't double-checked). Code: `practice.py`.
+- **Statistics** also has charts: the owner's share of wins by era, by whether the owner sued
+  or was sued, by chapter, by unit, and by whichever factor you pick.
+- **Browse my briefs.** Every brief in syllabus order, filterable by chapter. Links like
+  `?case=pierson-v-post` open a case's brief directly.
 
 ### Syllabus chapters and class units (`TAXONOMY` in `briefing.py`)
 
@@ -57,7 +80,8 @@ opinion into `data/opinions/<name>.txt` (names below) and run `python brief_case
 | Cedar Point Nursery v. Hassid (2021) | too recent for CAP | `cedar-point-nursery-v-hassid.txt` |
 | Timmer v. Gray | citation not found; add it to `cases.csv` | `timmer-v-gray.txt` |
 
-Each visit is capped at 8 briefs, and results are cached, so repeat lookups cost nothing.
+Each visit is capped at 8 briefs and 40 practice requests (new questions, grading, freestyle
+answers), and results are cached, so repeat lookups cost nothing.
 
 ### Themes each case is coded on (`briefing.py`)
 
@@ -82,6 +106,8 @@ Each visit is capped at 8 briefs, and results are cached, so repeat lookups cost
 | 2. Brief + code | `brief_cases.py` | `briefs/<case>.md`, `briefs/ALL_BRIEFS.md`, `data/case_data.csv`, `data/casebook.json` |
 | 2b. File by unit | `classify_topics.py` | `data/topic_codes.json` (each case's chapter, unit, and one other unit it speaks to) |
 | 2c. Statistics | `stats.py` | `data/stats/*.csv` (the tables in the Statistics tab) |
+| 2d. Overview | `make_overview.py` | `data/overview.json` (doctrinal essays per chapter and unit) |
+| 2e. Questions | `make_questions.py` | `data/question_bank.json` (practice questions, MC keys double-checked) |
 | 3. Synthesize | `synthesize.py` | `data/course_synthesis.md` |
 | 4. Chart | `visualize.py` | `data/owner_sovereignty.png` |
 
@@ -93,6 +119,8 @@ python brief_cases.py --limit 2          # try two first and read them
 python brief_cases.py                    # the rest (re-runnable; skips finished cases)
 python classify_topics.py --redo
 python stats.py
+python make_overview.py
+python make_questions.py
 python synthesize.py
 python visualize.py
 streamlit run app.py                     # the app, locally
@@ -116,6 +144,12 @@ streamlit run app.py                     # the app, locally
    ```
    Without it the app still works, but added cases disappear when the app restarts. If you deploy
    from a branch other than `claude/amazing-gauss-ggp9w6`, add `GITHUB_BRANCH = "main"` (or yours).
+   Optional, for case search: a free CourtListener token (courtlistener.com, sign up, then
+   Profile → API) raises the search limit and lets the app download opinions CourtListener
+   doesn't serve anonymously:
+   ```toml
+   COURTLISTENER_TOKEN = "..."
+   ```
 5. Deploy. The keys stay on Streamlit's server; visitors never see them.
 
 To remove a case someone added, delete its entry from `data/added_cases.json` on GitHub.

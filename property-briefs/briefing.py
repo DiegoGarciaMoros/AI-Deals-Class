@@ -205,11 +205,13 @@ def build_prompt(index=None):
     return BRIEF_FORMAT + connections + FIELDS + "\nOPINION:\n"
 
 
-def call_openrouter(api_key, model, prompt, retries=5, title="Property case briefs"):
+def call_openrouter(api_key, model, prompt, retries=5, title="Property case briefs", extra=None):
+    """One chat call. `extra` adds request fields, e.g. {"response_format": {"type": "json_object"}}."""
     body = json.dumps({
         "model": model,
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.2,
+        **(extra or {}),
     }).encode()
     req = urllib.request.Request(API_URL, data=body, headers={
         "Authorization": f"Bearer {api_key}",

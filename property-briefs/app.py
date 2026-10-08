@@ -5,6 +5,7 @@ Deploy:        Streamlit Community Cloud, with OPENROUTER_API_KEY in the app's S
 """
 import json
 import os
+import random
 import re
 from pathlib import Path
 
@@ -13,7 +14,9 @@ import pandas as pd
 import streamlit as st
 
 from briefing import DEFAULT_MODEL, DOCTRINE_LABEL, TAXONOMY, THEMES, brief_opinion, normalize_topics
-from casebook_store import Store, case_key
+from casebook_store import Store, case_key, setting
+import practice
+import search
 import stats
 from caselaw import fetch_case
 
@@ -21,6 +24,9 @@ HERE = Path(__file__).parent
 ORIGINAL = json.loads((HERE / "data" / "casebook.json").read_text())
 SYNTHESIS = HERE / "data" / "course_synthesis.md"
 MAX_BRIEFS_PER_VISIT = 8  # every brief is paid for with my OpenRouter key
+MAX_AI_PER_VISIT = 40  # practice: new questions, grading, freestyle answers (cheap model)
+BANK_PATH = HERE / "data" / "question_bank.json"
+OVERVIEW_PATH = HERE / "data" / "overview.json"
 
 OUTCOME = {"yes": "Owner won", "no": "Owner lost", "mixed": "Mixed", "not_applicable": "Mixed"}
 OUTCOME_COLORS = {"Owner won": "#2a78d6", "Owner lost": "#eb6834", "Mixed": "#a8a7a2"}
@@ -72,6 +78,8 @@ for c in ADDED:
     normalize_topics(c)
 CASEBOOK = ORIGINAL + ADDED
 CASEBOOK_KEYS = {case_key(c["case_name"]) for c in CASEBOOK}
+CASE_BY_SLUG = {c["slug"]: c for c in CASEBOOK}
+CASE_BY_KEY = {case_key(c["case_name"]): c for c in CASEBOOK}
 
 
 # ---------- helpers ----------
@@ -206,6 +214,151 @@ def add_to_casebook(brief, fields, citation):
             st.info(f"{name} is already in the casebook.")
 
 
+
+
+# ---------- links to briefs, question bank, overview ----------
+
+ALIASES = {"insvap": case_key("International News Service v. Associated Press")}
+
+
+def find_case(name):
+    """The casebook case a cited name refers to: exact name, then a looser match."""
+    key = ALIASES.get(case_key(name), case_key(name))
+    if key in CASE_BY_KEY:
+        return CASE_BY_KEY[key]
+    for k, c in CASE_BY_KEY.items():
+        if key and (key in k or k in key):
+            return c
+    first = case_key(str(name).split(" v.")[0])
+    matches = [c for k, c in CASE_BY_KEY.items() if len(first) > 4 and k.startswith(first)]
+    return matches[0] if len(matches) == 1 else None
+
+
+def case_link(name):
+    """Markdown link that opens the case's brief in this app (?case=slug), or plain italics."""
+    c = find_case(name)
+    return f"[*{c['case_name']}*](?case={c['slug']})" if c else f"*{name}*"
+
+
+def linkify(text):
+    """Turn [[Case Name]] citations into links to the briefs."""
+    return re.sub(r"\[\[(.+?)\]\]", lambda m: case_link(m.group(1)), text or "")
+
+
+@st.cache_data(show_spinner=False)
+def load_json(path, mtime):
+    return json.loads(path.read_text()) if path.exists() else ([] if path == BANK_PATH else {})
+
+
+def mtime(path):
+    return path.stat().st_mtime if path.exists() else 0
+
+
+def ai_budget_left():
+    return MAX_AI_PER_VISIT - st.session_state.setdefault("ai_used", 0)
+
+
+def spend_ai():
+    st.session_state.ai_used = st.session_state.get("ai_used", 0) + 1
+
+
+def cl_token():
+    return setting("COURTLISTENER_TOKEN", secrets())
+
+
+@st.cache_data(ttl=3600, show_spinner=False)
+def cl_search(filters, page_url=None):
+    return search.search(token=cl_token(), page_url=page_url, **filters)
+
+
+def do_brief(text, citation=""):
+    """Brief an opinion's text and keep it as the current brief."""
+    if len(text.strip()) < 500:
+        raise ValueError("that's too short to be an opinion")
+    with st.spinner("Reading and briefing the opinion (about 20–60 seconds)…"):
+        brief, fields = run_brief(text, DEFAULT_MODEL)
+    st.session_state.briefs_used = st.session_state.get("briefs_used", 0) + 1
+    st.session_state.last = (brief, fields, citation.strip())
+
+
+def search_panel():
+    with st.form("case-search"):
+        name = st.text_input("Case name", placeholder="e.g. State v. Shack, Boomer v. Atlantic Cement, Kelo")
+        with st.expander("Advanced search: jurisdiction, court level, dates, terms & connectors"):
+            terms = st.text_input("Terms & connectors", placeholder='"right to exclude" AND (migrant OR farmworker)')
+            st.caption(search.SYNTAX_HELP)
+            a1, a2 = st.columns(2)
+            juris = a1.multiselect("Jurisdiction", list(search.COURTS), placeholder="All jurisdictions")
+            levels = a2.multiselect("Court level", list(search.LEVELS), format_func=search.LEVELS.get,
+                                    placeholder="All levels")
+            b1, b2, b3 = st.columns(3)
+            year_from = b1.number_input("Decided from (year)", 1600, 2100, value=None, step=1, placeholder="any")
+            year_to = b2.number_input("Decided through (year)", 1600, 2100, value=None, step=1, placeholder="any")
+            cited = b3.number_input("Cited by at least", 0, 100_000, 0, step=5)
+            c1, c2, c3 = st.columns(3)
+            citation = c1.text_input("Citation", placeholder="58 N.J. 297")
+            judge = c2.text_input("Judge", placeholder="Cardozo")
+            docket = c3.text_input("Docket number")
+            d1, d2 = st.columns(2)
+            sort = d1.selectbox("Sort by", list(search.SORTS))
+            published = d2.checkbox("Published (precedential) opinions only", value=True)
+            extra = st.text_input("CourtListener court IDs (optional)", placeholder="e.g. nyappdiv calctapp",
+                                  help="For courts not in the lists above; see courtlistener.com/help/api/jurisdictions/")
+        submitted = st.form_submit_button("Search", type="primary")
+    if submitted:
+        filters = dict(name=name, terms=terms, citation=citation, jurisdictions=tuple(juris), levels=tuple(levels),
+                       extra_courts=extra, year_from=year_from, year_to=year_to, judge=judge,
+                       cited_at_least=cited, docket=docket, published_only=published, sort=sort)
+        if not any([name.strip(), terms.strip(), citation.strip(), judge.strip(), docket.strip(), juris, extra.strip()]):
+            st.warning("Type a case name, or set at least one advanced filter.")
+        else:
+            try:
+                with st.spinner("Searching CourtListener…"):
+                    results, count, nxt = cl_search(filters)
+                st.session_state.search = {"filters": filters, "results": results, "count": count, "next": nxt}
+            except Exception as e:  # noqa: BLE001 - show the user what went wrong
+                st.session_state.pop("search", None)
+                st.error(f"Search failed: {e}")
+    found = st.session_state.get("search")
+    if not found:
+        st.caption("Searches every published U.S. opinion in CourtListener (Free Law Project).")
+        return
+    results = found["results"]
+    st.markdown(f"**{found['count'] or 0:,} result{'s' if found['count'] != 1 else ''}**"
+                + (f", showing {len(results)}" if found["count"] and found["count"] > len(results) else ""))
+    if not results:
+        st.info("No cases matched. Loosen a filter, or check the spelling of the case name.")
+    for i, r in enumerate(results):
+        with st.container(border=True):
+            in_book = find_case(r["name"])
+            title = f"**{r['name']}**" + (f" · [in my casebook](?case={in_book['slug']})" if in_book else "")
+            st.markdown(title)
+            meta = " · ".join(x for x in [r["court"], r["date"], ", ".join(r["citations"][:2]),
+                                          f"cited by {r['cited_by']:,}" if r["cited_by"] else ""] if x)
+            st.caption(meta)
+            if r["snippet"]:
+                st.markdown(f"> {r['snippet']}")
+            c1, c2 = st.columns([1, 3])
+            if c1.button("Brief this case", key=f"brief-result-{i}-{r['cluster_id']}",
+                         disabled=st.session_state.get("briefs_used", 0) >= MAX_BRIEFS_PER_VISIT or not api_key()):
+                try:
+                    with st.spinner("Getting the full opinion…"):
+                        text, source = search.full_text(r, cl_token())
+                    st.caption(f"Opinion text from {source}.")
+                    do_brief(text, r["citations"][0] if r["citations"] else "")
+                except Exception as e:  # noqa: BLE001 - show the user what went wrong
+                    st.error(f"Couldn't brief that case: {e}")
+            if r["url"]:
+                c2.markdown(f"[Read it on CourtListener]({r['url']})")
+    if found.get("next") and st.button("Load more results"):
+        try:
+            more, _, nxt = cl_search(found["filters"], page_url=found["next"])
+            found["results"] = results + more
+            found["next"] = nxt
+            st.rerun()
+        except Exception as e:  # noqa: BLE001
+            st.error(f"Couldn't load more: {e}")
+
 # ---------- page ----------
 
 st.title("Property Case Briefer")
@@ -215,15 +368,21 @@ st.caption("Brief any published U.S. case in my Property-notes format, code it o
 if ADDED_ERROR:
     st.warning(f"Couldn't load the cases added through the app, so only the syllabus cases are shown. ({ADDED_ERROR})")
 
-tab_brief, tab_map, tab_stats, tab_browse = st.tabs(["Brief a case", "Casebook map", "Statistics", "Browse my briefs"])
+TARGET = st.query_params.get("case")
+TARGET = TARGET if TARGET in CASE_BY_SLUG else None
+tab_brief, tab_overview, tab_practice, tab_map, tab_stats, tab_browse = st.tabs(
+    ["Brief a case", "Doctrinal overview", "Practice", "Casebook map", "Statistics", "Browse my briefs"],
+    default="Browse my briefs" if TARGET else None)
 
 with tab_brief:
     if not api_key():
         st.error("This app has no OpenRouter key configured.")
-    mode = st.radio("Source", ["Look up a citation", "Paste the opinion text"], horizontal=True,
+    mode = st.radio("Source", ["Search for a case", "Look up a citation", "Paste the opinion text"], horizontal=True,
                     label_visibility="collapsed")
     text, citation, name = "", "", ""
-    if mode == "Look up a citation":
+    if mode == "Search for a case":
+        search_panel()
+    elif mode == "Look up a citation":
         example = st.selectbox("Try a case that isn't in my casebook, or type your own below",
                                ["(type a citation)", *EXAMPLES])
         default_cite, default_name = EXAMPLES.get(example, ("", ""))
@@ -237,7 +396,8 @@ with tab_brief:
         text = st.text_area("Opinion text", height=220, placeholder="Paste the full opinion…")
 
     used = st.session_state.setdefault("briefs_used", 0)
-    go = st.button("Brief it", type="primary", disabled=used >= MAX_BRIEFS_PER_VISIT or not api_key())
+    go = mode != "Search for a case" and st.button(
+        "Brief it", type="primary", disabled=used >= MAX_BRIEFS_PER_VISIT or not api_key())
     if used >= MAX_BRIEFS_PER_VISIT:
         st.info(f"That's the {MAX_BRIEFS_PER_VISIT}-brief limit for one visit. Reload later for more.")
 
@@ -250,12 +410,7 @@ with tab_brief:
                     case, text = lookup(citation.strip(), name.strip())
                 st.caption(f"Found: {case.get('name_abbreviation') or case.get('name')} — "
                            f"{case.get('court', {}).get('name')}, {case.get('decision_date')}")
-            if len(text.strip()) < 500:
-                raise ValueError("that's too short to be an opinion")
-            with st.spinner("Reading and briefing the opinion (about 20–60 seconds)…"):
-                brief, fields = run_brief(text, DEFAULT_MODEL)
-            st.session_state.briefs_used += 1
-            st.session_state.last = (brief, fields, citation.strip())
+            do_brief(text, citation)
         except Exception as e:  # noqa: BLE001 - show the user what went wrong
             st.error(f"Couldn't brief that case: {e}")
 
@@ -273,6 +428,204 @@ with tab_brief:
             theme_card(fields)
             similar_cases(fields)
             add_to_casebook(brief, fields, last_cite)
+
+with tab_overview:
+    OVERVIEW = load_json(OVERVIEW_PATH, mtime(OVERVIEW_PATH))
+    if not OVERVIEW:
+        st.info("The doctrinal overview hasn't been written yet (run make_overview.py).")
+    else:
+        st.caption("A short essay on each part of the syllabus. Case names link to their briefs. "
+                   "AI-written from my briefs: check it against the cases and your class notes.")
+        chapters = [c for c in TAXONOMY if c in OVERVIEW]
+        chapter = st.selectbox("Syllabus chapter", chapters, key="ov-chapter")
+        entry = OVERVIEW[chapter]
+        st.header(chapter)
+        st.markdown(linkify(entry.get("intro", "")))
+        for unit, label in TAXONOMY[chapter].items():
+            cases = [c for c in CASEBOOK if (c.get("doctrine_tags") or [None])[0] == unit]
+            won = sum(c["owner_prevailed"] == "yes" for c in cases)
+            st.subheader(label)
+            if cases:
+                st.caption(f"Class {cases[0].get('class_no', '')} · owner won {won} of {len(cases)} · "
+                           + ", ".join(case_link(c["case_name"]) for c in sorted(cases, key=lambda c: c.get("year") or 0)))
+            st.markdown(linkify(entry["units"].get(unit, "")) or "_Not written yet._")
+
+with tab_practice:
+    BANK = load_json(BANK_PATH, mtime(BANK_PATH))
+    st.caption("Exam-style questions from my briefs. Multiple-choice answer keys in the question bank were "
+               "checked by a second AI model answering blind; short answers are graded by AI against a rubric. "
+               "Treat both as practice, not gospel.")
+    pmode = st.radio("Practice", ["By topic", "By case", "Ask anything"], horizontal=True, label_visibility="collapsed")
+    qtype = None
+    if pmode != "Ask anything":
+        qtype = st.radio("Question type", ["Multiple choice", "Short answer", "Both"], horizontal=True)
+    want = {"Multiple choice": {"mc"}, "Short answer": {"sa"}, "Both": {"mc", "sa"}}.get(qtype, {"mc", "sa"})
+
+    pool, scope_cases, scope_label = [], [], ""
+    if pmode == "By topic":
+        p1, p2 = st.columns(2)
+        pchapter = p1.selectbox("Syllabus chapter", list(TAXONOMY), key="pq-chapter")
+        units = list(TAXONOMY[pchapter])
+        punit = p2.selectbox("Class unit", ["All units in this chapter", *units],
+                             format_func=lambda u: DOCTRINE_LABEL.get(u, u), key="pq-unit")
+        chosen = units if punit == "All units in this chapter" else [punit]
+        pool = [q for q in BANK if q["unit"] in chosen and q["type"] in want]
+        scope_cases = [c for u in chosen for c in practice.unit_cases(CASEBOOK, u)]
+        scope_label = (f"the class unit '{DOCTRINE_LABEL[punit]}'" if punit in DOCTRINE_LABEL
+                       else f"the syllabus chapter '{pchapter}'")
+    elif pmode == "By case":
+        ordered = sorted(CASEBOOK, key=lambda c: (c.get("class_no") or 99, c.get("year") or 0))
+        pcase = st.selectbox("Case", ordered, format_func=lambda c: (f"Class {c['class_no']} · " if c.get("class_no") else "")
+                             + f"{c['case_name']} ({c.get('year')})", key="pq-case")
+        pool = [q for q in BANK if q["type"] in want and (q.get("case_slug") == pcase["slug"] or
+                (q["kind"] == "unit" and any(find_case(n) is pcase for n in q.get("cases", []))))]
+        scope_cases = [pcase]
+        scope_label = f"the case {pcase['case_name']} ({pcase.get('year')})"
+    else:
+        query = st.text_area("Ask about any property topic, or name one to be quizzed on",
+                             placeholder="e.g. When does a finder beat the landowner? · How do Penn Central and Lucas fit together? "
+                                         "· Quiz me on the implied warranty of habitability", key="pq-query")
+        scope_cases = practice.retrieve(CASEBOOK, query) if query.strip() else []
+        scope_label = f"this topic: {query.strip()}"
+        f1, f2, f3 = st.columns(3)
+        out_of_ai = ai_budget_left() <= 0
+        ask = f1.button("Answer my question", type="primary", disabled=out_of_ai)
+        quiz_mc = f2.button("Quiz me: multiple choice", disabled=out_of_ai)
+        quiz_sa = f3.button("Quiz me: short answer", disabled=out_of_ai)
+        if (ask or quiz_mc or quiz_sa) and not query.strip():
+            st.warning("Type a question or a topic first.")
+            ask = quiz_mc = quiz_sa = False
+        if ask:
+            try:
+                with st.spinner("Thinking it through…"):
+                    spend_ai()
+                    st.session_state.tutor = (query, practice.tutor(api_key(), query, practice.brief_context(scope_cases)))
+            except Exception as e:  # noqa: BLE001
+                st.error(f"Couldn't answer that: {e}")
+        if st.session_state.get("tutor") and st.session_state.tutor[0] == query:
+            with st.container(border=True):
+                st.markdown(st.session_state.tutor[1])
+                st.caption("Drawn from: " + ", ".join(case_link(c["case_name"]) for c in scope_cases))
+        if quiz_mc or quiz_sa:
+            want = {"mc"} if quiz_mc else {"sa"}
+            st.session_state.make_new = True
+
+    # pick or write the current question
+    seen = st.session_state.setdefault("seen_q", set())
+    n1, n2, n3 = st.columns([1, 1, 2])
+    if pmode != "Ask anything":
+        if n1.button("Next question", type="primary", disabled=not pool):
+            fresh = [q for q in pool if q["id"] not in seen] or pool
+            st.session_state.current_q = random.choice(fresh)
+            st.session_state.current_ctx = [c["slug"] for c in scope_cases]
+        if n2.button("Write me a new one (AI)", disabled=ai_budget_left() <= 0 or not scope_cases):
+            st.session_state.make_new = True
+        n3.caption(f"{len(pool)} question{'s' if len(pool) != 1 else ''} in the bank for this selection.")
+    if st.session_state.pop("make_new", False):
+        try:
+            with st.spinner("Writing a question…"):
+                spend_ai()
+                ctx = practice.brief_context(scope_cases)
+                kind = "mc" if want == {"mc"} else "sa" if want == {"sa"} else random.choice(["mc", "sa"])
+                made = practice.generate(api_key(), scope_label, ctx, n_mc=int(kind == "mc"), n_sa=int(kind == "sa"))
+            if not made:
+                raise ValueError("the model didn't return a usable question; try again")
+            q = made[0]
+            q.update(id=f"live-{random.randint(0, 10**9)}", kind="live", unit=(scope_cases[0].get("doctrine_tags") or ["other"])[0],
+                     scope=scope_label, live=True)
+            st.session_state.current_q = q
+            st.session_state.current_ctx = [c["slug"] for c in scope_cases]
+        except Exception as e:  # noqa: BLE001
+            st.error(f"Couldn't write a question: {e}")
+
+    q = st.session_state.get("current_q")
+    if q:
+        seen.add(q["id"])
+        ctx_cases = [CASE_BY_SLUG[s] for s in st.session_state.get("current_ctx", []) if s in CASE_BY_SLUG]
+        ctx_cases += [c for c in (find_case(n) for n in q.get("cases", [])) if c and c not in ctx_cases]
+        context = practice.brief_context(ctx_cases)
+        with st.container(border=True):
+            label = "Multiple choice" if q["type"] == "mc" else "Short answer"
+            origin = "freshly written by AI (key not double-checked)" if q.get("live") else "question bank"
+            st.caption(f"{label} · {q.get('difficulty', '')} · {DOCTRINE_LABEL.get(q.get('unit'), '')} · {origin}")
+            st.markdown(q["stem"])
+            answers = st.session_state.setdefault("answers", {})
+            if q["type"] == "mc":
+                pick = st.radio("Your answer", list(q["options"]), index=None, key=f"mc-{q['id']}",
+                                format_func=lambda k: f"{k}. {q['options'][k]}")
+                if st.button("Check answer", disabled=pick is None, key=f"check-{q['id']}"):
+                    answers[q["id"]] = {"type": "mc", "pick": pick, "right": pick == q["answer"]}
+                result = answers.get(q["id"])
+                if result:
+                    if result["right"]:
+                        st.success(f"Correct: {q['answer']}.")
+                    else:
+                        st.error(f"Not quite. You chose {result['pick']}; the best answer is {q['answer']}.")
+                    st.markdown(f"**Why:** {q.get('explanation', '')}")
+                    for k in q["options"]:
+                        mark = "✅" if k == q["answer"] else ("❌" if k == result["pick"] else "▫️")
+                        st.markdown(f"{mark} **{k}.** {q['why'].get(k, '')}")
+            else:
+                text = st.text_area("Your answer (aim for IRAC: issue, rule, application, conclusion)", height=220,
+                                    key=f"sa-{q['id']}")
+                grade_it = st.button("Grade my answer", type="primary", key=f"grade-{q['id']}",
+                                     disabled=ai_budget_left() <= 0)
+                if grade_it and len(text.strip()) < 40:
+                    st.warning("Write a fuller answer first (a few sentences at least).")
+                elif grade_it:
+                    try:
+                        with st.spinner("Grading…"):
+                            spend_ai()
+                            answers[q["id"]] = {"type": "sa", "grade": practice.grade(api_key(), q, text, context)}
+                    except Exception as e:  # noqa: BLE001
+                        st.error(f"Couldn't grade that: {e}")
+                result = answers.get(q["id"])
+                if result:
+                    g = result["grade"]
+                    g1, g2 = st.columns([1, 4])
+                    g1.metric("Score", f"{g['score']:g} / 10")
+                    g2.markdown(f"**{g.get('verdict', '')}**")
+                    if g.get("rubric_scores"):
+                        st.dataframe(pd.DataFrame(g["rubric_scores"]).rename(columns={
+                            "point": "Rubric point", "earned": "Earned", "max": "Out of", "comment": "Comment"}),
+                            hide_index=True, width="stretch")
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        st.markdown("**What worked**")
+                        for x in g.get("strengths", []):
+                            st.markdown(f"- {x}")
+                    with c2:
+                        st.markdown("**What to fix**")
+                        for x in g.get("gaps", []):
+                            st.markdown(f"- {x}")
+                    if g.get("cases_to_cite"):
+                        st.markdown("**Cases you could cite**")
+                        for x in g["cases_to_cite"]:
+                            st.markdown(f"- {case_link(x.get('case', ''))}: {x.get('why', '')}")
+                    if g.get("doctrines_to_use"):
+                        st.markdown("**Doctrine to bring in**")
+                        for x in g["doctrines_to_use"]:
+                            st.markdown(f"- **{x.get('doctrine', '')}**: {x.get('why', '')}")
+                    with st.expander("Your answer, improved"):
+                        st.markdown(g.get("improved_answer", ""))
+                    with st.expander("Model answer and rubric"):
+                        st.markdown(q.get("model_answer", ""))
+                        for r in q.get("rubric", []):
+                            st.markdown(f"- ({r.get('points', '?')} pts) {r['point']}")
+                    if g.get("next_step"):
+                        st.info(f"Next: {g['next_step']}")
+            if q.get("cases") or q.get("doctrines"):
+                st.caption("Cases: " + ", ".join(case_link(n) for n in q.get("cases", []))
+                           + (" · Doctrine: " + ", ".join(q.get("doctrines", [])) if q.get("doctrines") else ""))
+
+    answers = st.session_state.get("answers", {})
+    mc = [a for a in answers.values() if a["type"] == "mc"]
+    sa = [a["grade"]["score"] for a in answers.values() if a["type"] == "sa"]
+    if mc or sa:
+        s1, s2, s3 = st.columns(3)
+        s1.metric("Multiple choice this visit", f"{sum(a['right'] for a in mc)} / {len(mc)}")
+        s2.metric("Short-answer average", f"{sum(sa) / len(sa):.1f} / 10" if sa else "—")
+        s3.metric("AI requests left this visit", ai_budget_left())
 
 with tab_map:
     include = True
@@ -392,6 +745,28 @@ def shaded(table, kind, counts=None):
     return display.style.apply(lambda _: styles, axis=None)
 
 
+def outcome_chart(long, col, order, key):
+    """100% bars per category: share of cases the owner won / mixed / lost, n in the label."""
+    data = long.assign(Category=long[col].astype(str), Case=long["case_name"])
+    n = data.groupby("Category")["Case"].count()
+    order = [o for o in order if o in n.index]
+    labels = {o: f"{o}  ({n[o]})" for o in order}
+    data["Row"] = data["Category"].map(labels)
+    counts = data.groupby(["Row", "Outcome"]).agg(Cases=("Case", "count"),
+                                                 Names=("Case", lambda s: "; ".join(s))).reset_index()
+    stack = ["Owner won", "Mixed", "Owner lost"]
+    counts["o"] = counts["Outcome"].map(stack.index)
+    chart = alt.Chart(counts).mark_bar(stroke="white", strokeWidth=2).encode(
+        y=alt.Y("Row:N", sort=[labels[o] for o in order], title=None, axis=alt.Axis(labelLimit=320)),
+        x=alt.X("Cases:Q", stack="normalize", title="Share of cases", axis=alt.Axis(format="%", tickCount=5)),
+        color=alt.Color("Outcome:N", scale=alt.Scale(domain=stack, range=[OUTCOME_COLORS[o] for o in stack]),
+                        legend=alt.Legend(orient="top", title=None)),
+        order=alt.Order("o:Q"),
+        tooltip=[alt.Tooltip("Row:N", title=col.replace("_", " ").capitalize()), "Outcome", "Cases",
+                 alt.Tooltip("Names:N", title="Cases")])
+    st.altair_chart(chart.properties(height=alt.Step(26)), width="stretch", key=key)
+
+
 with tab_stats:
     st.markdown("Every table asks one question, **when does the owner win?**, against a different factor. "
                 "Win % counts mixed outcomes as not won. Click a column header to sort; hover a table to "
@@ -403,12 +778,27 @@ with tab_stats:
     pct_config = {c: pct(c) for c in pct_cols}
     fit = lambda table: 38 + 35 * len(table)  # noqa: E731 - tall enough to show every row
 
+    era_order = [e for _, _, e in stats.ERAS]
+    e1, e2 = st.columns(2)
+    with e1:
+        st.markdown("**The owner over time**")
+        outcome_chart(sdf, "era", era_order, "chart-era")
+    with e2:
+        st.markdown("**Owner suing vs. being sued**")
+        outcome_chart(sdf.assign(owner_role=sdf["owner_role"].map(
+            {"plaintiff": "Owner was plaintiff", "defendant": "Owner was defendant", "unclear": "Unclear"})),
+            "owner_role", ["Owner was plaintiff", "Owner was defendant", "Unclear"], "chart-role")
+
     st.subheader("1. By syllabus chapter")
+    outcome_chart(sdf, "chapter", [*TAXONOMY, "Other"], "chart-chapter")
     chapters = stats.by_chapter(sdf)
     st.dataframe(chapters, hide_index=True, width="stretch", height=fit(chapters), column_config=pct_config)
 
     st.subheader("2. By class unit")
     st.caption("Each case counted once, in its own syllabus unit.")
+    unit_order = [label for docs in TAXONOMY.values() for label in docs.values()] + ["Other"]
+    with st.expander("Chart: every class unit", expanded=False):
+        outcome_chart(sdf, "unit_label", unit_order, "chart-unit")
     units = stats.by_unit(sdf)
     st.dataframe(units, hide_index=True, width="stretch", height=fit(units), column_config=pct_config)
 
@@ -418,6 +808,7 @@ with tab_stats:
     if stats.FACTORS[factor][1]:
         st.caption("Cases can have several values here, so rows add up to more than the number of cases.")
     factor_table = stats.by_factor(sdf, factor)
+    outcome_chart(stats.explode(sdf, factor), "Value", list(factor_table["Value"]), f"chart-factor-{factor}")
     st.dataframe(factor_table, hide_index=True, width="stretch", height=min(fit(factor_table), 500),
                  column_config={"Owner win %": pct("Owner win %"),
                                 "Cases (by year)": st.column_config.TextColumn("Cases (by year)", width="large")})
@@ -444,7 +835,8 @@ with tab_browse:
                                   filed_under(c), c.get("year") or 0))
     names = [(f"Class {c['class_no']} · " if c.get("class_no") else "") + f"{c['case_name']} ({c['year']}) — {filed_under(c)}" + (" · added" if c["source"] == "Added" else "")
              for c in shown]
-    pick = b2.selectbox("Case", range(len(shown)), format_func=names.__getitem__)
+    start = next((i for i, c in enumerate(shown) if c["slug"] == TARGET), 0)
+    pick = b2.selectbox("Case", range(len(shown)), index=start, format_func=names.__getitem__)
     case = shown[pick]
     left, right = st.columns([3, 2], gap="large")
     with left:
